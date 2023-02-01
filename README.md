@@ -1,6 +1,7 @@
 # Servidor Node.js
 
-Servidor Node.JS para manejar solicitudes GET, POST, PUT, DELETE.
+Servidor en Node.JS para manejar las solicitudes de la aplicacion a realizar en el stack REACT-NATIVE asignado al equipo.
+
 
 ## Instalación
 
@@ -10,7 +11,7 @@ Descarga el repositorio en tu equipo
 git clone https://github.com/No-Country/C9-44-RN-FT.git
 ```
 
-acceder al servidor
+acceder a la carpeta descargada
 
 ```
 cd c9-44-RN-FT
