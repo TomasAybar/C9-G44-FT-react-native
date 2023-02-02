@@ -8,13 +8,13 @@ Servidor en Node.JS para manejar las solicitudes de la aplicacion a realizar en 
 Descarga el repositorio en tu equipo
 
 ```
-git clone https://github.com/No-Country/C9-44-RN-FT.git
+https://github.com/No-Country/C9-G44-FT-react-native.git
 ```
 
 acceder a la carpeta descargada
 
 ```
-cd c9-44-RN-FT
+cd C9-G44-FT-react-native
 ```
 
 Ejecuta el servidor
