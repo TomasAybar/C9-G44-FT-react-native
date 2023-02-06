@@ -1,5 +1,7 @@
 const UserModel = require('../models/userModel');
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { jwtSecret } = require('../config/config')
 
 const userControllers = {
 
@@ -25,7 +27,69 @@ const userControllers = {
     },
 
     signinUser: async (req, res) => {
-        res.send('signin')
+
+        let { email, password } = req.body; // recibe por body
+
+        if (!email || !password) { // si no recive nada, devuelve error
+            return res.status(400).json({
+                success: false,
+                message: `Por favor enviar email o contraseña`,
+            })
+        }
+
+        try {
+            const user = await UserModel.findOne({ email: email }); // busco en mi modelo user un email que coincida con el email que se ingreso por body
+
+            if (!user) { // no existe el usuario
+
+                res.status(400).json({
+                    success: false,
+                    message: `usuario o contraseña incorrecta`
+                });
+
+            } else { // existe el usuario
+
+                let comparePass = bcryptjs.compareSync(password, user.password); // desencriptado de contrase;a
+
+                if (comparePass) {
+
+                    const userData = {
+                        id: user._id,
+                        userName: user.userName,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        email: user.email,
+                        photoUrl: user.photoUrl,
+                    }
+
+                    await user.save();
+
+                    const token = jwt.sign({ ...userData }, jwtSecret, { expiresIn: 60 * 60 * 24 }); // creo el token guardando la info del usuario en el
+
+                    res.status(201).json({
+                        success: true,
+                        response: { token, userData },
+                        message: `Bienvenido ${userData.firstName}!`
+                    });
+                }
+
+                else {
+                    res.status(400).json({
+                        success: false,
+                        message: `usuario o contraseña incorrecta`
+                    });
+                }
+
+            }
+        } catch (error) {
+
+            return res.status(400).json({
+                success: false,
+                message: error,
+                console: console.log(error)
+            });
+        }
+
     },
 
     signupUser: async (req, res) => {
