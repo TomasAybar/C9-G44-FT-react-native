@@ -35,7 +35,7 @@ const userControllers = {
         let error = null;
 
         try {
-            
+
             newUser = await new UserModel({
                 userName,
                 firstName,
@@ -54,6 +54,14 @@ const userControllers = {
             message: 'Usuario agregado',
         })
     },
+
+    signinUser: async (req, res) => {
+        res.send('signin')
+    },
+
+    signupUser: async (req, res) => {
+        res.send('signup')
+    }
 
 }
 
