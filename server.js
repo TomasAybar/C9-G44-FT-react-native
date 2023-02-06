@@ -3,6 +3,7 @@ require('./src/config/database'); // archivo donde esta la conexion con la base 
 const { PORT } = require('./src/config/config');
 
 
+
 const express = require('express');
 const cors = require('cors'); // permite intercambiar recursos entre diferentes dominios, ejemplo: localhost:8000 y localhost:4000
 const Router = require('./src/routes/routes'); // Archivo donde tengo mis rutas definidas
