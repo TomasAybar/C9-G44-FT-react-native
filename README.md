@@ -17,6 +17,13 @@ acceder a la carpeta descargada
 cd C9-G44-FT-react-native
 ```
 
+Crear un archivo .env con las variables de entorno correspondientes
+
+```
+PORT=8000
+MONGO=''
+```
+
 Ejecuta el servidor
 
 ```
