@@ -110,7 +110,8 @@ const userControllers = {
                     lastName,
                     email,
                     password: hashWord,
-                    photoUrl
+                    photoUrl,
+                    role: 'user'
                 })
 
                 await newUser.save();
@@ -144,6 +145,12 @@ const userControllers = {
     },
 
     removeUser: async (req, res) => {
+
+        if (req.user.role !== 'admin') {
+
+            return res.status(401).send('Unauthorized');
+
+        }
 
         if (req.params.id === ':id') {
 
