@@ -7,8 +7,6 @@ const userControllers = {
 
     getUsers: async (req, res) => {
 
-        console.log('Controlador GetUsers');
-
         let users;
         let error = null;
 
@@ -143,7 +141,47 @@ const userControllers = {
 
         }
 
-    }
+    },
+
+    removeUser: async (req, res) => {
+
+        if (req.params.id === ':id') {
+
+            return res.status(400).json({
+                success: false,
+                message: 'id invalido',
+            });
+
+        }
+
+        try {
+
+            let user = await UserModel.findOneAndDelete({ _id: req.params.id });
+
+            if (user) {
+
+                return res.status(201).json({
+                    success: true,
+                    message: `Usuario eliminado`,
+                    user: user
+                });
+
+            } else {
+
+                return res.status(400).json({
+                    success: false,
+                    message: 'id invalido',
+                });
+            }
+
+        } catch (error) {
+            return res.status(400).json({
+                success: false,
+                message: 'id invalido',
+            });
+        }
+
+    },
 
 }
 
