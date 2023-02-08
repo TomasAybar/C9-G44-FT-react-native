@@ -147,18 +147,11 @@ const userControllers = {
     removeUser: async (req, res) => {
 
         if (req.user.role !== 'admin') {
-
             return res.status(401).send('Unauthorized');
-
         }
 
         if (req.params.id === ':id') {
-
-            return res.status(400).json({
-                success: false,
-                message: 'id invalido',
-            });
-
+            return res.status(400).send('id invalido');
         }
 
         try {
@@ -184,7 +177,7 @@ const userControllers = {
         } catch (error) {
             return res.status(400).json({
                 success: false,
-                message: 'id invalido',
+                error: error,
             });
         }
 
