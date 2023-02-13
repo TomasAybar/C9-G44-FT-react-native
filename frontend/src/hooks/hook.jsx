@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export const Component = () => {
+export const hook = () => {
 	return (
 		<View>
-			<Text>Component</Text>
+			<Text>hook</Text>
 		</View>
 	)
 }
