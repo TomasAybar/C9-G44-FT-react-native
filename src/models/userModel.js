@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({ // creo un nuevo esquema con las siguie
     email: { type: String, required: true },
     password: { type: String, required: true },
     photoUrl: { type: String, required: true },
+    role: { type: String, required: true },
 })
 
 const User = mongoose.model('users', userSchema); // se conecta con la coleccion users de la base de datos en mongo, y se pasa por esquema lo que definimos
