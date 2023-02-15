@@ -62,6 +62,7 @@ Crear un archivo .env con las variables de entorno correspondientes dentro de la
 ```
 PORT=8000
 MONGO=''
+JWT_SECRET=''
 ```
 
 ## Despliegue backend
