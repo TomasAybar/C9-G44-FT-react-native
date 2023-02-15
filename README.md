@@ -1,41 +1,73 @@
-# Servidor Node.js
+# EcoModa
 
-Servidor en Node.JS para manejar las solicitudes de la aplicacion a realizar en el stack REACT-NATIVE asignado al equipo.
+Aplicacion en react-native
 
+## Instalaciónes
 
-## Instalación
-
-Descarga el repositorio en tu equipo
+Descarga el repositorio en tu equipo.
 
 ```
-https://github.com/No-Country/C9-G44-FT-react-native.git
+git clone https://github.com/No-Country/C9-G44-FT-react-native.git
 ```
 
-acceder a la carpeta descargada
+Acceder a la carpeta descargada.
 
 ```
 cd C9-G44-FT-react-native
 ```
 
-Crear un archivo .env con las variables de entorno correspondientes
+Hacer las instalaciones correspondientes en el backend.
+
+```
+cd backend
+npm install
+```
+
+Hacer las instalaciones correspondientes en el frontend.
+
+```
+cd ..
+cd frontend
+npm install
+```
+
+## Despliegue frontend
+
+Se debe tener instalado Android Studio o la Aplicacion de expo para poder visualizar la app.
+
+```
+Android Expo: https://play.google.com/store/apps/details?id=host.exp.exponent&hl=es_BO
+```
+
+Si usted tiene instalado y configurado Android Studio y Android Device Manager, ejecute el siguiente comando.
+
+Esto abrira Android Studio y podra visualizar la app en un celular virtual.
+
+```
+npm run android
+```
+
+Si desea visualizarlo desde su celular, ejecute el siguiente comando
+
+```
+npm start
+```
+
+A continuacion scanee el QR desde la aplicacion EXPO para visualizar la app.
+
+## Configuraciones
+
+Crear un archivo .env con las variables de entorno correspondientes dentro de la carpeta backend del repositorio.
 
 ```
 PORT=8000
 MONGO=''
 ```
 
-Ejecuta el servidor
+## Despliegue backend
+
+Asegurese de estar parado dentro de la carpeta backend del repositorio. Una vez parado ahi ejecutar el siguiente comando.
 
 ```
 npm start
 ```
-
-
-
-### CORS
-
-El servidor tiene configurado CORS para permitir a cualquier dominio poder hacer solicitudes HTTP.
-
-### Métodos
-
-El servidor tiene implementado el método `GET`, `POST`, `PUT` y `DELETE` .
