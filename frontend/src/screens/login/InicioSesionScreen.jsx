@@ -9,7 +9,7 @@ export const InicioSesionScreen = () => {
 	return (
 		<View>
 			<Text>InicioSesionScreen</Text>
-			<Text style={styles.title}>Ecomoda</Text>
+			<Text style={styles.title}>Ecomoda 2 prueba</Text>
 			<TouchableOpacity>
 				<Button
 					title='Registrarme'

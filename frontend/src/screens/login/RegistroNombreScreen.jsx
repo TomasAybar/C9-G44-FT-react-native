@@ -8,7 +8,7 @@ export const RegistroNombreScreen = () => {
 
 	return (
 		<View>
-			<Text>RegistroNombreScreen</Text>
+			<Text>RegistroNombreScreen prueba</Text>
 
 			<TouchableOpacity>
 				<Button
