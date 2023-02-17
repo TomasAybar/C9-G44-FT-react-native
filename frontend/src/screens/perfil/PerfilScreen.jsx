@@ -12,7 +12,10 @@ export const PerfilScreen = () => {
 			<Text style={style.title}>PerfilScreen</Text>
 
 			<TouchableOpacity>
-				<Button title='Comprar' onPress={() => alert('Comprar')} />
+				<Button
+					title='Comprar'
+					onPress={() => navigator.navigate('ComprasScreen')}
+				/>
 			</TouchableOpacity>
 
 			<TouchableOpacity>
@@ -23,11 +26,17 @@ export const PerfilScreen = () => {
 			</TouchableOpacity>
 
 			<TouchableOpacity>
-				<Button title='Favoritos' onPress={() => alert('Comprar')} />
+				<Button
+					title='Favoritos'
+					onPress={() => navigator.navigate('FavoritosScreen')}
+				/>
 			</TouchableOpacity>
 
 			<TouchableOpacity>
-				<Button title='Mensajes' onPress={() => alert('Comprar')} />
+				<Button
+					title='Mensajes'
+					onPress={() => navigator.navigate('MensajesScreen')}
+				/>
 			</TouchableOpacity>
 
 			<TouchableOpacity>
@@ -36,6 +45,7 @@ export const PerfilScreen = () => {
 					onPress={() => navigator.navigate('AyudaStack')}
 				/>
 			</TouchableOpacity>
+
 			<TouchableOpacity>
 				<Button title='Salir' onPress={() => alert('Comprar')} />
 			</TouchableOpacity>

@@ -11,6 +11,9 @@ import { VenderScreen } from '../../screens/perfil/vender/VenderScreen'
 import { GananciasScreen } from '../../screens/perfil/vender/GananciasScreen'
 import { PublicacionesScreen } from '../../screens/perfil/vender/PublicacionesScreen'
 import { MediosCobrosScreen } from '../../screens/perfil/vender/MediosCobrosScreen'
+import { ComprasScreen } from '../../screens/perfil/compras/ComprasScreen'
+import { FavoritosScreen } from '../../screens/perfil/favoritos/FavoritosScreen'
+import { MensajesScreen } from '../../screens/perfil/mensajes/MensajesScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -106,6 +109,21 @@ export const PerfilStack = () => {
             <Stack.Screen
                 name='VenderStack'
                 component={VenderStack}
+            />
+
+            <Stack.Screen
+                name='ComprasScreen'
+                component={ComprasScreen}
+            />
+
+            <Stack.Screen
+                name='FavoritosScreen'
+                component={FavoritosScreen}
+            />
+
+            <Stack.Screen
+                name='MensajesScreen'
+                component={MensajesScreen}
             />
         </Stack.Navigator>
     )
