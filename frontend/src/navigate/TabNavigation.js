@@ -1,21 +1,21 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { HomeScreen } from '../screens/HomeScreen'
-import { ComprarScreen } from '../screens/ComprarScreen'
-import { VenderScreen } from '../screens/VenderScreen'
-import { DonarScreen } from '../screens/DonarScreen'
-import { PerfilScreen } from '../screens/PerfilScreen'
+import { HomeStack } from './stacks/HomeStack'
+import { ComprarStack } from './stacks/ComprarStack'
+import { VenderStack } from './stacks/VenderStack'
+import { DonarStack } from './stacks/DonarStack'
+import { PerfilStack } from './stacks/PerfilStack'
 
 const Tabs = createBottomTabNavigator()
 
 export const TabNavigation = () => {
     return (
         <Tabs.Navigator screenOptions={{ headerShown: false }}>
-            <Tabs.Screen name='HomeScreen' component={HomeScreen} />
-            <Tabs.Screen name='ComprarScreen' component={ComprarScreen} />
-            <Tabs.Screen name='VenderScreen' component={VenderScreen} />
-            <Tabs.Screen name='DonarScreen' component={DonarScreen} />
-            <Tabs.Screen name='PerfilScreen' component={PerfilScreen} />
+            <Tabs.Screen name='HomeStack' component={HomeStack} />
+            <Tabs.Screen name='ComprarStack' component={ComprarStack} />
+            <Tabs.Screen name='VenderStack' component={VenderStack} />
+            <Tabs.Screen name='DonarStack' component={DonarStack} />
+            <Tabs.Screen name='PerfilStack' component={PerfilStack} />
         </Tabs.Navigator>
     )
 }

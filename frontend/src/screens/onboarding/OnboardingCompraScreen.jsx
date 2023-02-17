@@ -1,27 +1,27 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Button, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { style } from '../../themes/appTheme'
 
-export const LoginScreen = () => {
+export const OnboardingCompraScreen = () => {
 	const navigator = useNavigation()
 
 	return (
 		<View style={style.alinearCentro}>
-			<Text style={style.title}>LoginScreen</Text>
+			<Text>OnboardingCompraScreen</Text>
 
 			<TouchableOpacity>
 				<Button
-					title='Iniciar sesion'
-					onPress={() => navigator.navigate('Tabs')}
+					title='Siguiente'
+					onPress={() => navigator.navigate('OnboardingVendeScreen')}
 				/>
 			</TouchableOpacity>
 
 			<TouchableOpacity>
 				<Button
-					title='Registrarme'
-					onPress={() => navigator.navigate('RegistroNombreScreen')}
+					title='Omitir'
+					onPress={() => navigator.navigate('LoginStack')}
 				/>
 			</TouchableOpacity>
 		</View>

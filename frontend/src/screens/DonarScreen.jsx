@@ -5,7 +5,7 @@ import { style } from '../themes/appTheme'
 export const DonarScreen = () => {
 	return (
 		<View style={style.alinearCentro}>
-			<Text>DonarScreen</Text>
+			<Text style={style.title}>DonarScreen</Text>
 		</View>
 	)
 }

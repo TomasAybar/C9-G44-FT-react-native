@@ -5,7 +5,7 @@ import { style } from '../themes/appTheme'
 export const ComprarScreen = () => {
 	return (
 		<View style={style.alinearCentro}>
-			<Text>ComprarScreen</Text>
+			<Text style={style.title}>ComprarScreen</Text>
 		</View>
 	)
 }

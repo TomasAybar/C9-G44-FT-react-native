@@ -5,7 +5,7 @@ import { style } from '../themes/appTheme'
 export const PerfilScreen = () => {
 	return (
 		<View style={style.alinearCentro}>
-			<Text>PerfilScreen</Text>
+			<Text style={style.title}>PerfilScreen</Text>
 		</View>
 	)
 }

@@ -6,7 +6,10 @@ export const style = StyleSheet.create({
 	},
 	alinearCentro: {
 		flex: 1,
-		alignItems: 'center',
+		// alignItems: 'center',
 		justifyContent: 'center',
+	},
+	title: {
+		textAlign: 'center',
 	},
 })
