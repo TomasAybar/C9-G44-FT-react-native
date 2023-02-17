@@ -114,16 +114,19 @@ export const PerfilStack = () => {
             <Stack.Screen
                 name='ComprasScreen'
                 component={ComprasScreen}
+                options={{ headerShown: true }}
             />
 
             <Stack.Screen
                 name='FavoritosScreen'
                 component={FavoritosScreen}
+                options={{ headerShown: true }}
             />
 
             <Stack.Screen
                 name='MensajesScreen'
                 component={MensajesScreen}
+                options={{ headerShown: true }}
             />
         </Stack.Navigator>
     )
