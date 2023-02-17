@@ -7,6 +7,10 @@ import { QuieroVenderScreen } from '../../screens/perfil/ayuda/QuieroVenderScree
 import { DevolucionesScreen } from '../../screens/perfil/ayuda/DevolucionesScreen'
 import { DonacionesScreen } from '../../screens/perfil/ayuda/DonacionesScreen'
 import { BajarCuentaScreen } from '../../screens/perfil/ayuda/BajarCuentaScreen'
+import { VenderScreen } from '../../screens/perfil/vender/VenderScreen'
+import { GananciasScreen } from '../../screens/perfil/vender/GananciasScreen'
+import { PublicacionesScreen } from '../../screens/perfil/vender/PublicacionesScreen'
+import { MediosCobrosScreen } from '../../screens/perfil/vender/MediosCobrosScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -50,6 +54,36 @@ const AyudaStack = () => {
 
 }
 
+const VenderStack = () => {
+
+    return (
+
+        <Stack.Navigator
+            initialRouteName='VenderScreen'
+        >
+            <Stack.Screen
+                name='VenderScreen'
+                component={VenderScreen}
+            />
+
+            <Stack.Screen
+                name='GananciasScreen'
+                component={GananciasScreen}
+            />
+
+            <Stack.Screen
+                name='PublicacionesScreen'
+                component={PublicacionesScreen}
+            />
+
+            <Stack.Screen
+                name='MediosCobrosScreen'
+                component={MediosCobrosScreen}
+            />
+        </Stack.Navigator>
+
+    )
+}
 
 export const PerfilStack = () => {
 
@@ -67,6 +101,11 @@ export const PerfilStack = () => {
             <Stack.Screen
                 name='AyudaStack'
                 component={AyudaStack}
+            />
+
+            <Stack.Screen
+                name='VenderStack'
+                component={VenderStack}
             />
         </Stack.Navigator>
     )
