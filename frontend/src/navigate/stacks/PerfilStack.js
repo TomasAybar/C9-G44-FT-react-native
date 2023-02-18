@@ -26,31 +26,40 @@ const AyudaStack = () => {
             <Stack.Screen
                 name='AyudaScreen'
                 component={AyudaScreen}
+                options={{ title: 'Perfil' }}
             />
 
             <Stack.Screen
                 name='QuieroComprarScreen'
                 component={QuieroComprarScreen}
+                options={{ title: '¿Cómo comprar?' }}
+
             />
 
             <Stack.Screen
                 name='QuieroVenderScreen'
                 component={QuieroVenderScreen}
+                options={{ title: '¿Cómo vender?' }}
+
             />
 
             <Stack.Screen
                 name='DevolucionesScreen'
                 component={DevolucionesScreen}
+                options={{ title: 'Devolución' }}
+
             />
 
             <Stack.Screen
                 name='DonacionesScreen'
                 component={DonacionesScreen}
+                options={{ title: 'Donar' }}
             />
 
             <Stack.Screen
                 name='BajarCuentaScreen'
                 component={BajarCuentaScreen}
+                options={{ headerShown: false }}
             />
         </Stack.Navigator>
     )
@@ -67,16 +76,20 @@ const VenderStack = () => {
             <Stack.Screen
                 name='VenderScreen'
                 component={VenderScreen}
+                options={{ title: 'Ventas' }}
             />
 
             <Stack.Screen
                 name='GananciasScreen'
                 component={GananciasScreen}
+                options={{ title: 'Ganancias' }}
+
             />
 
             <Stack.Screen
                 name='PublicacionesScreen'
                 component={PublicacionesScreen}
+                options={{ title: 'Publicaciones' }}
             />
 
             <Stack.Screen
