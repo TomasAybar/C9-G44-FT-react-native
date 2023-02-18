@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     general: {
         color: '#ffffff',
         alignSelf: 'center',
-        textAlign: 'center'
-        // font-family: 'Inter'
+        textAlign: 'center',
+        fontFamily: 'Inter_400Regular',
     },
     size10: {
         fontSize: 10,
@@ -26,14 +26,11 @@ const styles = StyleSheet.create({
     size32: {
         fontSize: 32,
     },
-    weight400: {
-        fontWeight: 400,
-    },
     weight500: {
-        fontWeight: 500,
+        fontFamily: 'Inter_500Medium',
     },
     weight700: {
-        fontWeight: 700,
+        fontFamily: 'Inter_700Bold',
     },
     size50: {
         fontSize: 50,
@@ -48,7 +45,6 @@ export default function StyledText({
     size16,
     size18,
     size32,
-    weight400,
     weight500,
     weight700,
     ...props
@@ -61,9 +57,12 @@ export default function StyledText({
         size16 && styles.size16,
         size18 && styles.size18,
         size32 && styles.size32,
-        weight400 && styles.weight400,
         weight500 && styles.weight500,
         weight700 && styles.weight700,
     ];
-    return <Text style={textStyles} {...props}>{children}</Text>;
+    return (
+        <Text style={textStyles} {...props}>
+            {children}
+        </Text>
+    );
 }
