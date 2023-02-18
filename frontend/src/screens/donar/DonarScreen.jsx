@@ -4,26 +4,28 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { style } from '../../themes/appTheme'
 
-export const DetalleDonarScreen = () => {
+export const DonarScreen = () => {
 	const navigator = useNavigation()
 
 	return (
 		<View style={style.alinearCentro}>
 			<Text style={style.title}>
-				Subí fotos de las prendas a donar. (hasta 5 imágenes).
+				Dandole una segunda oportunidad a tu ropa, estas ayudando a
+				quienes mas lo necesitan.
 			</Text>
-			<Text style={style.title}>Cantidad de prendas: ___</Text>
+			<Text style={style.title}>Subi fotos de lo que queres donar.</Text>
 			<Text style={style.title}>
-				Agrega una descripcion (hasta 500 caracteres):
+				Contanos la cantidad de prendas que son y una breve descripcion.
 			</Text>
 			<Text style={style.title}>
-				Ej: 5 remeras de mujer y 1 pantalon infantil
+				Inidica fecha, horario y direccion para coordinar la entrega.
 			</Text>
+			<Text style={style.title}>Listo, publica tu donacion!</Text>
 
 			<TouchableOpacity>
 				<Button
-					title='Siguiente'
-					onPress={() => navigator.navigate('InformacionScreen')}
+					title='Crear publicación'
+					onPress={() => navigator.navigate('DetalleDonarScreen')}
 				/>
 			</TouchableOpacity>
 		</View>

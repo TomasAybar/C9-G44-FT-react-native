@@ -14,7 +14,7 @@ const CheckeoFinalScreen = () => {
 			[
 				{
 					text: 'Volver al inicio',
-					onPress: () => navigator.navigate('VenderScreen'),
+					onPress: () => navigator.popToTop(),
 				},
 				{
 					text: 'Ver mi publicación',
