@@ -11,11 +11,11 @@ const Tabs = createBottomTabNavigator()
 export const TabNavigation = () => {
     return (
         <Tabs.Navigator screenOptions={{ headerShown: false }}>
-            <Tabs.Screen name='HomeStack' component={HomeStack} />
-            <Tabs.Screen name='ComprarStack' component={ComprarStack} />
-            <Tabs.Screen name='VenderStack' component={VenderStack} />
-            <Tabs.Screen name='DonarStack' component={DonarStack} />
-            <Tabs.Screen name='PerfilStack' component={PerfilStack} />
+            <Tabs.Screen name='HomeStack' component={HomeStack} options={{ title: 'Home' }} />
+            <Tabs.Screen name='ComprarStack' component={ComprarStack} options={{ title: 'Comprar' }} />
+            <Tabs.Screen name='VenderStack' component={VenderStack} options={{ title: 'Vender' }} />
+            <Tabs.Screen name='DonarStack' component={DonarStack} options={{ title: 'Donar' }} />
+            <Tabs.Screen name='PerfilStack' component={PerfilStack} options={{ title: 'Perfil' }} />
         </Tabs.Navigator>
     )
 }
