@@ -8,11 +8,11 @@ export const RegistroNombreScreen = () => {
 
 	return (
 		<View>
-			<Text>RegistroNombreScreen prueba</Text>
+			<Text>RegistroNombreScreen</Text>
 
 			<TouchableOpacity>
 				<Button
-					title='Continuar - ir a bienvenida'
+					title='Crear cuenta'
 					onPress={() => navigation.navigate('BienvenidaScreen')}
 				/>
 			</TouchableOpacity>

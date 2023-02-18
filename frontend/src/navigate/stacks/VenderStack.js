@@ -23,42 +23,56 @@ export const VenderStack = () => {
             <Stack.Screen
                 name='VenderScreen'
                 component={VenderScreen}
-                options={{ headerShown: false }}
+                options={{ headerTitle: 'Vender' }}
+
             />
 
             <Stack.Screen
                 name='FotoProductoScreen'
                 component={FotoProductoScreen}
+                options={{ headerTitle: 'Foto del producto' }}
             />
 
             <Stack.Screen
                 name='CategoriaScreen'
                 component={CategoriaScreen}
+                options={{ headerTitle: 'Selecciona una categoría' }}
+
             />
 
             <Stack.Screen
                 name='TipoProductoScreen'
                 component={TipoProductoScreen}
+                options={{ headerTitle: '¿Qué tipo de producto es?' }}
+
             />
 
             <Stack.Screen
                 name='DescripcionScreen'
                 component={DescripcionScreen}
+                options={{ headerTitle: 'Descripción y precio' }}
+
             />
 
             <Stack.Screen
                 name='MetodoPagoScreen'
                 component={MetodoPagoScreen}
+                options={{ headerTitle: 'Método de cobro' }}
+
             />
 
             <Stack.Screen
                 name='CheckeoFinalScreen'
                 component={CheckeoFinalScreen}
+                options={{ headerTitle: 'Revisá y publicá' }}
+
             />
 
             <Stack.Screen
                 name='ArticuloPublicado'
                 component={ArticuloPublicado}
+                options={{ headerTitle: 'Publicaciones' }}
+
             />
         </Stack.Navigator>
     )

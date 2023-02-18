@@ -9,7 +9,7 @@ export const LoginScreen = () => {
 
 	return (
 		<View style={style.alinearCentro}>
-			<Text style={style.title}>LoginScreen 2</Text>
+			<Text style={style.title}>LoginScreen</Text>
 
 			<TouchableOpacity>
 				<Button

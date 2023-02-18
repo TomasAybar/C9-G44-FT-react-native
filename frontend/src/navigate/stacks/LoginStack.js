@@ -21,10 +21,13 @@ export const LoginStack = () => {
             <Stack.Screen
                 name='RegistroNombreScreen'
                 component={RegistroNombreScreen}
+                options={{ headerTitle: 'Ingresa tus datos' }}
             />
             <Stack.Screen
                 name='BienvenidaScreen'
                 component={BienvenidaScreen}
+                options={{ headerShown: false }}
+
             />
             <Stack.Screen
                 name='LoginScreen'

@@ -13,7 +13,7 @@ export const OnboardingDonaScreen = () => {
 
 			<TouchableOpacity>
 				<Button
-					title='Siguiente'
+					title='Comenzar'
 					onPress={() => navigator.navigate('LoginStack')}
 				/>
 			</TouchableOpacity>

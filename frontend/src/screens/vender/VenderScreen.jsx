@@ -10,6 +10,17 @@ export const VenderScreen = () => {
 	return (
 		<View style={style.alinearCentro}>
 			<Text style={style.title}>VenderScreen</Text>
+			<Text style={style.title}>Vende eso que ya no usas.</Text>
+			<Text style={style.title}>Publicar es muy facil!</Text>
+
+			<Text style={style.title}>
+				Subi las fotos mas lindas de tu productos.
+			</Text>
+			<Text style={style.title}>
+				Brinda detalles como: tipo, talle y una descripcion breve y
+				clara.
+			</Text>
+			<Text style={style.title}>Ponele precio y listo, publicalo!</Text>
 
 			<TouchableOpacity>
 				<Button
