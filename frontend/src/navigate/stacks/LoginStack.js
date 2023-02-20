@@ -4,14 +4,40 @@ import { BienvenidaScreen } from '../../screens/login/BienvenidaScreen'
 import { InicioSesionScreen } from '../../screens/login/InicioSesionScreen'
 import { LoginScreen } from '../../screens/login/LoginScreen'
 import { RegistroNombreScreen } from '../../screens/login/RegistroNombreScreen'
-import { StackNavigation } from '../StackNavigation'
 import { CompletarPerfilScreen } from '../../screens/perfil/completar/CompletarPerfilScreen'
 import { CompletarMetodoCobroScreen } from '../../screens/perfil/completar/CompletarMetodoCobroScreen'
 import { MetodoCobroTRFScreen } from '../../screens/perfil/completar/MetodoCobroTRFScreen'
 import { MetodoCobroBVScreen } from '../../screens/perfil/completar/MetodoCobroBVScreen'
 import { CongratsScreen } from '../../screens/perfil/completar/CongratsScreen'
+import { OnboardingCompraScreen } from '../../screens/onboarding/OnboardingCompraScreen'
+import { OnboardingVendeScreen } from '../../screens/onboarding/OnboardingVendeScreen'
+import { OnboardingDonaScreen } from '../../screens/onboarding/OnboardingDonaScreen'
 
 const Stack = createNativeStackNavigator()
+
+export const OnboardingStack = () => {
+
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
+            <Stack.Screen
+                name='OnboardingCompraScreen'
+                component={OnboardingCompraScreen}
+            />
+            <Stack.Screen
+                name='OnboardingVendeScreen'
+                component={OnboardingVendeScreen}
+            />
+            <Stack.Screen
+                name='OnboardingDonaScreen'
+                component={OnboardingDonaScreen}
+            />
+        </Stack.Navigator>
+    )
+}
 
 export const CompletarPerfilStack = () => {
     return (
@@ -24,8 +50,6 @@ export const CompletarPerfilStack = () => {
         </Stack.Navigator>
     )
 }
-
-// cuando tocas comenzar en el screen bienvenida, ir al stack completar perfil
 
 export const LoginStack = () => {
 
@@ -69,3 +93,5 @@ export const LoginStack = () => {
         </Stack.Navigator>
     )
 }
+
+
