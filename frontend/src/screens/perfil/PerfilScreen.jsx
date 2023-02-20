@@ -21,7 +21,7 @@ export const PerfilScreen = () => {
 			<TouchableOpacity>
 				<Button
 					title='Vender'
-					onPress={() => navigator.navigate('QuieroVenderScreen')}
+					onPress={() => navigator.navigate('VenderScreenPerfil')}
 				/>
 			</TouchableOpacity>
 
