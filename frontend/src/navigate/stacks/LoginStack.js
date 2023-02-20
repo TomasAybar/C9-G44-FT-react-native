@@ -4,7 +4,7 @@ import { BienvenidaScreen } from '../../screens/login/BienvenidaScreen'
 import { InicioSesionScreen } from '../../screens/login/InicioSesionScreen'
 import { LoginScreen } from '../../screens/login/LoginScreen'
 import { RegistroNombreScreen } from '../../screens/login/RegistroNombreScreen'
-import { TabNavigation } from '../TabNavigation'
+import { StackNavigation } from '../StackNavigation'
 
 export const LoginStack = () => {
 
@@ -34,9 +34,10 @@ export const LoginStack = () => {
                 component={LoginScreen}
                 options={{ headerShown: false }}
             />
+
             <Stack.Screen
-                name='Tabs'
-                component={TabNavigation}
+                name='StackNavigation'
+                component={StackNavigation}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>

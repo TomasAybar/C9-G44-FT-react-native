@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { style } from '../../themes/appTheme'
 
-const ArticuloPublicado = () => {
+export const ArticuloPublicado = () => {
 	const navigator = useNavigation()
 
 	return (
@@ -23,5 +23,3 @@ const ArticuloPublicado = () => {
 		</View>
 	)
 }
-
-export default ArticuloPublicado

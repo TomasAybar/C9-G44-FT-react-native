@@ -4,7 +4,7 @@ import { Alert, Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { style } from '../../themes/appTheme'
 
-const CheckeoFinalScreen = () => {
+export const CheckeoFinalScreen = () => {
 	const navigator = useNavigation()
 
 	const alerNavigate = () => {
@@ -18,7 +18,8 @@ const CheckeoFinalScreen = () => {
 				},
 				{
 					text: 'Ver mi publicación',
-					onPress: () => navigator.navigate('ArticuloPublicado'),
+					onPress: () =>
+						navigator.navigate('ArticuloPublicadoVender'),
 				},
 			]
 		)
@@ -50,5 +51,3 @@ const CheckeoFinalScreen = () => {
 		</View>
 	)
 }
-
-export default CheckeoFinalScreen

@@ -3,15 +3,15 @@ import React from 'react'
 import { View, Text, Button } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-export const Home = () => {
+export const Feed2 = () => {
 	const navigation = useNavigation()
 	return (
 		<View>
-			<Text>Home</Text>
+			<Text>Feed2</Text>
 			<TouchableOpacity>
 				<Button
-					title='ir a profile'
-					onPress={() => navigation.navigate('Profile')}
+					title='ir a feed3'
+					onPress={() => navigation.navigate('Feed3')}
 				/>
 			</TouchableOpacity>
 		</View>

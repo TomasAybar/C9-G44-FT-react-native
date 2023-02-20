@@ -1,19 +1,17 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { style } from '../themes/appTheme'
 
-export const HomeScreen = () => {
+export const HomePruebaScreen = () => {
 	const navigation = useNavigation()
 	return (
-		<View style={style.alinearCentro}>
-			<Text style={style.title}>HomeScreen</Text>
-
+		<View>
+			<Text>Home</Text>
 			<TouchableOpacity>
 				<Button
 					title='ir a profile'
-					onPress={() => alert('navigate')}
+					onPress={() => navigation.navigate('Profile')}
 				/>
 			</TouchableOpacity>
 		</View>

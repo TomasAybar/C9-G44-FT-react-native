@@ -14,7 +14,7 @@ export const InformacionScreen = () => {
 			[
 				{
 					text: 'Ver detalle',
-					onPress: () => navigator.navigate('ArticuloPublicado'),
+					onPress: () => navigator.navigate('ArticuloPublicadoDonar'),
 				},
 				{
 					text: 'Volver al inicio',
