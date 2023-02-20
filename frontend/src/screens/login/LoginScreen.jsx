@@ -14,7 +14,7 @@ export const LoginScreen = () => {
 			<TouchableOpacity>
 				<Button
 					title='Iniciar sesion'
-					onPress={() => navigator.navigate('Tabs')}
+					onPress={() => navigator.navigate('StackNavigation')}
 				/>
 			</TouchableOpacity>
 

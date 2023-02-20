@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { style } from '../../themes/appTheme'
 
-const TipoProductoScreen = () => {
+export const TipoProductoScreen = () => {
 	const navigator = useNavigation()
 
 	return (
@@ -24,5 +24,3 @@ const TipoProductoScreen = () => {
 		</View>
 	)
 }
-
-export default TipoProductoScreen

@@ -4,11 +4,31 @@ import { BienvenidaScreen } from '../../screens/login/BienvenidaScreen'
 import { InicioSesionScreen } from '../../screens/login/InicioSesionScreen'
 import { LoginScreen } from '../../screens/login/LoginScreen'
 import { RegistroNombreScreen } from '../../screens/login/RegistroNombreScreen'
-import { TabNavigation } from '../TabNavigation'
+import { StackNavigation } from '../StackNavigation'
+import { CompletarPerfilScreen } from '../../screens/perfil/completar/CompletarPerfilScreen'
+import { CompletarMetodoCobroScreen } from '../../screens/perfil/completar/CompletarMetodoCobroScreen'
+import { MetodoCobroTRFScreen } from '../../screens/perfil/completar/MetodoCobroTRFScreen'
+import { MetodoCobroBVScreen } from '../../screens/perfil/completar/MetodoCobroBVScreen'
+import { CongratsScreen } from '../../screens/perfil/completar/CongratsScreen'
+
+const Stack = createNativeStackNavigator()
+
+export const CompletarPerfilStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='CompletarPerfilScreen' component={CompletarPerfilScreen} />
+            <Stack.Screen name='CompletarMetodoCobroScreen' component={CompletarMetodoCobroScreen} />
+            <Stack.Screen name='MetodoCobroTRFScreen' component={MetodoCobroTRFScreen} />
+            <Stack.Screen name='MetodoCobroBVScreen' component={MetodoCobroBVScreen} />
+            <Stack.Screen name='CongratsScreen' component={CongratsScreen} />
+        </Stack.Navigator>
+    )
+}
+
+// cuando tocas comenzar en el screen bienvenida, ir al stack completar perfil
 
 export const LoginStack = () => {
 
-    const Stack = createNativeStackNavigator()
 
     return (
         <Stack.Navigator
@@ -34,11 +54,18 @@ export const LoginStack = () => {
                 component={LoginScreen}
                 options={{ headerShown: false }}
             />
-            <Stack.Screen
-                name='Tabs'
-                component={TabNavigation}
+
+            {/* <Stack.Screen
+                name='StackNavigation'
+                component={StackNavigation}
                 options={{ headerShown: false }}
-            />
+            /> */}
+
+            {/* <Stack.Screen
+                name='CompletarPerfilStack'
+                component={CompletarPerfilStack}
+                options={{ headerShown: false }}
+            /> */}
         </Stack.Navigator>
     )
 }

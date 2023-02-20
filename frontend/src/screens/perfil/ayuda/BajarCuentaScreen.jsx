@@ -17,7 +17,7 @@ export const BajarCuentaScreen = () => {
 				},
 				{
 					text: 'Volver',
-					onPress: () => navigator.popToTop(),
+					onPress: () => navigator.goBack(),
 				},
 			]
 		)

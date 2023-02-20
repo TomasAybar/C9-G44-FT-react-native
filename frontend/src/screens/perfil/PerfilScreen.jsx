@@ -21,7 +21,7 @@ export const PerfilScreen = () => {
 			<TouchableOpacity>
 				<Button
 					title='Vender'
-					onPress={() => navigator.navigate('VenderStack')}
+					onPress={() => navigator.navigate('QuieroVenderScreen')}
 				/>
 			</TouchableOpacity>
 
@@ -42,7 +42,7 @@ export const PerfilScreen = () => {
 			<TouchableOpacity>
 				<Button
 					title='Ayuda'
-					onPress={() => navigator.navigate('AyudaStack')}
+					onPress={() => navigator.navigate('AyudaScreen')}
 				/>
 			</TouchableOpacity>
 
