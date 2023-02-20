@@ -13,7 +13,7 @@ import { CongratsScreen } from '../../screens/perfil/completar/CongratsScreen'
 
 const Stack = createNativeStackNavigator()
 
-const CompletarPerfilStack = () => {
+export const CompletarPerfilStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name='CompletarPerfilScreen' component={CompletarPerfilScreen} />
@@ -55,17 +55,17 @@ export const LoginStack = () => {
                 options={{ headerShown: false }}
             />
 
-            <Stack.Screen
+            {/* <Stack.Screen
                 name='StackNavigation'
                 component={StackNavigation}
                 options={{ headerShown: false }}
-            />
+            /> */}
 
-            <Stack.Screen
+            {/* <Stack.Screen
                 name='CompletarPerfilStack'
                 component={CompletarPerfilStack}
                 options={{ headerShown: false }}
-            />
+            /> */}
         </Stack.Navigator>
     )
 }
