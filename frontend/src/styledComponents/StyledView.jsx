@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import theme from '../themes/theme';
 
 const styles = StyleSheet.create({
     dark: {
-        backgroundColor: '#121111',
+        backgroundColor: theme.colors.appBackground,
     },
     grey: {
-        backgroundColor: '#2B2B2B',
+        backgroundColor: theme.colors.greyPrimary,
     },
     container: {
         marginHorizontal: 25,
-        height: "100%",
+        height: '100%',
     },
     center: {
         justifyContent: 'center',
-        //alignItems: 'center',
-    }
+    },
 });
 
 export default function StyledView({ children, dark, grey, container, center, ...props }) {
