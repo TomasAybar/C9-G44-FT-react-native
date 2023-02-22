@@ -1,26 +1,65 @@
-import React from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { style } from '../../themes/appTheme'
+import React from 'react';
+import { Image, ImageBackground } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import StyledText from '../../styledComponents/StyledText';
+import StyledView from '../../styledComponents/StyledView';
+import StyledButtton from '../../styledComponents/StyledButton';
 
 export const OnboardingDonaScreen = () => {
-	const navigator = useNavigation()
+    const navigator = useNavigation();
 
-	return (
-		<View style={style.alinearCentro}>
-			<Text>OnboardingDonaScreen</Text>
-
-			<TouchableOpacity>
-				<Button
-					title='Comenzar'
-					onPress={() => navigator.navigate('LoginStack')}
-				/>
-			</TouchableOpacity>
-
-			<TouchableOpacity>
-				<Button title='Volver' onPress={() => navigator.goBack()} />
-			</TouchableOpacity>
-		</View>
-	)
-}
+    return (
+        <StyledView dark height100>
+            <StyledView height50>
+                <ImageBackground
+                    source={require('../../../assets/onboardingGradient.png')}
+                    style={{ width: '100%', height: '100%', zIndex: 1, position: 'absolute' }}
+                />
+                <ImageBackground
+                    source={require('../../../assets/onboarding3.png')}
+                    style={{ width: '100%', height: '100%' }}
+                />
+            </StyledView>
+            <StyledView container spaceEvenly height50 height90>
+                <StyledText size32 weight700>
+                    Doná
+                </StyledText>
+                <StyledText size12 line24>
+                    Doná prendas o accesorios. Dale una segunda oportunidad a tu ropa, ayudando a alguien
+                    mas.
+                </StyledText>
+                <StyledView
+                    style={{
+                        width: '100%',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        marginRight: 5,
+                    }}
+                >
+                    <Image
+                        style={{ marginHorizontal: 4 }}
+                        source={require('../../../assets/ellipse.png')}
+                    />
+                    <Image
+                        style={{ marginHorizontal: 4 }}
+                        source={require('../../../assets/ellipse.png')}
+                    />
+                    <Image
+                        style={{ marginHorizontal: 4 }}
+                        source={require('../../../assets/ellipse-active.png')}
+                    />
+                </StyledView>
+                <StyledButtton
+                    white
+                    title={'Comenzar'}
+                    onPress={() => navigator.navigate('LoginStack')}
+                ></StyledButtton>
+                <StyledButtton
+                    black
+                    title={'Volver'}
+                    onPress={() => navigator.navigate('OnboardingCompraScreen')}
+                ></StyledButtton>
+            </StyledView>
+        </StyledView>
+    );
+};
