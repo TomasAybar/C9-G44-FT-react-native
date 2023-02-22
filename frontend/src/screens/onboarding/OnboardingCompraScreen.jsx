@@ -37,15 +37,15 @@ export const OnboardingCompraScreen = () => {
                 >
                     <Image
                         style={{ marginHorizontal: 4 }}
-                        source={require('../../../assets/ellipse-active.png')}
+                        source={require('../../../assets/icons/ellipse-active.png')}
                     />
                     <Image
                         style={{ marginHorizontal: 4 }}
-                        source={require('../../../assets/ellipse.png')}
+                        source={require('../../../assets/icons/ellipse.png')}
                     />
                     <Image
                         style={{ marginHorizontal: 4 }}
-                        source={require('../../../assets/ellipse.png')}
+                        source={require('../../../assets/icons/ellipse.png')}
                     />
                 </StyledView>
                 <StyledButtton
