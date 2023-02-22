@@ -5,9 +5,18 @@ import theme from '../themes/theme';
 const styles = StyleSheet.create({
     general: {
         color: '#ffffff',
-        alignSelf: 'center',
         textAlign: 'center',
         fontFamily: 'Inter_400Regular',
+    },
+    alignCenter:{
+        alignSelf: 'center'
+    },
+    alignStretch: {
+        alignSelf: 'stretch'
+    },
+    alignItem: {
+        display: 'flex',
+        alignItems: 'flex-start'
     },
     yellow: {
         color: theme.colors.yellowPrimary,
@@ -41,7 +50,7 @@ const styles = StyleSheet.create({
     },
     size50: {
         fontSize: 50,
-    },
+    }
 });
 
 export default function StyledText({
@@ -56,6 +65,7 @@ export default function StyledText({
     size32,
     weight500,
     weight700,
+    alignItem,
     ...props
 }) {
     const textStyles = [
@@ -70,6 +80,7 @@ export default function StyledText({
         size32 && styles.size32,
         weight500 && styles.weight500,
         weight700 && styles.weight700,
+        alignItem && styles.alignItem,
     ];
     return (
         <Text style={textStyles} {...props}>
