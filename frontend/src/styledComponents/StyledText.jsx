@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
     size32: {
         fontSize: 32,
     },
+    line24: {
+        lineHeight: 24,
+    },
     weight500: {
         fontFamily: 'Inter_500Medium',
     },
@@ -56,6 +59,7 @@ export default function StyledText({
     size32,
     weight500,
     weight700,
+    line24,
     ...props
 }) {
     const textStyles = [
@@ -70,6 +74,7 @@ export default function StyledText({
         size32 && styles.size32,
         weight500 && styles.weight500,
         weight700 && styles.weight700,
+        line24 && styles.line24,
     ];
     return (
         <Text style={textStyles} {...props}>
