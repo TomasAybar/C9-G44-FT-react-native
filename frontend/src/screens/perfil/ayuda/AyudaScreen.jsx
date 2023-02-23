@@ -11,29 +11,30 @@ export const AyudaScreen = () => {
 
 	return (
 		<StyledView dark height100>
-			<View style={{ marginTop: 50 }}>
-				<EcoBtnNavigate
-					text='Quiero comprar ¿Cómo hago?'
-					navigate={'QuieroComprarScreen'}
-				/>
-				<EcoBtnNavigate
-					text='Quiero vender, ¿Cómo publico?'
-					navigate={'QuieroVenderScreen'}
-				/>
-				<EcoBtnNavigate
-					text='Devoluciones'
-					navigate={'DevolucionesScreen'}
-				/>
-				<EcoBtnNavigate
-					text='Donaciones'
-					navigate={'DonacionesScreen'}
-				/>
-				<EcoBtnNavigate
-					text='Baja de cuenta'
-					navigate={'BajarCuentaScreen'}
-				/>
-			</View>
-			<StyledView container center></StyledView>
+			<StyledView container center>
+				<View style={{ marginTop: 50 }}>
+					<EcoBtnNavigate
+						text='Quiero comprar ¿Cómo hago?'
+						navigate={'QuieroComprarScreen'}
+					/>
+					<EcoBtnNavigate
+						text='Quiero vender, ¿Cómo publico?'
+						navigate={'QuieroVenderScreen'}
+					/>
+					<EcoBtnNavigate
+						text='Devoluciones'
+						navigate={'DevolucionesScreen'}
+					/>
+					<EcoBtnNavigate
+						text='Donaciones'
+						navigate={'DonacionesScreen'}
+					/>
+					<EcoBtnNavigate
+						text='Baja de cuenta'
+						navigate={'BajarCuentaScreen'}
+					/>
+				</View>
+			</StyledView>
 		</StyledView>
 	)
 }
