@@ -12,6 +12,15 @@ const styles = StyleSheet.create({
     container: {
         marginHorizontal: 25,
     },
+    radius12: {
+        borderRadius: 12,
+    },
+    width50: {
+        width: '50%',
+    },
+    width100: {
+        width: '100%',
+    },
     height50: {
         height: '50%',
     },
@@ -21,9 +30,18 @@ const styles = StyleSheet.create({
     center: {
         justifyContent: 'center',
     },
+    row: {
+        flexDirection: 'row',
+    },
     spaceEvenly: {
-        justifyContent: 'space-evenly'
-    }
+        justifyContent: 'space-evenly',
+    },
+    spaceAround: {
+        justifyContent: 'space-around',
+    },
+    spaceBetween: {
+        justifyContent: 'space-between',
+    },
 });
 
 export default function StyledView({
@@ -31,20 +49,32 @@ export default function StyledView({
     dark,
     grey,
     container,
-    center,
+    radius12,
+    width50,
+    width100,
     height50,
     height100,
+    center,
+    row,
     spaceEvenly,
+    spaceAround,
+    spaceBetween,
     ...props
 }) {
     const viewStyles = [
         dark && styles.dark,
         grey && styles.grey,
         container && styles.container,
-        center && styles.center,
+        radius12 && styles.radius12,
+        width50 && styles.width50,
+        width100 && styles.width100,
         height50 && styles.height50,
         height100 && styles.height100,
+        center && styles.center,
+        row && styles.row,
         spaceEvenly && styles.spaceEvenly,
+        spaceAround && styles.spaceAround,
+        spaceBetween && styles.spaceBetween,
     ];
     return (
         <View style={viewStyles} {...props}>
