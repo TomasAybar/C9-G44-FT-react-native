@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         borderWidth: 1,
         backgroundColor: theme.colors.greyPrimary,
-        padding: 16,
         marginVertical: 10
     },
     error: {

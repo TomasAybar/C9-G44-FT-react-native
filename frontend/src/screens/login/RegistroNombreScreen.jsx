@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
         margin: 12
     },
     error:{
-        color: '#FFFFFF',
-        fontStyle: 'italic' ,
+        color: 'red',
+        fontStyle: 'italic',
 		opacity: 0.6,
         fontSize: 12.8,
         alignSelf: 'stretch',
-        marginBottom: 20,
+        marginBottom: 20
     }
 })
 
