@@ -15,7 +15,7 @@ export const TabNavigation = () => {
             <Tab.Screen name='ComprarScreen' component={ComprarScreen} />
             <Tab.Screen name='VenderScreen' component={VenderScreen} />
             <Tab.Screen name='DonarScreen' component={DonarScreen} />
-            <Tab.Screen name='PerfilScreen' component={PerfilScreen} />
+            <Tab.Screen name='PerfilScreen' component={PerfilScreen} options={{ title: 'Perfil' }} />
         </Tab.Navigator>
     )
 }

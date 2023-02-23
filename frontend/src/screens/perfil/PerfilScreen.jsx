@@ -1,54 +1,132 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { style } from '../../themes/appTheme'
+import { Image, Pressable, StyleSheet, View } from 'react-native'
+import StyledView from '../../styledComponents/StyledView'
+import StyledText from '../../styledComponents/StyledText'
+import theme from '../../themes/theme'
+import { StarProfile } from '../../components/icons/StarProfile'
+import { TagProfile } from '../../components/icons/TagProfile'
+import { MessagesProfile } from '../../components/icons/MessagesProfile'
+import { SettingsProfile } from '../../components/icons/SettingsProfile'
+import { LogoutProfile } from '../../components/icons/LogoutProfile'
+import { BagHappyProfile } from '../../components/icons/BagHappyProfile'
 
 export const PerfilScreen = () => {
 	const navigator = useNavigation()
 
 	return (
-		<View style={style.alinearCentro}>
-			<Text style={style.title}>PerfilScreen</Text>
+		<StyledView dark height100>
+			<StyledView container center>
+				<View style={style.image}>
+					<Image
+						source={require('../../../assets/profile-user.png')}
+						style={{ marginBottom: 10 }}
+					/>
+					<StyledText line24 size20>
+						¡Hola María!
+					</StyledText>
+				</View>
 
-			<TouchableOpacity>
-				<Button
-					title='Comprar'
-					onPress={() => navigator.navigate('ComprasScreen')}
-				/>
-			</TouchableOpacity>
+				<View style={style.containerCard}>
+					<Pressable
+						style={style.card}
+						onPress={() => navigator.navigate('ComprasScreen')}
+					>
+						<BagHappyProfile style={style.icon} />
 
-			<TouchableOpacity>
-				<Button
-					title='Vender'
-					onPress={() => navigator.navigate('VenderScreenPerfil')}
-				/>
-			</TouchableOpacity>
+						<StyledText black size25 line32 weight600>
+							Compras
+						</StyledText>
+					</Pressable>
 
-			<TouchableOpacity>
-				<Button
-					title='Favoritos'
-					onPress={() => navigator.navigate('FavoritosScreen')}
-				/>
-			</TouchableOpacity>
+					<Pressable
+						style={style.card}
+						onPress={() => navigator.navigate('FavoritosScreen')}
+					>
+						<StarProfile style={style.icon} />
 
-			<TouchableOpacity>
-				<Button
-					title='Mensajes'
-					onPress={() => navigator.navigate('MensajesScreen')}
-				/>
-			</TouchableOpacity>
+						<StyledText black size25 line32 weight600>
+							Favoritos
+						</StyledText>
+					</Pressable>
 
-			<TouchableOpacity>
-				<Button
-					title='Ayuda'
-					onPress={() => navigator.navigate('AyudaScreen')}
-				/>
-			</TouchableOpacity>
+					<Pressable
+						style={style.card}
+						onPress={() => navigator.navigate('VenderScreenPerfil')}
+					>
+						<TagProfile style={style.icon} />
 
-			<TouchableOpacity>
-				<Button title='Salir' onPress={() => alert('Comprar')} />
-			</TouchableOpacity>
-		</View>
+						<StyledText black size25 line32 weight600>
+							Ventas
+						</StyledText>
+					</Pressable>
+
+					<Pressable
+						style={style.card}
+						onPress={() => navigator.navigate('MensajesScreen')}
+					>
+						<MessagesProfile style={style.icon} />
+
+						<StyledText black size25 line32 weight600>
+							Mensajes
+						</StyledText>
+					</Pressable>
+
+					<Pressable
+						style={style.card}
+						onPress={() => navigator.navigate('AyudaScreen')}
+					>
+						<SettingsProfile style={style.icon} />
+
+						<StyledText black size25 line32 weight600>
+							Ayuda
+						</StyledText>
+					</Pressable>
+
+					<Pressable
+						style={{
+							...style.card,
+							backgroundColor: theme.colors.greyPrimary,
+							borderWidth: 3,
+							borderColor: theme.colors.yellowPrimary,
+						}}
+						onPress={() => alert('Comprar')}
+					>
+						<LogoutProfile style={style.icon} />
+
+						<StyledText size25 line32 weight600 yellow>
+							Ayuda
+						</StyledText>
+					</Pressable>
+				</View>
+			</StyledView>
+		</StyledView>
 	)
 }
+
+const style = StyleSheet.create({
+	image: {
+		marginVertical: 20,
+		width: '50%',
+		alignItems: 'center',
+	},
+	containerCard: {
+		flexWrap: 'wrap',
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		height: '70%',
+	},
+	card: {
+		alignItems: 'center',
+		backgroundColor: theme.colors.yellowPrimary,
+		width: 150,
+		height: 100,
+		borderRadius: 8,
+		padding: 9,
+		marginBottom: 45,
+	},
+	icon: {
+		marginBottom: 6,
+	},
+})
