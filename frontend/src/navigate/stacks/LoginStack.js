@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { BienvenidaScreen } from '../../screens/login/BienvenidaScreen'
 import { InicioSesionScreen } from '../../screens/login/InicioSesionScreen'
 import { LoginScreen } from '../../screens/login/LoginScreen'
+import { RegistroExitoso } from '../../screens/login/RegistroExitoso'
 import { RegistroNombreScreen } from '../../screens/login/RegistroNombreScreen'
 import { CompletarPerfilScreen } from '../../screens/perfil/completar/CompletarPerfilScreen'
 import { CompletarMetodoCobroScreen } from '../../screens/perfil/completar/CompletarMetodoCobroScreen'
@@ -66,6 +67,14 @@ export const LoginStack = () => {
                 name='RegistroNombreScreen'
                 component={RegistroNombreScreen}
                 options={{ headerTitle: 'Ingresa tus datos' }}
+            />
+            <Stack.Screen
+                name='RegistroExitoso'
+                component={RegistroExitoso}
+            />
+            <Stack.Screen
+                name='CompletarPerfilScreen'
+                component={CompletarPerfilScreen}
             />
             <Stack.Screen
                 name='BienvenidaScreen'

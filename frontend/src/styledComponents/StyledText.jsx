@@ -68,6 +68,19 @@ const styles = StyleSheet.create({
 	size50: {
 		fontSize: 50,
 	},
+	alignSelf:{
+        alignSelf: 'center'
+    },
+
+    alignStretch: {
+        alignSelf: 'stretch'
+    },
+	marginTop:{
+        marginTop: 15 ,
+    },
+    marginBottom: {
+        marginBottom: 15
+    }
 })
 
 export default function StyledText({
@@ -90,6 +103,10 @@ export default function StyledText({
 	weight700,
 	line24,
 	line32,
+	alignSelf,
+alignStretch,
+marginTop,
+marginBottom,
 	...props
 }) {
 	const textStyles = [
@@ -112,6 +129,10 @@ export default function StyledText({
 		weight700 && styles.weight700,
 		line24 && styles.line24,
 		line32 && styles.line32,
+		alignSelf && styles.alignSelf,
+		alignStretch && styles.alignStretch,
+		marginTop && styles.marginTop,
+		marginBottom && styles.marginBottom,
 	]
 	return (
 		<Text style={textStyles} {...props}>
