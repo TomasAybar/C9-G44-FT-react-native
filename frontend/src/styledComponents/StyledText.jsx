@@ -41,6 +41,9 @@ const styles = StyleSheet.create({
 	size20: {
 		fontSize: 20,
 	},
+	size24: {
+		fontSize: 24,
+	},
 	size25: {
 		fontSize: 25,
 	},
@@ -79,6 +82,7 @@ export default function StyledText({
 	size16,
 	size18,
 	size20,
+	size24,
 	size25,
 	size32,
 	weight500,
@@ -100,6 +104,7 @@ export default function StyledText({
 		size16 && styles.size16,
 		size18 && styles.size18,
 		size20 && styles.size20,
+		size24 && styles.size24,
 		size25 && styles.size25,
 		size32 && styles.size32,
 		weight500 && styles.weight500,
