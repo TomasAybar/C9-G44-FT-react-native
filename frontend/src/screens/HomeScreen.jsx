@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Image, ScrollView } from 'react-native';
+import { Image, ScrollView, TouchableOpacity } from 'react-native';
 import StyledText from '../styledComponents/StyledText';
 import StyledView from '../styledComponents/StyledView';
 import StyledTextInput from '../styledComponents/StyledTextInput';
 import Search from '../../assets/icons/Search.jsx';
 
 export const HomeScreen = () => {
-    const navigation = useNavigation();
+    const navigator = useNavigation();
 
     return (
         <StyledView dark height100>
@@ -33,7 +33,9 @@ export const HomeScreen = () => {
                     </StyledView>
                     <StyledView row spaceBetween marginTop={30}>
                         <StyledText weight500>Categorías</StyledText>
-                        <StyledText weight500>Ver más</StyledText>
+                        <TouchableOpacity onPress={() => navigator.navigate('CategoriasScreen')}>
+                            <StyledText weight500>Ver más</StyledText>
+                        </TouchableOpacity>
                     </StyledView>
                     <StyledView row spaceBetween marginTop={15}>
                         <StyledView

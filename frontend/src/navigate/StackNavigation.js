@@ -2,6 +2,7 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TabNavigation } from './TabNavigation'
 import { FotoProductoScreen } from '../screens/vender/FotoProductoScreen';
+import { CategoriasScreen } from '../screens/vender/CategoriasScreen';
 import { CategoriaScreen } from '../screens/vender/CategoriaScreen';
 import { TipoProductoScreen } from '../screens/vender/TipoProductoScreen';
 import { DescripcionScreen } from '../screens/vender/DescripcionScreen';
@@ -40,6 +41,7 @@ export const StackNavigation = () => {
 
             {/* screens vender */}
             <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} />
+            <Stack.Screen name="CategoriasScreen" component={CategoriasScreen} />
             <Stack.Screen name="CategoriaScreen" component={CategoriaScreen} />
             <Stack.Screen name="TipoProductoScreen" component={TipoProductoScreen} />
             <Stack.Screen name="DescripcionScreen" component={DescripcionScreen} />
