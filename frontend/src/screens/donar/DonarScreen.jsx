@@ -28,20 +28,25 @@ export const DonarScreen = () => {
 
 			<StyledView container center>
 				<View style={style.contenedorCard}>
-					<View style={style.columnIcons}>
+					<View style={style.card}>
 						<CameraDonar />
-						<MaginPenDonar />
-						<CalendarTickDonar />
-					</View>
 
-					<View style={style.columnText}>
-						<View>
+						<View
+							style={{
+								...style.containerText,
+								marginStart: 18,
+							}}
+						>
 							<StyledText size14 line24 left>
 								Subi fotos de lo que queres donar.
 							</StyledText>
 						</View>
+					</View>
 
-						<View>
+					<View style={style.card}>
+						<MaginPenDonar />
+
+						<View style={style.containerText}>
 							<StyledText size14 line24 left>
 								Contanos la cantidad de prendas que
 							</StyledText>
@@ -49,8 +54,17 @@ export const DonarScreen = () => {
 								son y una breve descripcion.
 							</StyledText>
 						</View>
+					</View>
 
-						<View>
+					<View style={style.card}>
+						<CalendarTickDonar />
+
+						<View
+							style={{
+								...style.containerText,
+								marginStart: 15,
+							}}
+						>
 							<StyledText size14 line24 left>
 								Inidica fecha, horario y direccion para
 							</StyledText>
@@ -79,80 +93,17 @@ const style = StyleSheet.create({
 		marginTop: 40,
 		marginBottom: 20,
 	},
+	containerText: {
+		marginStart: 20,
+	},
 	card: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'space-evenly',
+		justifyContent: 'center',
 	},
 	contenedorCard: {
-		height: 400,
-		flexDirection: 'row',
-		// borderColor: '#fff',
-		// borderWidth: 1,
+		height: 380,
 		justifyContent: 'space-around',
-		marginBottom: 20,
-	},
-	columnIcons: {
-		justifyContent: 'space-around',
-		marginBottom: 20,
-	},
-	columnText: {
-		justifyContent: 'space-around',
-		marginTop: 10,
+		marginBottom: 45,
 	},
 })
-
-{
-	/* <Text style={style.title}>
-					Dandole una segunda oportunidad a tu ropa, estas ayudando a
-					quienes mas lo necesitan.
-				</Text>
-				<Text style={style.title}>
-					Subi fotos de lo que queres donar.
-				</Text>
-				<Text style={style.title}>
-					Contanos la cantidad de prendas que son y una breve
-					descripcion.
-				</Text>
-				<Text style={style.title}>
-					Inidica fecha, horario y direccion para coordinar la
-					entrega.
-				</Text>
-				<Text style={style.title}>Listo, publica tu donacion!</Text> */
-}
-
-{
-	/* <View style={style.card}>
-						<CameraDonar />
-						<Text
-							style={{
-								color: '#fff',
-								fontSize: 14,
-								lineHeight: 24,
-								borderWidth: 1,
-								borderColor: '#fff',
-							}}
-						>
-							Subi fotos de lo que queres donar.
-						</Text>
-						<StyledText size14 line24>
-							Subi fotos de lo que queres donar.
-						</StyledText>
-					</View>
-
-					<View style={style.card}>
-						<MaginPenDonar />
-						<StyledText size14 line24>
-							Contanos la cantidad de prendas que son y una breve
-							descripcion.
-						</StyledText>
-					</View>
-
-					<View style={style.card}>
-						<CalendarTickDonar />
-						<StyledText size14 line24>
-							Inidica fecha, horario y direccion para coordinar la
-							entrega. Listo, publica tu donacion!
-						</StyledText>
-					</View> */
-}
