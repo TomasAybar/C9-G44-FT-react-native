@@ -1,6 +1,14 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Image, Pressable, StyleSheet, View } from 'react-native'
+import {
+	Text,
+	Image,
+	Pressable,
+	StyleSheet,
+	useWindowDimensions,
+	View,
+	ScrollView,
+} from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import theme from '../../themes/theme'
@@ -14,92 +22,122 @@ import { BagHappyProfile } from '../../components/icons/BagHappyProfile'
 export const PerfilScreen = () => {
 	const navigator = useNavigation()
 
+	const { width, height } = useWindowDimensions()
+
 	return (
 		<StyledView dark height100>
-			<StyledView container center>
-				<View style={style.image}>
-					<Image
-						source={require('../../../assets/profile-user.png')}
-						style={{ marginBottom: 10 }}
-					/>
-					<StyledText line24 size20>
-						¡Hola María!
-					</StyledText>
-				</View>
-
-				<View style={style.containerCard}>
-					<Pressable
-						style={style.card}
-						onPress={() => navigator.navigate('ComprasScreen')}
-					>
-						<BagHappyProfile style={style.icon} />
-
-						<StyledText black size25 line32 weight600>
-							Compras
+			<ScrollView>
+				<StyledView container center>
+					<View style={style.image}>
+						<Image
+							source={require('../../../assets/profile-user.png')}
+							style={{ marginBottom: 10 }}
+						/>
+						<StyledText line24 size20>
+							¡Hola María!
 						</StyledText>
-					</Pressable>
+					</View>
 
-					<Pressable
-						style={style.card}
-						onPress={() => navigator.navigate('FavoritosScreen')}
-					>
-						<StarProfile style={style.icon} />
+					<View style={style.containerCard}>
+						<Pressable
+							style={{
+								...style.card,
+								width: width * 0.35,
+								height: 100,
+							}}
+							onPress={() => navigator.navigate('ComprasScreen')}
+						>
+							<BagHappyProfile style={style.icon} />
 
-						<StyledText black size25 line32 weight600>
-							Favoritos
-						</StyledText>
-					</Pressable>
+							<StyledText black size25 line32 weight600>
+								Compras
+							</StyledText>
+						</Pressable>
 
-					<Pressable
-						style={style.card}
-						onPress={() => navigator.navigate('VenderScreenPerfil')}
-					>
-						<TagProfile style={style.icon} />
+						<Pressable
+							style={{
+								...style.card,
+								width: width * 0.35,
+								height: 100,
+							}}
+							onPress={() =>
+								navigator.navigate('VenderScreenPerfil')
+							}
+						>
+							<TagProfile style={style.icon} />
 
-						<StyledText black size25 line32 weight600>
-							Ventas
-						</StyledText>
-					</Pressable>
+							<StyledText black size25 line32 weight600>
+								Ventas
+							</StyledText>
+						</Pressable>
 
-					<Pressable
-						style={style.card}
-						onPress={() => navigator.navigate('MensajesScreen')}
-					>
-						<MessagesProfile style={style.icon} />
+						<Pressable
+							style={{
+								...style.card,
+								width: width * 0.35,
+								height: 100,
+							}}
+							onPress={() =>
+								navigator.navigate('FavoritosScreen')
+							}
+						>
+							<StarProfile style={style.icon} />
 
-						<StyledText black size25 line32 weight600>
-							Mensajes
-						</StyledText>
-					</Pressable>
+							<StyledText black size25 line32 weight600>
+								Favoritos
+							</StyledText>
+						</Pressable>
 
-					<Pressable
-						style={style.card}
-						onPress={() => navigator.navigate('AyudaScreen')}
-					>
-						<SettingsProfile style={style.icon} />
+						<Pressable
+							style={{
+								...style.card,
+								width: width * 0.35,
+								height: 100,
+							}}
+							onPress={() => navigator.navigate('MensajesScreen')}
+						>
+							<MessagesProfile style={style.icon} />
 
-						<StyledText black size25 line32 weight600>
-							Ayuda
-						</StyledText>
-					</Pressable>
+							<StyledText black size25 line32 weight600>
+								Mensajes
+							</StyledText>
+						</Pressable>
 
-					<Pressable
-						style={{
-							...style.card,
-							backgroundColor: theme.colors.greyPrimary,
-							borderWidth: 3,
-							borderColor: theme.colors.yellowPrimary,
-						}}
-						onPress={() => alert('Comprar')}
-					>
-						<LogoutProfile style={style.icon} />
+						<Pressable
+							style={{
+								...style.card,
+								width: width * 0.35,
+								height: 100,
+							}}
+							onPress={() => navigator.navigate('AyudaScreen')}
+						>
+							<SettingsProfile style={style.icon} />
 
-						<StyledText size25 line32 weight600 yellow>
-							Ayuda
-						</StyledText>
-					</Pressable>
-				</View>
-			</StyledView>
+							<StyledText black size25 line32 weight600>
+								Ayuda
+							</StyledText>
+						</Pressable>
+
+						<Pressable
+							style={{
+								...style.card,
+								backgroundColor: theme.colors.greyPrimary,
+								borderWidth: 3,
+								borderColor: theme.colors.yellowPrimary,
+								width: width * 0.35,
+								height: 100,
+							}}
+							onPress={() => alert('Comprar')}
+						>
+							<LogoutProfile style={style.icon} />
+
+							<StyledText size25 line32 weight600 yellow>
+								Salir
+							</StyledText>
+						</Pressable>
+					</View>
+				</StyledView>
+			</ScrollView>
 		</StyledView>
 	)
 }
@@ -115,18 +153,20 @@ const style = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		alignItems: 'center',
-		height: '70%',
 	},
 	card: {
 		alignItems: 'center',
 		backgroundColor: theme.colors.yellowPrimary,
-		width: 150,
-		height: 100,
 		borderRadius: 8,
 		padding: 9,
-		marginBottom: 45,
+		marginBottom: 30,
 	},
 	icon: {
 		marginBottom: 6,
+	},
+	dimension: {
+		color: 'red',
+		fontSize: 15,
+		fontWeight: 'bold',
 	},
 })
