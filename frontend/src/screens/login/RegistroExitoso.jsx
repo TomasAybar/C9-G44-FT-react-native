@@ -33,14 +33,22 @@ export const RegistroExitoso = () => {
         }}>
         <StyledView container center >
           <StyledView style={styles.modalView}>
-            <StyledText size16 weight700>Atención!</StyledText>
-            <StyledText size12>
-                Recordá que necesitarás que tu perfil este completo en caso que quieras vender o comprar.</StyledText>
+            <StyledText size16 weight700 marginBottom>Atención!</StyledText>
+            <StyledText size12 marginBottom >
+                Recordá que necesitarás que tu perfil este completo en caso que quieras vender o comprar.
+                </StyledText>
+
+                <StyledText>
+                    </StyledText>
+
                 <StyledButtton
                     white
                     title={'Completar Perfil'}
                     onPress={handleCloseModal}
                 ></StyledButtton>
+                <StyledText>
+                    </StyledText>
+
       <StyledButtton
                     black
                     title={'Omitir'}
@@ -49,20 +57,24 @@ export const RegistroExitoso = () => {
           </StyledView>
         </StyledView>
       </Modal>
-                <StyledText size16 weight700>
+                <StyledText size16 weight700 marginBottom >
                     ¡Felicitaciones!
                 </StyledText>
-                <StyledText size16 weight700>
+                <StyledText size16 weight700 marginBottom marginTop>
                     Tu cuenta fue creada con éxito.
                 </StyledText>
-                <StyledText size12>
+                <StyledText size12 marginBottom marginTop>
                     Ahora te vamos a pedir unos datos para completar tu perfil.
                 </StyledText>
+                <StyledText>
+                    </StyledText>
                 <StyledButtton
                     white
                     title={'Comenzar'}
                     onPress={() => navigator.navigate('CompletarPerfilScreen')}
                 ></StyledButtton>
+                <StyledText>
+                    </StyledText>
                 <StyledButtton
                     black
                     title={'Omitir'}
@@ -81,10 +93,10 @@ const styles = StyleSheet.create({
     },
     modalView: {
       margin: 20,
-      width: '95%',
+      width: '90%',
       height: '50%' ,
       backgroundColor: theme.colors.greyPrimary,
-      borderRadius: 20,
+      borderRadius: 16,
       padding: 35,
       justifyContent: 'center',
       alignItems: 'center',

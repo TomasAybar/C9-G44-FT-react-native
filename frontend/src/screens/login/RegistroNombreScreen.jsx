@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import StyledView from '../../styledComponents/StyledView'
 import StyledButton from '../../styledComponents/StyledButton'
 import StyledText from '../../styledComponents/StyledText'
@@ -16,17 +16,14 @@ const initialValues = {
 }
 
 const styles = StyleSheet.create({
-    form:{
-        margin: 12
-    },
     error:{
         color: 'red',
         fontStyle: 'italic',
 		opacity: 0.6,
         fontSize: 12.8,
         alignSelf: 'stretch',
-        marginBottom: 20
-    }
+        marginBottom: 5,
+    },
 })
 
 const FormikInputValue = ({name, ...props}) => {
@@ -46,6 +43,7 @@ const FormikInputValue = ({name, ...props}) => {
 
 export const RegistroNombreScreen = () => {
     const navigator = useNavigation();
+
   return (
     
     <Formik validationSchema={loginValidationShema} initialValues={initialValues} 
@@ -55,45 +53,55 @@ export const RegistroNombreScreen = () => {
                 <StyledView dark>
 					<StyledView container center>
 
-					<StyledText size12 alignItem alignSelf >
+					<StyledText size12 alignItem marginTop>
 					Nombre y Apellido
 					</StyledText> 
 					<FormikInputValue 
                     name = 'name'
                     placeholder='Nombre y Apellido'
+                    placeholderTextColor='rgba(255,255,255,0.5)'
                     />
 
-					<StyledText size12 alignItem alignSelf>
+					<StyledText size12 alignItem alignSelf marginTop>
 						E-mail
 					</StyledText>
                     <FormikInputValue 
                     name = 'email'
                     placeholder='E-mail'
+                    placeholderTextColor='rgba(255,255,255,0.5)'
                     />
 
-					<StyledText size12 alignItem alignSelf>
+					<StyledText size12 alignItem alignSelf marginTop>
 					Contraseña
 					</StyledText>
                     <FormikInputValue
                     name = 'password'
                     placeholder='Contraseña'
+                    placeholderTextColor='rgba(255,255,255,0.5)'
                     secureTextEntry
                     />
 					
-					<StyledText size12 alignItem alignSelf>
+					<StyledText size12 alignItem alignSelf marginTop>
 					   Repetir Contraseña
 					</StyledText>
 					<FormikInputValue 
                     name = 'repassword'
                     placeholder='Repetir contraseña'
+                    placeholderTextColor='rgba(255,255,255,0.5)'
 					secureTextEntry
                     />
-                    
-                    <StyledButton 
-                    white 
+                    <StyledText marginTop>
+                        {'\n'}
+                    </StyledText>
+
+            
+                    <StyledButton
+                    white
 					title={'Crear cuenta'}
 					onPress={() => navigator.navigate('RegistroExitoso')}
 					></StyledButton>
+
+
 					</StyledView>
                 </StyledView>
             )

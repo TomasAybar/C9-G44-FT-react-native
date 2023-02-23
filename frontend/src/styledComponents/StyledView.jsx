@@ -16,18 +16,18 @@ const styles = StyleSheet.create({
     center: {
         justifyContent: 'center',
     },
-    marginVertical: {
-        marginVertical: 10
+    align: {
+        alignSelf: 'flex-end'
     }
 });
 
-export default function StyledView({ children, dark, grey, container, center,marginVertical, ...props }) {
+export default function StyledView({ children, dark, grey, container, center,align, ...props }) {
     const viewStyles = [
         dark && styles.dark,
         grey && styles.grey,
         container && styles.container,
         center && styles.center,
-        marginVertical && styles.marginVertical
+        align && styles.align
     ];
     return (
         <View style={viewStyles} {...props}>

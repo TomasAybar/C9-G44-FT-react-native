@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'Inter_400Regular',
     },
-    alignCenter:{
+    alignSelf:{
         alignSelf: 'center'
     },
     alignStretch: {
@@ -50,6 +50,12 @@ const styles = StyleSheet.create({
     },
     size50: {
         fontSize: 50,
+    },
+    marginTop:{
+        marginTop: 15 ,
+    },
+    marginBottom: {
+        marginBottom: 15
     }
 });
 
@@ -66,6 +72,9 @@ export default function StyledText({
     weight500,
     weight700,
     alignItem,
+    alignSelf,
+    marginTop,
+    marginBottom,
     ...props
 }) {
     const textStyles = [
@@ -81,6 +90,9 @@ export default function StyledText({
         weight500 && styles.weight500,
         weight700 && styles.weight700,
         alignItem && styles.alignItem,
+        alignSelf && styles.alignSelf,
+        marginTop && styles.marginTop,
+        marginBottom && styles.marginBottom,
     ];
     return (
         <Text style={textStyles} {...props}>
