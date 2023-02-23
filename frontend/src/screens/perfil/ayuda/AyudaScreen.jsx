@@ -3,48 +3,37 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import StyledView from '../../../styledComponents/StyledView'
+import { EcoBtnNavigate } from '../../../components/EcoBtnNavigate'
 
 export const AyudaScreen = () => {
 	const navigator = useNavigation()
 
 	return (
-		<View>
-			<Text>AyudaScreen</Text>
-
-			<TouchableOpacity>
-				<Button
-					title='Quiero comprar, como hago?'
-					onPress={() => navigator.navigate('QuieroComprarScreen')}
+		<StyledView dark height100>
+			<View style={{ marginTop: 50 }}>
+				<EcoBtnNavigate
+					text='Quiero comprar ¿Cómo hago?'
+					navigate={'QuieroComprarScreen'}
 				/>
-			</TouchableOpacity>
-
-			<TouchableOpacity>
-				<Button
-					title='Quiero Vender, como Publico?'
-					onPress={() => navigator.navigate('QuieroVenderScreen')}
+				<EcoBtnNavigate
+					text='Quiero vender, ¿Cómo publico?'
+					navigate={'QuieroVenderScreen'}
 				/>
-			</TouchableOpacity>
-
-			<TouchableOpacity>
-				<Button
-					title='Devoluciones'
-					onPress={() => navigator.navigate('DevolucionesScreen')}
+				<EcoBtnNavigate
+					text='Devoluciones'
+					navigate={'DevolucionesScreen'}
 				/>
-			</TouchableOpacity>
-
-			<TouchableOpacity>
-				<Button
-					title='Donaciones'
-					onPress={() => navigator.navigate('DonacionesScreen')}
+				<EcoBtnNavigate
+					text='Donaciones'
+					navigate={'DonacionesScreen'}
 				/>
-			</TouchableOpacity>
-
-			<TouchableOpacity>
-				<Button
-					title='Baja de cuenta'
-					onPress={() => navigator.navigate('BajarCuentaScreen')}
+				<EcoBtnNavigate
+					text='Baja de cuenta'
+					navigate={'BajarCuentaScreen'}
 				/>
-			</TouchableOpacity>
-		</View>
+			</View>
+			<StyledView container center></StyledView>
+		</StyledView>
 	)
 }
