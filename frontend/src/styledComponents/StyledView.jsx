@@ -76,9 +76,5 @@ export default function StyledView({
         spaceAround && styles.spaceAround,
         spaceBetween && styles.spaceBetween,
     ];
-    return (
-        <View style={viewStyles} {...props}>
-            {children}
-        </View>
-    );
+    return <View style={viewStyles} {...props}>{children}</View>;
 }
