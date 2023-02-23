@@ -68,6 +68,21 @@ const styles = StyleSheet.create({
 	size50: {
 		fontSize: 50,
 	},
+    marginTop:{
+        marginTop: 15 ,
+    },
+    marginBottom: {
+        marginBottom: 15
+    },alignSelf:{
+        alignSelf: 'center'
+    },
+    alignStretch: {
+        alignSelf: 'stretch'
+    },
+    alignItem: {
+        display: 'flex',
+        alignItems: 'flex-start'
+    },
 })
 
 export default function StyledText({
@@ -90,6 +105,10 @@ export default function StyledText({
 	weight700,
 	line24,
 	line32,
+    alignItem,
+    alignSelf,
+    marginBottom,
+    marginTop,
 	...props
 }) {
 	const textStyles = [
@@ -112,6 +131,10 @@ export default function StyledText({
 		weight700 && styles.weight700,
 		line24 && styles.line24,
 		line32 && styles.line32,
+        alignItem && styles.alignItem,
+    alignSelf && styles.alignSelf,
+    marginBottom && styles.marginBottom,
+    marginTop && styles.marginTop,
 	]
 	return (
 		<Text style={textStyles} {...props}>
