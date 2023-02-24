@@ -135,7 +135,7 @@ export default function StyledText({
         marginBottom && styles.marginBottom,
     ];
     return (
-        <Text style={textStyles} {...props}>
+        <Text style={[textStyles, {...props}]}>
             {children}
         </Text>
     );
