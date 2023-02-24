@@ -4,6 +4,7 @@ import { Image, ScrollView, TouchableOpacity } from 'react-native';
 import StyledText from '../styledComponents/StyledText';
 import StyledView from '../styledComponents/StyledView';
 import StyledTextInput from '../styledComponents/StyledTextInput';
+import { ProductCard } from '../components/ProductCard';
 import Search from '../../assets/icons/Search.jsx';
 
 export const HomeScreen = () => {
@@ -92,23 +93,23 @@ export const HomeScreen = () => {
                     </StyledView>
                     <StyledView row spaceBetween marginTop={15}>
                         <StyledText weight500>Publicados recientemente</StyledText>
-                        <StyledText weight500>Ver más</StyledText>
+                        <TouchableOpacity onPress={() => navigator.navigate('Categorías')}>
+                            <StyledText weight500>Ver más</StyledText>
+                        </TouchableOpacity>
                     </StyledView>
                     <StyledView row marginTop={20}>
-                        <StyledView borderRadius12 width100 height100>
-                            <Image
-                                source={{ uri: 'https://picsum.photos/id/1/162/192' }}
-                                style={{ width: '48%', height: 192, borderRadius: 12 }}
-                            />
-                            <StyledView paddingVertical={25} paddingHorizontal={12}>
-                                <StyledText size12 left>
-                                    Zapatillas
-                                </StyledText>
-                                <StyledText size16 left weight700 marginTop={1}>
-                                    $ 10000
-                                </StyledText>
-                            </StyledView>
-                        </StyledView>
+                        <ProductCard
+                            img={'https://picsum.photos/id/1/162/192'}
+                            title={'Zapatilla'}
+                            price={'10000'}
+                            margin={10}
+
+                        />
+                        <ProductCard
+                            img={'https://picsum.photos/id/1/162/192'}
+                            title={'Remera'}
+                            price={'8000'}
+                        />
                     </StyledView>
                 </StyledView>
             </ScrollView>
