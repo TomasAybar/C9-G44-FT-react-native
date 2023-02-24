@@ -1,7 +1,9 @@
-import StyledText from "../../styledComponents/StyledText"
-
-export const Producto = ()=>{
+import StyledText from '../../styledComponents/StyledText';
+import StyledView from '../../styledComponents/StyledView';
+export const Producto = () => {
     return (
-        <StyledText>test</StyledText>
-    )
-}
+        <StyledView dark>
+            <StyledText color={'red'}>test</StyledText>
+        </StyledView>
+    );
+};

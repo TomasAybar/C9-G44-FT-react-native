@@ -37,10 +37,10 @@ export const ProductCard = ({ title, price, img, margin }) => {
                 </StyledView>
                 <Image source={{ uri: img }} style={{ width: 162, height: 192, borderRadius: 12 }} />
                 <StyledView paddingVertical={25} paddingHorizontal={12}>
-                    <StyledText size12 left>
+                    <StyledText size12 left marginBottom={15}>
                         {title}
                     </StyledText>
-                    <StyledText size16 left weight700 marginTop={1}>
+                    <StyledText size16 left weight700 >
                         $ {price}
                     </StyledText>
                 </StyledView>
