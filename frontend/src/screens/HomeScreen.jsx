@@ -33,7 +33,7 @@ export const HomeScreen = () => {
                     </StyledView>
                     <StyledView row spaceBetween marginTop={30}>
                         <StyledText weight500>Categorías</StyledText>
-                        <TouchableOpacity onPress={() => navigator.navigate('CategoriasScreen')}>
+                        <TouchableOpacity onPress={() => navigator.navigate('Categorías')}>
                             <StyledText weight500>Ver más</StyledText>
                         </TouchableOpacity>
                     </StyledView>

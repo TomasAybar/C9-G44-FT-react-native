@@ -32,14 +32,38 @@ const styles = StyleSheet.create({
             color: '#000000',
         },
     },
+    miniButton: {
+        button: {
+            width: '20%',
+            height: 35,
+            borderRadius: 26,
+            borderWidth: 1,
+            borderColor: '#D6F066',
+            marginHorizontal: 10,
+        },
+        text: {
+            color: '#D6F066',
+            fontSize: 12,
+        },
+    },
 });
 
-export default function SyledButton({ onPress, title, black, white }) {
-    const button = [styles.buttonGeneral, white && styles.white.button, black && styles.black.button];
-    const text = [styles.textGeneral, white && styles.white.text, black && styles.black.text];
+export default function SyledButton({ onPress, title, black, white, miniButton, ...props }) {
+    const button = [
+        styles.buttonGeneral,
+        white && styles.white.button,
+        black && styles.black.button,
+        miniButton && styles.miniButton.button,
+    ];
+    const text = [
+        styles.textGeneral,
+        white && styles.white.text,
+        black && styles.black.text,
+        miniButton && styles.miniButton.text,
+    ];
 
     return (
-        <TouchableOpacity style={button} onPress={onPress}>
+        <TouchableOpacity style={button} onPress={onPress} {...props}>
             <Text style={text}>{title}</Text>
         </TouchableOpacity>
     );
