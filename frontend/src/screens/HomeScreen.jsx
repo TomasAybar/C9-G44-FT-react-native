@@ -39,56 +39,43 @@ export const HomeScreen = () => {
                         </TouchableOpacity>
                     </StyledView>
                     <StyledView row spaceBetween marginTop={15}>
-                        <StyledView
-                            grey
-                            radius12
-                            row
-                            spaceAround
-                            width={'48%'}
-                            marginRight={10}
-                            padding={7}
-                        >
-                            <StyledText size16 weight500>
-                                Remera
-                            </StyledText>
-                            <Image
-                                source={{ uri: 'https://picsum.photos/id/1/55/70' }}
-                                style={{ width: 50, height: 70 }}
-                            />
+                        <StyledView width={'48%'} marginRight={10}>
+                            <TouchableOpacity onPress={()=> navigator.navigate('Categorías')}>
+                                <StyledView grey radius12 row spaceAround padding={7}>
+                                    <StyledText size16 weight500>
+                                        Remera
+                                    </StyledText>
+                                    <Image
+                                        source={{ uri: 'https://picsum.photos/id/1/55/70' }}
+                                        style={{ width: 50, height: 70 }}
+                                    />
+                                </StyledView>
+                            </TouchableOpacity>
                         </StyledView>
-                        <StyledView
-                            grey
-                            radius12
-                            row
-                            spaceAround
-                            width={'48%'}
-                            marginRight={10}
-                            padding={7}
-                        >
-                            <StyledText size16 weight500>
-                                Remera
-                            </StyledText>
-                            <Image
-                                source={{ uri: 'https://picsum.photos/id/1/55/70' }}
-                                style={{ width: 50, height: 70 }}
-                            />
-                        </StyledView>
-                        <StyledView
-                            grey
-                            radius12
-                            row
-                            spaceAround
-                            width={'48%'}
-                            marginRight={10}
-                            padding={7}
-                        >
-                            <StyledText size16 weight500>
-                                Remera
-                            </StyledText>
-                            <Image
-                                source={{ uri: 'https://picsum.photos/id/1/55/70' }}
-                                style={{ width: 50, height: 70 }}
-                            />
+                        <StyledView width={'48%'} marginRight={10}>
+                            <TouchableOpacity onPress={()=> navigator.navigate('Categorías')}>
+                                <StyledView grey radius12 row spaceAround padding={7}>
+                                    <StyledText size16 weight500>
+                                        Remera
+                                    </StyledText>
+                                    <Image
+                                        source={{ uri: 'https://picsum.photos/id/1/55/70' }}
+                                        style={{ width: 50, height: 70 }}
+                                    />
+                                </StyledView>
+                            </TouchableOpacity>
+                        </StyledView><StyledView width={'48%'} marginRight={10}>
+                            <TouchableOpacity onPress={()=> navigator.navigate('Categorías')}>
+                                <StyledView grey radius12 row spaceAround padding={7}>
+                                    <StyledText size16 weight500>
+                                        Remera
+                                    </StyledText>
+                                    <Image
+                                        source={{ uri: 'https://picsum.photos/id/1/55/70' }}
+                                        style={{ width: 50, height: 70 }}
+                                    />
+                                </StyledView>
+                            </TouchableOpacity>
                         </StyledView>
                     </StyledView>
                     <StyledView row spaceBetween marginTop={15}>
