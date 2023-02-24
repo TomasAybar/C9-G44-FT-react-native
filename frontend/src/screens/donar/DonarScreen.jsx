@@ -9,7 +9,7 @@ import { MaginPenDonar } from '../../components/icons/MaginPenDonar'
 import { CalendarTickDonar } from '../../components/icons/CalendarTickDonar'
 
 export const DonarScreen = () => {
-	const { height } = useWindowDimensions()
+	const { height, width } = useWindowDimensions()
 
 	const navigator = useNavigation()
 
@@ -37,6 +37,7 @@ export const DonarScreen = () => {
 					style={{
 						...style.contenedorCard,
 						height: height * 0.5,
+						maxWidth: width * 1,
 					}}
 				>
 					<View style={style.card}>
@@ -74,9 +75,10 @@ export const DonarScreen = () => {
 							style={{
 								...style.containerText,
 								marginStart: 15,
+								overflow: 'hidden',
 							}}
 						>
-							<StyledText size14 line24 left>
+							<StyledText size14 line24 left overflow={'hidden'}>
 								Inidica fecha, horario y direccion para
 							</StyledText>
 							<StyledText size14 line24 left>
@@ -107,13 +109,13 @@ const style = StyleSheet.create({
 
 	contenedorCard: {
 		justifyContent: 'space-evenly',
+		alignItems: 'center',
 		marginBottom: 20,
-		marginStart: 15,
 	},
 	card: {
-		flexDirection: 'row',
-		alignItems: 'center',
 		justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
 	},
 	containerText: {
 		marginStart: 20,

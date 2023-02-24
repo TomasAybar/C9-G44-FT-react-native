@@ -19,10 +19,10 @@ export const TabNavigation = () => {
                 tabBarStyle: {
                     height: 55,
                     position: 'absolute',
-                    bottom: 8,
+                    bottom: 11,
                     borderRadius: 24,
                     marginHorizontal: 10,
-                    backgroundColor: theme.colors.greyPrimary
+                    backgroundColor: theme.colors.greyPrimary,
                 },
                 tabBarLabelStyle: styles.tabBarLabel,
                 tabBarIconStyle: {

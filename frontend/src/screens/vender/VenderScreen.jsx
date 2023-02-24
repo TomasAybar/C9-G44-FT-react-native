@@ -17,7 +17,7 @@ import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
 
 export const VenderScreen = () => {
-	const { height } = useWindowDimensions()
+	const { width, height } = useWindowDimensions()
 	const navigator = useNavigation()
 
 	return (
@@ -41,6 +41,7 @@ export const VenderScreen = () => {
 					style={{
 						...style.contenedorCard,
 						height: height * 0.5,
+						maxWidth: width * 1,
 					}}
 				>
 					<View style={style.card}>
@@ -71,10 +72,19 @@ export const VenderScreen = () => {
 						</View>
 					</View>
 
-					<View style={style.card}>
+					<View
+						style={{
+							...style.card,
+						}}
+					>
 						<Dollar />
 
-						<View style={style.containerText}>
+						<View
+							style={{
+								...style.containerText,
+								marginEnd: 50,
+							}}
+						>
 							<StyledText size14 line24 left>
 								Ponele precio y listo, ¡publicalo!
 							</StyledText>
@@ -99,13 +109,14 @@ const style = StyleSheet.create({
 	},
 	contenedorCard: {
 		justifyContent: 'space-evenly',
+		alignItems: 'center',
 		marginBottom: 20,
-		marginStart: 15,
+		// marginStart: 15,
 	},
 	card: {
-		flexDirection: 'row',
-		alignItems: 'center',
 		justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
 	},
 	containerText: {
 		marginStart: 20,
