@@ -2,14 +2,14 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TabNavigation } from './TabNavigation';
 import { FotoProductoScreen } from '../screens/vender/FotoProductoScreen';
-import { CategoriasScreen } from '../screens/vender/CategoriasScreen';
-import { CategoriaScreen } from '../screens/vender/CategoriaScreen';
+import { CategoriasScreen } from '../screens/comprar/CategoriasScreen';
+import { CategoriaScreen } from '../screens/comprar/CategoriaScreen';
 import { TipoProductoScreen } from '../screens/vender/TipoProductoScreen';
 import { DescripcionScreen } from '../screens/vender/DescripcionScreen';
 import { MetodoPagoScreen } from '../screens/vender/MetodoPagoScreen';
 import { CheckeoFinalScreen } from '../screens/vender/CheckeoFinalScreen';
 import { ArticuloPublicado as ArticuloPublicadoVender } from '../screens/vender/ArticuloPublicado';
-import {Producto } from '../screens/vender/Producto';
+import {Producto } from '../screens/comprar/Producto';
 import { DetalleDonarScreen } from '../screens/donar/DetalleDonarScreen';
 import { InformacionScreen } from '../screens/donar/InformacionScreen';
 import { ArticuloPublicado as ArticuloPublicadoDonar } from '../screens/donar/ArticuloPublicado';
@@ -41,16 +41,18 @@ export const StackNavigation = () => {
                 options={{ headerShown: false }}
             />
 
-            {/* screens vender */}
-            <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} />
+            {/* screens comprar */}
             <Stack.Screen name="Categorías" component={CategoriasScreen} />
             <Stack.Screen name="Categoria" component={CategoriaScreen} />
+            <Stack.Screen name="Detalle del producto" component={Producto} />
+
+            {/* screens vender */}
+            <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} />
             <Stack.Screen name="TipoProductoScreen" component={TipoProductoScreen} />
             <Stack.Screen name="DescripcionScreen" component={DescripcionScreen} />
             <Stack.Screen name="MetodoPagoScreen" component={MetodoPagoScreen} />
             <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} />
             <Stack.Screen name="ArticuloPublicadoVender" component={ArticuloPublicadoVender} />
-            <Stack.Screen name="Producto" component={Producto} />
 
             {/* screens donar */}
             <Stack.Screen name="DetalleDonarScreen" component={DetalleDonarScreen} />
