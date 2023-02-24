@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { HomeScreen } from '../screens/HomeScreen'
-import { ComprarScreen } from '../screens/comprar/ComprarScreen'
+import { CategoriaScreen } from '../screens/comprar/CategoriaScreen'
 import { VenderScreen } from '../screens/vender/VenderScreen'
 import { DonarScreen } from '../screens/donar/DonarScreen'
 import { PerfilScreen } from '../screens/perfil/PerfilScreen'
@@ -62,7 +62,7 @@ export const TabNavigation = () => {
 
             <Tab.Screen
                 name='ComprarScreen'
-                component={ComprarScreen}
+                component={CategoriaScreen}
                 options={{
                     headerTitle: 'Comprar',
                     tabBarIcon: ({ color, size, focused }) => (
