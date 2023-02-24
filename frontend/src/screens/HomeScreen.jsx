@@ -103,7 +103,6 @@ export const HomeScreen = () => {
                             title={'Zapatilla'}
                             price={'10000'}
                             margin={10}
-
                         />
                         <ProductCard
                             img={'https://picsum.photos/id/1/162/192'}
