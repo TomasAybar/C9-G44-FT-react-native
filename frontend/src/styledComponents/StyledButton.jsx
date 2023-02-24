@@ -63,7 +63,7 @@ export default function SyledButton({ onPress, title, black, white, miniButton, 
     ];
 
     return (
-        <TouchableOpacity style={button} onPress={onPress} {...props}>
+        <TouchableOpacity style={[button, {...props}]} onPress={onPress} >
             <Text style={text}>{title}</Text>
         </TouchableOpacity>
     );
