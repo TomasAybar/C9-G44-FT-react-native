@@ -108,11 +108,12 @@ const style = StyleSheet.create({
 	contenedorCard: {
 		justifyContent: 'space-evenly',
 		marginBottom: 20,
+		marginStart: 15,
 	},
 	card: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 	},
 	containerText: {
 		marginStart: 20,
