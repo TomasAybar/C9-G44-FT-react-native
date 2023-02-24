@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Button, Text, View } from 'react-native'
-import { style } from '../themes/appTheme'
+import { style } from '../../themes/appTheme'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export const ComprarScreen = () => {

@@ -70,7 +70,7 @@ export const FotoProductoScreen = () => {
 					<StyledButton
 						white
 						title={'Siguiente'}
-						onPress={() => navigator.navigate('CategoriaScreen')}
+						onPress={() => navigator.navigate('CategoriaScreenVender')}
 					></StyledButton>
 				</View>
 			</StyledView>
