@@ -13,7 +13,7 @@ export const ProductCard = ({ title, price, img, margin }) => {
 
     return (
         <StyledView borderRadius12 width={'48%'} position={'relative'} marginHorizontal={margin}>
-            <TouchableOpacity onPress={()=> navigator.navigate('Producto')}>
+            <TouchableOpacity onPress={()=> navigator.navigate('Detalle del producto')}>
                 <StyledView
                     radius12
                     grey
