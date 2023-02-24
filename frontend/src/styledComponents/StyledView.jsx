@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.greyPrimary,
 	},
 	container: {
-		marginHorizontal: 25,
+		// marginHorizontal: 25,
+		paddingHorizontal: 25,
 	},
 	radius12: {
 		borderRadius: 12,

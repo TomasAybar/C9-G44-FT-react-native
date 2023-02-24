@@ -9,7 +9,7 @@ import { DescripcionScreen } from '../screens/vender/DescripcionScreen';
 import { MetodoPagoScreen } from '../screens/vender/MetodoPagoScreen';
 import { CheckeoFinalScreen } from '../screens/vender/CheckeoFinalScreen';
 import { ArticuloPublicado as ArticuloPublicadoVender } from '../screens/vender/ArticuloPublicado';
-import {Producto } from '../screens/vender/Producto';
+import { Producto } from '../screens/vender/Producto';
 import { DetalleDonarScreen } from '../screens/donar/DetalleDonarScreen';
 import { InformacionScreen } from '../screens/donar/InformacionScreen';
 import { ArticuloPublicado as ArticuloPublicadoDonar } from '../screens/donar/ArticuloPublicado';
@@ -42,7 +42,7 @@ export const StackNavigation = () => {
             />
 
             {/* screens vender */}
-            <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} />
+            <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} options={{ headerTitle: 'Foto del producto' }} />
             <Stack.Screen name="Categorías" component={CategoriasScreen} />
             <Stack.Screen name="Categoria" component={CategoriaScreen} />
             <Stack.Screen name="TipoProductoScreen" component={TipoProductoScreen} />
