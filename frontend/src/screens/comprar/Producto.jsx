@@ -21,8 +21,8 @@ export const Producto = () => {
                         </StyledView>
                     </StyledView>
                     <StyledView>
-                        <></>
-                        <StyledButton></StyledButton>
+                        
+                        <StyledButton black title={'hola'} width={'30%'}></StyledButton>
                     </StyledView>
                 </StyledView>
             </StyledView>
