@@ -5,9 +5,7 @@ import StyledView from '../../styledComponents/StyledView';
 import { Image, ScrollView } from 'react-native';
 import StyledTextInput from '../../styledComponents/StyledTextInput';
 import { ProductCard } from '../../components/ProductCard';
-import Search from '../../../assets/icons/Search';
-import StyledText from '../../styledComponents/StyledText';
-import Star from '../../components/icons/Star';
+import Search from '../../components/icons/Search';
 
 export const CategoriaScreen = () => {
     const navigator = useNavigation();

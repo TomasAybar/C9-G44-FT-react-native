@@ -5,7 +5,7 @@ import StyledText from '../styledComponents/StyledText';
 import StyledView from '../styledComponents/StyledView';
 import StyledTextInput from '../styledComponents/StyledTextInput';
 import { ProductCard } from '../components/ProductCard';
-import Search from '../../assets/icons/Search.jsx';
+import Search from '../components/icons/Search.jsx';
 
 export const HomeScreen = () => {
     const navigator = useNavigation();
