@@ -15,6 +15,11 @@ import { InformacionScreen } from '../screens/donar/InformacionScreen';
 import { ArticuloPublicado as ArticuloPublicadoDonar } from '../screens/donar/ArticuloPublicado';
 import { CategoriaScreen as CategoriaScreenVender } from '../screens/vender/CategoriaScreen';
 import { Carrito } from '../screens/comprar/Carrito';
+import { MetodoDeEntrega } from '../screens/comprar/MetodoDeEntrega';
+import { MetodoDePago } from '../screens/comprar/MetodoDePago';
+import { SeleccionEfectivo } from '../screens/comprar/SeleccionEfectivo';
+import { SeleccionTarjeta } from '../screens/comprar/SeleccionTarjeta';
+import { ProcesamientoPago } from '../screens/comprar/ProcesamientoPago';
 import { ComprasScreen } from '../screens/perfil/compras/ComprasScreen';
 import { FavoritosScreen } from '../screens/perfil/favoritos/FavoritosScreen';
 import { MensajesScreen } from '../screens/perfil/mensajes/MensajesScreen';
@@ -47,6 +52,13 @@ export const StackNavigation = () => {
             <Stack.Screen name="Categoria" component={CategoriaScreen} />
             <Stack.Screen name="Detalle del producto" component={Producto} />
             <Stack.Screen name="Carrito de compras" component={Carrito} />
+            <Stack.Screen name="Selecciona un método de entrega" component={MetodoDeEntrega} />
+            <Stack.Screen name="Selecciona un método de pago" component={MetodoDePago} />
+            <Stack.Screen name="Efectivo" component={SeleccionEfectivo} />
+            <Stack.Screen name="Tarjeta" component={SeleccionTarjeta} />
+            <Stack.Screen name="Procesamiento de pago" component={ProcesamientoPago} />
+            
+
 
             {/* screens vender */}
             <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} options={{ headerTitle: 'Foto del producto' }} />
