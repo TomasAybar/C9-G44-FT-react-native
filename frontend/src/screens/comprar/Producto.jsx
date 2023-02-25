@@ -13,8 +13,8 @@ export const Producto = () => {
     const navigator = useNavigation();
 
     return (
-        <StyledView dark>
-            <StyledView container height100>
+        <StyledView dark height100>
+            <StyledView container>
                 <StyledView>
                     <StyledView marginTop={10}>
                         <Image
