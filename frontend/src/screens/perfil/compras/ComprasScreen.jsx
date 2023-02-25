@@ -13,15 +13,10 @@ import { SettingsCompras } from '../../../components/icons/SettingsCompras'
 import StyledText from '../../../styledComponents/StyledText'
 import StyledView from '../../../styledComponents/StyledView'
 
-export const ComprasScreen = () => {
+const ComprasRealizadas = () => {
 	const { width, height } = useWindowDimensions()
 	return (
-		<StyledView dark container height100>
-			<View style={styles.containerBtn}>
-				<EcoBtnRender text='Compras realizadas' active />
-				<EcoBtnRender text='Compras canceladas' active={false} />
-			</View>
-
+		<>
 			<Pressable
 				style={{ alignItems: 'flex-end' }}
 				onPress={() => alert('Recientes')}
@@ -52,6 +47,29 @@ export const ComprasScreen = () => {
 					price={'8.000'}
 				/>
 			</View>
+		</>
+	)
+}
+
+const ComprasCanceladas = () => {
+	return (
+		<View>
+			<StyledText size20 fontStyle={'italic'}>
+				No has cancelado ninguna compra.
+			</StyledText>
+		</View>
+	)
+}
+
+export const ComprasScreen = () => {
+	return (
+		<StyledView dark container height100>
+			<EcoBtnRender
+				text1='Compras realizadas'
+				text2='Compras canceladas'
+				render1={<ComprasRealizadas />}
+				render2={<ComprasCanceladas />}
+			/>
 		</StyledView>
 	)
 }
@@ -74,13 +92,4 @@ const styles = StyleSheet.create({
 		width: '100%',
 		marginTop: 30,
 	},
-	// card: {
-	// 	flexDirection: 'row',
-	// 	alignItems: 'center',
-	// 	justifyContent: 'flex-start',
-	// },
-	// containerText: {
-	// 	marginStart: 30,
-	// 	alignItems: 'flex-start',
-	// },
 })
