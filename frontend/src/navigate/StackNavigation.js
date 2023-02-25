@@ -65,7 +65,7 @@ export const StackNavigation = () => {
 
             {/* screens perfil */}
             <Stack.Screen name="ComprasScreen" component={ComprasScreen} options={{ headerTitle: 'Compras' }} />
-            <Stack.Screen name="FavoritosScreen" component={FavoritosScreen} />
+            <Stack.Screen name="FavoritosScreen" component={FavoritosScreen} options={{ headerTitle: 'Favoritos' }} />
             <Stack.Screen name="MensajesScreen" component={MensajesScreen} options={{ headerTitle: 'Mensajes' }} />
 
             <Stack.Screen
