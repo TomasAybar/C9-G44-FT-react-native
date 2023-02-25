@@ -15,6 +15,7 @@ export const EcoBtnRender = ({
 	w2 = 0.4,
 	render1 = <></>,
 	render2 = <></>,
+	fs = 16,
 }) => {
 	const { width, height } = useWindowDimensions()
 
@@ -37,6 +38,7 @@ export const EcoBtnRender = ({
 						style={[
 							style.text,
 							btnActive ? style.textActive : style.textInactive,
+							{ fontSize: fs },
 						]}
 					>
 						{text1}
@@ -57,6 +59,7 @@ export const EcoBtnRender = ({
 						style={[
 							style.text,
 							btnActive ? style.textInactive : style.textActive,
+							{ fontSize: fs },
 						]}
 					>
 						{text2}
@@ -87,7 +90,7 @@ const style = StyleSheet.create({
 	},
 	text: {
 		textAlign: 'center',
-		fontSize: 12,
+		// fontSize: fs,
 		lineHeight: 24,
 	},
 	textActive: {
@@ -102,5 +105,6 @@ const style = StyleSheet.create({
 		flexDirection: 'row',
 		marginBottom: 40,
 		marginTop: 15,
+		width: '100%',
 	},
 })

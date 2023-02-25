@@ -64,7 +64,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="ArticuloPublicadoDonar" component={ArticuloPublicadoDonar} />
 
             {/* screens perfil */}
-            <Stack.Screen name="ComprasScreen" component={ComprasScreen} />
+            <Stack.Screen name="ComprasScreen" component={ComprasScreen} options={{ headerTitle: 'Compras' }} />
             <Stack.Screen name="FavoritosScreen" component={FavoritosScreen} />
             <Stack.Screen name="MensajesScreen" component={MensajesScreen} options={{ headerTitle: 'Mensajes' }} />
 
@@ -74,7 +74,7 @@ export const StackNavigation = () => {
                 options={{ title: 'Ventas' }}
             />
             <Stack.Screen name="GananciasScreen" component={GananciasScreen} />
-            <Stack.Screen name="PublicacionesScreen" component={PublicacionesScreen} />
+            <Stack.Screen name="PublicacionesScreen" component={PublicacionesScreen} options={{ headerTitle: 'Publicaciones' }} />
             <Stack.Screen name="MediosCobrosScreen" component={MediosCobrosScreen} />
 
             <Stack.Screen name="AyudaScreen" component={AyudaScreen} options={{ title: 'Perfil' }} />
