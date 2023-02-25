@@ -84,17 +84,18 @@ export const HomeScreen = () => {
                             <StyledText weight500>Ver más</StyledText>
                         </TouchableOpacity>
                     </StyledView>
-                    <StyledView row marginTop={20}>
+                    <StyledView row spaceBetween marginTop={20}>
                         <ProductCard
                             img={'https://picsum.photos/id/1/162/192'}
                             title={'Zapatilla'}
                             price={'10000'}
-                            margin={10}
+                            flex={1}
                         />
                         <ProductCard
                             img={'https://picsum.photos/id/1/162/192'}
                             title={'Remera'}
                             price={'8000'}
+                            flex={1}
                         />
                     </StyledView>
                 </StyledView>
