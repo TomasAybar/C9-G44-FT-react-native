@@ -9,7 +9,7 @@ import { DescripcionScreen } from '../screens/vender/DescripcionScreen';
 import { MetodoPagoScreen } from '../screens/vender/MetodoPagoScreen';
 import { CheckeoFinalScreen } from '../screens/vender/CheckeoFinalScreen';
 import { ArticuloPublicado as ArticuloPublicadoVender } from '../screens/vender/ArticuloPublicado';
-import {Producto } from '../screens/comprar/Producto';
+import { Producto } from '../screens/comprar/Producto';
 import { DetalleDonarScreen } from '../screens/donar/DetalleDonarScreen';
 import { InformacionScreen } from '../screens/donar/InformacionScreen';
 import { ArticuloPublicado as ArticuloPublicadoDonar } from '../screens/donar/ArticuloPublicado';
@@ -66,7 +66,7 @@ export const StackNavigation = () => {
             {/* screens perfil */}
             <Stack.Screen name="ComprasScreen" component={ComprasScreen} />
             <Stack.Screen name="FavoritosScreen" component={FavoritosScreen} />
-            <Stack.Screen name="MensajesScreen" component={MensajesScreen} />
+            <Stack.Screen name="MensajesScreen" component={MensajesScreen} options={{ headerTitle: 'Mensajes' }} />
 
             <Stack.Screen
                 name="VenderScreenPerfil"
