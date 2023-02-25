@@ -14,6 +14,7 @@ import { DetalleDonarScreen } from '../screens/donar/DetalleDonarScreen';
 import { InformacionScreen } from '../screens/donar/InformacionScreen';
 import { ArticuloPublicado as ArticuloPublicadoDonar } from '../screens/donar/ArticuloPublicado';
 import { CategoriaScreen as CategoriaScreenVender } from '../screens/vender/CategoriaScreen';
+import { Carrito } from '../screens/comprar/Carrito';
 import { ComprasScreen } from '../screens/perfil/compras/ComprasScreen';
 import { FavoritosScreen } from '../screens/perfil/favoritos/FavoritosScreen';
 import { MensajesScreen } from '../screens/perfil/mensajes/MensajesScreen';
@@ -45,6 +46,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="Categorías" component={CategoriasScreen} />
             <Stack.Screen name="Categoria" component={CategoriaScreen} />
             <Stack.Screen name="Detalle del producto" component={Producto} />
+            <Stack.Screen name="Carrito de compras" component={Carrito} />
 
             {/* screens vender */}
             <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} options={{ headerTitle: 'Foto del producto' }} />
