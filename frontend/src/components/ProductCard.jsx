@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import StyledText from '../styledComponents/StyledText';
 import StyledView from '../styledComponents/StyledView';
 import Star from '../components/icons/Star';
 import theme from '../themes/theme';
-import { useNavigation } from '@react-navigation/native';
 
 export const ProductCard = ({ title, price, img, margin }) => {
     const [favorite, setFavorite] = useState(false);
