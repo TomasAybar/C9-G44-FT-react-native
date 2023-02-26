@@ -10,6 +10,8 @@ import Search from '../components/icons/Search.jsx';
 export const HomeScreen = () => {
     const navigator = useNavigation();
 
+    {/* Falta lograr un scroll horizontal en las categorias y en los productos si se muestran mas de 2 */} 
+
     return (
         <StyledView dark height100>
             <ScrollView>
@@ -40,7 +42,7 @@ export const HomeScreen = () => {
                     </StyledView>
                     <StyledView row spaceBetween marginTop={15}>
                         <StyledView width={'48%'} marginRight={10}>
-                            <TouchableOpacity onPress={()=> navigator.navigate('Categorías')}>
+                            <TouchableOpacity onPress={() => navigator.navigate('Categorías')}>
                                 <StyledView grey radius12 row spaceAround padding={7}>
                                     <StyledText size16 weight500>
                                         Remera
@@ -53,7 +55,7 @@ export const HomeScreen = () => {
                             </TouchableOpacity>
                         </StyledView>
                         <StyledView width={'48%'} marginRight={10}>
-                            <TouchableOpacity onPress={()=> navigator.navigate('Categorías')}>
+                            <TouchableOpacity onPress={() => navigator.navigate('Categorías')}>
                                 <StyledView grey radius12 row spaceAround padding={7}>
                                     <StyledText size16 weight500>
                                         Remera
@@ -64,8 +66,9 @@ export const HomeScreen = () => {
                                     />
                                 </StyledView>
                             </TouchableOpacity>
-                        </StyledView><StyledView width={'48%'} marginRight={10}>
-                            <TouchableOpacity onPress={()=> navigator.navigate('Categorías')}>
+                        </StyledView>
+                        <StyledView width={'48%'} marginRight={10}>
+                            <TouchableOpacity onPress={() => navigator.navigate('Categorías')}>
                                 <StyledView grey radius12 row spaceAround padding={7}>
                                     <StyledText size16 weight500>
                                         Remera

@@ -40,6 +40,7 @@ export const Carrito = () => {
                         <BuySteps step={0} />
                         <StyledView flex={1} paddingVertical={25}>
                             <ScrollView>
+                                {/* Dejo el carrito con 4 productos para que se vea el scroll */}
                                 <ItemCarrito
                                     title={'Jean Zara'}
                                     price={5000}
