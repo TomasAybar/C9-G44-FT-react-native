@@ -1,11 +1,9 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import StyledText from '../../styledComponents/StyledText';
 import StyledView from '../../styledComponents/StyledView';
-import StyledButton from '../../styledComponents/StyledButton';
 import { BuySteps } from '../../components/BuySteps';
-import { ItemCarrito } from '../../components/ItemCarrito';
 import { EcoBtnNavigate } from '../../components/EcoBtnNavigate';
 import { MaterialIcons } from '@expo/vector-icons';
 import theme from '../../themes/theme';
