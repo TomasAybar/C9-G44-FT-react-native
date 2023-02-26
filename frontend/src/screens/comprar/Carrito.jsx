@@ -62,6 +62,20 @@ export const Carrito = () => {
                                 />
                             </ScrollView>
                         </StyledView>
+                        <StyledView marginBottom={25}>
+                            <StyledView
+                                borderWidth={0.7}
+                                borderColor={'white'}
+                                height={1}
+                                backgroundColor={'white'}
+                                opacity={0.31}
+                                marginBottom={10}
+                            ></StyledView>
+                            <StyledView row spaceBetween>
+                                <StyledText size18 weight500>Total</StyledText>
+                                <StyledText size18 weight500>$5000</StyledText>
+                            </StyledView>
+                        </StyledView>
                         <StyledView height={95} spaceBetween marginBottom={20}>
                             <StyledButton
                                 white

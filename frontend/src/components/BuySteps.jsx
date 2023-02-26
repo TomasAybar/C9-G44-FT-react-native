@@ -23,7 +23,7 @@ export const BuySteps = ({ step }) => {
     return (
         <StyledView marginTop={35} alignItems={'center'}>
             <StyledView
-                borderWidth={1}
+                borderWidth={0.4}
                 borderColor={'white'}
                 height={1}
                 width={250}
