@@ -1,10 +1,13 @@
 import React from 'react';
 import StyledText from '../../styledComponents/StyledText';
 import StyledView from '../../styledComponents/StyledView';
+import StyledButton from '../../styledComponents/StyledButton';
 import { BuySteps } from '../../components/BuySteps';
 import { EcoBtnNavigate } from '../../components/EcoBtnNavigate';
+import { useNavigation } from '@react-navigation/native';
 
 export const SeleccionTarjeta = () => {
+    const navigator = useNavigation();
 
     return (
         <StyledView dark height100>
@@ -18,7 +21,7 @@ export const SeleccionTarjeta = () => {
                         styleText={{ fontSize: 12 }}
                     />
                 </StyledView>
-                <StyledView marginBottom={80}>
+                <StyledView marginBottom={35}>
                     <StyledView
                         borderWidth={0.7}
                         borderColor={'white'}
@@ -36,6 +39,12 @@ export const SeleccionTarjeta = () => {
                         </StyledText>
                     </StyledView>
                 </StyledView>
+                <StyledButton
+                    white
+                    title={'Ir a comprar'}
+                    onPress={() => navigator.navigate('Procesamiento de pago')}
+                    marginBottom={30}
+                />
             </StyledView>
         </StyledView>
     );
