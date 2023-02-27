@@ -35,6 +35,7 @@ import { VenderScreen } from '../screens/perfil/vender/VenderScreen.jsx';
 import { GananciasScreen } from '../screens/perfil/vender/GananciasScreen';
 import { PublicacionesScreen } from '../screens/perfil/vender/PublicacionesScreen';
 import { MediosCobrosScreen } from '../screens/perfil/vender/MediosCobrosScreen';
+import { CompletarMetodoCobroScreen } from '../screens/perfil/completar/CompletarMetodoCobroScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -87,7 +88,8 @@ export const StackNavigation = () => {
             />
             <Stack.Screen name="GananciasScreen" component={GananciasScreen} options={{ headerTitle: 'Ganancias' }} />
             <Stack.Screen name="PublicacionesScreen" component={PublicacionesScreen} options={{ headerTitle: 'Publicaciones' }} />
-            <Stack.Screen name="MediosCobrosScreen" component={MediosCobrosScreen} />
+            {/* <Stack.Screen name="MediosCobrosScreen" component={MediosCobrosScreen} /> */}
+            <Stack.Screen name="MediosCobrosScreen" component={CompletarMetodoCobroScreen} />
 
             <Stack.Screen name="AyudaScreen" component={AyudaScreen} options={{ title: 'Perfil' }} />
             <Stack.Screen name="BajarCuentaScreen" component={BajarCuentaScreen} />
@@ -95,6 +97,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="DonacionesScreen" component={DonacionesScreen} />
             <Stack.Screen name="QuieroComprarScreen" component={QuieroComprarScreen} />
             <Stack.Screen name="QuieroVenderScreen" component={QuieroVenderScreen} />
+
         </Stack.Navigator>
     );
 };
