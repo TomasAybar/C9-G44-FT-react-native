@@ -6,7 +6,7 @@ export const ListPaso = ({ number = '1', content }) => {
 	return (
 		<View style={{ marginBottom: 25 }}>
 			<StyledText left size16>
-				•Paso {number}:
+				• Paso {number}:
 			</StyledText>
 			<StyledText left size16>
 				{content}
@@ -14,5 +14,3 @@ export const ListPaso = ({ number = '1', content }) => {
 		</View>
 	)
 }
-
-const styles = StyleSheet.create({})
