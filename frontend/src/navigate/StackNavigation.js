@@ -57,7 +57,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="Efectivo" component={SeleccionEfectivo} />
             <Stack.Screen name="Tarjeta" component={SeleccionTarjeta} />
             <Stack.Screen name="Procesamiento de pago" component={ProcesamientoPago} />
-            
+
 
 
             {/* screens vender */}
@@ -85,7 +85,7 @@ export const StackNavigation = () => {
                 component={VenderScreen}
                 options={{ title: 'Ventas' }}
             />
-            <Stack.Screen name="GananciasScreen" component={GananciasScreen} />
+            <Stack.Screen name="GananciasScreen" component={GananciasScreen} options={{ headerTitle: 'Ganancias' }} />
             <Stack.Screen name="PublicacionesScreen" component={PublicacionesScreen} options={{ headerTitle: 'Publicaciones' }} />
             <Stack.Screen name="MediosCobrosScreen" component={MediosCobrosScreen} />
 
