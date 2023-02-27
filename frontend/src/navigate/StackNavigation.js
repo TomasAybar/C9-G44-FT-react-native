@@ -36,6 +36,9 @@ import { GananciasScreen } from '../screens/perfil/vender/GananciasScreen';
 import { PublicacionesScreen } from '../screens/perfil/vender/PublicacionesScreen';
 import { MediosCobrosScreen } from '../screens/perfil/vender/MediosCobrosScreen';
 import { CompletarMetodoCobroScreen } from '../screens/perfil/completar/CompletarMetodoCobroScreen';
+import { CompletarPerfilStack } from './stacks/LoginStack';
+import { MetodoCobroTRFScreen } from '../screens/perfil/completar/MetodoCobroTRFScreen';
+import { MetodoCobroBVScreen } from '../screens/perfil/completar/MetodoCobroBVScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -89,7 +92,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="GananciasScreen" component={GananciasScreen} options={{ headerTitle: 'Ganancias' }} />
             <Stack.Screen name="PublicacionesScreen" component={PublicacionesScreen} options={{ headerTitle: 'Publicaciones' }} />
             {/* <Stack.Screen name="MediosCobrosScreen" component={MediosCobrosScreen} /> */}
-            <Stack.Screen name="MediosCobrosScreen" component={CompletarMetodoCobroScreen} />
+            <Stack.Screen name="MediosCobrosScreen" component={CompletarMetodoCobroScreen} options={{ headerTitle: 'Método de cobro' }} />
 
             <Stack.Screen name="AyudaScreen" component={AyudaScreen} options={{ title: 'Perfil' }} />
             <Stack.Screen name="BajarCuentaScreen" component={BajarCuentaScreen} />
@@ -97,6 +100,10 @@ export const StackNavigation = () => {
             <Stack.Screen name="DonacionesScreen" component={DonacionesScreen} options={{ headerTitle: 'Donar' }} />
             <Stack.Screen name="QuieroComprarScreen" component={QuieroComprarScreen} options={{ headerTitle: '¿Cómo comprar?' }} />
             <Stack.Screen name="QuieroVenderScreen" component={QuieroVenderScreen} options={{ headerTitle: '¿Cómo vender?' }} />
+
+            {/* Login - metodo de cobro dentro de ventas editar metodos de cobro*/}
+            <Stack.Screen name='MetodoCobroTRFScreen' component={MetodoCobroTRFScreen} />
+            <Stack.Screen name='MetodoCobroBVScreen' component={MetodoCobroBVScreen} />
 
         </Stack.Navigator>
     );
