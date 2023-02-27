@@ -1,20 +1,37 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-import { style } from '../../../themes/appTheme'
+import { View, Image, StyleSheet } from 'react-native'
+import { ListPaso } from '../../../components/ListPaso'
+import StyledText from '../../../styledComponents/StyledText'
+import StyledView from '../../../styledComponents/StyledView'
 
 export const QuieroComprarScreen = () => {
 	return (
-		<View style={style.alinearCentro}>
-			<Text style={style.title}>Paso 1</Text>
-			<Text style={style.title}>Elegi el articulo que queres.</Text>
-			<Text style={style.title}>Paso 2</Text>
-			<Text style={style.title}>Selecciona el metodo de pago</Text>
-			<Text style={style.title}>Paso 3</Text>
-			<Text style={style.title}>
-				Ingresa tus datos y coordina el metodo de entrega
-			</Text>
-			<Text style={style.title}>Paso 4</Text>
-			<Text style={style.title}>Disfruta de tu compra</Text>
-		</View>
+		<StyledView dark container height100>
+			<View style={styles.containerTitle}>
+				<Image
+					source={require('../../../../assets/icons/tab-bar/bag.png')}
+				/>
+				<StyledText weight700 size16 marginStart={10}>
+					¡Comprar es muy fácil!
+				</StyledText>
+			</View>
+
+			<ListPaso number='1' content={'Elegí el artículo que queres.'} />
+			<ListPaso number='2' content={'Selecciona el método de pago.'} />
+			<ListPaso
+				number='3'
+				content={'Ingresa tus datos y coordina el método de entrega.'}
+			/>
+			<ListPaso number='4' content={'¡Disfrutá de tu compra!'} />
+		</StyledView>
 	)
 }
+
+const styles = StyleSheet.create({
+	containerTitle: {
+		alignItems: 'center',
+		justifyContent: 'flex-start',
+		flexDirection: 'row',
+		marginVertical: 40,
+	},
+})
