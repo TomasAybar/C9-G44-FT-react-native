@@ -67,7 +67,7 @@ export const StackNavigation = () => {
             {/* screens vender */}
             <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} options={{ headerTitle: 'Foto del producto' }} />
             <Stack.Screen name="CategoriaScreenVender" component={CategoriaScreenVender} options={{ headerTitle: 'Selecciona una categoría' }} />
-            <Stack.Screen name="TipoProductoScreen" component={TipoProductoScreen} />
+            <Stack.Screen name="TipoProductoScreen" component={TipoProductoScreen} options={{ headerTitle: '¿Qué tipo de producto es?' }} />
             <Stack.Screen name="DescripcionScreen" component={DescripcionScreen} />
             <Stack.Screen name="MetodoPagoScreen" component={MetodoPagoScreen} />
             <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} />
