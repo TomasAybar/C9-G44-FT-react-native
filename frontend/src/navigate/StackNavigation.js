@@ -111,7 +111,7 @@ export const StackNavigation = () => {
             {/* screens donar */}
             <Stack.Screen name="DetalleDonarScreen" component={DetalleDonarScreen} />
             <Stack.Screen name="InformacionScreen" component={InformacionScreen} />
-            <Stack.Screen name="ArticuloPublicadoDonar" component={ArticuloPublicadoDonar} />
+            <Stack.Screen name="ArticuloPublicadoDonar" component={ArticuloPublicadoDonar} options={{ headerTitle: 'Publicaciones' }} />
 
             {/* screens perfil */}
             <Stack.Screen name="ComprasScreen" component={ComprasScreen} options={{ headerTitle: 'Compras' }} />
