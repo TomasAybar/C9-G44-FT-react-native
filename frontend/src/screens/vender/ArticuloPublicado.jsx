@@ -2,24 +2,26 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { style } from '../../themes/appTheme'
+import StyledView from '../../styledComponents/StyledView'
+import StyledText from '../../styledComponents/StyledText'
+import { PublicationCard } from '../../components/PublicationCard'
 
 export const ArticuloPublicado = () => {
 	const navigator = useNavigation()
 
 	return (
-		<View style={style.alinearCentro}>
-			<Text style={style.title}>Articulo publicado</Text>
-			<Text style={style.title}>Vestido verde talle</Text>
-			<Text style={style.title}>L</Text>
-			<Text style={style.title}>$18.000.-</Text>
+		<StyledView dark container height100 center>
+			<View
+				style={{
+					marginBottom: 50,
+				}}
+			>
+				<StyledText weight700 size16>
+					Artículo publicado:
+				</StyledText>
+			</View>
 
-			<TouchableOpacity>
-				<Button
-					title='Siguiente'
-					onPress={() => navigator.popToTop()}
-				/>
-			</TouchableOpacity>
-		</View>
+			<PublicationCard />
+		</StyledView>
 	)
 }

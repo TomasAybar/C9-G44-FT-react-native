@@ -1,5 +1,5 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, } from '@react-navigation/native-stack';
 import { TabNavigation } from './TabNavigation';
 import { FotoProductoScreen } from '../screens/vender/FotoProductoScreen';
 import { CategoriasScreen } from '../screens/comprar/CategoriasScreen';
@@ -39,12 +39,32 @@ import { CompletarMetodoCobroScreen } from '../screens/perfil/completar/Completa
 import { CompletarPerfilStack } from './stacks/LoginStack';
 import { MetodoCobroTRFScreen } from '../screens/perfil/completar/MetodoCobroTRFScreen';
 import { MetodoCobroBVScreen } from '../screens/perfil/completar/MetodoCobroBVScreen';
+import { Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import { MaterialIcons } from '@expo/vector-icons'
+import theme from '../themes/theme';
+
+
 
 const Stack = createNativeStackNavigator();
 
 export const StackNavigation = () => {
+
+    const navigation = useNavigation()
+
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: theme.colors.appBackground,
+                },
+                headerTitleStyle: {
+                    color: '#fff',
+                    fontWeight: '700',
+                }
+            }}
+        >
             <Stack.Screen
                 name="TabNavigation"
                 component={TabNavigation}
@@ -71,7 +91,21 @@ export const StackNavigation = () => {
             <Stack.Screen name="DescripcionScreen" component={DescripcionScreen} />
             <Stack.Screen name="MetodoPagoScreen" component={MetodoPagoScreen} options={{ headerTitle: 'Método de cobro' }} />
             <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} options={{ headerTitle: 'Revisá y publicá' }} />
-            <Stack.Screen name="ArticuloPublicadoVender" component={ArticuloPublicadoVender} />
+            <Stack.Screen
+                name="ArticuloPublicadoVender"
+                component={ArticuloPublicadoVender}
+                options={{
+                    headerTitle: 'Publicaciones',
+                    headerLeft: ({ onPress }) => (
+                        <MaterialIcons
+                            name='arrow-back-ios'
+                            size={24}
+                            color={theme.colors.yellowPrimary}
+                            style={{ marginRight: 10 }}
+                            onPress={() => navigation.goBack()}
+                        />
+                    )
+                }} />
 
 
             {/* screens donar */}

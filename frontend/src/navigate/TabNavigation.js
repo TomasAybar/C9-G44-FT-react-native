@@ -27,7 +27,14 @@ export const TabNavigation = () => {
                 tabBarLabelStyle: styles.tabBarLabel,
                 tabBarIconStyle: {
                     marginBottom: -5
-                }
+                },
+                headerStyle: {
+                    backgroundColor: theme.colors.appBackground,
+                },
+                headerTitleStyle: {
+                    color: '#fff',
+                    fontWeight: '700'
+                },
 
             }}
         >
@@ -116,7 +123,7 @@ export const TabNavigation = () => {
                             ...styles.tabBarLabel,
                             fontWeight: focused ? '600' : '400'
                         }}>Vender</Text>
-                    )
+                    ),
                 }}
             />
 
