@@ -70,7 +70,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="TipoProductoScreen" component={TipoProductoScreen} options={{ headerTitle: '¿Qué tipo de producto es?' }} />
             <Stack.Screen name="DescripcionScreen" component={DescripcionScreen} />
             <Stack.Screen name="MetodoPagoScreen" component={MetodoPagoScreen} options={{ headerTitle: 'Método de cobro' }} />
-            <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} />
+            <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} options={{ headerTitle: 'Revisá y publicá' }} />
             <Stack.Screen name="ArticuloPublicadoVender" component={ArticuloPublicadoVender} />
 
 
