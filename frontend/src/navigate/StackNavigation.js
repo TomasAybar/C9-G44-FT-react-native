@@ -1,5 +1,5 @@
 import React from 'react';
-import { createNativeStackNavigator, } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TabNavigation } from './TabNavigation';
 import { FotoProductoScreen } from '../screens/vender/FotoProductoScreen';
 import { CategoriasScreen } from '../screens/comprar/CategoriasScreen';
@@ -12,6 +12,7 @@ import { ArticuloPublicado as ArticuloPublicadoVender } from '../screens/vender/
 import { Producto } from '../screens/comprar/Producto';
 import { DetalleDonarScreen } from '../screens/donar/DetalleDonarScreen';
 import { InformacionScreen } from '../screens/donar/InformacionScreen';
+import { DonacionExitosa } from '../screens/donar/DonacionExitosa'
 import { ArticuloPublicado as ArticuloPublicadoDonar } from '../screens/donar/ArticuloPublicado';
 import { CategoriaScreen as CategoriaScreenVender } from '../screens/vender/CategoriaScreen';
 import { Carrito } from '../screens/comprar/Carrito';
@@ -85,7 +86,6 @@ export const StackNavigation = () => {
             <Stack.Screen name="Procesamiento de pago" component={ProcesamientoPago} />
 
 
-
             {/* screens vender */}
             <Stack.Screen name="FotoProductoScreen" component={FotoProductoScreen} options={{ headerTitle: 'Foto del producto' }} />
             <Stack.Screen name="CategoriaScreenVender" component={CategoriaScreenVender} options={{ headerTitle: 'Selecciona una categoría' }} />
@@ -111,9 +111,11 @@ export const StackNavigation = () => {
                 }} />
 
 
+
             {/* screens donar */}
             <Stack.Screen name="DetalleDonarScreen" component={DetalleDonarScreen} />
             <Stack.Screen name="InformacionScreen" component={InformacionScreen} />
+            <Stack.Screen name="DonacionExitosa" component={DonacionExitosa} />
             <Stack.Screen name="ArticuloPublicadoDonar" component={ArticuloPublicadoDonar} options={{ headerTitle: 'Publicaciones' }} />
 
             {/* screens perfil */}

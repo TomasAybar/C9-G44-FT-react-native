@@ -16,5 +16,9 @@ export const loginValidationShema = yup.object().shape({
     repassword: yup
     .string()
     .required('Campo obligatorio')
-    .oneOf([yup.ref('password'),null], 'La contraseña no coincide')
+    .oneOf([yup.ref('password'),null], 'La contraseña no coincide'),
+    descripcion: yup
+    .string()
+    .max(500, 'Debe contener como máximo 500 caracteres')
+    .required('Campo obligatorio'),
 })

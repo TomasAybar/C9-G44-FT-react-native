@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import StyledView from '../../styledComponents/StyledView'
 import StyledButton from '../../styledComponents/StyledButton'
 import StyledText from '../../styledComponents/StyledText'
 import StyledTextInput from '../../styledComponents/StyledTextInput'
 import { Formik, useField } from 'formik'
-import { StyleSheet, Text } from 'react-native'
 import { loginValidationShema } from '../../validationSchema/validationsRegister'
 import { useNavigation } from '@react-navigation/native'
+import { FormikInputValue } from '../../styledComponents/FormikInputValue'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import theme from '../../themes/theme'
+import { View, StyleSheet } from 'react-native'
 
 const initialValues = {
 	name: '',
@@ -15,46 +18,22 @@ const initialValues = {
 	repassword: '',
 }
 
-const styles = StyleSheet.create({
-	error: {
-		color: 'red',
-		fontStyle: 'italic',
-		opacity: 0.6,
-		fontSize: 12.8,
-		alignSelf: 'stretch',
-		marginBottom: 5,
-	},
-})
-
-const FormikInputValue = ({ name, ...props }) => {
-	const [field, meta, helpers] = useField(name)
-	return (
-		<>
-			<StyledTextInput
-				error={meta.error}
-				value={field.value}
-				onChangeText={(value) => helpers.setValue(value)}
-				{...props}
-			/>
-			{meta.error && <Text style={styles.error}>{meta.error}</Text>}
-		</>
-	)
-}
-
 export const RegistroNombreScreen = () => {
 	const navigator = useNavigation()
 
 	return (
-		<Formik
-			validationSchema={loginValidationShema}
-			initialValues={initialValues}
-			onSubmit={(values) => console.log(values)}
+		<KeyboardAwareScrollView
+			style={{ backgroundColor: theme.colors.appBackground }}
 		>
-			{({ handleChange, handleSubmit, values }) => {
-				return (
-					<StyledView dark>
-						<StyledView container center height100>
-							<StyledText size12 alignItem marginTop>
+			<Formik
+				validationSchema={loginValidationShema}
+				initialValues={initialValues}
+				onSubmit={(values) => console.log(values)}
+			>
+				{({ handleChange, handleSubmit, values }) => {
+					return (
+						<StyledView container height100>
+							<StyledText left size12 marginTop={70}>
 								Nombre y Apellido
 							</StyledText>
 							<FormikInputValue
@@ -63,7 +42,7 @@ export const RegistroNombreScreen = () => {
 								placeholderTextColor='rgba(255,255,255,0.5)'
 							/>
 
-							<StyledText size12 alignItem alignSelf marginTop>
+							<StyledText left size12 marginTop={15}>
 								E-mail
 							</StyledText>
 							<FormikInputValue
@@ -72,7 +51,7 @@ export const RegistroNombreScreen = () => {
 								placeholderTextColor='rgba(255,255,255,0.5)'
 							/>
 
-							<StyledText size12 alignItem alignSelf marginTop>
+							<StyledText left size12 marginTop={15}>
 								Contraseña
 							</StyledText>
 							<FormikInputValue
@@ -82,7 +61,7 @@ export const RegistroNombreScreen = () => {
 								secureTextEntry
 							/>
 
-							<StyledText size12 alignItem alignSelf marginTop>
+							<StyledText left size12 marginTop={15}>
 								Repetir Contraseña
 							</StyledText>
 							<FormikInputValue
@@ -91,7 +70,7 @@ export const RegistroNombreScreen = () => {
 								placeholderTextColor='rgba(255,255,255,0.5)'
 								secureTextEntry
 							/>
-							<StyledText marginTop>{'\n'}</StyledText>
+							<StyledText marginTop={15}>{'\n'}</StyledText>
 
 							<StyledButton
 								white
@@ -101,9 +80,9 @@ export const RegistroNombreScreen = () => {
 								}
 							></StyledButton>
 						</StyledView>
-					</StyledView>
-				)
-			}}
-		</Formik>
+					)
+				}}
+			</Formik>
+		</KeyboardAwareScrollView>
 	)
 }

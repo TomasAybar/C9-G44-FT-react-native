@@ -8,8 +8,6 @@ import { PublicationCard } from '../../components/PublicationCard'
 import StyledText from '../../styledComponents/StyledText'
 
 export const ArticuloPublicado = () => {
-	const navigator = useNavigation()
-
 	return (
 		<StyledView dark container height100 center>
 			<View

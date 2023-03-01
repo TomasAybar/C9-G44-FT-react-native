@@ -28,6 +28,8 @@
 /frontend/.expo/
 /frontend/dist/
 /frontend/npm-debug.*
+/frontend/.env
+
 *.jks
 *.p8
 *.p12

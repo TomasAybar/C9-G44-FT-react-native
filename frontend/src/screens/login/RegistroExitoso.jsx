@@ -17,7 +17,7 @@ export const RegistroExitoso = () => {
 
 	const handleCloseModal2 = () => {
 		setModalVisible(!modalVisible)
-		navigator.navigate('LoginScreen')
+		navigator.navigate('StackNavigation')
 	}
 
 	return (
@@ -34,10 +34,10 @@ export const RegistroExitoso = () => {
 				>
 					<StyledView container center height100>
 						<StyledView style={styles.modalView}>
-							<StyledText size16 weight700 marginBottom>
+							<StyledText size16 weight700 marginBottom={15}>
 								Atención!
 							</StyledText>
-							<StyledText size12 marginBottom>
+							<StyledText size12 marginBottom={15}>
 								Recordá que necesitarás que tu perfil este
 								completo en caso que quieras vender o comprar.
 							</StyledText>
@@ -59,13 +59,13 @@ export const RegistroExitoso = () => {
 						</StyledView>
 					</StyledView>
 				</Modal>
-				<StyledText size16 weight700 marginBottom>
+				<StyledText size16 weight700 marginBottom={15}>
 					¡Felicitaciones!
 				</StyledText>
-				<StyledText size16 weight700 marginBottom marginTop>
+				<StyledText size16 weight700 marginBottom={15} marginTop={15}>
 					Tu cuenta fue creada con éxito.
 				</StyledText>
-				<StyledText size12 marginBottom marginTop>
+				<StyledText size12 marginBottom={15} marginTop={15}>
 					Ahora te vamos a pedir unos datos para completar tu perfil.
 				</StyledText>
 				<StyledText></StyledText>

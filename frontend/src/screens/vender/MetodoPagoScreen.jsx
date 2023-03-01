@@ -33,11 +33,11 @@ export const MetodoPagoScreen = () => {
 			<View style={styles.containerOptions}>
 				<EcoBtnNavigate
 					text='Transferencia bancaria'
-					navigate={'CheckeoFinalScreen'}
+					onPress={() => navigator.navigate('CheckeoFinalScreen')}
 				/>
 				<EcoBtnNavigate
 					text='Billetera virtual'
-					navigate={'CheckeoFinalScreen'}
+					onPress={() => navigator.navigate('CheckeoFinalScreen')}
 				/>
 			</View>
 		</StyledView>
