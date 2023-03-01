@@ -1,16 +1,6 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import {
-	Alert,
-	Button,
-	Image,
-	StyleSheet,
-	Text,
-	useWindowDimensions,
-	View,
-} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { style } from '../../themes/appTheme'
+import { StyleSheet, useWindowDimensions, View } from 'react-native'
 import SyledButton from '../../styledComponents/StyledButton'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
@@ -20,37 +10,6 @@ import { PublicationCard } from '../../components/PublicationCard'
 export const CheckeoFinalScreen = () => {
 	const navigator = useNavigation()
 	const { width, height } = useWindowDimensions()
-
-	const alerNavigate = () => {
-		Alert.alert(
-			'¡Felicitaciones!',
-			'Tu producto ya se encuentra publicado',
-			[
-				{
-					text: 'Volver al inicio',
-					onPress: () => navigator.popToTop(),
-				},
-				{
-					text: 'Ver mi publicación',
-					onPress: () =>
-						navigator.navigate('ArticuloPublicadoVender'),
-				},
-			]
-		)
-	}
-
-	const loading = () => {
-		Alert.alert(
-			'Preparando publicacion',
-			'En unos instantes verás tu producto publicado.',
-			[
-				{
-					text: 'OK',
-					onPress: () => alerNavigate(),
-				},
-			]
-		)
-	}
 
 	return (
 		<StyledView dark container height100>
@@ -82,7 +41,7 @@ export const CheckeoFinalScreen = () => {
 				<SyledButton
 					white
 					title={'Publicar'}
-					onPress={loading}
+					onPress={() => navigator.navigate('CongratsScreen')}
 				></SyledButton>
 			</View>
 		</StyledView>

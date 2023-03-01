@@ -44,6 +44,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { MaterialIcons } from '@expo/vector-icons'
 import theme from '../themes/theme';
+import { CongratsScreen } from '../screens/vender/CongratsScreen';
 
 
 
@@ -91,6 +92,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="DescripcionScreen" component={DescripcionScreen} options={{ headerTitle: 'Descripción y precio' }} />
             <Stack.Screen name="MetodoPagoScreen" component={MetodoPagoScreen} options={{ headerTitle: 'Método de cobro' }} />
             <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} options={{ headerTitle: 'Revisá y publicá' }} />
+            <Stack.Screen name="CongratsScreen" component={CongratsScreen} options={{ headerShown: false }} />
             <Stack.Screen
                 name="ArticuloPublicadoVender"
                 component={ArticuloPublicadoVender}
