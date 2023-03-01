@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { StyleSheet } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import {
 	AlertLoading,
@@ -11,7 +9,7 @@ export const CongratsScreen = () => {
 	const [completed, setCompleted] = useState(false)
 
 	useEffect(() => {
-		setTimeout(() => setCompleted(true), 5000)
+		setTimeout(() => setCompleted(true), 3000)
 	}, [])
 
 	return (
@@ -35,5 +33,3 @@ export const CongratsScreen = () => {
 		</StyledView>
 	)
 }
-
-const styles = StyleSheet.create({})
