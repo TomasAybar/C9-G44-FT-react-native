@@ -23,14 +23,14 @@ export const ProcesamientoPago = () => {
 		<StyledView dark height100>
 			{completed ? (
 				<AlertLoadingCompleted
-					btn1Nav={'HomeScreen'}
-					btn2Nav={'Categorías'}
+					title={'¡Pago confirmado!'}
 					btn1Text={'Cerrar'}
 					btn2Text={'Seguir comprando'}
-					title={'¡Pago confirmado!'}
 					body={
 						'Te enviamos a tu Email toda la información para la entrega.'
 					}
+					onPress1={() => navigator.popToTop()}
+					onPress2={() => navigator.navigate('Categorías')}
 				/>
 			) : (
 				<AlertLoading title='Procesando el pago' />

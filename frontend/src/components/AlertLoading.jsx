@@ -6,13 +6,15 @@ import SyledButton from '../styledComponents/StyledButton'
 import { useNavigation } from '@react-navigation/native'
 
 export const AlertLoadingCompleted = ({
-	title = '¡Pago confirmado!',
-	body = 'Te enviamos a tu Email toda la información para la entrega.',
-	btn1Nav,
-	btn1Text = 'Cerrar',
-	btn2Text = 'Seguir comprando',
-	btn2Nav,
+	title = '¡Titulo!',
+	body = 'informacion de body',
+	btn1Text = 'boton 1',
+	btn2Text = 'boton 2',
 	img = true,
+	onPress1,
+	onPress2,
+	btn1 = true,
+	btn2 = true,
 }) => {
 	const navigator = useNavigation()
 
@@ -39,41 +41,34 @@ export const AlertLoadingCompleted = ({
 					{body}
 				</StyledText>
 				<StyledView marginTop={30}>
-					<SyledButton
-						white
-						width={'90%'}
-						marginBottom={12}
-						alignSelf={'center'}
-						title={btn1Text}
-						onPress={() =>
-							btn1Nav
-								? navigator.navigate(btn1Nav)
-								: navigator.popToTop()
-						}
-					/>
-					<SyledButton
-						black
-						backgroundColor={'transparent'}
-						width={'90%'}
-						alignSelf={'center'}
-						title={btn2Text}
-						onPress={() =>
-							btn2Nav
-								? navigator.navigate(btn2Nav)
-								: navigator.popToTop()
-						}
-					/>
+					{btn1 && (
+						<SyledButton
+							white
+							width={'90%'}
+							marginBottom={12}
+							alignSelf={'center'}
+							title={btn1Text}
+							onPress={onPress1}
+						/>
+					)}
+
+					{btn2 && (
+						<SyledButton
+							black
+							backgroundColor={'transparent'}
+							width={'90%'}
+							alignSelf={'center'}
+							title={btn2Text}
+							onPress={onPress2}
+						/>
+					)}
 				</StyledView>
 			</StyledView>
 		</StyledView>
 	)
 }
 
-export const AlertLoading = ({
-	title = 'Procesando el pago',
-	body,
-	btnCancel = true,
-}) => {
+export const AlertLoading = ({ title = 'Titulo', body, btnCancel = true }) => {
 	const navigator = useNavigation()
 
 	return (

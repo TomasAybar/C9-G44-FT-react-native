@@ -4,8 +4,10 @@ import {
 	AlertLoading,
 	AlertLoadingCompleted,
 } from '../../components/AlertLoading'
+import { useNavigation } from '@react-navigation/native'
 
 export const CongratsScreen = () => {
+	const navigator = useNavigation()
 	const [completed, setCompleted] = useState(false)
 
 	useEffect(() => {
@@ -16,7 +18,10 @@ export const CongratsScreen = () => {
 		<StyledView dark height100 justifyContent={'center'}>
 			{completed ? (
 				<AlertLoadingCompleted
-					btn1Nav={'ArticuloPublicadoVender'}
+					onPress1={() =>
+						navigator.navigate('ArticuloPublicadoVender')
+					}
+					onPress2={() => navigator.popToTop()}
 					btn1Text={'Ver mi publicación'}
 					btn2Text={'Volver al inicio'}
 					title={'¡Felicitaciones!'}

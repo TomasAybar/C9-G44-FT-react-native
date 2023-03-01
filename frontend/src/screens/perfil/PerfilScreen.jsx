@@ -127,7 +127,7 @@ export const PerfilScreen = () => {
 								width: width * 0.35,
 								height: 100,
 							}}
-							onPress={() => alert('Comprar')}
+							onPress={() => navigator.navigate('SalirScreen')}
 						>
 							<LogoutProfile style={style.icon} />
 

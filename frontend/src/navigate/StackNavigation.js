@@ -45,6 +45,7 @@ import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons'
 import theme from '../themes/theme';
 import { CongratsScreen } from '../screens/vender/CongratsScreen';
+import { SalirScreen } from '../screens/perfil/salir/SalirScreen';
 
 
 
@@ -119,6 +120,8 @@ export const StackNavigation = () => {
             <Stack.Screen name="ComprasScreen" component={ComprasScreen} options={{ headerTitle: 'Compras' }} />
             <Stack.Screen name="FavoritosScreen" component={FavoritosScreen} options={{ headerTitle: 'Favoritos' }} />
             <Stack.Screen name="MensajesScreen" component={MensajesScreen} options={{ headerTitle: 'Mensajes' }} />
+            <Stack.Screen name="SalirScreen" component={SalirScreen} options={{ headerShown: false }} />
+
 
             <Stack.Screen
                 name="VenderScreenPerfil"
