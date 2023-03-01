@@ -15,7 +15,7 @@ export const AyudaScreen = () => {
 				<View style={{ marginTop: 50 }}>
 					<EcoBtnNavigate
 						text='Quiero comprar ¿Cómo hago?'
-						navigate={'QuieroComprarScreen'}
+						onPress={() => navigator.navigate('QuieroComprarScreen')}
 					/>
 					<EcoBtnNavigate
 						text='Quiero vender, ¿Cómo publico?'
