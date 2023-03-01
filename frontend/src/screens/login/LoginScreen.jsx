@@ -1,42 +1,63 @@
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { Link, useNavigation } from '@react-navigation/native'
 import { Button, Text, View, StyleSheet } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 // import { style } from '../../themes/appTheme'
 import StyledView from '../../styledComponents/StyledView'
 import { LogoEcoModa } from '../../components/icons/LogoEcoModa'
 import StyledText from '../../styledComponents/StyledText'
-import { EcoInput } from '../../components/EcoInput'
 import SyledButton from '../../styledComponents/StyledButton'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import theme from '../../themes/theme'
+import { Formik, useField } from 'formik'
+import { loginValidationShema } from '../../validationSchema/validationsRegister'
+import { FormikInputValue } from '../../styledComponents/FormikInputValue'
+import {Linkeo} from '../../components/Linkeo'
+
+const initialValues = {
+	email: '',
+	password: '',
+}
 
 export const LoginScreen = () => {
 	const navigator = useNavigation()
+	
 
 	return (
-		<StyledView dark container height100 center>
+		
+		<KeyboardAwareScrollView
+			style={{ backgroundColor: theme.colors.appBackground}}
+		>
+			<Formik
+		validationSchema={loginValidationShema}
+		initialValues={initialValues}
+		onSubmit={(values) => console.log(values)}
+		>
+		{({ handleChange, handleSubmit, values }) => {
+			return (
+		<StyledView container center marginTop={80}>
 			<View style={style.logo}>
 				<LogoEcoModa />
 			</View>
 
-			<View style={style.label}>
-				<StyledText size12 left>
-					Email
-				</StyledText>
-			</View>
+			<StyledText left size12 >
+								E-mail
+							</StyledText>
+							<FormikInputValue
+								name='email'
+								placeholder='E-mail'
+								placeholderTextColor='rgba(255,255,255,0.5)'
+							/>
 
-			<View style={style.input}>
-				<EcoInput placeholder='maria@gmail.com' />
-			</View>
-
-			<View style={style.label}>
-				<StyledText size12 left>
-					Contraseña
-				</StyledText>
-			</View>
-
-			<View style={style.input}>
-				<EcoInput placeholder='******' secure={true} />
-			</View>
+							<StyledText left size12 marginTop={15}>
+								Contraseña
+							</StyledText>
+							<FormikInputValue
+								name='password'
+								placeholder='Contraseña'
+								placeholderTextColor='rgba(255,255,255,0.5)'
+								secureTextEntry
+							/>
 
 			<View
 				style={{
@@ -44,8 +65,12 @@ export const LoginScreen = () => {
 					marginBottom: 60,
 				}}
 			>
+				
 				<StyledText size12 right>
-					¿Olvidaste tu contraseña?
+					<Linkeo 
+					onPress={() => alert('Reestablecer contraseña.')}>
+						¿Olvidaste tu contraseña?
+						</Linkeo>.
 				</StyledText>
 			</View>
 
@@ -63,12 +88,16 @@ export const LoginScreen = () => {
 				onPress={() => navigator.navigate('RegistroNombreScreen')}
 			></SyledButton>
 		</StyledView>
+			)
+		}}
+		</Formik>
+		</KeyboardAwareScrollView>
 	)
 }
 
 const style = StyleSheet.create({
 	logo: {
-		marginBottom: 120,
+		marginBottom: 100,
 		alignItems: 'center',
 	},
 	label: {

@@ -12,6 +12,7 @@ import { Slider46 } from '../../components/icons/Slider4-6'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
 import theme from '../../themes/theme'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export const DescripcionScreen = () => {
 	const navigator = useNavigation()
@@ -21,7 +22,10 @@ export const DescripcionScreen = () => {
 	const [number, onChangeNumber] = useState('')
 
 	return (
-		<StyledView dark container height100>
+		<KeyboardAwareScrollView
+			style={{ backgroundColor: theme.colors.appBackground, height:'100%' }}
+		>
+		<StyledView container height100>
 			<View
 				style={{
 					...styles.containerSlide,
@@ -76,12 +80,14 @@ export const DescripcionScreen = () => {
 
 			<View style={styles.containerBtn}>
 				<SyledButton
+				marginTop= {40}
 					white
 					title={'Siguiente'}
 					onPress={() => navigator.navigate('MetodoPagoScreen')}
 				></SyledButton>
 			</View>
 		</StyledView>
+		</KeyboardAwareScrollView>
 	)
 }
 

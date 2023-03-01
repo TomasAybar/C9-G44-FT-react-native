@@ -19,19 +19,19 @@ export const AyudaScreen = () => {
 					/>
 					<EcoBtnNavigate
 						text='Quiero vender, ¿Cómo publico?'
-						navigate={'QuieroVenderScreen'}
+						onPress={() => navigator.navigate('QuieroVenderScreen')}
 					/>
 					<EcoBtnNavigate
 						text='Devoluciones'
-						navigate={'DevolucionesScreen'}
+						onPress={() => navigator.navigate('DevolucionesScreen')}
 					/>
 					<EcoBtnNavigate
 						text='Donaciones'
-						navigate={'DonacionesScreen'}
+						onPress={() => navigator.navigate('DonacionesScreen')}
 					/>
 					<EcoBtnNavigate
 						text='Baja de cuenta'
-						navigate={'BajarCuentaScreen'}
+						onPress={() => navigator.navigate('BajarCuentaScreen')}
 					/>
 				</View>
 			</StyledView>
