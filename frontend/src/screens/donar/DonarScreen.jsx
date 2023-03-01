@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { StyleSheet, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
@@ -10,11 +9,18 @@ import { MaginPenDonar } from '../../components/icons/MaginPenDonar'
 import { CalendarTickDonar } from '../../components/icons/CalendarTickDonar'
 
 export const DonarScreen = () => {
+	const { height, width } = useWindowDimensions()
+
 	const navigator = useNavigation()
 
 	return (
 		<StyledView dark height100>
-			<View style={style.containerHeader}>
+			<View
+				style={{
+					...style.containerHeader,
+					height: height * 0.1,
+				}}
+			>
 				<StyledText weight700 size16 line32>
 					Dandole una segunda oportunidad a tu ropa,
 				</StyledText>
@@ -27,7 +33,13 @@ export const DonarScreen = () => {
 			</View>
 
 			<StyledView container center>
-				<View style={style.contenedorCard}>
+				<View
+					style={{
+						...style.contenedorCard,
+						height: height * 0.5,
+						maxWidth: width * 1,
+					}}
+				>
 					<View style={style.card}>
 						<CameraDonar />
 
@@ -63,9 +75,10 @@ export const DonarScreen = () => {
 							style={{
 								...style.containerText,
 								marginStart: 15,
+								overflow: 'hidden',
 							}}
 						>
-							<StyledText size14 line24 left>
+							<StyledText size14 line24 left overflow={'hidden'}>
 								Inidica fecha, horario y direccion para
 							</StyledText>
 							<StyledText size14 line24 left>
@@ -91,19 +104,20 @@ export const DonarScreen = () => {
 const style = StyleSheet.create({
 	containerHeader: {
 		marginTop: 40,
+		marginBottom: 10,
+	},
+
+	contenedorCard: {
+		justifyContent: 'space-evenly',
+		alignItems: 'center',
 		marginBottom: 20,
+	},
+	card: {
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
 	},
 	containerText: {
 		marginStart: 20,
-	},
-	card: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	contenedorCard: {
-		height: 380,
-		justifyContent: 'space-around',
-		marginBottom: 45,
 	},
 })

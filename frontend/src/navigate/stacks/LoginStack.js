@@ -43,11 +43,7 @@ export const OnboardingStack = () => {
 export const CompletarPerfilStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name='CompletarPerfilScreen' component={CompletarPerfilScreen} />
-            <Stack.Screen name='CompletarMetodoCobroScreen' component={CompletarMetodoCobroScreen} />
-            <Stack.Screen name='MetodoCobroTRFScreen' component={MetodoCobroTRFScreen} />
-            <Stack.Screen name='MetodoCobroBVScreen' component={MetodoCobroBVScreen} />
-            <Stack.Screen name='CongratsScreen' component={CongratsScreen} />
+            
         </Stack.Navigator>
     )
 }
@@ -75,6 +71,22 @@ export const LoginStack = () => {
             <Stack.Screen
                 name='CompletarPerfilScreen'
                 component={CompletarPerfilScreen}
+            />
+            <Stack.Screen
+             name='CompletarMetodoCobroScreen' 
+             component={CompletarMetodoCobroScreen}
+              />
+              <Stack.Screen 
+              name='MetodoCobroTRFScreen' 
+              component={MetodoCobroTRFScreen} 
+              />
+            <Stack.Screen 
+            name='MetodoCobroBVScreen' 
+            component={MetodoCobroBVScreen} 
+            />
+            <Stack.Screen 
+            name='CongratsScreen' 
+            component={CongratsScreen} 
             />
             <Stack.Screen
                 name='BienvenidaScreen'

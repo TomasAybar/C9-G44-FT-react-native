@@ -1,24 +1,106 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { style } from '../../themes/appTheme'
+import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native'
+import StyledView from '../../styledComponents/StyledView'
+import StyledText from '../../styledComponents/StyledText'
+import StyledButton from '../../styledComponents/StyledButton'
+import { Slider16 } from '../../components/icons/Slider1-6'
+import theme from '../../themes/theme'
+import { AddCircle } from '../../components/icons/AddCircle'
 
 export const FotoProductoScreen = () => {
+	const { width, height } = useWindowDimensions()
 	const navigator = useNavigation()
 
 	return (
-		<View style={style.alinearCentro}>
-			<Text style={style.title}>FotoProductoScreen</Text>
-			<Text style={style.title}>Subi fotos de la prenda.</Text>
-			<Text style={style.title}>Podras cargar hasta 5 imagenes</Text>
+		<StyledView dark>
+			<StyledView container height={height * 1}>
+				<View style={styles.containerMain}>
+					<View
+						style={{
+							...styles.containerSlide,
+							height: height * 0.1,
+						}}
+					>
+						<Slider16 />
+					</View>
 
-			<TouchableOpacity>
-				<Button
-					title='Siguiente'
-					onPress={() => navigator.navigate('CategoriaScreen')}
-				/>
-			</TouchableOpacity>
-		</View>
+					<View
+						style={{
+							...styles.center,
+							height: height * 0.15,
+						}}
+					>
+						<StyledText size14 weight600 marginBottom={10}>
+							Subi fotos de la prenda.
+						</StyledText>
+
+						<StyledText size14 marginBottom={20}>
+							Podras cargar hasta 5 imagenes.
+						</StyledText>
+					</View>
+
+					<View
+						style={{
+							...styles.center,
+							marginBottom: 15,
+						}}
+					>
+						<View
+							style={{
+								...styles.image,
+								height: height * 0.3,
+								width: width * 0.6,
+							}}
+						></View>
+					</View>
+
+					<Pressable
+						onPress={() => alert('Agregar imagen')}
+						style={{
+							...styles.center,
+							marginBottom: 30,
+						}}
+					>
+						<AddCircle />
+					</Pressable>
+				</View>
+
+				<View style={styles.containerBtn}>
+					<StyledButton
+						white
+						title={'Siguiente'}
+						onPress={() => navigator.navigate('CategoriaScreenVender')}
+					></StyledButton>
+				</View>
+			</StyledView>
+		</StyledView>
 	)
 }
+
+const styles = StyleSheet.create({
+	containerText: {
+		marginBottom: 2,
+	},
+	containerSlide: {
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	containerImage: {
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	image: {
+		backgroundColor: theme.colors.yellowPrimary,
+		width: '70%',
+		borderRadius: 16,
+	},
+	center: {
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	containerBtn: {},
+	containerMain: {
+		marginBottom: 10,
+	},
+})

@@ -4,20 +4,15 @@ import { useNavigation } from '@react-navigation/native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import theme from '../themes/theme'
 
-export const EcoBtnNavigate = ({ text = 'texto', navigate }) => {
+export const EcoBtnNavigate = ({ text = 'texto', navigate, styleText, onPress, ...props }) => {
 	const navigation = useNavigation()
 
 	return (
 		<TouchableOpacity
-			style={style.toucheable}
-			onPress={() =>
-				navigate
-					? navigation.navigate(navigate)
-					: alert('falta la navegacion')
-			}
+			style={[style.toucheable, {...props}]}
+			onPress={onPress}
 		>
-			<Text style={style.text}>{text}</Text>
-
+			<Text style={[style.text, styleText]}>{text}</Text>
 			<MaterialIcons
 				name='arrow-forward-ios'
 				size={24}
