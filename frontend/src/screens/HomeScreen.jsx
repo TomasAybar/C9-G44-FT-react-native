@@ -8,6 +8,8 @@ import { ProductCard } from '../components/ProductCard'
 import Search from '../components/icons/Search.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import productsActions from '../../redux/actions/productsActions'
+import { CategoriasCardHome } from '../components/CategoriasCardHome'
+import { products } from '../../assets/data'
 
 export const HomeScreen = () => {
 	const navigator = useNavigation()
@@ -30,12 +32,16 @@ export const HomeScreen = () => {
 							}}
 						/>
 					</StyledView>
+
+					{/* banner */}
 					<StyledView alignIntems={'center'} marginTop={20}>
 						<Image
 							source={require('../../assets/homeBanner.png')}
 							style={{ width: '100%' }}
 						/>
 					</StyledView>
+
+					{/* title categorias y ver mas */}
 					<StyledView row spaceBetween marginTop={30}>
 						<StyledText weight500>Categorías</StyledText>
 						<TouchableOpacity
@@ -45,110 +51,16 @@ export const HomeScreen = () => {
 						</TouchableOpacity>
 					</StyledView>
 
+					{/* Contenedor categorias */}
 					<StyledView row spaceBetween marginTop={15}>
 						<ScrollView horizontal>
-							<StyledView width={150} marginRight={10}>
-								<TouchableOpacity
-									onPress={() =>
-										navigator.navigate('Categorías')
-									}
-								>
-									<StyledView
-										grey
-										radius12
-										row
-										spaceAround
-										padding={7}
-									>
-										<StyledText size16 weight500>
-											Remera
-										</StyledText>
-										<Image
-											source={{
-												uri: 'https://picsum.photos/id/1/55/70',
-											}}
-											style={{ width: 50, height: 70 }}
-										/>
-									</StyledView>
-								</TouchableOpacity>
-							</StyledView>
-							<StyledView width={150} marginRight={10}>
-								<TouchableOpacity
-									onPress={() =>
-										navigator.navigate('Categorías')
-									}
-								>
-									<StyledView
-										grey
-										radius12
-										row
-										spaceAround
-										padding={7}
-									>
-										<StyledText size16 weight500>
-											Remera
-										</StyledText>
-										<Image
-											source={{
-												uri: 'https://picsum.photos/id/1/55/70',
-											}}
-											style={{ width: 50, height: 70 }}
-										/>
-									</StyledView>
-								</TouchableOpacity>
-							</StyledView>
-							<StyledView width={150} marginRight={10}>
-								<TouchableOpacity
-									onPress={() =>
-										navigator.navigate('Categorías')
-									}
-								>
-									<StyledView
-										grey
-										radius12
-										row
-										spaceAround
-										padding={7}
-									>
-										<StyledText size16 weight500>
-											Remera
-										</StyledText>
-										<Image
-											source={{
-												uri: 'https://picsum.photos/id/1/55/70',
-											}}
-											style={{ width: 50, height: 70 }}
-										/>
-									</StyledView>
-								</TouchableOpacity>
-							</StyledView>
-							<StyledView width={150} marginRight={10}>
-								<TouchableOpacity
-									onPress={() =>
-										navigator.navigate('Categorías')
-									}
-								>
-									<StyledView
-										grey
-										radius12
-										row
-										spaceAround
-										padding={7}
-									>
-										<StyledText size16 weight500>
-											Remera
-										</StyledText>
-										<Image
-											source={{
-												uri: 'https://picsum.photos/id/1/55/70',
-											}}
-											style={{ width: 50, height: 70 }}
-										/>
-									</StyledView>
-								</TouchableOpacity>
-							</StyledView>
+							{products.map(({ type, id }) => (
+								<CategoriasCardHome category={type} key={id} />
+							))}
 						</ScrollView>
 					</StyledView>
+
+					{/* publicados recientemente */}
 					<StyledView row spaceBetween marginTop={15}>
 						<StyledText weight500>
 							Publicados recientemente
@@ -159,6 +71,7 @@ export const HomeScreen = () => {
 							<StyledText weight500>Ver más</StyledText>
 						</TouchableOpacity>
 					</StyledView>
+
 					<StyledView row spaceBetween marginTop={20}>
 						<ScrollView horizontal>
 							<ProductCard
