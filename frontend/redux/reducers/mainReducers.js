@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-// import postReducers from '../reducers/postReducers';
-// import favoriteReducers from '../reducers/favoriteReducers';
-// import userReducers from '../reducers/userReducers';
 import { productReducers } from './productReducers'
+import { userReducers } from './userReducers'
 
 const mainReducer = combineReducers({
-    productReducers
+    productReducers,
+    userReducers
 })
 
 export default mainReducer;
