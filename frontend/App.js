@@ -7,6 +7,8 @@ import { Provider } from 'react-redux'
 import store from './store';
 import theme from './src/themes/theme';
 
+// borrame
+
 
 export default function App() {
     const [fontsLoaded] = useFonts({
