@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
@@ -7,10 +7,20 @@ import StyledButton from '../../styledComponents/StyledButton'
 import { Slider16 } from '../../components/icons/Slider1-6'
 import theme from '../../themes/theme'
 import { AddCircle } from '../../components/icons/AddCircle'
+import * as ImagePicker from 'expo-image-picker';
 
 export const FotoProductoScreen = () => {
 	const { width, height } = useWindowDimensions()
 	const navigator = useNavigation()
+
+	const [imageUri, setImageUri] = useState(null);
+
+  const handleChoosePhoto = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync();
+    if (!result.cancelled) {
+      setImageUri(result.uri);
+    }
+  };
 
 	return (
 		<StyledView dark>
@@ -56,13 +66,17 @@ export const FotoProductoScreen = () => {
 					</View>
 
 					<Pressable
-						onPress={() => alert('Agregar imagen')}
+						onPress={handleChoosePhoto}
 						style={{
 							...styles.center,
 							marginBottom: 30,
 						}}
 					>
+						{imageUri ? (
+          <Image source={{ uri: imageUri }} style={styles.image} />
+        ) : (
 						<AddCircle />
+						)}
 					</Pressable>
 				</View>
 

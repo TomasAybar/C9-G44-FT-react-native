@@ -53,7 +53,7 @@ export const DescripcionScreen = () => {
 				placeholder='Vestido verde con botones en el frente'
 				returnKeyType='done'
 				keyboardType='default'
-				placeholderTextColor={'#fff'}
+				placeholderTextColor={'rgba(255,255,255,0.5)'}
 			/>
 
 			<View style={styles.containerText}>
@@ -62,7 +62,7 @@ export const DescripcionScreen = () => {
 					<TextInput
 						style={styles.inputText}
 						keyboardType='text'
-						placeholderTextColor={'#fff'}
+						placeholderTextColor={'rgba(255,255,255,0.5)'}
 						placeholder='$20.000.-'
 					/>
 				</View>
@@ -71,8 +71,9 @@ export const DescripcionScreen = () => {
 					<StyledText>Tu ganancia:</StyledText>
 					<TextInput
 						style={styles.inputText}
+						
 						keyboardType='text'
-						placeholderTextColor={'#fff'}
+						placeholderTextColor={'rgba(255,255,255,0.5)'}
 						placeholder='$18.000.-'
 					/>
 				</View>
@@ -80,7 +81,7 @@ export const DescripcionScreen = () => {
 
 			<View style={styles.containerBtn}>
 				<SyledButton
-				marginTop= {40}
+					marginTop= {40}
 					white
 					title={'Siguiente'}
 					onPress={() => navigator.navigate('MetodoPagoScreen')}
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
 	},
 	containerText: {},
 	inputText: {
+		color: '#ffffff',
 		borderBottomColor: '#fff',
 		borderBottomWidth: 1,
 		width: '30%',
