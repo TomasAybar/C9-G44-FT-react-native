@@ -1,39 +1,37 @@
 {
-  "expo": {
-    "name": "frontend",
-    "slug": "frontend",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.ecomoda.frontend"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "b31cde40-2b33-4ca2-95a2-e0fa00bc3102"
-      }
-    }
-  }
+	"expo": {
+		"name": "EcoModa",
+		"slug": "frontend",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon-ecomoda.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash-ecomoda.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#121111"
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#FFFFFF"
+			},
+			"package": "com.ecomoda.frontend"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "b31cde40-2b33-4ca2-95a2-e0fa00bc3102"
+			}
+		}
+	}
 }
