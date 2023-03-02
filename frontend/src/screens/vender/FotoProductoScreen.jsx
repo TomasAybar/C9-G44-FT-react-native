@@ -12,6 +12,7 @@ import * as ImagePicker from 'expo-image-picker'
 export const FotoProductoScreen = () => {
 	const { width, height } = useWindowDimensions()
 	const navigator = useNavigation()
+
 	const [imageUri, setImageUri] = useState(null)
 
 	const handleChoosePhoto = async () => {
@@ -71,7 +72,14 @@ export const FotoProductoScreen = () => {
 							marginBottom: 30,
 						}}
 					>
-						<AddCircle />
+						{imageUri ? (
+							<Image
+								source={{ uri: imageUri }}
+								style={styles.image}
+							/>
+						) : (
+							<AddCircle />
+						)}
 					</Pressable>
 				</View>
 
