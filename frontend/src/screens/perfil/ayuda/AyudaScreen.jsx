@@ -15,7 +15,9 @@ export const AyudaScreen = () => {
 				<View style={{ marginTop: 50 }}>
 					<EcoBtnNavigate
 						text='Quiero comprar ¿Cómo hago?'
-						onPress={() => navigator.navigate('QuieroComprarScreen')}
+						onPress={() =>
+							navigator.navigate('QuieroComprarScreen')
+						}
 					/>
 					<EcoBtnNavigate
 						text='Quiero vender, ¿Cómo publico?'
@@ -31,7 +33,7 @@ export const AyudaScreen = () => {
 					/>
 					<EcoBtnNavigate
 						text='Baja de cuenta'
-						onPress={() => navigator.navigate('BajarCuentaScreen')}
+						onPress={() => navigator.navigate('SalirScreen')}
 					/>
 				</View>
 			</StyledView>

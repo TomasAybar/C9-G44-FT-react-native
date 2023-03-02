@@ -127,7 +127,7 @@ export const PerfilScreen = () => {
 								width: width * 0.35,
 								height: 100,
 							}}
-							onPress={() => navigator.navigate('SalirScreen')}
+							onPress={() => navigator.navigate('LoginStack')}
 						>
 							<LogoutProfile style={style.icon} />
 

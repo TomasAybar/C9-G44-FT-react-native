@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { CompletarPerfilStack, LoginStack, OnboardingStack } from './stacks/LoginStack';
+import { LoginStack, OnboardingStack } from './stacks/LoginStack';
 import { StackNavigation } from './StackNavigation';
 
 const Stack = createNativeStackNavigator();
@@ -22,11 +22,6 @@ export const MainNavigation = () => {
                     options={{ headerShown: false }}
                 />
 
-                <Stack.Screen
-                    name='CompletarPerfilStack'
-                    component={CompletarPerfilStack}
-                    options={{ headerShown: false }}
-                />
             </Stack.Navigator>
 
         </NavigationContainer>

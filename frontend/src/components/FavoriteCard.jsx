@@ -16,7 +16,7 @@ export const FavoriteCard = ({ text = 'Texto', price = '000000' }) => {
 			/>
 
 			<View style={styles.containerText}>
-				<StyledText left yellow weight700 size16 marginBottom>
+				<StyledText left yellow weight700 size16 marginBottom={10}>
 					{text}
 				</StyledText>
 				<StyledText left yellow size12>

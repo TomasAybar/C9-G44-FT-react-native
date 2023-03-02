@@ -1,7 +1,5 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { BienvenidaScreen } from '../../screens/login/BienvenidaScreen'
-import { InicioSesionScreen } from '../../screens/login/InicioSesionScreen'
 import { LoginScreen } from '../../screens/login/LoginScreen'
 import { RegistroExitoso } from '../../screens/login/RegistroExitoso'
 import { RegistroNombreScreen } from '../../screens/login/RegistroNombreScreen'
@@ -13,6 +11,7 @@ import { CongratsScreen } from '../../screens/perfil/completar/CongratsScreen'
 import { OnboardingCompraScreen } from '../../screens/onboarding/OnboardingCompraScreen'
 import { OnboardingVendeScreen } from '../../screens/onboarding/OnboardingVendeScreen'
 import { OnboardingDonaScreen } from '../../screens/onboarding/OnboardingDonaScreen'
+import theme from '../../themes/theme'
 
 const Stack = createNativeStackNavigator()
 
@@ -40,25 +39,24 @@ export const OnboardingStack = () => {
     )
 }
 
-export const CompletarPerfilStack = () => {
-    return (
-        <Stack.Navigator>
-            
-        </Stack.Navigator>
-    )
-}
-
 export const LoginStack = () => {
 
 
     return (
         <Stack.Navigator
             initialRouteName='LoginScreen'
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: theme.colors.appBackground,
+                },
+                headerTitleStyle: {
+                    color: '#fff',
+                    fontWeight: '700',
+                },
+                headerTintColor: theme.colors.yellowPrimary,
+            }}
         >
-            <Stack.Screen
-                name='InicioSesionScreen'
-                component={InicioSesionScreen}
-            />
+
             <Stack.Screen
                 name='RegistroNombreScreen'
                 component={RegistroNombreScreen}
@@ -67,50 +65,38 @@ export const LoginStack = () => {
             <Stack.Screen
                 name='RegistroExitoso'
                 component={RegistroExitoso}
+                options={{ headerShown: false }}
             />
             <Stack.Screen
                 name='CompletarPerfilScreen'
                 component={CompletarPerfilScreen}
-            />
-            <Stack.Screen
-             name='CompletarMetodoCobroScreen' 
-             component={CompletarMetodoCobroScreen}
-              />
-              <Stack.Screen 
-              name='MetodoCobroTRFScreen' 
-              component={MetodoCobroTRFScreen} 
-              />
-            <Stack.Screen 
-            name='MetodoCobroBVScreen' 
-            component={MetodoCobroBVScreen} 
-            />
-            <Stack.Screen 
-            name='CongratsScreen' 
-            component={CongratsScreen} 
-            />
-            <Stack.Screen
-                name='BienvenidaScreen'
-                component={BienvenidaScreen}
                 options={{ headerShown: false }}
-
+            />
+            <Stack.Screen
+                name='CompletarMetodoCobroScreen'
+                component={CompletarMetodoCobroScreen}
+                options={{ headerTitle: 'Método de cobro' }}
+            />
+            <Stack.Screen
+                name='MetodoCobroTRFScreen'
+                component={MetodoCobroTRFScreen}
+                options={{ headerTitle: 'Método de cobro' }}
+            />
+            <Stack.Screen
+                name='MetodoCobroBVScreen'
+                component={MetodoCobroBVScreen}
+                options={{ headerTitle: 'Método de cobro' }}
+            />
+            <Stack.Screen
+                name='CongratsScreen'
+                component={CongratsScreen}
+                options={{ headerShown: false }}
             />
             <Stack.Screen
                 name='LoginScreen'
                 component={LoginScreen}
                 options={{ headerShown: false }}
             />
-
-            {/* <Stack.Screen
-                name='StackNavigation'
-                component={StackNavigation}
-                options={{ headerShown: false }}
-            /> */}
-
-            {/* <Stack.Screen
-                name='CompletarPerfilStack'
-                component={CompletarPerfilStack}
-                options={{ headerShown: false }}
-            /> */}
         </Stack.Navigator>
     )
 }

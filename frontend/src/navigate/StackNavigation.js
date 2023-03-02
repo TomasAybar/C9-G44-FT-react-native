@@ -37,16 +37,16 @@ import { GananciasScreen } from '../screens/perfil/vender/GananciasScreen';
 import { PublicacionesScreen } from '../screens/perfil/vender/PublicacionesScreen';
 import { MediosCobrosScreen } from '../screens/perfil/vender/MediosCobrosScreen';
 import { CompletarMetodoCobroScreen } from '../screens/perfil/completar/CompletarMetodoCobroScreen';
-import { CompletarPerfilStack } from './stacks/LoginStack';
 import { MetodoCobroTRFScreen } from '../screens/perfil/completar/MetodoCobroTRFScreen';
 import { MetodoCobroBVScreen } from '../screens/perfil/completar/MetodoCobroBVScreen';
-import { Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-import { MaterialIcons } from '@expo/vector-icons'
-import theme from '../themes/theme';
 import { CongratsScreen } from '../screens/vender/CongratsScreen';
 import { SalirScreen } from '../screens/perfil/salir/SalirScreen';
+
+import { MaterialIcons } from '@expo/vector-icons'
+
+import { useNavigation } from '@react-navigation/native';
+import theme from '../themes/theme';
 
 
 
@@ -65,7 +65,8 @@ export const StackNavigation = () => {
                 headerTitleStyle: {
                     color: '#fff',
                     fontWeight: '700',
-                }
+                },
+                headerTintColor: theme.colors.yellowPrimary,
             }}
         >
             <Stack.Screen
@@ -94,28 +95,14 @@ export const StackNavigation = () => {
             <Stack.Screen name="MetodoPagoScreen" component={MetodoPagoScreen} options={{ headerTitle: 'Método de cobro' }} />
             <Stack.Screen name="CheckeoFinalScreen" component={CheckeoFinalScreen} options={{ headerTitle: 'Revisá y publicá' }} />
             <Stack.Screen name="CongratsScreen" component={CongratsScreen} options={{ headerShown: false }} />
-            <Stack.Screen
-                name="ArticuloPublicadoVender"
-                component={ArticuloPublicadoVender}
-                options={{
-                    headerTitle: 'Publicaciones',
-                    headerLeft: ({ onPress }) => (
-                        <MaterialIcons
-                            name='arrow-back-ios'
-                            size={24}
-                            color={theme.colors.yellowPrimary}
-                            style={{ marginRight: 10 }}
-                            onPress={() => navigation.goBack()}
-                        />
-                    )
-                }} />
+            <Stack.Screen name="ArticuloPublicadoVender" component={ArticuloPublicadoVender} options={{ headerTitle: 'Publicaciones' }} />
 
 
 
             {/* screens donar */}
-            <Stack.Screen name="DetalleDonarScreen" component={DetalleDonarScreen} />
-            <Stack.Screen name="InformacionScreen" component={InformacionScreen} />
-            <Stack.Screen name="DonacionExitosa" component={DonacionExitosa} />
+            <Stack.Screen name="DetalleDonarScreen" component={DetalleDonarScreen} options={{ headerTitle: 'Detalle de la donación' }} />
+            <Stack.Screen name="InformacionScreen" component={InformacionScreen} options={{ headerTitle: 'Información para recolección' }} />
+            <Stack.Screen name="DonacionExitosa" component={DonacionExitosa} options={{ headerShown: false }} />
             <Stack.Screen name="ArticuloPublicadoDonar" component={ArticuloPublicadoDonar} options={{ headerTitle: 'Publicaciones' }} />
 
             {/* screens perfil */}
@@ -143,8 +130,8 @@ export const StackNavigation = () => {
             <Stack.Screen name="QuieroVenderScreen" component={QuieroVenderScreen} options={{ headerTitle: '¿Cómo vender?' }} />
 
             {/* Login - metodo de cobro dentro de ventas editar metodos de cobro*/}
-            <Stack.Screen name='MetodoCobroTRFScreen' component={MetodoCobroTRFScreen} />
-            <Stack.Screen name='MetodoCobroBVScreen' component={MetodoCobroBVScreen} />
+            <Stack.Screen name='MetodoCobroTRFScreen' component={MetodoCobroTRFScreen} options={{ headerTitle: 'Método de cobro' }} />
+            <Stack.Screen name='MetodoCobroBVScreen' component={MetodoCobroBVScreen} options={{ headerTitle: 'Método de cobro' }} />
 
         </Stack.Navigator>
     );
