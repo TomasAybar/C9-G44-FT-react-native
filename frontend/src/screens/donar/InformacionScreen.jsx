@@ -4,12 +4,14 @@ import {View} from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import StyledButton from '../../styledComponents/StyledButton'
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
 import MapView, {Marker, Polyline} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions'
 import {Calendario} from '../donar/Calendario'
 import {HoraDesde} from './HoraDesde'
 import {HoraHasta} from './HoraHasta'
+import {GOOGLE_MAPS_KEY} from '@env'
+import * as Location from 'expo-location'
+
 
 export const InformacionScreen = () => {
 	const navigator = useNavigation()
@@ -23,6 +25,26 @@ export const InformacionScreen = () => {
 		latitude: -34.730500, 
 		longitude:-58.405824 
 	  })
+
+
+	  React.useEffect( () => {
+		getLocationPermission
+	  }, [])
+	 async function getLocationPermission(){
+		let {status} = await Location
+		Location.requestForegroundPermissionsAsync();
+		if(status!== 'granted'){
+			alert('Permiso denegado')
+			return;
+		}
+		let location = await Location.getCurrentPositionAsync({});
+		const current = {
+			latitude: location.coords.latitude,
+			longitude: location.coords.longitude
+		}
+		setOrigin(current)
+
+	  }
 
 	
 	return (
@@ -51,11 +73,12 @@ export const InformacionScreen = () => {
 							coordinate={origin}
 							onDragEnd={(direction)=> setOrigin(direction.nativeEvent.coordinate)}
 							/>
-							{/*<MapViewDirections
+							<MapViewDirections
 							origin={origin}
 							destination={destination}
 							apikey={GOOGLE_MAPS_KEY}
-					/>*/}
+					        />
+
 						</MapView>
 					<StyledButton
 								marginTop={50}
