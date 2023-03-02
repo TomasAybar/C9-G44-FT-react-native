@@ -13,9 +13,11 @@ export const userActions = {
 
                 if (res.data.success) {
                     await AsyncStorage.setItem('token', res.data.response.token);
+                    await AsyncStorage.setItem('user', res.data.response.userData);
                     dispatch({ type: 'SIGNIN', payload: res.data.response.userData })
 
                 }
+
                 return res;
 
             } catch (error) {
