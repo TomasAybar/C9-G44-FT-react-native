@@ -21,6 +21,8 @@ export const Producto = () => {
 
 	const product = products.find((product) => product.id === id)
 
+	console.log(product)
+
 	return (
 		<StyledView dark height100>
 			<StyledView container>
@@ -28,7 +30,7 @@ export const Producto = () => {
 					<StyledView marginTop={10}>
 						<Image
 							source={{
-								uri: 'https://picsum.photos/id/1/342/331',
+								uri: product.image,
 							}}
 							style={{
 								width: 342,

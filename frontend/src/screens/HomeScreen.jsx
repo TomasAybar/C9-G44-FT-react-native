@@ -54,8 +54,12 @@ export const HomeScreen = () => {
 					{/* Contenedor categorias */}
 					<StyledView row spaceBetween marginTop={15}>
 						<ScrollView horizontal>
-							{products.map(({ type, id }) => (
-								<CategoriasCardHome category={type} key={id} />
+							{products.map(({ type, id, image }) => (
+								<CategoriasCardHome
+									category={type}
+									key={id}
+									img={image}
+								/>
 							))}
 						</ScrollView>
 					</StyledView>

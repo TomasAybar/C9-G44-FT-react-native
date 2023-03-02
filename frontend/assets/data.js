@@ -7,7 +7,7 @@ export const products = [
         category: 'mujer',
         type: 'Jean',
         heading: 'Indumentaria',
-        image: 'https://example.com/jean-slim.jpg',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_970450-MLA49938552937_052022-W.jpg',
         size: 'M',
         color: 'Azul',
         state: 'Nuevo'
@@ -20,7 +20,7 @@ export const products = [
         category: 'hombre',
         type: 'Remera',
         heading: 'Indumentaria',
-        image: 'https://example.com/remera-algodon.jpg',
+        image: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/002/313/040/products/remera-remera-de-hombre-remera-nike-remera-replica-remera-slim-fit-remera-entallada-remera-blanca-remera-negra-nike-grande-pipeta-nike-regalo-remera-de-calidad-remera-de-algodon-navidad1-c221d73d430796099e16715407293599-640-0.webp',
         size: 'L',
         color: 'Negro',
         state: 'Usado (muy poco uso)'
@@ -33,7 +33,7 @@ export const products = [
         category: 'niños',
         type: 'Vestido',
         heading: 'Indumentaria',
-        image: 'https://example.com/vestido-estampado.jpg',
+        image: 'https://media.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/v/e/vestido-adidas-essentials-logo-mujer-rosa-100020h42009001-1.jpg',
         size: '6',
         color: 'Rosado',
         state: 'Nuevo con etiqueta'
@@ -46,7 +46,7 @@ export const products = [
         category: 'hombre',
         type: 'Zapatillas',
         heading: 'Calzado',
-        image: 'https://example.com/zapatillas-deportivas.jpg',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_855027-MLA52648949235_112022-O.jpg',
         size: '42',
         color: 'Blanco',
         state: 'Usado (en buen estado)'
@@ -59,7 +59,7 @@ export const products = [
         category: 'mujer',
         type: 'Sombrero',
         heading: 'Accesorio',
-        image: 'https://example.com/sombrero-paja.jpg',
+        image: 'https://static3.mujerhoy.com/www/multimedia/202005/30/media/cortadas/sombrero-paja-zara-home-k67G--726x900@MujerHoy.jpg',
         color: 'Natural',
         state: 'Nuevo'
     },
@@ -71,7 +71,7 @@ export const products = [
         category: 'mujer',
         type: 'Campera',
         heading: 'Indumentaria',
-        image: 'https://example.com/campera-cuero.jpg',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_787964-MLA52526792685_112022-W.jpg',
         size: 'S',
         color: 'Negro',
         state: 'Nuevo con etiqueta'
@@ -84,7 +84,7 @@ export const products = [
         category: 'hombre',
         type: 'Pantalón',
         heading: 'Indumentaria',
-        image: 'https://example.com/pantalon-chino.jpg',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_992190-MLA40530226345_012020-W.jpg',
         size: 'L',
         color: 'Beige',
         state: 'Usado (en buen estado)'
@@ -97,7 +97,7 @@ export const products = [
         category: 'mujer',
         type: 'Vestido',
         heading: 'Indumentaria',
-        image: 'https://example.com/vestido-noche.jpg',
+        image: 'https://ae01.alicdn.com/kf/HTB1MHAFEYGYBuNjy0Foq6AiBFXaG.jpg_640x640q90.jpg',
         size: 'M',
         color: 'Rojo',
         state: 'Nuevo con etiqueta'
@@ -110,7 +110,7 @@ export const products = [
         category: 'niños',
         type: 'Buzo',
         heading: 'Indumentaria',
-        image: 'https://example.com/buzo-capucha.jpg',
+        image: 'https://media.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/u/buzo-con-capucha-adidas-training-linear-colorblock-ni_o-gris-100020gd6323001-1.jpg',
         size: '10',
         color: 'Gris',
         state: 'Nuevo'
@@ -123,7 +123,7 @@ export const products = [
         category: 'hombre',
         type: 'Botas',
         heading: 'Calzado',
-        image: 'https://example.com/botas-cuero.jpg',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_865502-MLA53948794728_022023-W.jpg',
         size: '42',
         color: 'Negro',
         state: 'Usado (en buen estado)'

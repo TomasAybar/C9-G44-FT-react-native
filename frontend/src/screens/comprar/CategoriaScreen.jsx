@@ -34,12 +34,13 @@ export const CategoriaScreen = () => {
 						/>
 					</StyledView>
 					<StyledView row center marginTop={20} flexWrap={'wrap'}>
-						{productsFilter.map(({ name, price, id }) => (
+						{productsFilter.map(({ name, price, id, image }) => (
 							<ProductCard
 								title={name}
 								price={price}
 								key={id}
 								id={id}
+								img={image}
 							/>
 						))}
 					</StyledView>

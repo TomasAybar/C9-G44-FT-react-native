@@ -27,8 +27,12 @@ export const CategoriasScreen = () => {
 					</StyledView>
 
 					<StyledView>
-						{products.map(({ type, id }) => (
-							<CategoriasCardCategorias type={type} key={id} />
+						{products.map(({ type, id, image }) => (
+							<CategoriasCardCategorias
+								type={type}
+								key={id}
+								img={image}
+							/>
 						))}
 					</StyledView>
 				</StyledView>
