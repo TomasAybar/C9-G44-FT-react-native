@@ -133,6 +133,7 @@ export const LoginScreen = () => {
 		<StyledView dark height100 justifyContent={'center'}>
 			<AlertLoading
 				title='Datos incorrectos'
+				body={'Email o contraseña incorrecta'}
 				btnText='Volver a intentar'
 				onPress={() => setAlert(false)}
 				img={false}
