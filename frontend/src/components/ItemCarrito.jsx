@@ -6,11 +6,7 @@ import Trash from '../components/icons/Trash'
 import { shopActions } from '../../redux/actions/shopActions'
 
 export const ItemCarrito = ({ title, price, image, id }) => {
-	console.log('borrar')
-
 	const deteleToCart = (id) => {
-		console.log(id)
-
 		shopActions.deleteToShop(id)
 	}
 

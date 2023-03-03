@@ -5,18 +5,22 @@ import StyledText from '../styledComponents/StyledText'
 import StyledView from '../styledComponents/StyledView'
 
 export const CategoriasCardHome = ({
-	navigate = 'Categorías',
-	category = 'Remera',
+	navigate = 'Categoria',
+	type = 'Remera',
 	img = 'https://picsum.photos/id/1/55/70',
 }) => {
 	const navigator = useNavigation()
 
+	// navigator.navigate(navigate, { type })
+
 	return (
 		<StyledView width={150} marginRight={10}>
-			<TouchableOpacity onPress={() => navigator.navigate(navigate)}>
+			<TouchableOpacity
+				onPress={() => navigator.navigate(navigate, { type })}
+			>
 				<StyledView grey radius12 row spaceAround padding={7}>
 					<StyledText size16 weight500>
-						{category}
+						{type}
 					</StyledText>
 					<Image
 						source={{

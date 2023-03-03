@@ -2,11 +2,7 @@ export let carrito = []
 
 export const shopActions = {
 
-
     addToShop: (product) => {
-
-        console.log(product)
-        console.log('action')
 
         carrito = [...carrito];
         let productRepetido = carrito.find(productCarrito => productCarrito.id === product.id) // BUSCA PRODUCTO REPETIDOS
@@ -16,16 +12,6 @@ export const shopActions = {
             carrito.push(product)
         }
 
-
-        // return async (dispatch, getState) => {
-
-
-
-        //     dispatch({
-        //         type: 'ADDTOSHOP',
-        //         payload: { product },
-        //     })
-        // }
     },
 
     deleteToShop: (id) => {
@@ -34,21 +20,8 @@ export const shopActions = {
 
         let modifiedCarrito = carrito.filter(productCarrito => productCarrito.id !== id)
 
-        console.log('carrito modificado')
-        console.log(modifiedCarrito)
-
         carrito = modifiedCarrito
 
-        return carrito
-
-
-        // return async (dispatch, getState) => {
-
-        //     dispatch({
-        //         type: 'DELETETOSHOP',
-        //         payload: { product },
-        //     })
-        // }
     },
 
     verifyShopStorage: (shopStorage) => {
@@ -66,26 +39,8 @@ export const shopActions = {
 
         carrito = [];
 
-        // return async (dispatch, getState) => {
-
-        //     dispatch({
-        //         type: 'DELETEALLTOSHOP',
-        //         // payload: { product },
-        //     })
-        // }
     },
 
-    deleteOneProduct: (product) => {
-        // return async (dispatch, getState) => {
-
-        //     dispatch({
-        //         type: 'DELETEONEPRODUCT',
-        //         payload: { product },
-        //     })
-
-
-        // }
-    },
 
 
 }

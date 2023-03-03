@@ -10,7 +10,6 @@ const productsActions = {
 
             const res = await axios.get(`${API_URL}/products`);
             dispatch({ type: "GET_PRODUCTS", payload: res.response });
-            console.log(res.data.response)
         };
     },
 

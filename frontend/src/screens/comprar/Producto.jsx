@@ -18,18 +18,10 @@ export const Producto = () => {
 
 	const id = route.params.id
 
-	// console.log(id)
-
 	const product = products.find((product) => product.id === id)
 
-	// console.log(product)
-
 	const addToCart = (product) => {
-		// console.log(product)
-
 		shopActions.addToShop(product)
-
-		// console.log(carrito)
 
 		navigator.navigate('Carrito de compras')
 	}

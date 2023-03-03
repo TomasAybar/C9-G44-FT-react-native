@@ -10,9 +10,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import productsActions from '../../redux/actions/productsActions'
 import { CategoriasCardHome } from '../components/CategoriasCardHome'
 import { products } from '../../assets/data'
+import theme from '../themes/theme'
 
 export const HomeScreen = () => {
 	const navigator = useNavigation()
+
+	let productsOrder = [...products]
+
+	const desorder = () => {
+		return Math.random() - 0.5
+	}
+
+	productsOrder = productsOrder.sort(desorder).map((product) => product)
 
 	return (
 		<StyledView dark height100>
@@ -21,9 +30,9 @@ export const HomeScreen = () => {
 					<StyledView row marginTop={10}>
 						<StyledTextInput
 							style={{ borderWidth: 0, opacity: 1, flexGrow: 1 }}
-						>
-							Buscador
-						</StyledTextInput>
+							placeholder={'Buscador'}
+							placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
+						></StyledTextInput>
 						<Search
 							style={{
 								position: 'absolute',
@@ -56,7 +65,7 @@ export const HomeScreen = () => {
 						<ScrollView horizontal>
 							{products.map(({ type, id, image }) => (
 								<CategoriasCardHome
-									category={type}
+									type={type}
 									key={id}
 									img={image}
 								/>
@@ -78,7 +87,18 @@ export const HomeScreen = () => {
 
 					<StyledView row spaceBetween marginTop={20}>
 						<ScrollView horizontal>
-							<ProductCard
+							{productsOrder.map(({ image, name, price, id }) => (
+								<ProductCard
+									img={image}
+									title={name}
+									price={price}
+									flex={1}
+									margin={10}
+									key={id}
+									id={id}
+								/>
+							))}
+							{/* <ProductCard
 								img={'https://picsum.photos/id/1/162/192'}
 								title={'Zapatilla'}
 								price={'10000'}
@@ -105,7 +125,7 @@ export const HomeScreen = () => {
 								price={'8000'}
 								flex={1}
 								margin={10}
-							/>
+							/> */}
 						</ScrollView>
 					</StyledView>
 				</StyledView>
