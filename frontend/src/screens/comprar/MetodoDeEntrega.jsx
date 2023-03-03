@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import StyledText from '../../styledComponents/StyledText'
 import StyledView from '../../styledComponents/StyledView'
 import { BuySteps } from '../../components/BuySteps'
@@ -11,6 +11,10 @@ import theme from '../../themes/theme'
 export const MetodoDeEntrega = () => {
 	const navigator = useNavigation()
 
+	const route = useRoute()
+
+	const priceTotal = route.params.priceTotal
+
 	return (
 		<StyledView dark height100>
 			<StyledView container flex={1} spaceBetween>
@@ -19,7 +23,9 @@ export const MetodoDeEntrega = () => {
 					<EcoBtnNavigate
 						text='Envío a domicilio'
 						onPress={() =>
-							navigator.navigate('Selecciona un método de pago')
+							navigator.navigate('Selecciona un método de pago', {
+								priceTotal,
+							})
 						}
 						borderRadius={12}
 						styleText={{ fontSize: 12 }}
@@ -27,7 +33,9 @@ export const MetodoDeEntrega = () => {
 
 					<TouchableOpacity
 						onPress={() =>
-							navigator.navigate('Selecciona un método de pago')
+							navigator.navigate('Selecciona un método de pago', {
+								priceTotal,
+							})
 						}
 					>
 						<StyledView
@@ -69,7 +77,7 @@ export const MetodoDeEntrega = () => {
 							Total
 						</StyledText>
 						<StyledText size18 weight500>
-							$5000
+							${priceTotal}
 						</StyledText>
 					</StyledView>
 				</StyledView>

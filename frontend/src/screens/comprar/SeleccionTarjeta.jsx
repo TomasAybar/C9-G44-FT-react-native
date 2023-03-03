@@ -4,10 +4,14 @@ import StyledView from '../../styledComponents/StyledView'
 import StyledButton from '../../styledComponents/StyledButton'
 import { BuySteps } from '../../components/BuySteps'
 import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 export const SeleccionTarjeta = () => {
 	const navigator = useNavigation()
+
+	const route = useRoute()
+
+	const priceTotal = route.params.priceTotal
 
 	return (
 		<StyledView dark height100>
@@ -17,7 +21,9 @@ export const SeleccionTarjeta = () => {
 					<EcoBtnNavigate
 						text='Tarjeta de débito Visa ***1273'
 						onPress={() =>
-							navigator.navigate('Procesamiento de pago')
+							navigator.navigate('Procesamiento de pago', {
+								priceTotal,
+							})
 						}
 						borderRadius={12}
 						styleText={{ fontSize: 12 }}
@@ -37,14 +43,18 @@ export const SeleccionTarjeta = () => {
 							Total
 						</StyledText>
 						<StyledText size18 weight500>
-							$5000
+							${priceTotal}
 						</StyledText>
 					</StyledView>
 				</StyledView>
 				<StyledButton
 					white
 					title={'Ir a comprar'}
-					onPress={() => navigator.navigate('Procesamiento de pago')}
+					onPress={() =>
+						navigator.navigate('Procesamiento de pago', {
+							priceTotal,
+						})
+					}
 					marginBottom={30}
 				/>
 			</StyledView>

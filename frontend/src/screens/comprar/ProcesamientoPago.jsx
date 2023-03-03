@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import StyledText from '../../styledComponents/StyledText'
 import StyledView from '../../styledComponents/StyledView'
 import StyledButton from '../../styledComponents/StyledButton'
@@ -10,14 +10,30 @@ import {
 	AlertLoadingCompleted,
 } from '../../components/AlertLoading'
 
+import { shopActions } from '../../../redux/actions/shopActions.js'
+
 export const ProcesamientoPago = () => {
 	const navigator = useNavigation()
+
+	const route = useRoute()
+
+	const priceTotal = route.params.priceTotal
 
 	const [completed, setCompleted] = useState(false)
 
 	useEffect(() => {
 		setTimeout(() => setCompleted(true), 1500)
 	}, [])
+
+	const btnCerrar = () => {
+		navigator.popToTop()
+		shopActions.deleteAllToShop()
+	}
+
+	const btnSeguir = () => {
+		navigator.navigate('Categorías')
+		shopActions.deleteAllToShop()
+	}
 
 	return (
 		<StyledView dark height100>
@@ -29,8 +45,8 @@ export const ProcesamientoPago = () => {
 					body={
 						'Te enviamos a tu Email toda la información para la entrega.'
 					}
-					onPress1={() => navigator.popToTop()}
-					onPress2={() => navigator.navigate('Categorías')}
+					onPress1={btnCerrar}
+					onPress2={btnSeguir}
 				/>
 			) : (
 				<AlertLoading title='Procesando el pago' />
@@ -52,7 +68,7 @@ export const ProcesamientoPago = () => {
 								Total
 							</StyledText>
 							<StyledText size18 weight500>
-								$5000
+								${priceTotal}
 							</StyledText>
 						</StyledView>
 					</StyledView>
@@ -60,7 +76,9 @@ export const ProcesamientoPago = () => {
 						white
 						title={'Confirmar compra'}
 						onPress={() =>
-							navigator.navigate('Procesamiento de pago')
+							navigator.navigate('Procesamiento de pago', {
+								priceTotal,
+							})
 						}
 						marginBottom={30}
 					/>

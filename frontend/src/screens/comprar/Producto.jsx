@@ -8,6 +8,7 @@ import Star from '../../components/icons/Star'
 import Message from '../../components/icons/Message'
 import theme from '../../themes/theme'
 import { products } from '../../../assets/data.js'
+import { carrito, shopActions } from '../../../redux/actions/shopActions'
 
 export const Producto = () => {
 	const [favorite, setFavorite] = useState(false)
@@ -17,11 +18,21 @@ export const Producto = () => {
 
 	const id = route.params.id
 
-	console.log(id)
+	// console.log(id)
 
 	const product = products.find((product) => product.id === id)
 
-	console.log(product)
+	// console.log(product)
+
+	const addToCart = (product) => {
+		// console.log(product)
+
+		shopActions.addToShop(product)
+
+		// console.log(carrito)
+
+		navigator.navigate('Carrito de compras')
+	}
 
 	return (
 		<StyledView dark height100>
@@ -101,9 +112,7 @@ export const Producto = () => {
 							white
 							title={'Añadir al carrito'}
 							width={'73%'}
-							onPress={() =>
-								navigator.navigate('Carrito de compras')
-							}
+							onPress={() => addToCart(product)}
 						/>
 						<StyledView
 							radius12

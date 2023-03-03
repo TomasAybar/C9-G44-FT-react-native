@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import StyledText from '../../styledComponents/StyledText'
 import StyledView from '../../styledComponents/StyledView'
 import { BuySteps } from '../../components/BuySteps'
@@ -8,6 +8,10 @@ import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
 export const MetodoDePago = () => {
 	const navigator = useNavigation()
 
+	const route = useRoute()
+
+	const priceTotal = route.params.priceTotal
+
 	return (
 		<StyledView dark height100>
 			<StyledView container flex={1} spaceBetween>
@@ -15,14 +19,18 @@ export const MetodoDePago = () => {
 				<StyledView flex={1} marginTop={50}>
 					<EcoBtnNavigate
 						text='Tarjeta de débito/crédito'
-						onPress={() => navigator.navigate('Tarjeta')}
+						onPress={() =>
+							navigator.navigate('Tarjeta', { priceTotal })
+						}
 						borderRadius={12}
 						marginBottom={17}
 						styleText={{ fontSize: 12 }}
 					/>
 					<EcoBtnNavigate
 						text='Efectivo al momento de entrega'
-						onPress={() => navigator.navigate('Efectivo')}
+						onPress={() =>
+							navigator.navigate('Efectivo', { priceTotal })
+						}
 						borderRadius={12}
 						marginBottom={17}
 						styleText={{ fontSize: 12 }}
@@ -30,7 +38,9 @@ export const MetodoDePago = () => {
 					<EcoBtnNavigate
 						text='Mercado pago'
 						onPress={() =>
-							navigator.navigate('Procesamiento de pago')
+							navigator.navigate('Procesamiento de pago', {
+								priceTotal,
+							})
 						}
 						borderRadius={12}
 						styleText={{ fontSize: 12 }}
@@ -50,7 +60,7 @@ export const MetodoDePago = () => {
 							Total
 						</StyledText>
 						<StyledText size18 weight500>
-							$5000
+							${priceTotal}
 						</StyledText>
 					</StyledView>
 				</StyledView>
