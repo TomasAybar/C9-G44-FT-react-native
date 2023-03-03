@@ -129,3 +129,10 @@ export const products = [
         state: 'Usado (en buen estado)'
     }
 ];
+
+export const usersRegisters = [
+    {
+        email: 'correo@correo.com',
+        password: '12345678'
+    },
+]

@@ -68,7 +68,14 @@ export const AlertLoadingCompleted = ({
 	)
 }
 
-export const AlertLoading = ({ title = 'Titulo', body, btnCancel = true }) => {
+export const AlertLoading = ({
+	title = 'Titulo',
+	body,
+	btnCancel = true,
+	btnText = 'Cancelar',
+	onPress = () => navigator.goBack(),
+	img = true,
+}) => {
 	const navigator = useNavigation()
 
 	return (
@@ -88,19 +95,22 @@ export const AlertLoading = ({ title = 'Titulo', body, btnCancel = true }) => {
 					</StyledText>
 				)}
 
-				<Image
-					source={require('../../assets/icons/loader.png')}
-					alignSelf={'center'}
-					marginVertical={10}
-				/>
+				{img && (
+					<Image
+						source={require('../../assets/icons/loader.png')}
+						alignSelf={'center'}
+						marginVertical={10}
+					/>
+				)}
+
 				{btnCancel && (
 					<SyledButton
 						white
 						width={'90%'}
 						marginVertical={20}
 						alignSelf={'center'}
-						title={'Cancelar'}
-						onPress={() => navigator.goBack()}
+						title={btnText}
+						onPress={onPress}
 					/>
 				)}
 			</StyledView>
