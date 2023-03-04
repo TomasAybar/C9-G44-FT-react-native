@@ -1,31 +1,33 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector, useDispatch } from 'react-redux'
+// import { useSelector, useDispatch } from 'react-redux'
 import StyledText from '../../styledComponents/StyledText'
 import StyledView from '../../styledComponents/StyledView'
 import StyledButton from '../../styledComponents/StyledButton'
 import { BuySteps } from '../../components/BuySteps'
 import { ItemCarrito } from '../../components/ItemCarrito'
-import { carrito } from '../../../redux/actions/shopActions'
+// import { carrito } from '../../../redux/actions/shopActions'
 
 export const Carrito = () => {
 	// Carrito: array vacio muestra el carrito vacio, array con contenido muestra el detalle de compra
-	// const items = [1]
+	const items = [1]
 
 	const navigator = useNavigation()
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
 	// const items = useSelector((store) => store.shopReducers.productsInShop)
 
 	// console.log(items)
 
-	let items = [...carrito]
+	// let items = [...carrito]
 
-	const priceTotal = carrito.reduce(
-		(total, producto) => total + producto.price,
-		0
-	)
+	// const priceTotal = carrito.reduce(
+	// 	(total, producto) => total + producto.price,
+	// 	0
+	// )
+
+	let priceTotal = 4000
 
 	return (
 		<StyledView dark height100>
@@ -56,15 +58,9 @@ export const Carrito = () => {
 							<ScrollView>
 								{/* Dejo el carrito con 4 productos para que se vea el scroll */}
 
-								{items?.map((item) => (
-									<ItemCarrito
-										title={item.name}
-										price={item.price}
-										image={item.image}
-										key={item.id}
-										id={item.id}
-									/>
-								))}
+								{/* {items?.map((item) => (
+									))} */}
+								<ItemCarrito />
 							</ScrollView>
 						</StyledView>
 						<StyledView marginBottom={25}>

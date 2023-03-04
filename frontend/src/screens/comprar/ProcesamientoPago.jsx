@@ -10,7 +10,7 @@ import {
 	AlertLoadingCompleted,
 } from '../../components/AlertLoading'
 
-import { shopActions } from '../../../redux/actions/shopActions.js'
+// import { shopActions } from '../../../redux/actions/shopActions.js'
 
 export const ProcesamientoPago = () => {
 	const navigator = useNavigation()
@@ -27,12 +27,12 @@ export const ProcesamientoPago = () => {
 
 	const btnCerrar = () => {
 		navigator.popToTop()
-		shopActions.deleteAllToShop()
+		// shopActions.deleteAllToShop()
 	}
 
 	const btnSeguir = () => {
 		navigator.navigate('Categorías')
-		shopActions.deleteAllToShop()
+		// shopActions.deleteAllToShop()
 	}
 
 	return (

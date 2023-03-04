@@ -8,7 +8,7 @@ import Star from '../../components/icons/Star'
 import Message from '../../components/icons/Message'
 import theme from '../../themes/theme'
 import { products } from '../../../assets/data.js'
-import { carrito, shopActions } from '../../../redux/actions/shopActions'
+// import { carrito, shopActions } from '../../../redux/actions/shopActions'
 
 export const Producto = () => {
 	const [favorite, setFavorite] = useState(false)
@@ -21,7 +21,7 @@ export const Producto = () => {
 	const product = products.find((product) => product.id === id)
 
 	const addToCart = (product) => {
-		shopActions.addToShop(product)
+		// shopActions.addToShop(product)
 
 		navigator.navigate('Carrito de compras')
 	}

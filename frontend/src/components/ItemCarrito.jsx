@@ -3,11 +3,17 @@ import { Image } from 'react-native'
 import StyledView from '../styledComponents/StyledView'
 import StyledText from '../styledComponents/StyledText'
 import Trash from '../components/icons/Trash'
-import { shopActions } from '../../redux/actions/shopActions'
+// import { shopActions } from '../../redux/actions/shopActions'
 
-export const ItemCarrito = ({ title, price, image, id }) => {
+export const ItemCarrito = ({
+	title = 'title',
+	price = '4000',
+	image = 'https://picsum.photos/id/1/162/192',
+	id = 1,
+}) => {
 	const deteleToCart = (id) => {
-		shopActions.deleteToShop(id)
+		// shopActions.deleteToShop(id)
+		console.log('delete')
 	}
 
 	return (
