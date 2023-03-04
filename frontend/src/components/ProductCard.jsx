@@ -5,6 +5,7 @@ import StyledText from '../styledComponents/StyledText'
 import StyledView from '../styledComponents/StyledView'
 import Star from '../components/icons/Star'
 import theme from '../themes/theme'
+import { useFavoriteStore } from '../store/FavoriteStore'
 
 export const ProductCard = ({
 	title,
@@ -12,9 +13,17 @@ export const ProductCard = ({
 	img = 'https://picsum.photos/id/1/162/192',
 	margin = 6,
 	id,
+	item,
 }) => {
 	const [favorite, setFavorite] = useState(false)
+
+	const { addOrDeleteToFavorite, favorites } = useFavoriteStore()
 	const navigator = useNavigation()
+
+	const addFavorite = (item) => {
+		setFavorite(!favorite)
+		addOrDeleteToFavorite(item)
+	}
 
 	return (
 		<StyledView
@@ -42,7 +51,7 @@ export const ProductCard = ({
 					<TouchableOpacity
 						zIndex={20}
 						elevation={20}
-						onPress={() => setFavorite(!favorite)}
+						onPress={() => addFavorite(item)}
 					>
 						<StyledView>
 							<Star

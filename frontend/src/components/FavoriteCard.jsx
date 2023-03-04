@@ -4,23 +4,27 @@ import SyledButton from '../styledComponents/StyledButton'
 import StyledText from '../styledComponents/StyledText'
 import StarFilled from './icons/StarFilled'
 import Star from './icons/Star'
+import { useFavoriteStore } from '../store/FavoriteStore'
 
-export const FavoriteCard = ({ text = 'Texto', price = '000000' }) => {
-	const [favorite, setFavorite] = useState(favorite)
+export const FavoriteCard = ({ item }) => {
+	const [favorite, setFavorite] = useState(true)
+	const { addOrDeleteToFavorite } = useFavoriteStore()
+
+	const addFavorite = (item) => {
+		setFavorite(!favorite)
+		addOrDeleteToFavorite(item)
+	}
 
 	return (
 		<View style={styles.card}>
-			<Image
-				source={{ uri: 'https://picsum.photos/id/10/72/72' }}
-				style={styles.containerImg}
-			/>
+			<Image source={{ uri: item.image }} style={styles.containerImg} />
 
 			<View style={styles.containerText}>
 				<StyledText left yellow weight700 size16 marginBottom={10}>
-					{text}
+					{item.name}
 				</StyledText>
 				<StyledText left yellow size12>
-					${price}.-
+					${item.price}.-
 				</StyledText>
 			</View>
 
@@ -28,13 +32,10 @@ export const FavoriteCard = ({ text = 'Texto', price = '000000' }) => {
 				{favorite ? (
 					<StarFilled
 						marginBottom={10}
-						onPress={() => setFavorite(!favorite)}
+						onPress={() => addFavorite(item)}
 					/>
 				) : (
-					<Star
-						marginBottom={10}
-						onPress={() => setFavorite(!favorite)}
-					/>
+					<Star marginBottom={10} onPress={() => addFavorite(item)} />
 				)}
 
 				<SyledButton

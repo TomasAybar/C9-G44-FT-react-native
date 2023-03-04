@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Image, ScrollView, TouchableOpacity } from 'react-native'
 import StyledText from '../styledComponents/StyledText'
@@ -6,11 +6,8 @@ import StyledView from '../styledComponents/StyledView'
 import StyledTextInput from '../styledComponents/StyledTextInput'
 import { ProductCard } from '../components/ProductCard'
 import Search from '../components/icons/Search.jsx'
-import { useDispatch, useSelector } from 'react-redux'
-// import productsActions from '../../redux/actions/productsActions'
 import { CategoriasCardHome } from '../components/CategoriasCardHome'
 import { products } from '../../assets/data'
-import theme from '../themes/theme'
 
 export const HomeScreen = () => {
 	const navigator = useNavigation()
@@ -87,45 +84,18 @@ export const HomeScreen = () => {
 
 					<StyledView row spaceBetween marginTop={20}>
 						<ScrollView horizontal>
-							{productsOrder.map(({ image, name, price, id }) => (
+							{productsOrder.map((item) => (
 								<ProductCard
-									img={image}
-									title={name}
-									price={price}
+									img={item.image}
+									title={item.name}
+									price={item.price}
 									flex={1}
 									margin={10}
-									key={id}
-									id={id}
+									key={item.id}
+									id={item.id}
+									item={item}
 								/>
 							))}
-							{/* <ProductCard
-								img={'https://picsum.photos/id/1/162/192'}
-								title={'Zapatilla'}
-								price={'10000'}
-								flex={1}
-								margin={10}
-							/>
-							<ProductCard
-								img={'https://picsum.photos/id/1/162/192'}
-								title={'Remera'}
-								price={'8000'}
-								flex={1}
-								margin={10}
-							/>
-							<ProductCard
-								img={'https://picsum.photos/id/1/162/192'}
-								title={'Zapatilla'}
-								price={'10000'}
-								flex={1}
-								margin={10}
-							/>
-							<ProductCard
-								img={'https://picsum.photos/id/1/162/192'}
-								title={'Remera'}
-								price={'8000'}
-								flex={1}
-								margin={10}
-							/> */}
 						</ScrollView>
 					</StyledView>
 				</StyledView>
