@@ -7,6 +7,7 @@ import StyledView from '../../styledComponents/StyledView'
 import StyledButton from '../../styledComponents/StyledButton'
 import { BuySteps } from '../../components/BuySteps'
 import { ItemCarrito } from '../../components/ItemCarrito'
+import { useCartStore } from '../../store/cartStore'
 // import { carrito } from '../../../redux/actions/shopActions'
 
 export const Carrito = () => {
@@ -14,6 +15,8 @@ export const Carrito = () => {
 	const items = [1]
 
 	const navigator = useNavigation()
+
+	const { cart } = useCartStore()
 	// const dispatch = useDispatch()
 
 	// const items = useSelector((store) => store.shopReducers.productsInShop)
@@ -22,18 +25,18 @@ export const Carrito = () => {
 
 	// let items = [...carrito]
 
-	// const priceTotal = carrito.reduce(
-	// 	(total, producto) => total + producto.price,
-	// 	0
-	// )
+	const priceTotal = cart.reduce(
+		(total, producto) => total + producto.price,
+		0
+	)
 
-	let priceTotal = 4000
+	// let priceTotal = 4000
 
 	return (
 		<StyledView dark height100>
 			<StyledView container flex={1} spaceBetween>
 				{/* Lógica para ver si hay items en el carrito y renderizar lo correspondiente */}
-				{items?.length === 0 ? (
+				{cart?.length === 0 ? (
 					<>
 						<StyledView marginTop={70}>
 							<StyledText size16 weight700>
@@ -58,9 +61,15 @@ export const Carrito = () => {
 							<ScrollView>
 								{/* Dejo el carrito con 4 productos para que se vea el scroll */}
 
-								{/* {items?.map((item) => (
-									))} */}
-								<ItemCarrito />
+								{cart?.map((item) => (
+									<ItemCarrito
+										id={item.id}
+										image={item.image}
+										price={item.price}
+										title={item.name}
+										key={item.id}
+									/>
+								))}
 							</ScrollView>
 						</StyledView>
 						<StyledView marginBottom={25}>

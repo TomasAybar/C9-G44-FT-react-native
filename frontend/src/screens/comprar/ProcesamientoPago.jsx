@@ -9,11 +9,13 @@ import {
 	AlertLoading,
 	AlertLoadingCompleted,
 } from '../../components/AlertLoading'
+import { useCartStore } from '../../store/cartStore'
 
 // import { shopActions } from '../../../redux/actions/shopActions.js'
 
 export const ProcesamientoPago = () => {
 	const navigator = useNavigation()
+	const { clearCart } = useCartStore()
 
 	const route = useRoute()
 
@@ -28,11 +30,13 @@ export const ProcesamientoPago = () => {
 	const btnCerrar = () => {
 		navigator.popToTop()
 		// shopActions.deleteAllToShop()
+		clearCart()
 	}
 
 	const btnSeguir = () => {
 		navigator.navigate('Categorías')
 		// shopActions.deleteAllToShop()
+		clearCart()
 	}
 
 	return (
