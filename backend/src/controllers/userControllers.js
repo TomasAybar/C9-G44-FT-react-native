@@ -28,7 +28,11 @@ const userControllers = {
 
         let { email, password } = req.body; // recibe por body
 
-        if (!email || !password) { // si no recive nada, devuelve error
+        console.log('backend')
+
+        console.log(email, password)
+
+        if (!email || !password) { // si no recibe nada, devuelve error
             return res.status(400).json({
                 success: false,
                 message: `Por favor enviar email o contraseña`,
@@ -64,7 +68,7 @@ const userControllers = {
 
                     const token = jwt.sign({ ...userData }, jwtSecret, { expiresIn: 60 * 60 * 24 }); // creo el token guardando la info del usuario en el
 
-                    res.status(201).json({
+                    res.status(200).json({
                         success: true,
                         response: { token, userData },
                         message: `Bienvenido ${userData.firstName}!`
@@ -116,7 +120,7 @@ const userControllers = {
 
                 await newUser.save();
 
-                return res.status(201).json({
+                return res.status(200).json({
                     success: true,
                     message: `Te has registrado correctamente`,
                     user: newUser
@@ -160,7 +164,7 @@ const userControllers = {
 
             if (user) {
 
-                return res.status(201).json({
+                return res.status(200).json({
                     success: true,
                     message: `Usuario eliminado`,
                     user: user

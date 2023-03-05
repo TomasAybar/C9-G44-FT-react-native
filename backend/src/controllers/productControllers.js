@@ -13,7 +13,7 @@ const productControllers = {
 
             if (products.length <= 0) {
 
-                return res.status(201).json({
+                return res.status(200).json({
                     success: true,
                     message: 'no hay productos',
                 });
@@ -29,7 +29,7 @@ const productControllers = {
             });
         }
 
-        res.status(201).json({
+        res.status(200).json({
             response: error ? 'ERROR' : products,
             success: error ? false : true,
             error: error,
@@ -42,9 +42,9 @@ const productControllers = {
             return res.status(401).send('Unauthorized');
         }
 
-        let { name, image, description, category, stock, price } = req.body;
+        let { name, brand, price, category, description, type, heading, image, size, color, state } = req.body;
 
-        if (!name || !image || !description || !category || !stock || !price) {
+        if (!name || !brand || !price || !category || !type || !heading || !image || !color || !state) {
 
             return res.status(400).json({
                 message: `Faltan datos por enviar`,
@@ -52,12 +52,12 @@ const productControllers = {
         }
 
         const newProduct = await new productModel({
-            name, image, description, category, stock, price
+            name, brand, price, category, description, type, heading, image, size, color, state
         })
 
         await newProduct.save();
 
-        return res.status(201).json({
+        return res.status(200).json({
             success: true,
             message: `Producto agregado correctamente`,
             product: newProduct
@@ -81,7 +81,7 @@ const productControllers = {
 
             if (product) {
 
-                return res.status(201).json({
+                return res.status(200).json({
                     success: true,
                     message: `producto eliminado`,
                     product: product
@@ -116,7 +116,7 @@ const productControllers = {
 
             let product = await productModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
 
-            return res.status(201).json({
+            return res.status(200).json({
                 success: true,
                 message: `Producto modificado correctamente`,
                 product: product
@@ -140,7 +140,7 @@ const productControllers = {
             let product = await productModel.findById(req.params.id);
 
             if (product) {
-                return res.status(201).json({
+                return res.status(200).json({
                     success: true,
                     product: product
                 });
