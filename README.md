@@ -4,19 +4,19 @@
   <img src="http://imgfz.com/i/yKoAalQ.png" alt="portada">
 </p>
 <p align="center">
-  <img src="http://imgfz.com/i/mQfb2Te.png" alt="portada">
+  <img src="http://imgfz.com/i/mQfb2Te.png" alt="onboarding">
 </p>
 <p align="center">
-  <img src="http://imgfz.com/i/tgJ9EI0.png" alt="portada">
+  <img src="http://imgfz.com/i/tgJ9EI0.png" alt="screens">
 </p>
 <p align="center">
-  <img src="http://imgfz.com/i/SMpwuhR.png" alt="portada">
+  <img src="http://imgfz.com/i/SMpwuhR.png" alt="vende">
 </p>
 <p align="center">
-  <img src="http://imgfz.com/i/sLEJRA6.png" alt="portada">
+  <img src="http://imgfz.com/i/sLEJRA6.png" alt="compra">
 </p>
 <p align="center">
-  <img src="http://imgfz.com/i/VLropsP.png" alt="portada">
+  <img src="http://imgfz.com/i/VLropsP.png" alt="dona">
 </p>
 
 ## Instalaciónes
