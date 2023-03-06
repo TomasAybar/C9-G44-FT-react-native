@@ -1,6 +1,23 @@
 # EcoModa
 
-Aplicacion en react-native
+<p align="center">
+  <img src="http://imgfz.com/i/yKoAalQ.png" alt="portada">
+</p>
+<p align="center">
+  <img src="http://imgfz.com/i/yKoAalQ.png" alt="portada">
+</p>
+<p align="center">
+  <img src="http://imgfz.com/i/tgJ9EI0.png" alt="portada">
+</p>
+<p align="center">
+  <img src="http://imgfz.com/i/SMpwuhR.png" alt="portada">
+</p>
+<p align="center">
+  <img src="http://imgfz.com/i/sLEJRA6.png" alt="portada">
+</p>
+<p align="center">
+  <img src="http://imgfz.com/i/VLropsP.png" alt="portada">
+</p>
 
 ## Instalaciónes
 
