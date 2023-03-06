@@ -119,9 +119,4 @@ A continuacion scanee el QR desde la aplicacion EXPO para visualizar la app.
 </ul>
 
 <h2><a href="https://drive.google.com/file/d/1M33XV4fbaZ4Kcy5V9ehGbzpAWoIWhRPj/view?usp=share_link">Descargar Demo apk para Android</a></h2>
-
-## Video demo
-
-<iframe width="600" height = "420"
-src="https://clipchamp.com/watch/9jWTahLXeab?utm_source=share&utm_medium=social&utm_campaign=watch">
-</iframe>
+<h2><a href="https://clipchamp.com/watch/9jWTahLXeab?utm_source=share&utm_medium=social&utm_campaign=watch">Video demo</a></h2>
