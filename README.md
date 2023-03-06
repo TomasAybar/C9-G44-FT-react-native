@@ -43,9 +43,33 @@ npm install
 Hacer las instalaciones correspondientes en el frontend.
 
 ```
-cd ..
 cd frontend
 npm install
+```
+
+## Configuraciones
+
+Crear un archivo .env con las variables de entorno correspondientes dentro de la carpeta backend del repositorio.
+
+```
+PORT=8000
+MONGODB_URI=''
+JWT_SECRET=''
+```
+
+Crear un archivo .env con las variables de entorno correspondientes dentro de la carpeta frontend del repositorio.
+
+```
+API_URI=''
+GOOGLE_KEY=''
+```
+
+## Despliegue backend
+
+Asegurese de estar parado dentro de la carpeta backend del repositorio. Una vez parado ahi ejecutar el siguiente comando.
+
+```
+npm start
 ```
 
 ## Despliegue frontend
@@ -60,7 +84,10 @@ Si usted tiene instalado y configurado Android Studio y Android Device Manager, 
 
 Esto abrira Android Studio y podra visualizar la app en un celular virtual.
 
+Si esta dentro de la carpeta raiz del proyecto, ingrese los siguientes comandos:
+
 ```
+cd frontend
 npm run android
 ```
 
@@ -72,20 +99,23 @@ npm start
 
 A continuacion scanee el QR desde la aplicacion EXPO para visualizar la app.
 
-## Configuraciones
+## Tecnologias usadas
 
-Crear un archivo .env con las variables de entorno correspondientes dentro de la carpeta backend del repositorio.
+-   MongoDB
+-   ExpressJS
+-   NodeJS
+-   React Native
+-   Expo
+-   Zustand
 
-```
-PORT=8000
-MONGO=''
-JWT_SECRET=''
-```
+## Integrantes
 
-## Despliegue backend
+<ul>
+<li><a href="https://www.linkedin.com/in/esperizza/">Esperanza Rizza - UX/UI Designer</a></li>
+<li><a href="https://www.linkedin.com/in/victoriassalvatierra/">Victoria Salvatierra - UX/UI Designer</a></li>
+<li><a href="https://www.linkedin.com/in/gaston-avogadro/">Gaston Avogadro - Front End Developer</a></li>
+<li><a href="https://www.linkedin.com/in/rodowhernandez/">Rodolfo Hernandez - Front End Developer</a></li>
+<li><a href="https://www.linkedin.com/in/tomasaybar/">Tomás Aybar - Front End Developer</a></li>
+</ul>
 
-Asegurese de estar parado dentro de la carpeta backend del repositorio. Una vez parado ahi ejecutar el siguiente comando.
-
-```
-npm start
-```
+<h2><a href="https://drive.google.com/file/d/1M33XV4fbaZ4Kcy5V9ehGbzpAWoIWhRPj/view?usp=share_link">Descargar Demo apk para Android</a></h2>
