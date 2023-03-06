@@ -4,7 +4,7 @@
   <img src="http://imgfz.com/i/yKoAalQ.png" alt="portada">
 </p>
 <p align="center">
-  <img src="http://imgfz.com/i/yKoAalQ.png" alt="portada">
+  <img src="http://imgfz.com/i/mQfb2Te.png" alt="portada">
 </p>
 <p align="center">
   <img src="http://imgfz.com/i/tgJ9EI0.png" alt="portada">
