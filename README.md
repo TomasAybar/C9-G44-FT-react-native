@@ -111,11 +111,11 @@ A continuacion scanee el QR desde la aplicacion EXPO para visualizar la app.
 ## Integrantes
 
 <ul>
-<li><a href="https://www.linkedin.com/in/esperizza/">Esperanza Rizza - UX/UI Designer</a></li>
-<li><a href="https://www.linkedin.com/in/victoriassalvatierra/">Victoria Salvatierra - UX/UI Designer</a></li>
-<li><a href="https://www.linkedin.com/in/gaston-avogadro/">Gaston Avogadro - Front End Developer</a></li>
-<li><a href="https://www.linkedin.com/in/rodowhernandez/">Rodolfo Hernandez - Front End Developer</a></li>
-<li><a href="https://www.linkedin.com/in/tomasaybar/">Tomás Aybar - Front End Developer</a></li>
+<li><a href="https://www.linkedin.com/in/esperizza/" target="_blank">Esperanza Rizza - UX/UI Designer</a></li>
+<li><a href="https://www.linkedin.com/in/victoriassalvatierra/" target="_blank">Victoria Salvatierra - UX/UI Designer</a></li>
+<li><a href="https://www.linkedin.com/in/gaston-avogadro/" target="_blank">Gaston Avogadro - Front End Developer</a></li>
+<li><a href="https://www.linkedin.com/in/rodowhernandez/" target="_blank">Rodolfo Hernandez - Front End Developer</a></li>
+<li><a href="https://www.linkedin.com/in/tomasaybar/" target="_blank">Tomás Aybar - Front End Developer</a></li>
 </ul>
 
 <h2><a href="https://drive.google.com/file/d/1M33XV4fbaZ4Kcy5V9ehGbzpAWoIWhRPj/view?usp=share_link">Descargar Demo apk para Android</a></h2>
