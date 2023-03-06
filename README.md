@@ -122,10 +122,6 @@ A continuacion scanee el QR desde la aplicacion EXPO para visualizar la app.
 
 ## Video demo
 
-<div>
-<p style = 'text-align:center;'>
 <iframe width="600" height = "420"
 src="https://clipchamp.com/watch/9jWTahLXeab?utm_source=share&utm_medium=social&utm_campaign=watch">
 </iframe>
-</div>
-</p>
