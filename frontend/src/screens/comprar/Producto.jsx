@@ -40,7 +40,7 @@ export const Producto = () => {
 	const addFavorite = async (productid) => {
 		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
 
-		setFavorite(res.data.inFavorite)
+		setIconFavorite(res.data.inFavorite)
 	}
 
 	return (
