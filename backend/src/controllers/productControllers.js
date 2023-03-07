@@ -1,5 +1,7 @@
 const productModel = require('../models/productModel');
 
+const userModel = require('../models/userModel');
+
 const productControllers = {
 
     getProducts: async (req, res) => {
@@ -13,23 +15,40 @@ const productControllers = {
 
             if (products.length <= 0) {
 
-                return res.status(200).json({
+                // return res.status(200).json({
+                //     success: true,
+                //     message: 'no hay productos',
+                // });
+
+                res.json({
                     success: true,
                     message: 'no hay productos',
-                });
+                })
             }
 
 
 
         } catch (error) {
-            return res.status(400).json({
+            // return res.status(400).json({
+            //     success: false,
+            //     message: error,
+            //     console: console.log(error)
+            // });
+
+            res.json({
                 success: false,
                 message: error,
                 console: console.log(error)
-            });
+            })
         }
 
-        res.status(200).json({
+        // res.status(200).json({
+        //     response: error ? 'ERROR' : products,
+        //     success: error ? false : true,
+        //     error: error,
+        // })
+
+        res.json({
             response: error ? 'ERROR' : products,
             success: error ? false : true,
             error: error,
@@ -46,9 +65,13 @@ const productControllers = {
 
         if (!name || !brand || !price || !category || !type || !heading || !image || !color || !state) {
 
-            return res.status(400).json({
+            // return res.status(400).json({
+            //     message: `Faltan datos por enviar`,
+            // });
+
+            res.json({
                 message: `Faltan datos por enviar`,
-            });
+            })
         }
 
         const newProduct = await new productModel({
@@ -57,11 +80,17 @@ const productControllers = {
 
         await newProduct.save();
 
-        return res.status(200).json({
+        // return res.status(200).json({
+        //     success: true,
+        //     message: `Producto agregado correctamente`,
+        //     product: newProduct
+        // });
+
+        res.json({
             success: true,
             message: `Producto agregado correctamente`,
             product: newProduct
-        });
+        })
 
     },
 
@@ -81,11 +110,17 @@ const productControllers = {
 
             if (product) {
 
-                return res.status(200).json({
+                // return res.status(200).json({
+                //     success: true,
+                //     message: `producto eliminado`,
+                //     product: product
+                // });
+
+                res.json({
                     success: true,
                     message: `producto eliminado`,
                     product: product
-                });
+                })
 
             } else {
 
@@ -116,18 +151,29 @@ const productControllers = {
 
             let product = await productModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
 
-            return res.status(200).json({
+            // return res.status(200).json({
+            //     success: true,
+            //     message: `Producto modificado correctamente`,
+            //     product: product
+            // });
+
+            res.json({
                 success: true,
                 message: `Producto modificado correctamente`,
                 product: product
-            });
+            })
 
         } catch (error) {
 
-            return res.status(400).json({
+            // return res.status(400).json({
+            //     success: false,
+            //     error: 'informacion enviada invalida',
+            // });
+
+            res.json({
                 success: false,
                 error: 'informacion enviada invalida',
-            });
+            })
 
         }
 
@@ -140,24 +186,38 @@ const productControllers = {
             let product = await productModel.findById(req.params.id);
 
             if (product) {
-                return res.status(200).json({
+
+                res.json({
                     success: true,
                     product: product
-                });
+                })
+                // return res.status(200).json({
+                //     success: true,
+                //     product: product
+                // });
 
             } else {
-                return res.status(400).json({
+                // return res.status(400).json({
+                //     success: false,
+                //     message: 'id invalido',
+                // });
+
+                res.json({
                     success: false,
                     message: 'id invalido',
-                });
+                })
             }
 
         } catch (error) {
 
-            return res.status(400).json({
+            // return res.status(400).json({
+            //     success: false,
+            //     error: 'usuario no encontrado',
+            // });
+            res.json({
                 success: false,
                 error: 'usuario no encontrado',
-            });
+            })
         }
     },
 

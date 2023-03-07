@@ -27,25 +27,13 @@ export const LoginScreen = () => {
 	const handleForm = async ({ email, password }) => {
 		const resLogin = await userRequest.signIn(email, password)
 
-		if (resLogin.status === 200) {
-			console.log('datos correctos')
+		if (resLogin.data.success) {
+			console.log(resLogin.data.message)
+			navigator.navigate('StackNavigation')
 		} else {
-			console.log(resLogin.status)
-			console.log('datos incorrectos')
+			console.log(resLogin.data.message)
+			setAlert(true)
 		}
-
-		// for (const user of usersRegisters) {
-		// 	if (
-		// 		user.email === values.email &&
-		// 		user.password === values.password
-		// 	) {
-		// 		// console.log('email y contrasenia coinciden')
-		// 		navigator.navigate('StackNavigation')
-		// 	} else {
-		// 		// console.log('datos incorrectos')
-		// 		setAlert(true)
-		// 	}
-		// }
 	}
 
 	return !alert ? (
