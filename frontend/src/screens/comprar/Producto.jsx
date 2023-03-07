@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Image, TouchableOpacity } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import StyledText from '../../styledComponents/StyledText'
@@ -9,19 +9,26 @@ import Message from '../../components/icons/Message'
 import theme from '../../themes/theme'
 import { products } from '../../../assets/data.js'
 import { useCartStore } from '../../store/cartStore'
+import { productRequest } from '../../api/productRequest'
 // import { carrito, shopActions } from '../../../redux/actions/shopActions'
 
 export const Producto = () => {
+	// const [product, setProduct] = useState()
 	const [favorite, setFavorite] = useState(false)
-
 	const { addToCart, cart } = useCartStore()
 	const navigator = useNavigation()
-
 	const route = useRoute()
+	const item = route.params.item
 
-	const id = route.params.id
+	// useEffect(() => {
+	// 	productRequest.getOneProduct(id).then((res) => {
+	// 		setProduct(res.data.response)
+	// 		console.log(res.data.response)
+	// 	})
+	// }, [])
 
-	const product = products.find((product) => product.id === id)
+	// const product = products.find((product) => product.id === id)
+	// const product = products.find((product) => product.id === id)
 
 	const btnAddToCart = (product) => {
 		addToCart(product)
@@ -36,7 +43,7 @@ export const Producto = () => {
 					<StyledView marginTop={10}>
 						<Image
 							source={{
-								uri: product.image,
+								uri: item.image,
 							}}
 							style={{
 								width: 342,
@@ -78,27 +85,27 @@ export const Producto = () => {
 					<StyledView row spaceBetween marginTop={30}>
 						<StyledView>
 							<StyledText left size16 weight700 marginBottom={15}>
-								{product.name} {product.brand.toUpperCase()}
+								{item.name} {item.brand.toUpperCase()}
 							</StyledText>
 							<StyledText left size12 marginBottom={15}>
-								{product.state}
+								{item.state}
 							</StyledText>
 							<StyledText left size12 marginBottom={15}>
 								Talle:{' '}
 								<StyledText size16 weight600>
-									{product.size}
+									{item.size}
 								</StyledText>
 							</StyledText>
 							<StyledText left size12 marginBottom={15}>
 								Color:{' '}
 								<StyledText size16 weight600>
-									{product.color}
+									{item.color}
 								</StyledText>
 							</StyledText>
 						</StyledView>
 						<StyledView>
 							<StyledText size16 weight700 marginRight={40}>
-								${product.price}
+								${item.price}
 							</StyledText>
 						</StyledView>
 					</StyledView>
@@ -107,7 +114,7 @@ export const Producto = () => {
 							white
 							title={'Añadir al carrito'}
 							width={'73%'}
-							onPress={() => btnAddToCart(product)}
+							onPress={() => btnAddToCart(item)}
 						/>
 						<StyledView
 							radius12

@@ -9,6 +9,7 @@ const favoriteControllers = {
 
         let error = null;
         let message = null;
+        let inFavorite = null;
 
         try {
 
@@ -21,12 +22,15 @@ const favoriteControllers = {
                 user.favorites.splice(user.favorites.indexOf(productID), 1) // remuevo el producto del array
 
                 message = 'Eliminado de favoritos'
+                inFavorite = false
 
             } else {
 
                 user.favorites.push(productID) // agrego el producto al array
 
                 message = 'Agregado a favoritos'
+                inFavorite = true
+
 
             }
 
@@ -36,7 +40,9 @@ const favoriteControllers = {
                 success: error ? false : true,
                 error: error,
                 message,
-                product: productID
+                product: productID,
+                inFavorite
+
             })
 
         }

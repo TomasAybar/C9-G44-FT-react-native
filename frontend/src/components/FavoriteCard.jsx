@@ -4,15 +4,23 @@ import SyledButton from '../styledComponents/StyledButton'
 import StyledText from '../styledComponents/StyledText'
 import StarFilled from './icons/StarFilled'
 import Star from './icons/Star'
-import { useFavoriteStore } from '../store/FavoriteStore'
+import { useUserStore } from '../store/userStore'
+import { favoriteRequest } from '../api/favoriteRequest'
 
-export const FavoriteCard = ({ item }) => {
+export const FavoriteCard = ({ item, handleReload }) => {
+	const { id } = useUserStore((state) => state.user)
+
 	const [favorite, setFavorite] = useState(true)
-	const { addOrDeleteToFavorite } = useFavoriteStore()
 
-	const addFavorite = (item) => {
-		setFavorite(!favorite)
-		addOrDeleteToFavorite(item)
+	// llamo al backend para agregar o sacar el fav pasandole el id del usuario y el id del producto
+	// actualizo el icono
+	// llamo a la funcion que me re renderiza todos mis productos de favoritos
+	const addFavorite = async (item) => {
+		const res = await favoriteRequest.addOrRemoveFavorite(id, item._id)
+
+		setFavorite(res.data.inFavorite)
+
+		handleReload()
 	}
 
 	return (

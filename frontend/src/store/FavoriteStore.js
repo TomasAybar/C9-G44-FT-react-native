@@ -18,4 +18,5 @@ export const useFavoriteStore = create((set) => ({
         set((state) => ({ favorites: [...state.favorites, item] }))
 
     },
+    setFavorites: (arrayFav) => set((state) => ({ favorites: [...state.favorites, arrayFav] }))
 }))

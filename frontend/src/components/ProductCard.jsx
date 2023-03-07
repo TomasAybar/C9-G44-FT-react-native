@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import StyledText from '../styledComponents/StyledText'
@@ -6,23 +6,26 @@ import StyledView from '../styledComponents/StyledView'
 import Star from '../components/icons/Star'
 import theme from '../themes/theme'
 import { useFavoriteStore } from '../store/FavoriteStore'
+import { favoriteRequest } from '../api/favoriteRequest'
+import { useUserStore } from '../store/userStore'
 
 export const ProductCard = ({
 	title,
 	price,
 	img = 'https://picsum.photos/id/1/162/192',
 	margin = 6,
-	id,
 	item,
 }) => {
-	const [favorite, setFavorite] = useState(false)
+	const { id, favorites } = useUserStore((state) => state.user)
 
-	const { addOrDeleteToFavorite, favorites } = useFavoriteStore()
+	const [favorite, setFavorite] = useState(favorites.includes(item._id))
+
 	const navigator = useNavigation()
 
-	const addFavorite = (item) => {
-		setFavorite(!favorite)
-		addOrDeleteToFavorite(item)
+	const addFavorite = async (productid) => {
+		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
+
+		setFavorite(res.data.inFavorite)
 	}
 
 	return (
@@ -33,7 +36,7 @@ export const ProductCard = ({
 		>
 			<TouchableOpacity
 				onPress={() =>
-					navigator.navigate('Detalle del producto', { id })
+					navigator.navigate('Detalle del producto', { item })
 				}
 			>
 				<StyledView
@@ -51,7 +54,7 @@ export const ProductCard = ({
 					<TouchableOpacity
 						zIndex={20}
 						elevation={20}
-						onPress={() => addFavorite(item)}
+						onPress={() => addFavorite(item._id)}
 					>
 						<StyledView>
 							<Star

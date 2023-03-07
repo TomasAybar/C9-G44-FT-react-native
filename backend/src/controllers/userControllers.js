@@ -59,6 +59,7 @@ const userControllers = {
                         lastName: user.lastName,
                         email: user.email,
                         photoUrl: user.photoUrl,
+                        favorites: user.favorites
                     }
 
                     await user.save();

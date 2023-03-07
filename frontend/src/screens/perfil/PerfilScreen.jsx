@@ -1,7 +1,6 @@
 import React from 'react'
-import { useNavigation, validatePathConfig } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import {
-	Text,
 	Image,
 	Pressable,
 	StyleSheet,
@@ -23,14 +22,9 @@ import { useUserStore } from '../../store/userStore'
 export const PerfilScreen = () => {
 	const navigator = useNavigation()
 
-	const { width, height } = useWindowDimensions()
-
-	// const user = useStore((state) => state.user)
+	const { width } = useWindowDimensions()
 
 	const { firstName, photoUrl } = useUserStore((state) => state.user)
-
-	console.log(firstName)
-	console.log(photoUrl)
 
 	return (
 		<StyledView dark height100>

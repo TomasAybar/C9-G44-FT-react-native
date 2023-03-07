@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Image, ScrollView, TouchableOpacity } from 'react-native'
 import StyledText from '../styledComponents/StyledText'
@@ -7,10 +7,24 @@ import StyledTextInput from '../styledComponents/StyledTextInput'
 import { ProductCard } from '../components/ProductCard'
 import Search from '../components/icons/Search.jsx'
 import { CategoriasCardHome } from '../components/CategoriasCardHome'
-import { products } from '../../assets/data'
+import { productRequest } from '../api/productRequest'
+// import { products } from '../../assets/data'
 
 export const HomeScreen = () => {
 	const navigator = useNavigation()
+
+	const [products, setProducts] = useState([])
+	const [reload, setReload] = useState(false)
+
+	useEffect(() => {
+		productRequest
+			.getProducts()
+			.then((res) => setProducts(res.data.response))
+
+		console.log('me ejecuto 1')
+	}, [reload])
+
+	const handleReload = () => setReload(!reload)
 
 	let productsOrder = [...products]
 
@@ -60,10 +74,10 @@ export const HomeScreen = () => {
 					{/* Contenedor categorias */}
 					<StyledView row spaceBetween marginTop={15}>
 						<ScrollView horizontal>
-							{products.map(({ type, id, image }) => (
+							{products.map(({ type, _id, image }) => (
 								<CategoriasCardHome
 									type={type}
-									key={id}
+									key={_id}
 									img={image}
 								/>
 							))}
@@ -91,8 +105,7 @@ export const HomeScreen = () => {
 									price={item.price}
 									flex={1}
 									margin={10}
-									key={item.id}
-									id={item.id}
+									key={item._id}
 									item={item}
 								/>
 							))}

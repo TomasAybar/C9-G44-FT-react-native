@@ -15,8 +15,6 @@ export const userRequest = {
 
             if (res.data.success) {
 
-                console.log('bien')
-
                 useUserStore.getState().setUser(res.data.response.userData)
                 useUserStore.getState().setTokenUser(res.data.response.token)
 
