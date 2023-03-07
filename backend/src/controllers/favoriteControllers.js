@@ -177,8 +177,6 @@ const favoriteControllers = {
 
             if (product) {
 
-                console.log(product)
-
                 if (product.userFavorites.includes(userID)) {
 
                     inFavorite = true
