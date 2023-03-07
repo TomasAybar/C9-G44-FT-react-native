@@ -36,7 +36,7 @@ export const Carrito = () => {
 		<StyledView dark height100>
 			<StyledView container flex={1} spaceBetween>
 				{/* Lógica para ver si hay items en el carrito y renderizar lo correspondiente */}
-				{cart?.length === 0 ? (
+				{cart?.length <= 0 ? (
 					<>
 						<StyledView marginTop={70}>
 							<StyledText size16 weight700>
@@ -62,13 +62,7 @@ export const Carrito = () => {
 								{/* Dejo el carrito con 4 productos para que se vea el scroll */}
 
 								{cart?.map((item) => (
-									<ItemCarrito
-										id={item.id}
-										image={item.image}
-										price={item.price}
-										title={item.name}
-										key={item.id}
-									/>
+									<ItemCarrito key={item._id} item={item} />
 								))}
 							</ScrollView>
 						</StyledView>

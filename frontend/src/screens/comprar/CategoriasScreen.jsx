@@ -1,34 +1,21 @@
 import React from 'react'
-import StyledText from '../../styledComponents/StyledText'
 import StyledView from '../../styledComponents/StyledView'
-import StyledButton from '../../styledComponents/StyledButton'
-import { Image, ScrollView, TouchableOpacity } from 'react-native'
+import { ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { CategoriasCardCategorias } from '../../components/CategoriasCardCategorias'
-import { products } from '../../../assets/data.js'
 import { EcoBtnRenderToggle } from '../../components/EcoBtnRender'
-import { useToggleButtom } from '../../hooks/useToggleButtom'
+import { useProductStore } from '../../store/productStore.js'
 
 export const CategoriasScreen = () => {
 	const navigator = useNavigation()
 
-	// const { productsFilter } = useToggleButtom()
+	const products = useProductStore((state) => state.products)
 
 	return (
 		<StyledView dark height100>
 			<ScrollView>
 				<StyledView container marginVertical={25}>
 					<StyledView row center>
-						{/* <StyledButton title={'Hombre'} miniButton>
-							Hombre
-						</StyledButton>
-						<StyledButton title={'Mujer'} miniButton>
-							Mujer
-						</StyledButton>
-						<StyledButton title={'Niño'} miniButton>
-							Niño
-						</StyledButton> */}
-
 						<EcoBtnRenderToggle
 							text1='Hombre'
 							text2='Mujer'
@@ -40,12 +27,11 @@ export const CategoriasScreen = () => {
 					</StyledView>
 
 					<StyledView>
-						{products.map(({ type, id, image }) => (
+						{products.map(({ type, _id, image }) => (
 							<CategoriasCardCategorias
 								type={type}
-								key={id}
+								key={_id}
 								img={image}
-								// productsFilter={productsFilter}
 							/>
 						))}
 					</StyledView>

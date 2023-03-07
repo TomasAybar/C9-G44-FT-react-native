@@ -28,10 +28,11 @@ const userControllers = {
 
         let { email, password } = req.body; // recibe por body
 
-        if (!email || !password) { // si no recive nada, devuelve error
-            return res.status(400).json({
+        if (!email || !password) { // si no recibe nada, devuelve error
+
+            res.json({
                 success: false,
-                message: `Por favor enviar email o contraseña`,
+                message: `Por favor enviar email o contraseña`
             })
         }
 
@@ -40,10 +41,10 @@ const userControllers = {
 
             if (!user) { // no existe el usuario
 
-                res.status(400).json({
+                res.json({
                     success: false,
                     message: `usuario o contraseña incorrecta`
-                });
+                })
 
             } else { // existe el usuario
 
@@ -58,34 +59,35 @@ const userControllers = {
                         lastName: user.lastName,
                         email: user.email,
                         photoUrl: user.photoUrl,
+                        favorites: user.favorites
                     }
 
                     await user.save();
 
                     const token = jwt.sign({ ...userData }, jwtSecret, { expiresIn: 60 * 60 * 24 }); // creo el token guardando la info del usuario en el
 
-                    res.status(201).json({
+                    res.json({
                         success: true,
                         response: { token, userData },
                         message: `Bienvenido ${userData.firstName}!`
-                    });
+                    })
                 }
 
                 else {
-                    res.status(400).json({
+                    res.json({
                         success: false,
                         message: `usuario o contraseña incorrecta`
-                    });
+                    })
+
                 }
 
             }
         } catch (error) {
-
-            return res.status(400).json({
+            res.json({
                 success: false,
                 message: error,
                 console: console.log(error)
-            });
+            })
         }
 
     },
@@ -116,29 +118,28 @@ const userControllers = {
 
                 await newUser.save();
 
-                return res.status(201).json({
+                res.json({
                     success: true,
                     message: `Te has registrado correctamente`,
                     user: newUser
-                });
+                })
 
             } else { // ya existe
 
-                return res.status(400).json({
+                res.json({
                     success: true,
                     message: `Hola ${firstName.toUpperCase()} ya te encuentras registrado con ese email o usuario`,
-                });
-
+                })
             }
 
 
         } catch (error) {
 
-            return res.status(400).json({
+            res.json({
                 success: false,
                 message: error,
                 console: console.log(error)
-            });
+            })
 
         }
 
@@ -160,25 +161,27 @@ const userControllers = {
 
             if (user) {
 
-                return res.status(201).json({
+                res.json({
                     success: true,
                     message: `Usuario eliminado`,
                     user: user
-                });
+                })
 
             } else {
 
-                return res.status(400).json({
+                res.json({
                     success: false,
                     message: 'id invalido',
-                });
+                })
             }
 
         } catch (error) {
-            return res.status(400).json({
+
+            res.json({
                 success: false,
                 error: error,
-            });
+                console: console.log(error)
+            })
         }
 
     },

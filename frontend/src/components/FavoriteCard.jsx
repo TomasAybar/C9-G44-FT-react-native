@@ -4,15 +4,21 @@ import SyledButton from '../styledComponents/StyledButton'
 import StyledText from '../styledComponents/StyledText'
 import StarFilled from './icons/StarFilled'
 import Star from './icons/Star'
-import { useFavoriteStore } from '../store/FavoriteStore'
+import { useUserStore } from '../store/userStore'
+import { favoriteRequest } from '../api/favoriteRequest'
+import { useFavorite } from '../hooks/useFavorite'
 
-export const FavoriteCard = ({ item }) => {
-	const [favorite, setFavorite] = useState(true)
-	const { addOrDeleteToFavorite } = useFavoriteStore()
+export const FavoriteCard = ({ item, handleReload }) => {
+	const { id } = useUserStore((state) => state.user)
 
-	const addFavorite = (item) => {
-		setFavorite(!favorite)
-		addOrDeleteToFavorite(item)
+	const [iconFavorite, setIconFavorite] = useState(true)
+
+	const addFavorite = async (productid) => {
+		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
+
+		setIconFavorite(res.data.inFavorite)
+
+		handleReload()
 	}
 
 	return (
@@ -29,13 +35,16 @@ export const FavoriteCard = ({ item }) => {
 			</View>
 
 			<View style={styles.containerBtn}>
-				{favorite ? (
+				{iconFavorite ? (
 					<StarFilled
 						marginBottom={10}
-						onPress={() => addFavorite(item)}
+						onPress={() => addFavorite(item._id)}
 					/>
 				) : (
-					<Star marginBottom={10} onPress={() => addFavorite(item)} />
+					<Star
+						marginBottom={10}
+						onPress={() => addFavorite(item._id)}
+					/>
 				)}
 
 				<SyledButton

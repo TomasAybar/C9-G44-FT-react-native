@@ -4,39 +4,32 @@ import StyledView from '../styledComponents/StyledView'
 import StyledText from '../styledComponents/StyledText'
 import Trash from '../components/icons/Trash'
 import { useCartStore } from '../store/cartStore'
-// import { shopActions } from '../../redux/actions/shopActions'
 
-export const ItemCarrito = ({
-	title = 'title',
-	price = '4000',
-	image = 'https://picsum.photos/id/1/162/192',
-	id = 1,
-}) => {
+export const ItemCarrito = ({ item }) => {
 	const { removeFromCart } = useCartStore()
-
-	const deteleToCart = (id) => {
-		// shopActions.deleteToShop(id)
-		console.log('delete')
-	}
 
 	return (
 		<StyledView row spaceBetween marginBottom={15}>
 			<Image
-				source={{ uri: image }}
+				source={{
+					uri: item.image
+						? item.image
+						: 'https://picsum.photos/id/1/162/192',
+				}}
 				style={{ width: 127, height: 104, borderRadius: 12 }}
 			/>
 			<StyledView flex={1} paddingLeft={23} paddingTop={20}>
 				<StyledText size12 left>
-					{title}
+					{item.name}
 				</StyledText>
 				<StyledText size16 weight700 left marginVertical={6}>
-					${price}
+					${item.price}
 				</StyledText>
 			</StyledView>
 			<Trash
 				marginTop={28}
 				marginRight={8}
-				onPress={() => removeFromCart(id)}
+				onPress={() => removeFromCart(item._id)}
 			/>
 		</StyledView>
 	)
