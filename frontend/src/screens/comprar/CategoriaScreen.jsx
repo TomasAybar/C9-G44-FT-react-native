@@ -15,11 +15,7 @@ export const CategoriaScreen = () => {
 	const route = useRoute()
 	const type = route.params.type
 
-	console.log(type)
-
 	const productsFilter = products?.filter((product) => product.type === type)
-
-	console.log(productsFilter)
 
 	return (
 		<StyledView dark height100>

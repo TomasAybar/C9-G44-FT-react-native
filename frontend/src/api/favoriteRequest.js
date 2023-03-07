@@ -14,14 +14,6 @@ export const favoriteRequest = {
 
             const res = await axios.post(`${URL}/products/favorite/${userid}/${productid}`)
 
-            if (res.data.success) {
-
-                // useFavoriteStore.getState().setFavorites(res.data.response)
-                console.log(res.data.favorites)
-                console.log(res.data.inFavorite)
-
-            }
-
             return res;
 
         }

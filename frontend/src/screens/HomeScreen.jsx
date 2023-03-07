@@ -20,8 +20,6 @@ export const HomeScreen = () => {
 		productRequest
 			.getProducts()
 			.then((res) => setProducts(res.data.response))
-
-		console.log('me ejecuto desde home')
 	}, [reload])
 
 	const handleReload = () => setReload(!reload)
