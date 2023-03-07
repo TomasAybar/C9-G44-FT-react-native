@@ -25,13 +25,11 @@ export const LoginScreen = () => {
 	const [alert, setAlert] = useState(false)
 
 	const handleForm = async ({ email, password }) => {
-		const resLogin = await userRequest.signIn(email, password)
+		const res = await userRequest.signIn(email, password)
 
-		if (resLogin.data.success) {
-			console.log(resLogin.data.message)
+		if (res.data.success) {
 			navigator.navigate('StackNavigation')
 		} else {
-			console.log(resLogin.data.message)
 			setAlert(true)
 		}
 	}

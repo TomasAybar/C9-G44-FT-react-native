@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { API_URI } from '@env'
+import { useUserStore } from '../store/userStore'
 
 
 const URL = API_URI
@@ -11,6 +12,15 @@ export const userRequest = {
         try {
 
             const res = await axios.post(`${URL}/signin`, { email, password })
+
+            if (res.data.success) {
+
+                console.log('bien')
+
+                useUserStore.getState().setUser(res.data.response.userData)
+                useUserStore.getState().setTokenUser(res.data.response.token)
+
+            }
 
             return res
 
