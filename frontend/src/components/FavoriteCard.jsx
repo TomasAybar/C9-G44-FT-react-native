@@ -6,19 +6,17 @@ import StarFilled from './icons/StarFilled'
 import Star from './icons/Star'
 import { useUserStore } from '../store/userStore'
 import { favoriteRequest } from '../api/favoriteRequest'
+import { useFavorite } from '../hooks/useFavorite'
 
 export const FavoriteCard = ({ item, handleReload }) => {
 	const { id } = useUserStore((state) => state.user)
 
-	const [favorite, setFavorite] = useState(true)
+	const [iconFavorite, setIconFavorite] = useState(true)
 
-	// llamo al backend para agregar o sacar el fav pasandole el id del usuario y el id del producto
-	// actualizo el icono
-	// llamo a la funcion que me re renderiza todos mis productos de favoritos
-	const addFavorite = async (item) => {
-		const res = await favoriteRequest.addOrRemoveFavorite(id, item._id)
+	const addFavorite = async (productid) => {
+		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
 
-		setFavorite(res.data.inFavorite)
+		setIconFavorite(res.data.inFavorite)
 
 		handleReload()
 	}
@@ -37,13 +35,16 @@ export const FavoriteCard = ({ item, handleReload }) => {
 			</View>
 
 			<View style={styles.containerBtn}>
-				{favorite ? (
+				{iconFavorite ? (
 					<StarFilled
 						marginBottom={10}
-						onPress={() => addFavorite(item)}
+						onPress={() => addFavorite(item._id)}
 					/>
 				) : (
-					<Star marginBottom={10} onPress={() => addFavorite(item)} />
+					<Star
+						marginBottom={10}
+						onPress={() => addFavorite(item._id)}
+					/>
 				)}
 
 				<SyledButton

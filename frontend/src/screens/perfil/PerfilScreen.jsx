@@ -32,7 +32,11 @@ export const PerfilScreen = () => {
 				<StyledView container center>
 					<View style={style.image}>
 						<Image
-							source={{ uri: photoUrl }}
+							source={{
+								uri: photoUrl
+									? photoUrl
+									: 'http://imgfz.com/i/GqlxX1V.png',
+							}}
 							style={{ marginBottom: 10 }}
 						/>
 						<StyledText line24 size20>

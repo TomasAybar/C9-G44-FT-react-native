@@ -12,6 +12,9 @@ const productSchema = new mongoose.Schema({
     color: { type: String, require: true },
     state: { type: String, require: true },
     description: { type: String, require: false },
+    userFavorites: [{
+        type: mongoose.Types.ObjectId, ref: 'users'
+    }]
 })
 
 module.exports = mongoose.model('products', productSchema);

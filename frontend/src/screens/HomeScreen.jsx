@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Image, ScrollView, TouchableOpacity } from 'react-native'
+import { Image, ScrollView, TouchableOpacity, View } from 'react-native'
 import StyledText from '../styledComponents/StyledText'
 import StyledView from '../styledComponents/StyledView'
 import StyledTextInput from '../styledComponents/StyledTextInput'
@@ -8,12 +8,12 @@ import { ProductCard } from '../components/ProductCard'
 import Search from '../components/icons/Search.jsx'
 import { CategoriasCardHome } from '../components/CategoriasCardHome'
 import { productRequest } from '../api/productRequest'
-// import { products } from '../../assets/data'
 
 export const HomeScreen = () => {
 	const navigator = useNavigation()
 
 	const [products, setProducts] = useState([])
+
 	const [reload, setReload] = useState(false)
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ export const HomeScreen = () => {
 			.getProducts()
 			.then((res) => setProducts(res.data.response))
 
-		console.log('me ejecuto 1')
+		console.log('me ejecuto desde home')
 	}, [reload])
 
 	const handleReload = () => setReload(!reload)
@@ -74,43 +74,42 @@ export const HomeScreen = () => {
 					{/* Contenedor categorias */}
 					<StyledView row spaceBetween marginTop={15}>
 						<ScrollView horizontal>
-							{products.map(({ type, _id, image }) => (
+							{products.map((item) => (
 								<CategoriasCardHome
-									type={type}
-									key={_id}
-									img={image}
+									type={item.type}
+									key={item._id}
+									img={item.image}
 								/>
 							))}
 						</ScrollView>
 					</StyledView>
 
 					{/* publicados recientemente */}
-					<StyledView row spaceBetween marginTop={15}>
-						<StyledText weight500>
-							Publicados recientemente
-						</StyledText>
-						<TouchableOpacity
-							onPress={() => navigator.navigate('Categorías')}
-						>
-							<StyledText weight500>Ver más</StyledText>
-						</TouchableOpacity>
-					</StyledView>
+					<View style={{ marginBottom: 30, paddingBottom: 35 }}>
+						<StyledView row spaceBetween marginTop={15}>
+							<StyledText weight500>
+								Publicados recientemente
+							</StyledText>
+							<TouchableOpacity
+								onPress={() => navigator.navigate('Categorías')}
+							>
+								<StyledText weight500>Ver más</StyledText>
+							</TouchableOpacity>
+						</StyledView>
 
-					<StyledView row spaceBetween marginTop={20}>
-						<ScrollView horizontal>
-							{productsOrder.map((item) => (
-								<ProductCard
-									img={item.image}
-									title={item.name}
-									price={item.price}
-									flex={1}
-									margin={10}
-									key={item._id}
-									item={item}
-								/>
-							))}
-						</ScrollView>
-					</StyledView>
+						<StyledView row spaceBetween marginTop={20}>
+							<ScrollView horizontal>
+								{productsOrder.map((item) => (
+									<ProductCard
+										flex={1}
+										margin={10}
+										key={item._id}
+										item={item}
+									/>
+								))}
+							</ScrollView>
+						</StyledView>
+					</View>
 				</StyledView>
 			</ScrollView>
 		</StyledView>

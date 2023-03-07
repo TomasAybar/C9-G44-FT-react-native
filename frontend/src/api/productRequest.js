@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { API_URI } from '@env'
+import { useProductStore } from '../store/productStore'
 
 
 const URL = API_URI
@@ -55,6 +56,12 @@ export const productRequest = {
         try {
 
             const res = await axios.get(`${URL}/products`)
+
+            if (res.data.success) {
+
+                useProductStore.getState().setProducts(res.data.response)
+
+            }
 
             return res
 

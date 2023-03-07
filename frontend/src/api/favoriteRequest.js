@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { API_URI } from '@env'
 import { useFavoriteStore } from '../store/FavoriteStore'
+import { useUserStore } from '../store/userStore'
 
 
 const URL = API_URI
@@ -12,6 +13,14 @@ export const favoriteRequest = {
         try {
 
             const res = await axios.post(`${URL}/products/favorite/${userid}/${productid}`)
+
+            if (res.data.success) {
+
+                // useFavoriteStore.getState().setFavorites(res.data.response)
+                console.log(res.data.favorites)
+                console.log(res.data.inFavorite)
+
+            }
 
             return res;
 
@@ -31,6 +40,7 @@ export const favoriteRequest = {
 
             if (res.data.success) {
 
+
                 useFavoriteStore.getState().setFavorites(res.data.response)
 
             }
@@ -44,5 +54,19 @@ export const favoriteRequest = {
         }
 
     },
+
+    iconFavorite: async (userid, productid) => {
+
+        try {
+
+            const res = await axios.post(`${URL}/products/favorite/icon/${userid}/${productid}`)
+
+            return res
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
 }

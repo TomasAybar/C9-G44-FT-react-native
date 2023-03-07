@@ -2,37 +2,49 @@ import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { favoriteRequest } from '../../../api/favoriteRequest'
 import { FavoriteCard } from '../../../components/FavoriteCard'
+import { useFavorite } from '../../../hooks/useFavorite'
 import { useUserStore } from '../../../store/userStore'
+import StyledText from '../../../styledComponents/StyledText'
 import StyledView from '../../../styledComponents/StyledView'
 
 export const FavoritosScreen = () => {
-	const [favorites, setFavorites] = useState([])
-	const [reload, setReload] = useState(false)
-
 	const { id } = useUserStore((state) => state.user)
+
+	const [arrayFavorites, setArrayFavorites] = useState([])
+
+	const [reload, setReload] = useState(false)
 
 	useEffect(() => {
 		favoriteRequest
 			.getFavoriteByUser(id)
-			.then((res) => setFavorites(res.data.response))
+			.then((res) => setArrayFavorites(res.data.response))
 	}, [reload])
 
-	/**
-	 *
-	 * @returns Actualiza mi useEffect que renderiza todos mis favs
-	 */
 	const handleReload = () => setReload(!reload)
 
 	return (
 		<StyledView dark height100 container>
 			<View style={{ marginTop: 50 }}>
-				{favorites.map((item) => (
-					<FavoriteCard
-						key={item._id}
-						item={item}
-						handleReload={handleReload}
-					/>
-				))}
+				{arrayFavorites.length <= 0 ? (
+					<>
+						<StyledView marginTop={70}>
+							<StyledText size16 weight700>
+								(0) productos
+							</StyledText>
+							<StyledText size16 weight700>
+								No tienes productos guardados en favoritos
+							</StyledText>
+						</StyledView>
+					</>
+				) : (
+					arrayFavorites.map((item) => (
+						<FavoriteCard
+							key={item._id}
+							item={item}
+							handleReload={handleReload}
+						/>
+					))
+				)}
 			</View>
 		</StyledView>
 	)

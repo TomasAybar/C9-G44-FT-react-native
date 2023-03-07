@@ -6,14 +6,20 @@ import { Image, ScrollView } from 'react-native'
 import StyledTextInput from '../../styledComponents/StyledTextInput'
 import { ProductCard } from '../../components/ProductCard'
 import Search from '../../components/icons/Search'
-import { products } from '../../../assets/data.js'
+import { useProductStore } from '../../store/productStore.js'
+
+// import { products } from '../../../assets/data.js'
 
 export const CategoriaScreen = () => {
+	const products = useProductStore((state) => state.products)
 	const route = useRoute()
-
 	const type = route.params.type
 
-	const productsFilter = products.filter((product) => product.type === type)
+	console.log(type)
+
+	const productsFilter = products?.filter((product) => product.type === type)
+
+	console.log(productsFilter)
 
 	return (
 		<StyledView dark height100>
@@ -34,14 +40,8 @@ export const CategoriaScreen = () => {
 						/>
 					</StyledView>
 					<StyledView row center marginTop={20} flexWrap={'wrap'}>
-						{productsFilter.map(({ name, price, id, image }) => (
-							<ProductCard
-								title={name}
-								price={price}
-								key={id}
-								id={id}
-								img={image}
-							/>
+						{productsFilter.map((item) => (
+							<ProductCard key={item._id} item={item} />
 						))}
 					</StyledView>
 				</StyledView>

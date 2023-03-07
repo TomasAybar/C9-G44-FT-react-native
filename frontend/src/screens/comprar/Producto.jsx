@@ -7,33 +7,40 @@ import StyledButton from '../../styledComponents/StyledButton'
 import Star from '../../components/icons/Star'
 import Message from '../../components/icons/Message'
 import theme from '../../themes/theme'
-import { products } from '../../../assets/data.js'
 import { useCartStore } from '../../store/cartStore'
-import { productRequest } from '../../api/productRequest'
-// import { carrito, shopActions } from '../../../redux/actions/shopActions'
+import { useUserStore } from '../../store/userStore.js'
+import { favoriteRequest } from '../../api/favoriteRequest'
+// import { products } from '../../../assets/data.js'
 
 export const Producto = () => {
-	// const [product, setProduct] = useState()
-	const [favorite, setFavorite] = useState(false)
-	const { addToCart, cart } = useCartStore()
+	const { id } = useUserStore((state) => state.user)
+
 	const navigator = useNavigation()
+
+	const { addToCart } = useCartStore()
+
+	const [iconFavorite, setIconFavorite] = useState()
+
 	const route = useRoute()
+
 	const item = route.params.item
 
-	// useEffect(() => {
-	// 	productRequest.getOneProduct(id).then((res) => {
-	// 		setProduct(res.data.response)
-	// 		console.log(res.data.response)
-	// 	})
-	// }, [])
-
-	// const product = products.find((product) => product.id === id)
-	// const product = products.find((product) => product.id === id)
+	useEffect(() => {
+		favoriteRequest
+			.iconFavorite(id, item._id)
+			.then((res) => setIconFavorite(res.data.inFavorite))
+	}, [])
 
 	const btnAddToCart = (product) => {
 		addToCart(product)
 
 		navigator.navigate('Carrito de compras')
+	}
+
+	const addFavorite = async (productid) => {
+		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
+
+		setFavorite(res.data.inFavorite)
 	}
 
 	return (
@@ -67,13 +74,13 @@ export const Producto = () => {
 							<TouchableOpacity
 								zIndex={20}
 								elevation={20}
-								onPress={() => setFavorite(!favorite)}
+								onPress={() => addFavorite(item._id)}
 							>
 								<StyledView>
 									<Star
 										alignSelf={'center'}
 										fill={
-											favorite
+											iconFavorite
 												? theme.colors.yellowPrimary
 												: null
 										}

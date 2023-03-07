@@ -5,27 +5,26 @@ import StyledText from '../styledComponents/StyledText'
 import StyledView from '../styledComponents/StyledView'
 import Star from '../components/icons/Star'
 import theme from '../themes/theme'
-import { useFavoriteStore } from '../store/FavoriteStore'
 import { favoriteRequest } from '../api/favoriteRequest'
 import { useUserStore } from '../store/userStore'
 
-export const ProductCard = ({
-	title,
-	price,
-	img = 'https://picsum.photos/id/1/162/192',
-	margin = 6,
-	item,
-}) => {
-	const { id, favorites } = useUserStore((state) => state.user)
+export const ProductCard = ({ item, margin = 6 }) => {
+	const { id } = useUserStore((state) => state.user)
 
-	const [favorite, setFavorite] = useState(favorites.includes(item._id))
+	const [iconFavorite, setIconFavorite] = useState()
+
+	useEffect(() => {
+		favoriteRequest
+			.iconFavorite(id, item._id)
+			.then((res) => setIconFavorite(res.data.inFavorite))
+	}, [])
 
 	const navigator = useNavigation()
 
 	const addFavorite = async (productid) => {
 		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
 
-		setFavorite(res.data.inFavorite)
+		setIconFavorite(res.data.inFavorite)
 	}
 
 	return (
@@ -60,22 +59,24 @@ export const ProductCard = ({
 							<Star
 								alignSelf={'center'}
 								fill={
-									favorite ? theme.colors.yellowPrimary : null
+									iconFavorite
+										? theme.colors.yellowPrimary
+										: null
 								}
 							/>
 						</StyledView>
 					</TouchableOpacity>
 				</StyledView>
 				<Image
-					source={{ uri: img }}
+					source={{ uri: item.image }}
 					style={{ width: 162, height: 192, borderRadius: 12 }}
 				/>
-				<StyledView paddingVertical={25} paddingHorizontal={12}>
-					<StyledText size12 left marginBottom={15}>
-						{title}
+				<StyledView paddingVertical={20} paddingHorizontal={12}>
+					<StyledText size12 left marginBottom={10}>
+						{item.name}
 					</StyledText>
 					<StyledText size16 left weight700>
-						$ {price}
+						$ {item.price}
 					</StyledText>
 				</StyledView>
 			</TouchableOpacity>
