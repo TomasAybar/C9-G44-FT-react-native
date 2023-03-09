@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native'
+import {
+	Image,
+	Pressable,
+	StyleSheet,
+	useWindowDimensions,
+	View,
+} from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import StyledButton from '../../styledComponents/StyledButton'
@@ -8,6 +14,12 @@ import { Slider16 } from '../../components/icons/Slider1-6'
 import theme from '../../themes/theme'
 import { AddCircle } from '../../components/icons/AddCircle'
 import * as ImagePicker from 'expo-image-picker'
+import { LogBox } from 'react-native'
+import { useVenderStore } from '../../store/venderStore'
+
+LogBox.ignoreLogs([
+	'Key "cancelled" in the image picker result is deprecated and will be removed in SDK 48, use "canceled" instead',
+])
 
 export const FotoProductoScreen = () => {
 	const { width, height } = useWindowDimensions()
@@ -16,9 +28,27 @@ export const FotoProductoScreen = () => {
 	const [imageUri, setImageUri] = useState(null)
 
 	const handleChoosePhoto = async () => {
-		const result = await ImagePicker.launchImageLibraryAsync()
+		let result = await ImagePicker.launchImageLibraryAsync({
+			mediaTypes: ImagePicker.MediaTypeOptions.All,
+			allowsEditing: true,
+			aspect: [4, 3],
+			quality: 1,
+		})
+
 		if (!result.canceled) {
-			setImageUri(result.assets)
+			setImageUri(result.assets[0].uri)
+		}
+	}
+
+	const addImage = useVenderStore((state) => state.addProps)
+
+	const nextButtom = () => {
+		if (imageUri) {
+			navigator.navigate('CategoriaScreenVender')
+
+			addImage({ image: imageUri })
+		} else {
+			alert('falta img')
 		}
 	}
 
@@ -56,13 +86,25 @@ export const FotoProductoScreen = () => {
 							marginBottom: 15,
 						}}
 					>
-						<View
-							style={{
-								...styles.image,
-								height: height * 0.3,
-								width: width * 0.6,
-							}}
-						></View>
+						<View>
+							{imageUri ? (
+								<Image
+									source={{ uri: imageUri }}
+									style={{
+										width: width * 0.6,
+										height: height * 0.3,
+									}}
+								/>
+							) : (
+								<View
+									style={{
+										...styles.image,
+										height: height * 0.3,
+										width: width * 0.6,
+									}}
+								></View>
+							)}
+						</View>
 					</View>
 
 					<Pressable
@@ -72,14 +114,14 @@ export const FotoProductoScreen = () => {
 							marginBottom: 30,
 						}}
 					>
-						{imageUri ? (
+						{/* {imageUri ? (
 							<Image
 								source={{ uri: imageUri }}
 								style={styles.image}
 							/>
 						) : (
-							<AddCircle />
-						)}
+							)} */}
+						<AddCircle />
 					</Pressable>
 				</View>
 
@@ -87,9 +129,7 @@ export const FotoProductoScreen = () => {
 					<StyledButton
 						white
 						title={'Siguiente'}
-						onPress={() =>
-							navigator.navigate('CategoriaScreenVender')
-						}
+						onPress={nextButtom}
 					></StyledButton>
 				</View>
 			</StyledView>

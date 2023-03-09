@@ -5,10 +5,19 @@ import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import { Slider56 } from '../../components/icons/Slider5-6'
 import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
+import { useVenderStore } from '../../store/venderStore'
 
 export const MetodoPagoScreen = () => {
-	const navigator = useNavigation()
 	const { width, height } = useWindowDimensions()
+	const navigator = useNavigation()
+
+	const addMetodo = useVenderStore((state) => state.addProps)
+
+	const btnNavigate = (metodo) => {
+		navigator.navigate('CheckeoFinalScreen')
+
+		addMetodo({ metodo })
+	}
 
 	return (
 		<StyledView dark container height100>
@@ -33,11 +42,11 @@ export const MetodoPagoScreen = () => {
 			<View style={styles.containerOptions}>
 				<EcoBtnNavigate
 					text='Transferencia bancaria'
-					onPress={() => navigator.navigate('CheckeoFinalScreen')}
+					onPress={() => btnNavigate('Transferencia bancaria')}
 				/>
 				<EcoBtnNavigate
 					text='Billetera virtual'
-					onPress={() => navigator.navigate('CheckeoFinalScreen')}
+					onPress={() => btnNavigate('Billetera virtual')}
 				/>
 			</View>
 		</StyledView>

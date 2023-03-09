@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, StyleSheet, useWindowDimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
 import { Slider26 } from '../../components/icons/Slider2-6'
+import { useVenderStore } from '../../store/venderStore'
+import { EcoSelectOption } from '../../components/EcoSelectOption'
+import { categorys, rubros, typeProducts } from '../../../assets/data.js'
 
 export const CategoriaScreen = () => {
 	const { width, height } = useWindowDimensions()
-
 	const navigation = useNavigation()
+
+	const [productCategory, setProductCategory] = useState(null)
+	const [productRubro, setProductRubro] = useState(null)
+	const [productType, setProductType] = useState(null)
+
+	const addCategory = useVenderStore((state) => state.addProps)
+
+	const nextButtom = () => {
+		if (productCategory && productRubro && productType) {
+			navigation.navigate('TipoProductoScreen')
+
+			addCategory({ category: productCategory })
+			addCategory({ rubro: productRubro })
+			addCategory({ type: productType })
+		} else {
+			alert('faltan datos')
+		}
+	}
 	return (
 		<StyledView dark container height100>
 			<View
@@ -24,9 +43,21 @@ export const CategoriaScreen = () => {
 			</View>
 
 			<View style={styles.containerOptions}>
-				<EcoBtnNavigate text='Categoría' />
-				<EcoBtnNavigate text='Seleccione un rubro' />
-				<EcoBtnNavigate text='¿Qué productos es?' />
+				<EcoSelectOption
+					placeholder='Categoría'
+					options={categorys}
+					onChangeValue={(value) => setProductCategory(value)}
+				/>
+				<EcoSelectOption
+					placeholder='Seleccione un rubro'
+					options={rubros}
+					onChangeValue={(value) => setProductRubro(value)}
+				/>
+				<EcoSelectOption
+					placeholder='¿Qué productos es?'
+					options={typeProducts}
+					onChangeValue={(value) => setProductType(value)}
+				/>
 			</View>
 
 			<StyledText left>Otro:________</StyledText>
@@ -40,7 +71,7 @@ export const CategoriaScreen = () => {
 				<SyledButton
 					white
 					title={'Siguiente'}
-					onPress={() => navigation.navigate('TipoProductoScreen')}
+					onPress={nextButtom}
 				></SyledButton>
 			</View>
 		</StyledView>

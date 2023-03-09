@@ -6,7 +6,6 @@ import StarFilled from './icons/StarFilled'
 import Star from './icons/Star'
 import { useUserStore } from '../store/userStore'
 import { favoriteRequest } from '../api/favoriteRequest'
-import { useFavorite } from '../hooks/useFavorite'
 
 export const FavoriteCard = ({ item, handleReload }) => {
 	const { id } = useUserStore((state) => state.user)

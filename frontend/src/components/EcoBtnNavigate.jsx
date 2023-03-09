@@ -3,6 +3,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import theme from '../themes/theme'
+import { ArrowForward } from './icons/ArrowForward'
 
 export const EcoBtnNavigate = ({
 	text = 'texto',
@@ -19,12 +20,7 @@ export const EcoBtnNavigate = ({
 			onPress={onPress}
 		>
 			<Text style={[style.text, styleText]}>{text}</Text>
-			<MaterialIcons
-				name='arrow-forward-ios'
-				size={24}
-				color={theme.colors.yellowPrimary}
-				style={{ textAlign: 'center' }}
-			/>
+			<ArrowForward />
 		</TouchableOpacity>
 	)
 }

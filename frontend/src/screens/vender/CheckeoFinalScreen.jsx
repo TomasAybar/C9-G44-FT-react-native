@@ -6,10 +6,22 @@ import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import { Slider66 } from '../../components/icons/Slider6-6'
 import { PublicationCard } from '../../components/PublicationCard'
+import { useVenderStore } from '../../store/venderStore'
 
 export const CheckeoFinalScreen = () => {
-	const navigator = useNavigation()
 	const { width, height } = useWindowDimensions()
+	const navigator = useNavigation()
+
+	const data = useVenderStore((state) => state.product)
+
+	const btnPublicar = () => {
+		navigator.navigate('CongratsScreen')
+
+		// mandar estos datos al backend
+		console.log(data)
+
+		console.log('mandar estos datos al backend')
+	}
 
 	return (
 		<StyledView dark container height100>
@@ -30,7 +42,12 @@ export const CheckeoFinalScreen = () => {
 				<StyledText>a publicar</StyledText>
 			</View>
 
-			<PublicationCard />
+			<PublicationCard
+				img={data.image}
+				price={data.profit}
+				size={data.size}
+				name={data.description}
+			/>
 
 			<View
 				style={{
@@ -41,7 +58,7 @@ export const CheckeoFinalScreen = () => {
 				<SyledButton
 					white
 					title={'Publicar'}
-					onPress={() => navigator.navigate('CongratsScreen')}
+					onPress={btnPublicar}
 				></SyledButton>
 			</View>
 		</StyledView>

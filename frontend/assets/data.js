@@ -136,3 +136,43 @@ export const usersRegisters = [
         password: '12345678'
     },
 ]
+
+export const stateProducts = [
+    { label: 'Nuevo con etiqueta', value: 'Nuevo-con-etiqueta' },
+    { label: 'Usado como nuevo', value: 'Usado-como-nuevo' },
+    { label: 'Usado', value: 'Usado' },
+]
+
+export const sizeProducts = [
+    { label: 'S (small/pequeño)', value: 'S' },
+    { label: 'M (medium/mediano)', value: 'M' },
+    { label: 'L (large/grande)', value: 'L' },
+]
+
+export const colorsProducts = [
+    { label: 'Blanco', value: 'Blanco' },
+    { label: 'Azul', value: 'Azul' },
+    { label: 'Negro', value: 'Negro' },
+    { label: 'Marron', value: 'Marron' },
+    ,
+]
+
+export const categorys = [
+    { label: 'Mujer', value: 'Mujer' },
+    { label: 'Hombre', value: 'Remera' },
+    { label: 'Niños', value: 'Niños' },
+]
+
+export const rubros = [
+    { label: 'Indumentaria', value: 'Indumentaria' },
+    { label: 'Accesorio', value: 'Accesorio' },
+    { label: 'Calzado', value: 'Calzado' },
+]
+
+export const typeProducts = [
+    { label: 'Jeans', value: 'Jeans' },
+    { label: 'Remera', value: 'Remera' },
+    { label: 'Abrigo', value: 'Abrigo' },
+    { label: 'Vestidos-faldas', value: 'Vestidos-faldas' },
+    { label: 'Shorts', value: 'Shorts' },
+]

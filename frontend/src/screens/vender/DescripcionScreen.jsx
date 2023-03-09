@@ -1,93 +1,107 @@
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import {
-	Keyboard,
-	StyleSheet,
-	TextInput,
-	useWindowDimensions,
-	View,
-} from 'react-native'
+import { StyleSheet, TextInput, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import { Slider46 } from '../../components/icons/Slider4-6'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
 import theme from '../../themes/theme'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { useVenderStore } from '../../store/venderStore'
 
 export const DescripcionScreen = () => {
-	const navigator = useNavigation()
 	const { width, height } = useWindowDimensions()
+	const navigator = useNavigation()
 
-	const [text, onChangeText] = useState('Useless Text')
-	const [number, onChangeNumber] = useState('')
+	const [description, onChangeDescription] = useState(null)
+	const [price, onChangePrice] = useState(null)
+	const [profit, onChangeProfit] = useState(null)
+
+	const addDescription = useVenderStore((state) => state.addProps)
+
+	const nextButtom = () => {
+		if (description && price && profit) {
+			navigator.navigate('MetodoPagoScreen')
+
+			addDescription({ description })
+			addDescription({ price })
+			addDescription({ profit })
+		} else {
+			alert('faltan datos')
+		}
+	}
 
 	return (
 		<KeyboardAwareScrollView
-			style={{ backgroundColor: theme.colors.appBackground, height:'100%' }}
+			style={{
+				backgroundColor: theme.colors.appBackground,
+				height: '100%',
+			}}
 		>
-		<StyledView container height100>
-			<View
-				style={{
-					...styles.containerSlide,
+			<StyledView container height100>
+				<View
+					style={{
+						...styles.containerSlide,
 
-					height: height * 0.1,
-				}}
-			>
-				<Slider46 />
-			</View>
+						height: height * 0.1,
+					}}
+				>
+					<Slider46 />
+				</View>
 
-			<StyledText left>
-				Agrega una descripción{' '}
-				<StyledText fontStyle={'italic'}>
-					(hasta 500 caracteres)
+				<StyledText left>
+					Agrega una descripción{' '}
+					<StyledText fontStyle={'italic'}>
+						(hasta 500 caracteres)
+					</StyledText>
 				</StyledText>
-			</StyledText>
 
-			<TextInput
-				style={styles.input}
-				multiline
-				numberOfLines={8}
-				maxLength={60}
-				onChangeText={onChangeNumber}
-				value={number}
-				placeholder='Vestido verde con botones en el frente'
-				returnKeyType='done'
-				keyboardType='default'
-				placeholderTextColor={'rgba(255,255,255,0.5)'}
-			/>
+				<TextInput
+					style={styles.input}
+					multiline
+					numberOfLines={8}
+					maxLength={60}
+					onChangeText={onChangeDescription}
+					value={description}
+					placeholder='Vestido verde con botones en el frente'
+					returnKeyType='done'
+					keyboardType='default'
+					placeholderTextColor={'rgba(255,255,255,0.5)'}
+				/>
 
-			<View style={styles.containerText}>
-				<View style={styles.text}>
-					<StyledText>Precio de publicación:</StyledText>
-					<TextInput
-						style={styles.inputText}
-						keyboardType='text'
-						placeholderTextColor={'rgba(255,255,255,0.5)'}
-						placeholder='$20.000.-'
-					/>
+				<View style={styles.containerText}>
+					<View style={styles.text}>
+						<StyledText>Precio de publicación:</StyledText>
+						<TextInput
+							style={styles.inputText}
+							keyboardType='text'
+							placeholderTextColor={'rgba(255,255,255,0.5)'}
+							placeholder='$20.000.-'
+							onChangeText={onChangePrice}
+						/>
+					</View>
+
+					<View style={styles.text}>
+						<StyledText>Tu ganancia:</StyledText>
+						<TextInput
+							style={styles.inputText}
+							keyboardType='text'
+							placeholderTextColor={'rgba(255,255,255,0.5)'}
+							placeholder='$18.000.-'
+							onChangeText={onChangeProfit}
+						/>
+					</View>
 				</View>
 
-				<View style={styles.text}>
-					<StyledText>Tu ganancia:</StyledText>
-					<TextInput
-						style={styles.inputText}
-						
-						keyboardType='text'
-						placeholderTextColor={'rgba(255,255,255,0.5)'}
-						placeholder='$18.000.-'
-					/>
+				<View style={styles.containerBtn}>
+					<SyledButton
+						marginTop={40}
+						white
+						title={'Siguiente'}
+						onPress={nextButtom}
+					></SyledButton>
 				</View>
-			</View>
-
-			<View style={styles.containerBtn}>
-				<SyledButton
-					marginTop= {40}
-					white
-					title={'Siguiente'}
-					onPress={() => navigator.navigate('MetodoPagoScreen')}
-				></SyledButton>
-			</View>
-		</StyledView>
+			</StyledView>
 		</KeyboardAwareScrollView>
 	)
 }
