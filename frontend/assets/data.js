@@ -176,3 +176,20 @@ export const typeProducts = [
     { label: 'Vestidos-faldas', value: 'Vestidos-faldas' },
     { label: 'Shorts', value: 'Shorts' },
 ]
+
+export const brandProducts = [
+    { label: 'Nike', value: 'nike' },
+    { label: 'Adidas', value: 'adidas' },
+    { label: 'Puma', value: 'puma' },
+    { label: 'Reebok', value: 'reebok' },
+    { label: 'Levi\'s', value: 'levis' },
+    { label: 'Tommy Hilfiger', value: 'tommy-hilfiger' },
+    { label: 'Calvin Klein', value: 'calvin-klein' },
+    { label: 'Zara', value: 'zara' },
+    { label: 'H&M', value: 'hm' },
+    { label: 'Gucci', value: 'gucci' },
+    { label: 'Prada', value: 'prada' },
+    { label: 'Versace', value: 'versace' },
+    { label: 'Armani', value: 'armani' },
+    { label: 'Hugo Boss', value: 'hugo-boss' }
+]

@@ -7,7 +7,12 @@ import SyledButton from '../../styledComponents/StyledButton'
 import { Slider26 } from '../../components/icons/Slider2-6'
 import { useVenderStore } from '../../store/venderStore'
 import { EcoSelectOption } from '../../components/EcoSelectOption'
-import { categorys, rubros, typeProducts } from '../../../assets/data.js'
+import {
+	categorys,
+	rubros,
+	typeProducts,
+	brandProducts,
+} from '../../../assets/data.js'
 
 export const CategoriaScreen = () => {
 	const { width, height } = useWindowDimensions()
@@ -16,6 +21,7 @@ export const CategoriaScreen = () => {
 	const [productCategory, setProductCategory] = useState(null)
 	const [productRubro, setProductRubro] = useState(null)
 	const [productType, setProductType] = useState(null)
+	const [productBrand, setProductBrand] = useState(null)
 
 	const addCategory = useVenderStore((state) => state.addProps)
 
@@ -26,6 +32,7 @@ export const CategoriaScreen = () => {
 			addCategory({ category: productCategory })
 			addCategory({ rubro: productRubro })
 			addCategory({ type: productType })
+			addCategory({ brand: productBrand })
 		} else {
 			alert('faltan datos')
 		}
@@ -42,7 +49,7 @@ export const CategoriaScreen = () => {
 				<Slider26 />
 			</View>
 
-			<View style={styles.containerOptions}>
+			<View>
 				<EcoSelectOption
 					placeholder='Categoría'
 					options={categorys}
@@ -57,6 +64,11 @@ export const CategoriaScreen = () => {
 					placeholder='¿Qué productos es?'
 					options={typeProducts}
 					onChangeValue={(value) => setProductType(value)}
+				/>
+				<EcoSelectOption
+					placeholder='¿Qué marca es?'
+					options={brandProducts}
+					onChangeValue={(value) => setProductBrand(value)}
 				/>
 			</View>
 
@@ -85,7 +97,6 @@ const styles = StyleSheet.create({
 		marginBottom: 30,
 	},
 
-	containerOptions: {},
 	containerBtn: {
 		position: 'absolute',
 		bottom: 80,
