@@ -4,7 +4,8 @@ import { useFavoriteStore } from '../store/FavoriteStore'
 import { useUserStore } from '../store/userStore'
 
 
-const URL = API_URI
+// const URL = API_URI
+const URL = 'https://modacirc-backend-production.up.railway.app/api'
 
 export const favoriteRequest = {
 
