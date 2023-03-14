@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Image, ScrollView, TouchableOpacity, View } from 'react-native'
 import StyledText from '../styledComponents/StyledText'
@@ -7,30 +7,12 @@ import StyledTextInput from '../styledComponents/StyledTextInput'
 import { ProductCard } from '../components/ProductCard'
 import Search from '../components/icons/Search.jsx'
 import { CategoriasCardHome } from '../components/CategoriasCardHome'
-import { productRequest } from '../api/productRequest'
+import { useHome } from '../hooks/useHome'
 
 export const HomeScreen = () => {
 	const navigator = useNavigation()
 
-	const [products, setProducts] = useState([])
-
-	const [reload, setReload] = useState(false)
-
-	useEffect(() => {
-		productRequest
-			.getProducts()
-			.then((res) => setProducts(res.data.response))
-	}, [reload])
-
-	const handleReload = () => setReload(!reload)
-
-	let productsOrder = [...products]
-
-	const desorder = () => {
-		return Math.random() - 0.5
-	}
-
-	productsOrder = productsOrder.sort(desorder).map((product) => product)
+	const { products, productsOrder } = useHome()
 
 	return (
 		<StyledView dark height100>

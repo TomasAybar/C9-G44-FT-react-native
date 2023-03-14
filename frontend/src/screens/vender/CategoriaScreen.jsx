@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, StyleSheet, useWindowDimensions } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
 import { Slider26 } from '../../components/icons/Slider2-6'
-import { useVenderStore } from '../../store/venderStore'
 import { EcoSelectOption } from '../../components/EcoSelectOption'
 import {
 	categorys,
@@ -13,30 +11,19 @@ import {
 	typeProducts,
 	brandProducts,
 } from '../../../assets/data.js'
+import { useVender } from '../../hooks/useVender'
 
 export const CategoriaScreen = () => {
 	const { width, height } = useWindowDimensions()
-	const navigation = useNavigation()
 
-	const [productCategory, setProductCategory] = useState(null)
-	const [productRubro, setProductRubro] = useState(null)
-	const [productType, setProductType] = useState(null)
-	const [productBrand, setProductBrand] = useState(null)
+	const {
+		setProductCategory,
+		setProductRubro,
+		setProductType,
+		setProductBrand,
+		nextButtomCategory,
+	} = useVender()
 
-	const addCategory = useVenderStore((state) => state.addProps)
-
-	const nextButtom = () => {
-		if (productCategory && productRubro && productType) {
-			navigation.navigate('TipoProductoScreen')
-
-			addCategory({ category: productCategory })
-			addCategory({ rubro: productRubro })
-			addCategory({ type: productType })
-			addCategory({ brand: productBrand })
-		} else {
-			alert('faltan datos')
-		}
-	}
 	return (
 		<StyledView dark container height100>
 			<View
@@ -83,7 +70,7 @@ export const CategoriaScreen = () => {
 				<SyledButton
 					white
 					title={'Siguiente'}
-					onPress={nextButtom}
+					onPress={nextButtomCategory}
 				></SyledButton>
 			</View>
 		</StyledView>

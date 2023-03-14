@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import React from 'react'
 import {
 	Image,
 	Pressable,
@@ -13,9 +12,8 @@ import StyledButton from '../../styledComponents/StyledButton'
 import { Slider16 } from '../../components/icons/Slider1-6'
 import theme from '../../themes/theme'
 import { AddCircle } from '../../components/icons/AddCircle'
-import * as ImagePicker from 'expo-image-picker'
 import { LogBox } from 'react-native'
-import { useVenderStore } from '../../store/venderStore'
+import { useVender } from '../../hooks/useVender'
 
 LogBox.ignoreLogs([
 	'Key "cancelled" in the image picker result is deprecated and will be removed in SDK 48, use "canceled" instead',
@@ -23,34 +21,7 @@ LogBox.ignoreLogs([
 
 export const FotoProductoScreen = () => {
 	const { width, height } = useWindowDimensions()
-	const navigator = useNavigation()
-
-	const [imageUri, setImageUri] = useState(null)
-
-	const handleChoosePhoto = async () => {
-		let result = await ImagePicker.launchImageLibraryAsync({
-			mediaTypes: ImagePicker.MediaTypeOptions.All,
-			allowsEditing: true,
-			aspect: [4, 3],
-			quality: 1,
-		})
-
-		if (!result.canceled) {
-			setImageUri(result.assets[0].uri)
-		}
-	}
-
-	const addImage = useVenderStore((state) => state.addProps)
-
-	const nextButtom = () => {
-		if (imageUri) {
-			navigator.navigate('CategoriaScreenVender')
-
-			addImage({ image: imageUri })
-		} else {
-			alert('falta img')
-		}
-	}
+	const { imageUri, handleChoosePhoto, nextButtonFotoProduct } = useVender()
 
 	return (
 		<StyledView dark>
@@ -114,13 +85,6 @@ export const FotoProductoScreen = () => {
 							marginBottom: 30,
 						}}
 					>
-						{/* {imageUri ? (
-							<Image
-								source={{ uri: imageUri }}
-								style={styles.image}
-							/>
-						) : (
-							)} */}
 						<AddCircle />
 					</Pressable>
 				</View>
@@ -129,7 +93,7 @@ export const FotoProductoScreen = () => {
 					<StyledButton
 						white
 						title={'Siguiente'}
-						onPress={nextButtom}
+						onPress={nextButtonFotoProduct}
 					></StyledButton>
 				</View>
 			</StyledView>

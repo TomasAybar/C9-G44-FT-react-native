@@ -1,23 +1,15 @@
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 import { StyleSheet, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import { Slider56 } from '../../components/icons/Slider5-6'
 import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
-import { useVenderStore } from '../../store/venderStore'
+import { useVender } from '../../hooks/useVender'
 
 export const MetodoPagoScreen = () => {
 	const { width, height } = useWindowDimensions()
-	const navigator = useNavigation()
 
-	const addMetodo = useVenderStore((state) => state.addProps)
-
-	const btnNavigate = (metodo) => {
-		navigator.navigate('CheckeoFinalScreen')
-
-		addMetodo({ metodo })
-	}
+	const { btnNavigate } = useVender()
 
 	return (
 		<StyledView dark container height100>

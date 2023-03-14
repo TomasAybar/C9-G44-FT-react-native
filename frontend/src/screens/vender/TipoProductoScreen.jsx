@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import React from 'react'
 import { StyleSheet, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import SyledButton from '../../styledComponents/StyledButton'
@@ -11,29 +10,13 @@ import {
 	stateProducts,
 	sizeProducts,
 } from '../../../assets/data.js'
-import { useVenderStore } from '../../store/venderStore'
+import { useVender } from '../../hooks/useVender'
 
 export const TipoProductoScreen = () => {
 	const { width, height } = useWindowDimensions()
-	const navigator = useNavigation()
 
-	const [productState, setProductState] = useState(null)
-	const [productSize, setProductSize] = useState(null)
-	const [productColor, setProductColor] = useState(null)
-
-	const addTypes = useVenderStore((state) => state.addProps)
-
-	const nextButtom = () => {
-		if (productState && productSize && productColor) {
-			navigator.navigate('DescripcionScreen')
-
-			addTypes({ state: productState })
-			addTypes({ size: productSize })
-			addTypes({ color: productColor })
-		} else {
-			alert('faltan datos')
-		}
-	}
+	const { nextButtom, setProductState, setProductColor, setProductSize } =
+		useVender()
 
 	return (
 		<StyledView dark container height100>

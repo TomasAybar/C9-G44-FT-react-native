@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import React from 'react'
 import { StyleSheet, TextInput, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import { Slider46 } from '../../components/icons/Slider4-6'
@@ -7,29 +6,17 @@ import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
 import theme from '../../themes/theme'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { useVenderStore } from '../../store/venderStore'
+import { useVender } from '../../hooks/useVender'
 
 export const DescripcionScreen = () => {
 	const { width, height } = useWindowDimensions()
-	const navigator = useNavigation()
-
-	const [description, onChangeDescription] = useState(null)
-	const [price, onChangePrice] = useState(null)
-	const [profit, onChangeProfit] = useState(null)
-
-	const addDescription = useVenderStore((state) => state.addProps)
-
-	const nextButtom = () => {
-		if (description && price && profit) {
-			navigator.navigate('MetodoPagoScreen')
-
-			addDescription({ description })
-			addDescription({ price })
-			addDescription({ profit })
-		} else {
-			alert('faltan datos')
-		}
-	}
+	const {
+		onChangeDescription,
+		onChangePrice,
+		onChangeProfit,
+		nextButtonDescription,
+		description,
+	} = useVender()
 
 	return (
 		<KeyboardAwareScrollView
@@ -98,7 +85,7 @@ export const DescripcionScreen = () => {
 						marginTop={40}
 						white
 						title={'Siguiente'}
-						onPress={nextButtom}
+						onPress={nextButtonDescription}
 					></SyledButton>
 				</View>
 			</StyledView>
