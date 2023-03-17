@@ -1,226 +1,176 @@
-const productModel = require('../models/productModel');
+const productModel = require('../models/productModel')
 
-const userModel = require('../models/userModel');
+const userModel = require('../models/userModel')
 
 const productControllers = {
+	getProducts: async (req, res) => {
+		let products
+		let error = null
 
-    getProducts: async (req, res) => {
+		try {
+			products = await productModel.find()
 
-        let products;
-        let error = null;
+			if (products.length <= 0) {
+				res.json({
+					success: true,
+					message: 'no hay productos',
+				})
+			}
+		} catch (error) {
+			res.json({
+				success: false,
+				message: error,
+				console: console.log(error),
+			})
+		}
+		res.json({
+			response: error ? 'ERROR' : products,
+			success: error ? false : true,
+			error: error,
+		})
+	},
 
-        try {
+	addProduct: async (req, res) => {
+		if (req.user.role !== 'admin') {
+			return res.status(401).send('Unauthorized')
+		}
 
-            products = await productModel.find();
+		let {
+			name,
+			brand,
+			price,
+			category,
+			description,
+			type,
+			heading,
+			image,
+			size,
+			color,
+			state,
+		} = req.body
 
-            if (products.length <= 0) {
+		if (
+			!name ||
+			!brand ||
+			!price ||
+			!category ||
+			!type ||
+			!heading ||
+			!image ||
+			!color ||
+			!state
+		) {
+			res.json({
+				message: `Faltan datos por enviar`,
+			})
+		}
 
-                // return res.status(200).json({
-                //     success: true,
-                //     message: 'no hay productos',
-                // });
+		const newProduct = await new productModel({
+			name,
+			brand,
+			price,
+			category,
+			description,
+			type,
+			heading,
+			image,
+			size,
+			color,
+			state,
+		})
 
-                res.json({
-                    success: true,
-                    message: 'no hay productos',
-                })
-            }
+		await newProduct.save()
 
+		res.json({
+			success: true,
+			message: `Producto agregado correctamente`,
+			product: newProduct,
+		})
+	},
 
+	removeProduct: async (req, res) => {
+		if (req.user.role !== 'admin') {
+			return res.status(401).send('Unauthorized')
+		}
 
-        } catch (error) {
-            // return res.status(400).json({
-            //     success: false,
-            //     message: error,
-            //     console: console.log(error)
-            // });
+		if (req.params.id === ':id') {
+			return res.status(400).send('id invalido')
+		}
 
-            res.json({
-                success: false,
-                message: error,
-                console: console.log(error)
-            })
-        }
+		try {
+			let product = await productModel.findOneAndDelete({ _id: req.params.id })
 
-        // res.status(200).json({
-        //     response: error ? 'ERROR' : products,
-        //     success: error ? false : true,
-        //     error: error,
-        // })
+			if (product) {
+				// return res.status(200).json({
+				//     success: true,
+				//     message: `producto eliminado`,
+				//     product: product
+				// });
 
-        res.json({
-            response: error ? 'ERROR' : products,
-            success: error ? false : true,
-            error: error,
-        })
-    },
+				res.json({
+					success: true,
+					message: `producto eliminado`,
+					product: product,
+				})
+			} else {
+				return res.status(400).send('id invalido')
+			}
+		} catch (error) {
+			return res.status(400).send('id invalido')
+		}
+	},
 
-    addProduct: async (req, res) => {
+	modifyProduct: async (req, res) => {
+		if (req.user.role !== 'admin') {
+			return res.status(401).send('Unauthorized')
+		}
 
-        if (req.user.role !== 'admin') {
-            return res.status(401).send('Unauthorized');
-        }
+		if (req.params.id === ':id') {
+			return res.status(400).send('id invalido')
+		}
 
-        let { name, brand, price, category, description, type, heading, image, size, color, state } = req.body;
+		try {
+			let product = await productModel.findOneAndUpdate(
+				{ _id: req.params.id },
+				req.body,
+				{ new: true }
+			)
 
-        if (!name || !brand || !price || !category || !type || !heading || !image || !color || !state) {
+			res.json({
+				success: true,
+				message: `Producto modificado correctamente`,
+				product: product,
+			})
+		} catch (error) {
+			res.json({
+				success: false,
+				error: 'informacion enviada invalida',
+			})
+		}
+	},
 
-            // return res.status(400).json({
-            //     message: `Faltan datos por enviar`,
-            // });
+	getOneProduct: async (req, res) => {
+		try {
+			let product = await productModel.findById(req.params.id)
 
-            res.json({
-                message: `Faltan datos por enviar`,
-            })
-        }
-
-        const newProduct = await new productModel({
-            name, brand, price, category, description, type, heading, image, size, color, state
-        })
-
-        await newProduct.save();
-
-        // return res.status(200).json({
-        //     success: true,
-        //     message: `Producto agregado correctamente`,
-        //     product: newProduct
-        // });
-
-        res.json({
-            success: true,
-            message: `Producto agregado correctamente`,
-            product: newProduct
-        })
-
-    },
-
-    removeProduct: async (req, res) => {
-
-        if (req.user.role !== 'admin') {
-            return res.status(401).send('Unauthorized');
-        }
-
-        if (req.params.id === ':id') {
-            return res.status(400).send('id invalido');
-        }
-
-        try {
-
-            let product = await productModel.findOneAndDelete({ _id: req.params.id });
-
-            if (product) {
-
-                // return res.status(200).json({
-                //     success: true,
-                //     message: `producto eliminado`,
-                //     product: product
-                // });
-
-                res.json({
-                    success: true,
-                    message: `producto eliminado`,
-                    product: product
-                })
-
-            } else {
-
-                return res.status(400).send('id invalido');
-
-            }
-
-        } catch (error) {
-
-            return res.status(400).send('id invalido');
-
-        }
-
-
-    },
-
-    modifyProduct: async (req, res) => {
-
-        if (req.user.role !== 'admin') {
-            return res.status(401).send('Unauthorized');
-        }
-
-        if (req.params.id === ':id') {
-            return res.status(400).send('id invalido');
-        }
-
-        try {
-
-            let product = await productModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
-
-            // return res.status(200).json({
-            //     success: true,
-            //     message: `Producto modificado correctamente`,
-            //     product: product
-            // });
-
-            res.json({
-                success: true,
-                message: `Producto modificado correctamente`,
-                product: product
-            })
-
-        } catch (error) {
-
-            // return res.status(400).json({
-            //     success: false,
-            //     error: 'informacion enviada invalida',
-            // });
-
-            res.json({
-                success: false,
-                error: 'informacion enviada invalida',
-            })
-
-        }
-
-    },
-
-    getOneProduct: async (req, res) => {
-
-        try {
-
-            let product = await productModel.findById(req.params.id);
-
-            if (product) {
-
-                res.json({
-                    success: true,
-                    product: product
-                })
-                // return res.status(200).json({
-                //     success: true,
-                //     product: product
-                // });
-
-            } else {
-                // return res.status(400).json({
-                //     success: false,
-                //     message: 'id invalido',
-                // });
-
-                res.json({
-                    success: false,
-                    message: 'id invalido',
-                })
-            }
-
-        } catch (error) {
-
-            // return res.status(400).json({
-            //     success: false,
-            //     error: 'usuario no encontrado',
-            // });
-            res.json({
-                success: false,
-                error: 'usuario no encontrado',
-            })
-        }
-    },
-
+			if (product) {
+				res.json({
+					success: true,
+					product: product,
+				})
+			} else {
+				res.json({
+					success: false,
+					message: 'id invalido',
+				})
+			}
+		} catch (error) {
+			res.json({
+				success: false,
+				error: 'usuario no encontrado',
+			})
+		}
+	},
 }
 
-module.exports = productControllers;
+module.exports = productControllers

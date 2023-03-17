@@ -7,7 +7,7 @@ import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
 import { useVender } from '../../hooks/useVender'
 
 export const MetodoPagoScreen = () => {
-	const { width, height } = useWindowDimensions()
+	const { height } = useWindowDimensions()
 
 	const { btnNavigate } = useVender()
 

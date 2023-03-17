@@ -44,9 +44,7 @@ export const HomeScreen = () => {
 					{/* title categorias y ver mas */}
 					<StyledView row spaceBetween marginTop={30}>
 						<StyledText weight500>Categorías</StyledText>
-						<TouchableOpacity
-							onPress={() => navigator.navigate('Categorías')}
-						>
+						<TouchableOpacity onPress={() => navigator.navigate('Categorías')}>
 							<StyledText weight500>Ver más</StyledText>
 						</TouchableOpacity>
 					</StyledView>
@@ -67,9 +65,7 @@ export const HomeScreen = () => {
 					{/* publicados recientemente */}
 					<View style={{ marginBottom: 30, paddingBottom: 35 }}>
 						<StyledView row spaceBetween marginTop={15}>
-							<StyledText weight500>
-								Publicados recientemente
-							</StyledText>
+							<StyledText weight500>Publicados recientemente</StyledText>
 							<TouchableOpacity
 								onPress={() => navigator.navigate('Categorías')}
 							>

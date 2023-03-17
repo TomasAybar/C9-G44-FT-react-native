@@ -15,6 +15,9 @@ const productSchema = new mongoose.Schema({
     userFavorites: [{
         type: mongoose.Types.ObjectId, ref: 'users'
     }]
+}, {
+    versionKey: false
 })
 
 module.exports = mongoose.model('products', productSchema);
+

@@ -1,191 +1,233 @@
-const UserModel = require('../models/userModel');
-const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+// const UserModel = require('../models/userModel');
+const { User: UserModel, UserInfo } = require('../models/userModel')
+const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const { jwtSecret } = require('../config/config')
 
 const userControllers = {
+	getUsers: async (req, res) => {
+		let users
+		let error = null
 
-    getUsers: async (req, res) => {
+		try {
+			users = await UserModel.find().populate('information')
+		} catch (err) {
+			error = err
+		}
 
-        let users;
-        let error = null;
+		res.json({
+			response: error ? 'ERROR' : users,
+			success: error ? false : true,
+			error: error,
+		})
+	},
 
-        try {
+	signinUser: async (req, res) => {
+		let { email, password } = req.body
 
-            users = await UserModel.find();
+		let error
+		let message
+		let token
+		let userData
 
+		if (!email || !password) {
+			// si no recibe nada, devuelve error
 
-        } catch (err) { error = err }
+			message = `Faltan datos por enviar`
+		}
 
-        res.json({
-            response: error ? 'ERROR' : users,
-            success: error ? false : true,
-            error: error,
-        })
-    },
+		try {
+			const user = await UserModel.findOne({ email: email }).populate(
+				'information'
+			)
 
-    signinUser: async (req, res) => {
+			if (!user) {
+				// no existe el usuario
 
-        let { email, password } = req.body; // recibe por body
+				message = `Usuario o contraseña incorrecta`
+			} else {
+				// existe el usuario
 
-        if (!email || !password) { // si no recibe nada, devuelve error
+				let comparePass = bcryptjs.compareSync(password, user.password)
 
-            res.json({
-                success: false,
-                message: `Por favor enviar email o contraseña`
-            })
-        }
+				if (comparePass) {
+					userData = {
+						id: user._id,
+						name: user.name,
+						email: user.email,
+						information: user.information,
+					}
 
-        try {
-            const user = await UserModel.findOne({ email: email }); // busco en mi modelo user un email que coincida con el email que se ingreso por body
+					await user.save()
 
-            if (!user) { // no existe el usuario
+					token = jwt.sign({ ...userData }, jwtSecret, {
+						expiresIn: 60 * 60 * 24,
+					})
 
-                res.json({
-                    success: false,
-                    message: `usuario o contraseña incorrecta`
-                })
+					message = `¡Bienvenido ${userData.name}!`
+				} else {
+					message = `Usuario o contraseña incorrecta`
+				}
+			}
+		} catch (err) {
+			error = err
+		}
 
-            } else { // existe el usuario
+		res.json({
+			response: error ? 'ERROR' : { userData, token },
+			message: error ? 'ERROR' : message,
+			success: error ? false : true,
+			error: error,
+			console: console.log(error),
+		})
+	},
 
-                let comparePass = bcryptjs.compareSync(password, user.password); // desencriptado de contrase;a
+	signupUser: async (req, res) => {
+		let { name, email, password } = req.body
 
-                if (comparePass) {
+		let newUser
+		let error
+		let message
 
-                    const userData = {
-                        id: user._id,
-                        userName: user.userName,
-                        firstName: user.firstName,
-                        lastName: user.lastName,
-                        email: user.email,
-                        photoUrl: user.photoUrl,
-                        favorites: user.favorites
-                    }
+		try {
+			const userExistEmail = await UserModel.findOne({ email })
 
-                    await user.save();
+			if (!userExistEmail) {
+				const hashWord = bcryptjs.hashSync(password, 10)
 
-                    const token = jwt.sign({ ...userData }, jwtSecret, { expiresIn: 60 * 60 * 24 }); // creo el token guardando la info del usuario en el
+				newUser = await new UserModel({
+					name,
+					email,
+					password: hashWord,
+					role: 'user',
+				}).save()
 
-                    res.json({
-                        success: true,
-                        response: { token, userData },
-                        message: `Bienvenido ${userData.firstName}!`
-                    })
-                }
+				message = `Te has registrado correctamente`
+			} else {
+				// ya existe
 
-                else {
-                    res.json({
-                        success: false,
-                        message: `usuario o contraseña incorrecta`
-                    })
+				message = `El email "${email}" ya se encuentra registrado en el sistema`
+			}
+		} catch (err) {
+			error = err
+		}
 
-                }
+		res.json({
+			response: error ? 'ERROR' : newUser,
+			message: error ? 'ERROR' : message,
+			success: error ? false : true,
+			error: error,
+			console: console.log(error),
+		})
+	},
 
-            }
-        } catch (error) {
-            res.json({
-                success: false,
-                message: error,
-                console: console.log(error)
-            })
-        }
+	removeUser: async (req, res) => {
+		// if (req.user.role !== 'admin') {
+		// 	return res.status(401).send('Unauthorized')
+		// }
 
-    },
+		// if (req.params.id === ':id') {
+		// 	return res.status(400).send('id invalido')
+		// }
 
-    signupUser: async (req, res) => {
+		try {
+			let user = await UserModel.findOneAndDelete({ _id: req.params.id })
 
-        let { userName, firstName, lastName, email, password, photoUrl } = req.body;
+			if (user) {
+				res.json({
+					success: true,
+					message: `Usuario eliminado`,
+					user: user,
+				})
+			} else {
+				res.json({
+					success: false,
+					message: 'id invalido',
+				})
+			}
+		} catch (error) {
+			res.json({
+				success: false,
+				error: error,
+				console: console.log(error),
+			})
+		}
+	},
 
-        try {
+	addInformationUser: async (req, res) => {
+		let { phone, address, image } = req.body
 
-            const userExistEmail = await UserModel.findOne({ email }); // busco un usuario que coincida con el email del registro
-            const userExistUserName = await UserModel.findOne({ userName }); // busco un usuario que coincida con el userName del registro
+		if (!phone || !address || !image) {
+			message = `Faltan datos por enviar`
+		}
 
+		if (req.params.id === ':id') {
+			message = `id invalido`
+		}
 
-            if (!userExistEmail && !userExistUserName) { // no existe. entonces creo uno nuevo
+		let error
+		let message
+		let infoUser
 
-                const hashWord = bcryptjs.hashSync(password, 10) //encripto la contraseña
+		try {
+			infoUser = await new UserInfo({
+				phone,
+				address,
+				image,
+				user: req.params.id,
+			}).save()
+			message = `Informacion agregada con exito`
 
-                const newUser = await new UserModel({
-                    userName,
-                    firstName,
-                    lastName,
-                    email,
-                    password: hashWord,
-                    photoUrl,
-                    role: 'user'
-                })
+			await UserModel.findOneAndUpdate(
+				{ _id: req.params.id },
+				{ $push: { information: infoUser._id } },
+				{ new: true }
+			)
+		} catch (err) {
+			error = err
+		}
 
-                await newUser.save();
+		res.json({
+			response: error ? 'ERROR' : infoUser,
+			success: error ? false : true,
+			message: message,
+			error: error,
+		})
+	},
 
-                res.json({
-                    success: true,
-                    message: `Te has registrado correctamente`,
-                    user: newUser
-                })
+	getInfoUsers: async (req, res) => {
+		let users
+		let error = null
 
-            } else { // ya existe
+		try {
+			users = await UserInfo.find().populate('user')
+		} catch (err) {
+			error = err
+		}
 
-                res.json({
-                    success: true,
-                    message: `Hola ${firstName.toUpperCase()} ya te encuentras registrado con ese email o usuario`,
-                })
-            }
+		res.json({
+			response: error ? 'ERROR' : users,
+			success: error ? false : true,
+			error: error,
+		})
+	},
+	removeInfoUser: async (req, res) => {
+		let user
+		let error = null
 
+		try {
+			user = await UserInfo.findOneAndDelete({ _id: req.params.id })
+		} catch (err) {
+			error = err
+		}
 
-        } catch (error) {
-
-            res.json({
-                success: false,
-                message: error,
-                console: console.log(error)
-            })
-
-        }
-
-    },
-
-    removeUser: async (req, res) => {
-
-        if (req.user.role !== 'admin') {
-            return res.status(401).send('Unauthorized');
-        }
-
-        if (req.params.id === ':id') {
-            return res.status(400).send('id invalido');
-        }
-
-        try {
-
-            let user = await UserModel.findOneAndDelete({ _id: req.params.id });
-
-            if (user) {
-
-                res.json({
-                    success: true,
-                    message: `Usuario eliminado`,
-                    user: user
-                })
-
-            } else {
-
-                res.json({
-                    success: false,
-                    message: 'id invalido',
-                })
-            }
-
-        } catch (error) {
-
-            res.json({
-                success: false,
-                error: error,
-                console: console.log(error)
-            })
-        }
-
-    },
-
+		res.json({
+			response: error ? 'ERROR' : user,
+			success: error ? false : true,
+			error: error,
+			console: console.log(error),
+		})
+	},
 }
 
-module.exports = userControllers;
+module.exports = userControllers
