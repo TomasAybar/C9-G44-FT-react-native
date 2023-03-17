@@ -211,6 +211,7 @@ const userControllers = {
 			error: error,
 		})
 	},
+
 	removeInfoUser: async (req, res) => {
 		let user
 		let error = null
