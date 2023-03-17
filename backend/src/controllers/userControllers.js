@@ -3,6 +3,8 @@ const { User: UserModel, UserInfo } = require('../models/userModel')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { jwtSecret } = require('../config/config')
+const { uploadImage, deleteImage } = require('../libs/cloudinary')
+const fs = require('fs-extra')
 
 const userControllers = {
 	getUsers: async (req, res) => {
@@ -155,9 +157,14 @@ const userControllers = {
 	},
 
 	addInformationUser: async (req, res) => {
-		let { phone, address, image } = req.body
+		let { phone, address } = req.body
 
-		if (!phone || !address || !image) {
+		let error
+		let message
+		let infoUser
+		let image
+
+		if (!phone || !address) {
 			message = `Faltan datos por enviar`
 		}
 
@@ -165,11 +172,18 @@ const userControllers = {
 			message = `id invalido`
 		}
 
-		let error
-		let message
-		let infoUser
-
 		try {
+			if (req.files.image) {
+				const resultImage = await uploadImage(req.files.image.tempFilePath)
+
+				await fs.remove(req.files.image.tempFilePath)
+
+				image = {
+					url: resultImage.secure_url,
+					public_id: resultImage.public_id,
+				}
+			}
+
 			infoUser = await new UserInfo({
 				phone,
 				address,
@@ -218,6 +232,10 @@ const userControllers = {
 
 		try {
 			user = await UserInfo.findOneAndDelete({ _id: req.params.id })
+
+			if (user.image.public_id) {
+				await deleteImage(user.image.public_id)
+			}
 		} catch (err) {
 			error = err
 		}

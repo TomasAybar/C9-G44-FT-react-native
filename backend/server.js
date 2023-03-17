@@ -9,12 +9,19 @@ const {
 } = require('./src/routes/routes')
 
 const express = require('express')
+const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const app = express()
 
 // middleware
 app.use(cors())
 app.use(express.json())
+app.use(
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: './upload',
+	})
+)
 
 //routing
 app.use('/api', productRoutes)
