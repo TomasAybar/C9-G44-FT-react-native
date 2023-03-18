@@ -9,10 +9,10 @@ const userInformationSchema = new mongoose.Schema(
 			url: String,
 			public_id: String,
 		},
-		paymentMethod: [
-			{ type: mongoose.Types.ObjectId, ref: 'methodsTRF' },
-			{ type: mongoose.Types.ObjectId, ref: 'methodsBV' },
-		],
+		paymentMethod: {
+			trf: { type: mongoose.Types.ObjectId, ref: 'methodsTRF' },
+			bv: { type: mongoose.Types.ObjectId, ref: 'methodsBV' },
+		},
 	},
 	{
 		versionKey: false,

@@ -1,5 +1,9 @@
 // const UserModel = require('../models/userModel');
 const { User: UserModel, UserInfo } = require('../models/userModel')
+const {
+	MethodTRF: MethodTRFModel,
+	MethodBV: MethodBVModel,
+} = require('../models/paymentMethodModel')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { jwtSecret } = require('../config/config')
@@ -80,7 +84,6 @@ const userControllers = {
 			message: error ? 'ERROR' : message,
 			success: error ? false : true,
 			error: error,
-			console: console.log(error),
 		})
 	},
 
@@ -119,7 +122,6 @@ const userControllers = {
 			message: error ? 'ERROR' : message,
 			success: error ? false : true,
 			error: error,
-			console: console.log(error),
 		})
 	},
 
@@ -151,7 +153,6 @@ const userControllers = {
 			res.json({
 				success: false,
 				error: error,
-				console: console.log(error),
 			})
 		}
 	},
@@ -214,7 +215,10 @@ const userControllers = {
 		let error = null
 
 		try {
-			users = await UserInfo.find().populate('user')
+			users = await UserInfo.find()
+				.populate('user')
+				.populate('paymentMethod.trf')
+				.populate('paymentMethod.bv')
 		} catch (err) {
 			error = err
 		}
@@ -244,7 +248,176 @@ const userControllers = {
 			response: error ? 'ERROR' : user,
 			success: error ? false : true,
 			error: error,
-			console: console.log(error),
+		})
+	},
+
+	addPaymentTRF: async (req, res) => {
+		let { name, cbu_alias, cuit_cuil } = req.body
+
+		let error
+		let message
+		let paymentTRF
+
+		if (!name || !cbu_alias || !cuit_cuil) {
+			message = `Faltan datos por enviar`
+		}
+
+		if (req.params.id === ':id') {
+			message = `id invalido`
+		}
+
+		try {
+			paymentTRF = await MethodTRFModel({
+				name,
+				cbu_alias,
+				cuit_cuil,
+				user: req.params.id,
+			}).save()
+
+			message = `Informacion agregada con exito`
+
+			await UserInfo.findOneAndUpdate(
+				{ user: req.params.id },
+				{ $push: { paymentMethod: paymentTRF._id } },
+				{ new: true }
+			)
+		} catch (err) {
+			error = err
+		}
+
+		res.json({
+			response: error ? 'ERROR' : paymentTRF,
+			success: error ? false : true,
+			message: message,
+			error: error,
+		})
+	},
+
+	addPaymentBV: async (req, res) => {
+		let { email, name, cvu_alias } = req.body
+
+		let error
+		let message
+		let paymentBV
+
+		if (!email || !name || !cvu_alias) {
+			message = `Faltan datos por enviar`
+		}
+
+		if (req.params.id === ':id') {
+			message = `id invalido`
+		}
+
+		try {
+			paymentBV = await MethodBVModel({
+				name,
+				email,
+				cvu_alias,
+				user: req.params.id,
+			}).save()
+
+			message = `Informacion agregada con exito`
+
+			await UserInfo.findOneAndUpdate(
+				{ user: req.params.id },
+				{ $push: { paymentMethod: paymentBV._id } },
+				{ new: true }
+			)
+		} catch (err) {
+			error = err
+		}
+
+		res.json({
+			response: error ? 'ERROR' : paymentBV,
+			success: error ? false : true,
+			message: message,
+			error: error,
+		})
+	},
+
+	addPayment: async (req, res) => {
+		let { paymentBV, paymentTRF } = req.body
+
+		let error
+		let message
+		let payment
+
+		if (req.params.id === ':id') {
+			message = 'id invalido'
+		}
+
+		try {
+			if (paymentBV) {
+				console.log(paymentBV)
+				payment = await MethodBVModel({
+					user: req.params.id,
+					email: paymentBV.email,
+					name: paymentBV.name,
+					cvu_alias: paymentBV.cvu_alias,
+				}).save()
+
+				paymentMethod = {
+					bv: payment._id,
+				}
+
+				await UserInfo.findOneAndUpdate(
+					{ user: req.params.id },
+					{ $push: { paymentMethod: paymentMethod } },
+					{ new: true }
+				)
+
+				message = `Informacion agregada con exito`
+			}
+
+			if (paymentTRF) {
+				console.log(paymentTRF)
+				payment = await MethodTRFModel({
+					user: req.params.id,
+					name: paymentTRF.name,
+					cvu_alias: paymentTRF.cvu_alias,
+					cuit_cuil: paymentTRF.cuit_cuil,
+				}).save()
+
+				paymentMethod = {
+					trf: payment._id,
+				}
+
+				await UserInfo.findOneAndUpdate(
+					{ user: req.params.id },
+					{ $push: { paymentMethod: paymentMethod } },
+					{ new: true }
+				)
+
+				message = `Informacion agregada con exito`
+			}
+		} catch (err) {
+			error = err
+		}
+
+		res.json({
+			response: error ? 'ERROR' : payment,
+			success: error ? false : true,
+			message: message,
+			error: error,
+		})
+	},
+
+	getPaymentById: async (req, res) => {
+		let userInfo
+		let error
+
+		try {
+			userInfo = await UserInfo.findOne({ user: req.params.id })
+				.populate('paymentMethod.trf')
+				.populate('paymentMethod.bv')
+		} catch (err) {
+			error = err
+		}
+
+		res.json({
+			response: error ? 'ERROR' : userInfo.paymentMethod,
+			success: error ? false : true,
+			error: error,
 		})
 	},
 }
