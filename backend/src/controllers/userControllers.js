@@ -251,90 +251,6 @@ const userControllers = {
 		})
 	},
 
-	addPaymentTRF: async (req, res) => {
-		let { name, cbu_alias, cuit_cuil } = req.body
-
-		let error
-		let message
-		let paymentTRF
-
-		if (!name || !cbu_alias || !cuit_cuil) {
-			message = `Faltan datos por enviar`
-		}
-
-		if (req.params.id === ':id') {
-			message = `id invalido`
-		}
-
-		try {
-			paymentTRF = await MethodTRFModel({
-				name,
-				cbu_alias,
-				cuit_cuil,
-				user: req.params.id,
-			}).save()
-
-			message = `Informacion agregada con exito`
-
-			await UserInfo.findOneAndUpdate(
-				{ user: req.params.id },
-				{ $push: { paymentMethod: paymentTRF._id } },
-				{ new: true }
-			)
-		} catch (err) {
-			error = err
-		}
-
-		res.json({
-			response: error ? 'ERROR' : paymentTRF,
-			success: error ? false : true,
-			message: message,
-			error: error,
-		})
-	},
-
-	addPaymentBV: async (req, res) => {
-		let { email, name, cvu_alias } = req.body
-
-		let error
-		let message
-		let paymentBV
-
-		if (!email || !name || !cvu_alias) {
-			message = `Faltan datos por enviar`
-		}
-
-		if (req.params.id === ':id') {
-			message = `id invalido`
-		}
-
-		try {
-			paymentBV = await MethodBVModel({
-				name,
-				email,
-				cvu_alias,
-				user: req.params.id,
-			}).save()
-
-			message = `Informacion agregada con exito`
-
-			await UserInfo.findOneAndUpdate(
-				{ user: req.params.id },
-				{ $push: { paymentMethod: paymentBV._id } },
-				{ new: true }
-			)
-		} catch (err) {
-			error = err
-		}
-
-		res.json({
-			response: error ? 'ERROR' : paymentBV,
-			success: error ? false : true,
-			message: message,
-			error: error,
-		})
-	},
-
 	addPayment: async (req, res) => {
 		let { paymentBV, paymentTRF } = req.body
 
@@ -365,8 +281,6 @@ const userControllers = {
 					{ $push: { paymentMethod: paymentMethod } },
 					{ new: true }
 				)
-
-				message = `Informacion agregada con exito`
 			}
 
 			if (paymentTRF) {
@@ -387,9 +301,8 @@ const userControllers = {
 					{ $push: { paymentMethod: paymentMethod } },
 					{ new: true }
 				)
-
-				message = `Informacion agregada con exito`
 			}
+			message = `Informacion agregada con exito`
 		} catch (err) {
 			error = err
 		}

@@ -9,8 +9,6 @@ const {
 	addInformationUser,
 	getInfoUsers,
 	removeInfoUser,
-	// addPaymentTRF,
-	// addPaymentBV,
 	addPayment,
 	getPaymentById,
 } = require('../controllers/userControllers')
@@ -27,8 +25,6 @@ router.get('/user/info', getInfoUsers)
 
 router.delete('/user/info/:id', removeInfoUser)
 
-// router.post('/user/info/pay/trf/:id', addPaymentTRF)
-// router.post('/user/info/pay/bv/:id', addPaymentBV)
 router.post('/user/info/pay/:id', addPayment)
 router.get('/user/info/pay/:id', getPaymentById)
 
