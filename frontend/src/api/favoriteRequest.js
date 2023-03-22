@@ -2,8 +2,8 @@ import axios from 'axios'
 import { API_URI } from '@env'
 import { useFavoriteStore } from '../store/FavoriteStore'
 
-// const URL = API_URI
-const URL = 'https://modacirc-backend-production.up.railway.app/api'
+const URL = API_URI
+// const URL = 'https://modacirc-backend-production.up.railway.app/api'
 
 export const favoriteRequest = {
 	addOrRemoveFavorite: async (userid, productid) => {

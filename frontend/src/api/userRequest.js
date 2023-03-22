@@ -2,8 +2,8 @@ import axios from 'axios'
 import { API_URI } from '@env'
 import { useUserStore } from '../store/userStore'
 
-// const URL = API_URI
-const URL = 'https://modacirc-backend-production.up.railway.app/api'
+const URL = API_URI
+// const URL = 'https://modacirc-backend-production.up.railway.app/api'
 
 export const userRequest = {
 	signIn: async (email, password) => {
