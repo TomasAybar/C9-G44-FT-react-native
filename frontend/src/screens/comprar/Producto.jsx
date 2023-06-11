@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Image, TouchableOpacity } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import StyledText from '../../styledComponents/StyledText'
@@ -7,26 +7,40 @@ import StyledButton from '../../styledComponents/StyledButton'
 import Star from '../../components/icons/Star'
 import Message from '../../components/icons/Message'
 import theme from '../../themes/theme'
-import { products } from '../../../assets/data.js'
 import { useCartStore } from '../../store/cartStore'
-// import { carrito, shopActions } from '../../../redux/actions/shopActions'
+import { useUserStore } from '../../store/userStore.js'
+import { favoriteRequest } from '../../api/favoriteRequest'
+// import { products } from '../../../assets/data.js'
 
 export const Producto = () => {
-	const [favorite, setFavorite] = useState(false)
+	const { id } = useUserStore((state) => state.user)
 
-	const { addToCart, cart } = useCartStore()
 	const navigator = useNavigation()
+
+	const { addToCart } = useCartStore()
+
+	const [iconFavorite, setIconFavorite] = useState()
 
 	const route = useRoute()
 
-	const id = route.params.id
+	const item = route.params.item
 
-	const product = products.find((product) => product.id === id)
+	useEffect(() => {
+		favoriteRequest
+			.iconFavorite(id, item._id)
+			.then((res) => setIconFavorite(res.data.inFavorite))
+	}, [])
 
 	const btnAddToCart = (product) => {
 		addToCart(product)
 
 		navigator.navigate('Carrito de compras')
+	}
+
+	const addFavorite = async (productid) => {
+		const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
+
+		setIconFavorite(res.data.inFavorite)
 	}
 
 	return (
@@ -36,7 +50,7 @@ export const Producto = () => {
 					<StyledView marginTop={10}>
 						<Image
 							source={{
-								uri: product.image,
+								uri: item.image,
 							}}
 							style={{
 								width: 342,
@@ -60,13 +74,13 @@ export const Producto = () => {
 							<TouchableOpacity
 								zIndex={20}
 								elevation={20}
-								onPress={() => setFavorite(!favorite)}
+								onPress={() => addFavorite(item._id)}
 							>
 								<StyledView>
 									<Star
 										alignSelf={'center'}
 										fill={
-											favorite
+											iconFavorite
 												? theme.colors.yellowPrimary
 												: null
 										}
@@ -78,27 +92,27 @@ export const Producto = () => {
 					<StyledView row spaceBetween marginTop={30}>
 						<StyledView>
 							<StyledText left size16 weight700 marginBottom={15}>
-								{product.name} {product.brand.toUpperCase()}
+								{item.name} {item.brand.toUpperCase()}
 							</StyledText>
 							<StyledText left size12 marginBottom={15}>
-								{product.state}
+								{item.state}
 							</StyledText>
 							<StyledText left size12 marginBottom={15}>
 								Talle:{' '}
 								<StyledText size16 weight600>
-									{product.size}
+									{item.size}
 								</StyledText>
 							</StyledText>
 							<StyledText left size12 marginBottom={15}>
 								Color:{' '}
 								<StyledText size16 weight600>
-									{product.color}
+									{item.color}
 								</StyledText>
 							</StyledText>
 						</StyledView>
 						<StyledView>
 							<StyledText size16 weight700 marginRight={40}>
-								${product.price}
+								${item.price}
 							</StyledText>
 						</StyledView>
 					</StyledView>
@@ -107,7 +121,7 @@ export const Producto = () => {
 							white
 							title={'Añadir al carrito'}
 							width={'73%'}
-							onPress={() => btnAddToCart(product)}
+							onPress={() => btnAddToCart(item)}
 						/>
 						<StyledView
 							radius12

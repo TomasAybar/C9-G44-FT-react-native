@@ -1,14 +1,15 @@
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 import { StyleSheet, useWindowDimensions, View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import { Slider56 } from '../../components/icons/Slider5-6'
 import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
+import { useVender } from '../../hooks/useVender'
 
 export const MetodoPagoScreen = () => {
-	const navigator = useNavigation()
-	const { width, height } = useWindowDimensions()
+	const { height } = useWindowDimensions()
+
+	const { btnNavigate } = useVender()
 
 	return (
 		<StyledView dark container height100>
@@ -33,11 +34,11 @@ export const MetodoPagoScreen = () => {
 			<View style={styles.containerOptions}>
 				<EcoBtnNavigate
 					text='Transferencia bancaria'
-					onPress={() => navigator.navigate('CheckeoFinalScreen')}
+					onPress={() => btnNavigate('Transferencia bancaria')}
 				/>
 				<EcoBtnNavigate
 					text='Billetera virtual'
-					onPress={() => navigator.navigate('CheckeoFinalScreen')}
+					onPress={() => btnNavigate('Billetera virtual')}
 				/>
 			</View>
 		</StyledView>

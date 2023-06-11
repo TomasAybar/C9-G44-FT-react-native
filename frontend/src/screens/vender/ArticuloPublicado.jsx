@@ -1,14 +1,21 @@
 import React, { useEffect } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { View } from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import { PublicationCard } from '../../components/PublicationCard'
 import { MaterialIcons } from '@expo/vector-icons'
 import theme from '../../themes/theme'
+import { useVenderStore } from '../../store/venderStore'
 
 export const ArticuloPublicado = ({ navigation }) => {
+	const data = useVenderStore((state) => state.product)
+	const clearProduct = useVenderStore((state) => state.clearProduct)
+
+	const btnVolver = () => {
+		navigation.popToTop()
+		clearProduct()
+	}
+
 	useEffect(() => {
 		navigation.setOptions({
 			headerLeft: () => (
@@ -17,7 +24,7 @@ export const ArticuloPublicado = ({ navigation }) => {
 					size={24}
 					color={theme.colors.yellowPrimary}
 					style={{ marginRight: 10 }}
-					onPress={() => navigation.popToTop()}
+					onPress={btnVolver}
 				/>
 			),
 		})
@@ -35,7 +42,12 @@ export const ArticuloPublicado = ({ navigation }) => {
 				</StyledText>
 			</View>
 
-			<PublicationCard />
+			<PublicationCard
+				img={data.image}
+				name={data.description}
+				size={data.size}
+				price={data.profit}
+			/>
 		</StyledView>
 	)
 }

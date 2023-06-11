@@ -1,14 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import {
-	Button,
 	StyleSheet,
-	Text,
 	View,
 	TouchableOpacity,
 	useWindowDimensions,
+	Image,
 } from 'react-native'
-import { style } from '../../themes/appTheme'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import StyledButton from '../../styledComponents/StyledButton'
@@ -31,9 +29,24 @@ export const DetalleDonarScreen = () => {
 	const [imageUri, setImageUri] = useState(null)
 
 	const handleChoosePhoto = async () => {
-		const result = await ImagePicker.launchImageLibraryAsync()
+		let result = await ImagePicker.launchImageLibraryAsync({
+			mediaTypes: ImagePicker.MediaTypeOptions.All,
+			allowsEditing: true,
+			aspect: [4, 3],
+			quality: 1,
+		})
+
 		if (!result.canceled) {
-			setImageUri(result.assets)
+			setImageUri(result.assets[0].uri)
+		}
+	}
+
+	const nextButtom = () => {
+		if (imageUri) {
+			navigator.navigate('InformacionScreen')
+			console.log(imageUri)
+		} else {
+			alert('falta img')
 		}
 	}
 
@@ -58,7 +71,7 @@ export const DetalleDonarScreen = () => {
 							{imageUri ? (
 								<Image
 									source={{ uri: imageUri }}
-									style={styles.image}
+									style={styles.placeholder}
 								/>
 							) : (
 								<View style={styles.placeholder}>
@@ -92,7 +105,7 @@ export const DetalleDonarScreen = () => {
 						marginTop={20}
 						white
 						title={'Siguiente'}
-						onPress={() => navigator.navigate('InformacionScreen')}
+						onPress={nextButtom}
 					></StyledButton>
 				</StyledView>
 			</Formik>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import {
-	Text,
 	Image,
 	Pressable,
 	StyleSheet,
@@ -18,11 +17,14 @@ import { MessagesProfile } from '../../components/icons/MessagesProfile'
 import { SettingsProfile } from '../../components/icons/SettingsProfile'
 import { LogoutProfile } from '../../components/icons/LogoutProfile'
 import { BagHappyProfile } from '../../components/icons/BagHappyProfile'
+import { useUserStore } from '../../store/userStore'
 
 export const PerfilScreen = () => {
 	const navigator = useNavigation()
 
-	const { width, height } = useWindowDimensions()
+	const { width } = useWindowDimensions()
+
+	const { firstName, photoUrl } = useUserStore((state) => state.user)
 
 	return (
 		<StyledView dark height100>
@@ -30,11 +32,18 @@ export const PerfilScreen = () => {
 				<StyledView container center>
 					<View style={style.image}>
 						<Image
-							source={require('../../../assets/profile-user.png')}
+							source={{
+								uri: photoUrl
+									? photoUrl
+									: 'http://imgfz.com/i/GqlxX1V.png',
+							}}
 							style={{ marginBottom: 10 }}
 						/>
 						<StyledText line24 size20>
-							¡Hola María!
+							¡Hola{' '}
+							{firstName.charAt(0).toUpperCase() +
+								firstName.slice(1)}
+							!
 						</StyledText>
 					</View>
 
@@ -127,7 +136,10 @@ export const PerfilScreen = () => {
 								width: width * 0.35,
 								height: 100,
 							}}
-							onPress={() => navigator.navigate('LoginStack')}
+							onPress={() => {
+								useUserStore.getState().logout()
+								navigator.navigate('LoginStack')
+							}}
 						>
 							<LogoutProfile style={style.icon} />
 

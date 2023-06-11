@@ -1,37 +1,22 @@
 import React, { useState } from 'react'
-import { Link, useNavigation } from '@react-navigation/native'
-import { Button, Text, View, StyleSheet } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-// import { style } from '../../themes/appTheme'
-import StyledView from '../../styledComponents/StyledView'
+import { useNavigation } from '@react-navigation/native'
+import { View, StyleSheet } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { LogoEcoModa } from '../../components/icons/LogoEcoModa'
+import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import theme from '../../themes/theme'
-import { Formik, useField } from 'formik'
+import { Formik } from 'formik'
 import { loginValidationSchema } from '../../validationSchema/validationsRegister'
 import { FormikInputValue } from '../../styledComponents/FormikInputValue'
 import { Linkeo } from '../../components/Linkeo'
-import { usersRegisters } from '../../../assets/data'
 import { AlertLoading } from '../../components/AlertLoading'
+import { userRequest } from '../../api/userRequest'
 
 const initialValues = {
 	email: '',
 	password: '',
-}
-
-const AlertScreen = () => {
-	return (
-		<StyledView dark height100 justifyContent={'center'}>
-			<AlertLoading
-				title='Datos incorrectos'
-				btnText='Volver a intentar'
-				onPress={() => setAlert(false)}
-				img={false}
-			/>
-		</StyledView>
-	)
 }
 
 export const LoginScreen = () => {
@@ -39,20 +24,13 @@ export const LoginScreen = () => {
 
 	const [alert, setAlert] = useState(false)
 
-	const handleForm = (values) => {
-		console.log(values)
+	const handleForm = async ({ email, password }) => {
+		const res = await userRequest.signIn(email, password)
 
-		for (const user of usersRegisters) {
-			if (
-				user.email === values.email &&
-				user.password === values.password
-			) {
-				// console.log('email y contrasenia coinciden')
-				navigator.navigate('StackNavigation')
-			} else {
-				// console.log('datos incorrectos')
-				setAlert(true)
-			}
+		if (res.data.success) {
+			navigator.navigate('StackNavigation')
+		} else {
+			setAlert(true)
 		}
 	}
 

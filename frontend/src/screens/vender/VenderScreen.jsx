@@ -1,14 +1,6 @@
 import React from 'react'
-// import { style } from '../../themes/appTheme'
 import { useNavigation } from '@react-navigation/native'
-import {
-	Button,
-	StyleSheet,
-	Text,
-	useWindowDimensions,
-	View,
-} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { StyleSheet, useWindowDimensions, View } from 'react-native'
 import { CameraDonar } from '../../components/icons/CameraDonar'
 import { MaginPenDonar } from '../../components/icons/MaginPenDonar'
 import { Dollar } from '../../components/icons/Dollar'

@@ -1,16 +1,29 @@
 import React from 'react'
 import { View, StyleSheet, useWindowDimensions } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import SyledButton from '../../styledComponents/StyledButton'
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
 import { Slider26 } from '../../components/icons/Slider2-6'
+import { EcoSelectOption } from '../../components/EcoSelectOption'
+import {
+	categorys,
+	rubros,
+	typeProducts,
+	brandProducts,
+} from '../../../assets/data.js'
+import { useVender } from '../../hooks/useVender'
 
 export const CategoriaScreen = () => {
 	const { width, height } = useWindowDimensions()
 
-	const navigation = useNavigation()
+	const {
+		setProductCategory,
+		setProductRubro,
+		setProductType,
+		setProductBrand,
+		nextButtomCategory,
+	} = useVender()
+
 	return (
 		<StyledView dark container height100>
 			<View
@@ -23,10 +36,27 @@ export const CategoriaScreen = () => {
 				<Slider26 />
 			</View>
 
-			<View style={styles.containerOptions}>
-				<EcoBtnNavigate text='Categoría' />
-				<EcoBtnNavigate text='Seleccione un rubro' />
-				<EcoBtnNavigate text='¿Qué productos es?' />
+			<View>
+				<EcoSelectOption
+					placeholder='Categoría'
+					options={categorys}
+					onChangeValue={(value) => setProductCategory(value)}
+				/>
+				<EcoSelectOption
+					placeholder='Seleccione un rubro'
+					options={rubros}
+					onChangeValue={(value) => setProductRubro(value)}
+				/>
+				<EcoSelectOption
+					placeholder='¿Qué productos es?'
+					options={typeProducts}
+					onChangeValue={(value) => setProductType(value)}
+				/>
+				<EcoSelectOption
+					placeholder='¿Qué marca es?'
+					options={brandProducts}
+					onChangeValue={(value) => setProductBrand(value)}
+				/>
 			</View>
 
 			<StyledText left>Otro:________</StyledText>
@@ -40,7 +70,7 @@ export const CategoriaScreen = () => {
 				<SyledButton
 					white
 					title={'Siguiente'}
-					onPress={() => navigation.navigate('TipoProductoScreen')}
+					onPress={nextButtomCategory}
 				></SyledButton>
 			</View>
 		</StyledView>
@@ -54,7 +84,6 @@ const styles = StyleSheet.create({
 		marginBottom: 30,
 	},
 
-	containerOptions: {},
 	containerBtn: {
 		position: 'absolute',
 		bottom: 80,

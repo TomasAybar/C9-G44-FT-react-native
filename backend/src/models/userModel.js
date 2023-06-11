@@ -1,15 +1,39 @@
-const mongoose = require('mongoose'); // usamos sus metodos contructores
+const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({ // creo un nuevo esquema con las siguientes caracteristicas
-    userName: { type: String, required: true },
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    photoUrl: { type: String, required: true },
-    role: { type: String, required: true },
-})
+const userInformationSchema = new mongoose.Schema(
+	{
+		user: { type: mongoose.Types.ObjectId, ref: 'users' },
+		phone: { type: String },
+		address: { type: String },
+		image: {
+			url: String,
+			public_id: String,
+		},
+		paymentMethod: {
+			trf: { type: mongoose.Types.ObjectId, ref: 'methodsTRF' },
+			bv: { type: mongoose.Types.ObjectId, ref: 'methodsBV' },
+		},
+	},
+	{
+		versionKey: false,
+	}
+)
 
-const User = mongoose.model('users', userSchema); // se conecta con la coleccion users de la base de datos en mongo, y se pasa por esquema lo que definimos
+const UserInfo = mongoose.model('userInfo', userInformationSchema)
 
-module.exports = User; // este modelo lo exportamos para utilizarlo en los controladores
+const userSchema = new mongoose.Schema(
+	{
+		name: { type: String, required: true },
+		email: { type: String, required: true },
+		password: { type: String, required: true },
+		role: { type: String },
+		information: { type: mongoose.Types.ObjectId, ref: 'userInfo' },
+	},
+	{
+		versionKey: false,
+	}
+)
+
+const User = mongoose.model('users', userSchema)
+
+module.exports = { UserInfo, User }

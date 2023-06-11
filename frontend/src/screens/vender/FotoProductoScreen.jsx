@@ -1,26 +1,27 @@
-import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native'
+import React from 'react'
+import {
+	Image,
+	Pressable,
+	StyleSheet,
+	useWindowDimensions,
+	View,
+} from 'react-native'
 import StyledView from '../../styledComponents/StyledView'
 import StyledText from '../../styledComponents/StyledText'
 import StyledButton from '../../styledComponents/StyledButton'
 import { Slider16 } from '../../components/icons/Slider1-6'
 import theme from '../../themes/theme'
 import { AddCircle } from '../../components/icons/AddCircle'
-import * as ImagePicker from 'expo-image-picker'
+import { LogBox } from 'react-native'
+import { useVender } from '../../hooks/useVender'
+
+LogBox.ignoreLogs([
+	'Key "cancelled" in the image picker result is deprecated and will be removed in SDK 48, use "canceled" instead',
+])
 
 export const FotoProductoScreen = () => {
 	const { width, height } = useWindowDimensions()
-	const navigator = useNavigation()
-
-	const [imageUri, setImageUri] = useState(null)
-
-	const handleChoosePhoto = async () => {
-		const result = await ImagePicker.launchImageLibraryAsync()
-		if (!result.canceled) {
-			setImageUri(result.assets)
-		}
-	}
+	const { imageUri, handleChoosePhoto, nextButtonFotoProduct } = useVender()
 
 	return (
 		<StyledView dark>
@@ -56,13 +57,25 @@ export const FotoProductoScreen = () => {
 							marginBottom: 15,
 						}}
 					>
-						<View
-							style={{
-								...styles.image,
-								height: height * 0.3,
-								width: width * 0.6,
-							}}
-						></View>
+						<View>
+							{imageUri ? (
+								<Image
+									source={{ uri: imageUri }}
+									style={{
+										width: width * 0.6,
+										height: height * 0.3,
+									}}
+								/>
+							) : (
+								<View
+									style={{
+										...styles.image,
+										height: height * 0.3,
+										width: width * 0.6,
+									}}
+								></View>
+							)}
+						</View>
 					</View>
 
 					<Pressable
@@ -72,14 +85,7 @@ export const FotoProductoScreen = () => {
 							marginBottom: 30,
 						}}
 					>
-						{imageUri ? (
-							<Image
-								source={{ uri: imageUri }}
-								style={styles.image}
-							/>
-						) : (
-							<AddCircle />
-						)}
+						<AddCircle />
 					</Pressable>
 				</View>
 
@@ -87,9 +93,7 @@ export const FotoProductoScreen = () => {
 					<StyledButton
 						white
 						title={'Siguiente'}
-						onPress={() =>
-							navigator.navigate('CategoriaScreenVender')
-						}
+						onPress={nextButtonFotoProduct}
 					></StyledButton>
 				</View>
 			</StyledView>
