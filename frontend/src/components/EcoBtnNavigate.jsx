@@ -18,6 +18,7 @@ export const EcoBtnNavigate = ({
 		<TouchableOpacity
 			style={[style.toucheable, { ...props }]}
 			onPress={onPress}
+			activeOpacity={0.7}
 		>
 			<Text style={[style.text, styleText]}>{text}</Text>
 			<ArrowForward />

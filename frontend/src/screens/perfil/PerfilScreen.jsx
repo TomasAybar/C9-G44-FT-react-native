@@ -41,8 +41,8 @@ export const PerfilScreen = () => {
 						/>
 						<StyledText line24 size20>
 							¡Hola{' '}
-							{firstName.charAt(0).toUpperCase() +
-								firstName.slice(1)}
+							{firstName?.charAt(0).toUpperCase() +
+								firstName?.slice(1)}
 							!
 						</StyledText>
 					</View>
