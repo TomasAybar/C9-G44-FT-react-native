@@ -7,23 +7,22 @@ import { StackNavigation } from './StackNavigation';
 const Stack = createNativeStackNavigator();
 
 export const MainNavigation = () => {
-    return (
-        <NavigationContainer>
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="OnboardingStack"
+      >
+        <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
 
-            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="OnboardingStack">
+        <Stack.Screen name="LoginStack" component={LoginStack} />
 
-                <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
-
-                <Stack.Screen name="LoginStack" component={LoginStack} />
-
-                <Stack.Screen
-                    name='StackNavigation'
-                    component={StackNavigation}
-                    options={{ headerShown: false }}
-                />
-
-            </Stack.Navigator>
-
-        </NavigationContainer>
-    );
+        <Stack.Screen
+          name="StackNavigation"
+          component={StackNavigation}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
