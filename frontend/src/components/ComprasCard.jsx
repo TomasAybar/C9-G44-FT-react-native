@@ -1,6 +1,6 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
+import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
 
 export const ComprasCard = ({ img, name, price }) => {
   return (
@@ -18,18 +18,18 @@ export const ComprasCard = ({ img, name, price }) => {
         </StyledText>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginBottom: 25,
+    marginBottom: 25
   },
   containerText: {
     marginStart: 30,
-    alignItems: 'flex-start',
-  },
-});
+    alignItems: 'flex-start'
+  }
+})

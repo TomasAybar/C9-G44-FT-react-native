@@ -1,40 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   View,
   TouchableOpacity,
   Image,
   StyleSheet,
   Text,
-  Pressable,
-} from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import { AddCircle } from '../../../components/icons/AddCircle';
-import theme from '../../../themes/theme';
+  Pressable
+} from 'react-native'
+import * as ImagePicker from 'expo-image-picker'
+import { AddCircle } from '../../../components/icons/AddCircle'
+import theme from '../../../themes/theme'
 
 export const AgregarImagen = () => {
-  const [imageUri, setImageUri] = useState(null);
+  const [imageUri, setImageUri] = useState(null)
 
   const handleChoosePhoto = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync();
+    const result = await ImagePicker.launchImageLibraryAsync()
     if (!result.canceled) {
-      setImageUri(result.assets);
+      setImageUri(result.assets)
     }
-  };
+  }
 
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleChoosePhoto}>
-        {imageUri ? (
-          <Image source={{ uri: imageUri }} style={styles.image} />
-        ) : (
-          <View style={styles.placeholder}>
-            <AddCircle />
-          </View>
-        )}
+        {imageUri
+          ? (
+            <Image source={{ uri: imageUri }} style={styles.image} />
+            )
+          : (
+            <View style={styles.placeholder}>
+              <AddCircle />
+            </View>
+            )}
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -42,13 +44,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'left',
     alignSelf: 'flex-start',
-    marginBottom: 20,
+    marginBottom: 20
   },
   image: {
     width: 83,
     height: 79,
     borderRadius: 75,
-    backgroundColor: theme.colors.greyPrimary,
+    backgroundColor: theme.colors.greyPrimary
   },
   placeholder: {
     width: 100,
@@ -56,6 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 75,
     backgroundColor: theme.colors.greyPrimary,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    justifyContent: 'center'
+  }
+})

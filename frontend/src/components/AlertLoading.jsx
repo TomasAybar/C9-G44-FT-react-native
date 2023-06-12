@@ -1,9 +1,9 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
-import StyledView from '../styledComponents/StyledView';
-import SyledButton from '../styledComponents/StyledButton';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
+import StyledView from '../styledComponents/StyledView'
+import SyledButton from '../styledComponents/StyledButton'
+import { useNavigation } from '@react-navigation/native'
 
 export const AlertLoadingCompleted = ({
   title = '¡Titulo!',
@@ -14,17 +14,17 @@ export const AlertLoadingCompleted = ({
   onPress1,
   onPress2,
   btn1 = true,
-  btn2 = true,
+  btn2 = true
 }) => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   return (
-    <StyledView position={'absolute'} width100 zIndex={10} marginTop={55}>
+    <StyledView position='absolute' width100 zIndex={10} marginTop={55}>
       <StyledView grey marginHorizontal={25} borderRadius={16} padding={20}>
         {img && (
           <Image
             source={require('../../assets/icons/loader-completed.png')}
-            alignSelf={'center'}
+            alignSelf='center'
             marginVertical={5}
           />
         )}
@@ -39,9 +39,9 @@ export const AlertLoadingCompleted = ({
           {btn1 && (
             <SyledButton
               white
-              width={'90%'}
+              width='90%'
               marginBottom={12}
-              alignSelf={'center'}
+              alignSelf='center'
               title={btn1Text}
               onPress={onPress1}
             />
@@ -50,9 +50,9 @@ export const AlertLoadingCompleted = ({
           {btn2 && (
             <SyledButton
               black
-              backgroundColor={'transparent'}
-              width={'90%'}
-              alignSelf={'center'}
+              backgroundColor='transparent'
+              width='90%'
+              alignSelf='center'
               title={btn2Text}
               onPress={onPress2}
             />
@@ -60,8 +60,8 @@ export const AlertLoadingCompleted = ({
         </StyledView>
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}
 
 export const AlertLoading = ({
   title = 'Titulo',
@@ -69,12 +69,12 @@ export const AlertLoading = ({
   btnCancel = true,
   btnText = 'Cancelar',
   onPress = () => navigator.goBack(),
-  img = true,
+  img = true
 }) => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   return (
-    <StyledView position={'absolute'} width100 zIndex={10} marginTop={55}>
+    <StyledView position='absolute' width100 zIndex={10} marginTop={55}>
       <StyledView grey marginHorizontal={25} borderRadius={16} padding={20}>
         <StyledText size16 weight700 marginVertical={10}>
           {title}
@@ -88,7 +88,7 @@ export const AlertLoading = ({
         {img && (
           <Image
             source={require('../../assets/icons/loader.png')}
-            alignSelf={'center'}
+            alignSelf='center'
             marginVertical={10}
           />
         )}
@@ -96,14 +96,14 @@ export const AlertLoading = ({
         {btnCancel && (
           <SyledButton
             white
-            width={'90%'}
+            width='90%'
             marginVertical={20}
-            alignSelf={'center'}
+            alignSelf='center'
             title={btnText}
             onPress={onPress}
           />
         )}
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

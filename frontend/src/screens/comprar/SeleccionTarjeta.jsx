@@ -1,17 +1,17 @@
-import React from 'react';
-import StyledText from '../../styledComponents/StyledText';
-import StyledView from '../../styledComponents/StyledView';
-import StyledButton from '../../styledComponents/StyledButton';
-import { BuySteps } from '../../components/BuySteps';
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import React from 'react'
+import StyledText from '../../styledComponents/StyledText'
+import StyledView from '../../styledComponents/StyledView'
+import StyledButton from '../../styledComponents/StyledButton'
+import { BuySteps } from '../../components/BuySteps'
+import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 export const SeleccionTarjeta = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
-  const route = useRoute();
+  const route = useRoute()
 
-  const priceTotal = route.params.priceTotal;
+  const priceTotal = route.params.priceTotal
 
   return (
     <StyledView dark height100>
@@ -19,12 +19,11 @@ export const SeleccionTarjeta = () => {
         <BuySteps step={3} />
         <StyledView flex={1} marginTop={50}>
           <EcoBtnNavigate
-            text="Tarjeta de débito Visa ***1273"
+            text='Tarjeta de débito Visa ***1273'
             onPress={() =>
               navigator.navigate('Procesamiento de pago', {
-                priceTotal,
-              })
-            }
+                priceTotal
+              })}
             borderRadius={12}
             styleText={{ fontSize: 12 }}
           />
@@ -32,12 +31,12 @@ export const SeleccionTarjeta = () => {
         <StyledView marginBottom={35}>
           <StyledView
             borderWidth={0.7}
-            borderColor={'white'}
+            borderColor='white'
             height={1}
-            backgroundColor={'white'}
+            backgroundColor='white'
             opacity={0.31}
             marginBottom={10}
-          ></StyledView>
+          />
           <StyledView row spaceBetween>
             <StyledText size18 weight500>
               Total
@@ -49,15 +48,14 @@ export const SeleccionTarjeta = () => {
         </StyledView>
         <StyledButton
           white
-          title={'Ir a comprar'}
+          title='Ir a comprar'
           onPress={() =>
             navigator.navigate('Procesamiento de pago', {
-              priceTotal,
-            })
-          }
+              priceTotal
+            })}
           marginBottom={30}
         />
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import theme from '../themes/theme';
-import { ArrowForward } from './icons/ArrowForward';
+import React from 'react'
+import { MaterialIcons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import theme from '../themes/theme'
+import { ArrowForward } from './icons/ArrowForward'
 
 export const EcoBtnNavigate = ({
   text = 'texto',
@@ -12,7 +12,7 @@ export const EcoBtnNavigate = ({
   onPress,
   ...props
 }) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   return (
     <TouchableOpacity
@@ -23,8 +23,8 @@ export const EcoBtnNavigate = ({
       <Text style={[style.text, styleText]}>{text}</Text>
       <ArrowForward />
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const style = StyleSheet.create({
   toucheable: {
@@ -36,13 +36,13 @@ const style = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     width: '100%',
-    marginBottom: 30,
+    marginBottom: 30
   },
   text: {
     color: '#fff',
     textAlign: 'center',
     fontSize: 16,
     lineHeight: 24,
-    fontWeight: '400',
-  },
-});
+    fontWeight: '400'
+  }
+})

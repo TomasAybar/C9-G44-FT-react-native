@@ -1,19 +1,19 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import StyledText from '../../styledComponents/StyledText';
-import StyledView from '../../styledComponents/StyledView';
-import { BuySteps } from '../../components/BuySteps';
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate';
-import { MaterialIcons } from '@expo/vector-icons';
-import theme from '../../themes/theme';
+import React from 'react'
+import { TouchableOpacity } from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import StyledText from '../../styledComponents/StyledText'
+import StyledView from '../../styledComponents/StyledView'
+import { BuySteps } from '../../components/BuySteps'
+import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
+import { MaterialIcons } from '@expo/vector-icons'
+import theme from '../../themes/theme'
 
 export const MetodoDeEntrega = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
-  const route = useRoute();
+  const route = useRoute()
 
-  const priceTotal = route.params.priceTotal;
+  const priceTotal = route.params.priceTotal
 
   return (
     <StyledView dark height100>
@@ -21,12 +21,11 @@ export const MetodoDeEntrega = () => {
         <BuySteps step={1} />
         <StyledView flex={1} marginTop={50}>
           <EcoBtnNavigate
-            text="Envío a domicilio"
+            text='Envío a domicilio'
             onPress={() =>
               navigator.navigate('Selecciona un método de pago', {
-                priceTotal,
-              })
-            }
+                priceTotal
+              })}
             borderRadius={12}
             styleText={{ fontSize: 12 }}
           />
@@ -34,9 +33,8 @@ export const MetodoDeEntrega = () => {
           <TouchableOpacity
             onPress={() =>
               navigator.navigate('Selecciona un método de pago', {
-                priceTotal,
-              })
-            }
+                priceTotal
+              })}
           >
             <StyledView
               row
@@ -55,7 +53,7 @@ export const MetodoDeEntrega = () => {
                 </StyledText>
               </StyledView>
               <MaterialIcons
-                name="arrow-forward-ios"
+                name='arrow-forward-ios'
                 size={24}
                 color={theme.colors.yellowPrimary}
                 style={{ alignSelf: 'center' }}
@@ -66,12 +64,12 @@ export const MetodoDeEntrega = () => {
         <StyledView marginBottom={80}>
           <StyledView
             borderWidth={0.7}
-            borderColor={'white'}
+            borderColor='white'
             height={1}
-            backgroundColor={'white'}
+            backgroundColor='white'
             opacity={0.31}
             marginBottom={10}
-          ></StyledView>
+          />
           <StyledView row spaceBetween>
             <StyledText size18 weight500>
               Total
@@ -83,5 +81,5 @@ export const MetodoDeEntrega = () => {
         </StyledView>
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

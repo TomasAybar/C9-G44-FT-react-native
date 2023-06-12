@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export const loginValidationShema = yup.object().shape({
   name: yup.string().required('Campo obligatorio'),
@@ -18,8 +18,8 @@ export const loginValidationShema = yup.object().shape({
   descripcion: yup
     .string()
     .max(500, 'Debe contener como máximo 500 caracteres')
-    .required('Campo obligatorio'),
-});
+    .required('Campo obligatorio')
+})
 
 export const loginValidationSchema = yup.object().shape({
   email: yup
@@ -30,5 +30,5 @@ export const loginValidationSchema = yup.object().shape({
     .string()
     .min(8, 'Debe contener al menos 8 caracteres')
     .max(20, 'Debe contener como máximo 20 caracteres')
-    .required('Campo obligatorio'),
-});
+    .required('Campo obligatorio')
+})

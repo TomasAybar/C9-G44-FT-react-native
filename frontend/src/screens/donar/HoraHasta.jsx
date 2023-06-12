@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate';
-import StyledView from '../../styledComponents/StyledView';
+import React, { useState } from 'react'
+import DateTimePicker from '@react-native-community/datetimepicker'
+import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
+import StyledView from '../../styledComponents/StyledView'
 
 export const HoraHasta = () => {
-  const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('time');
-  const [show, setShow] = useState(false);
-  const [text, setText] = useState('Hasta');
+  const [date, setDate] = useState(new Date())
+  const [mode, setMode] = useState('time')
+  const [show, setShow] = useState(false)
+  const [text, setText] = useState('Hasta')
 
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
-    setDate(currentDate);
+    const currentDate = selectedDate || date
+    setShow(Platform.OS === 'ios')
+    setDate(currentDate)
 
-    let tempDate = new Date(currentDate);
-    let fTime = tempDate.getHours() + ' hs ' + tempDate.getMinutes() + ' min';
-    setText(fTime);
-  };
+    const tempDate = new Date(currentDate)
+    const fTime = tempDate.getHours() + ' hs ' + tempDate.getMinutes() + ' min'
+    setText(fTime)
+  }
 
   const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
+    setShow(true)
+    setMode(currentMode)
+  }
 
   return (
     <>
@@ -30,15 +30,15 @@ export const HoraHasta = () => {
       <StyledView>
         {show && (
           <DateTimePicker
-            testID="dateTimePicker"
+            testID='dateTimePicker'
             value={date}
             mode={mode}
-            display="default"
+            display='default'
             onChange={onChange}
-            is24Hour={true}
+            is24Hour
           />
         )}
       </StyledView>
     </>
-  );
-};
+  )
+}

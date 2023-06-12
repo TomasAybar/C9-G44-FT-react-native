@@ -1,22 +1,22 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react'
+import { ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 // import { useSelector, useDispatch } from 'react-redux'
-import StyledText from '../../styledComponents/StyledText';
-import StyledView from '../../styledComponents/StyledView';
-import StyledButton from '../../styledComponents/StyledButton';
-import { BuySteps } from '../../components/BuySteps';
-import { ItemCarrito } from '../../components/ItemCarrito';
-import { useCartStore } from '../../store/cartStore';
+import StyledText from '../../styledComponents/StyledText'
+import StyledView from '../../styledComponents/StyledView'
+import StyledButton from '../../styledComponents/StyledButton'
+import { BuySteps } from '../../components/BuySteps'
+import { ItemCarrito } from '../../components/ItemCarrito'
+import { useCartStore } from '../../store/cartStore'
 // import { carrito } from '../../../redux/actions/shopActions'
 
 export const Carrito = () => {
   // Carrito: array vacio muestra el carrito vacio, array con contenido muestra el detalle de compra
-  const items = [1];
+  const items = [1]
 
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
-  const { cart } = useCartStore();
+  const { cart } = useCartStore()
   // const dispatch = useDispatch()
 
   // const items = useSelector((store) => store.shopReducers.productsInShop)
@@ -28,7 +28,7 @@ export const Carrito = () => {
   const priceTotal = cart.reduce(
     (total, producto) => total + producto.price,
     0
-  );
+  )
 
   // let priceTotal = 4000
 
@@ -49,7 +49,7 @@ export const Carrito = () => {
             <StyledView height={95} spaceBetween marginBottom={20}>
               <StyledButton
                 white
-                title={'Ir a comprar'}
+                title='Ir a comprar'
                 onPress={() => navigator.navigate('Categorías')}
               />
             </StyledView>
@@ -69,12 +69,12 @@ export const Carrito = () => {
             <StyledView marginBottom={25}>
               <StyledView
                 borderWidth={0.7}
-                borderColor={'white'}
+                borderColor='white'
                 height={1}
-                backgroundColor={'white'}
+                backgroundColor='white'
                 opacity={0.31}
                 marginBottom={10}
-              ></StyledView>
+              />
               <StyledView row spaceBetween>
                 <StyledText size18 weight500>
                   Total
@@ -87,16 +87,15 @@ export const Carrito = () => {
             <StyledView height={95} spaceBetween marginBottom={20}>
               <StyledButton
                 white
-                title={'Iniciar compra'}
+                title='Iniciar compra'
                 onPress={() =>
                   navigator.navigate('Selecciona un método de entrega', {
-                    priceTotal,
-                  })
-                }
+                    priceTotal
+                  })}
               />
               <StyledButton
                 black
-                title={'Seguir comprando'}
+                title='Seguir comprando'
                 onPress={() => navigator.navigate('Categorías')}
               />
             </StyledView>
@@ -104,5 +103,5 @@ export const Carrito = () => {
         )}
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

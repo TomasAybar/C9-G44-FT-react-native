@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
 export const useCompletarPerfil = create((set) => ({
   data: {},
@@ -7,11 +7,11 @@ export const useCompletarPerfil = create((set) => ({
       ...state,
       data: {
         ...state.data,
-        ...props,
-      },
+        ...props
+      }
     })),
   clearData: () =>
     set({
-      data: {},
-    }),
-}));
+      data: {}
+    })
+}))

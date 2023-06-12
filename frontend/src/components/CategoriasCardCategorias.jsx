@@ -1,15 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
-import StyledView from '../styledComponents/StyledView';
+import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import { Image, TouchableOpacity } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
+import StyledView from '../styledComponents/StyledView'
 
 export const CategoriasCardCategorias = ({
   type = 'Remeras',
   img = 'https://picsum.photos/115/148',
-  navigate = 'Categoria',
+  navigate = 'Categoria'
 }) => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   return (
     <TouchableOpacity onPress={() => navigator.navigate(navigate, { type })}>
@@ -20,5 +20,5 @@ export const CategoriasCardCategorias = ({
         <Image source={{ uri: img }} style={{ width: 115, height: 148 }} />
       </StyledView>
     </TouchableOpacity>
-  );
-};
+  )
+}

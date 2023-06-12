@@ -1,7 +1,7 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
-import theme from '../themes/theme';
+import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
+import theme from '../themes/theme'
 
 export const MensajesCard = ({
   img,
@@ -9,7 +9,7 @@ export const MensajesCard = ({
   price,
   user,
   message,
-  state = '',
+  state = ''
 }) => {
   return (
     <View style={styles.mensaje}>
@@ -18,7 +18,7 @@ export const MensajesCard = ({
         style={{ width: 56, height: 56, borderRadius: 8 }}
       />
       <View style={styles.containerText}>
-        <StyledText left size16 weight700 overflow={'hidden'}>
+        <StyledText left size16 weight700 overflow='hidden'>
           {state != '' && state + ' - '}
           {name} ${price}.-
         </StyledText>
@@ -27,8 +27,8 @@ export const MensajesCard = ({
         </StyledText>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   mensaje: {
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     paddingBottom: 10,
     borderBottomWidth: 0.6,
-    borderBottomColor: theme.colors.greySecondary,
+    borderBottomColor: theme.colors.greySecondary
   },
   containerText: {
     marginStart: 30,
     alignItems: 'flex-start',
-    overflow: 'hidden',
-  },
-});
+    overflow: 'hidden'
+  }
+})

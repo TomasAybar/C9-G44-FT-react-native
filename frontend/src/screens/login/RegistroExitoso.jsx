@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import StyledText from '../../styledComponents/StyledText';
-import StyledView from '../../styledComponents/StyledView';
-import StyledButtton from '../../styledComponents/StyledButton';
-import { Alert, Modal, StyleSheet } from 'react-native';
-import theme from '../../themes/theme';
+import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import StyledText from '../../styledComponents/StyledText'
+import StyledView from '../../styledComponents/StyledView'
+import StyledButtton from '../../styledComponents/StyledButton'
+import { Alert, Modal, StyleSheet } from 'react-native'
+import theme from '../../themes/theme'
 
 export const RegistroExitoso = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const navigator = useNavigation();
+  const [modalVisible, setModalVisible] = useState(false)
+  const navigator = useNavigation()
 
   const handleCloseModal = () => {
-    setModalVisible(!modalVisible);
-    navigator.navigate('CompletarPerfilScreen');
-  };
+    setModalVisible(!modalVisible)
+    navigator.navigate('CompletarPerfilScreen')
+  }
 
   const handleCloseModal2 = () => {
-    setModalVisible(!modalVisible);
-    navigator.navigate('StackNavigation');
-  };
+    setModalVisible(!modalVisible)
+    navigator.navigate('StackNavigation')
+  }
 
   return (
     <StyledView dark>
       <StyledView container center height100>
         <Modal
-          animationType="slide"
-          transparent={true}
+          animationType='slide'
+          transparent
           visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            setModalVisible(!modalVisible);
+            Alert.alert('Modal has been closed.')
+            setModalVisible(!modalVisible)
           }}
         >
           <StyledView container center height100>
@@ -42,20 +42,20 @@ export const RegistroExitoso = () => {
                 quieras vender o comprar.
               </StyledText>
 
-              <StyledText></StyledText>
+              <StyledText />
 
               <StyledButtton
                 white
-                title={'Completar Perfil'}
+                title='Completar Perfil'
                 onPress={handleCloseModal}
-              ></StyledButtton>
-              <StyledText></StyledText>
+              />
+              <StyledText />
 
               <StyledButtton
                 black
-                title={'Omitir'}
+                title='Omitir'
                 onPress={handleCloseModal2}
-              ></StyledButtton>
+              />
             </StyledView>
           </StyledView>
         </Modal>
@@ -68,28 +68,28 @@ export const RegistroExitoso = () => {
         <StyledText size12 marginBottom={15} marginTop={15}>
           Ahora te vamos a pedir unos datos para completar tu perfil.
         </StyledText>
-        <StyledText></StyledText>
+        <StyledText />
         <StyledButtton
           white
-          title={'Comenzar'}
+          title='Comenzar'
           onPress={() => navigator.navigate('CompletarPerfilScreen')}
-        ></StyledButtton>
-        <StyledText></StyledText>
+        />
+        <StyledText />
         <StyledButtton
           black
-          title={'Omitir'}
+          title='Omitir'
           onPress={() => setModalVisible(true)}
-        ></StyledButtton>
+        />
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    marginTop: 22
   },
   modalView: {
     margin: 20,
@@ -103,10 +103,10 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-  },
-});
+    elevation: 5
+  }
+})

@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
 
 export const ListPaso = ({ number = '1', content }) => {
   return (
@@ -12,5 +12,5 @@ export const ListPaso = ({ number = '1', content }) => {
         {content}
       </StyledText>
     </View>
-  );
-};
+  )
+}

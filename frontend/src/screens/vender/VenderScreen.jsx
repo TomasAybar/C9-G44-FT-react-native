@@ -1,23 +1,23 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
-import { CameraDonar } from '../../components/icons/CameraDonar';
-import { MaginPenDonar } from '../../components/icons/MaginPenDonar';
-import { Dollar } from '../../components/icons/Dollar';
-import StyledView from '../../styledComponents/StyledView';
-import StyledText from '../../styledComponents/StyledText';
-import SyledButton from '../../styledComponents/StyledButton';
+import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { StyleSheet, useWindowDimensions, View } from 'react-native'
+import { CameraDonar } from '../../components/icons/CameraDonar'
+import { MaginPenDonar } from '../../components/icons/MaginPenDonar'
+import { Dollar } from '../../components/icons/Dollar'
+import StyledView from '../../styledComponents/StyledView'
+import StyledText from '../../styledComponents/StyledText'
+import SyledButton from '../../styledComponents/StyledButton'
 
 export const VenderScreen = () => {
-  const { width, height } = useWindowDimensions();
-  const navigator = useNavigation();
+  const { width, height } = useWindowDimensions()
+  const navigator = useNavigation()
 
   return (
     <StyledView dark height100>
       <View
         style={{
           ...style.containerHeader,
-          height: height * 0.1,
+          height: height * 0.1
         }}
       >
         <StyledText weight700 size16 line32>
@@ -33,7 +33,7 @@ export const VenderScreen = () => {
           style={{
             ...style.contenedorCard,
             height: height * 0.5,
-            maxWidth: width * 1,
+            maxWidth: width * 1
           }}
         >
           <View style={style.card}>
@@ -42,7 +42,7 @@ export const VenderScreen = () => {
             <View
               style={{
                 ...style.containerText,
-                marginStart: 18,
+                marginStart: 18
               }}
             >
               <StyledText size14 line24 left>
@@ -66,7 +66,7 @@ export const VenderScreen = () => {
 
           <View
             style={{
-              ...style.card,
+              ...style.card
             }}
           >
             <Dollar />
@@ -74,7 +74,7 @@ export const VenderScreen = () => {
             <View
               style={{
                 ...style.containerText,
-                marginEnd: 50,
+                marginEnd: 50
               }}
             >
               <StyledText size14 line24 left>
@@ -86,31 +86,31 @@ export const VenderScreen = () => {
 
         <SyledButton
           white
-          title={'Crear publicación'}
+          title='Crear publicación'
           onPress={() => navigator.navigate('FotoProductoScreen')}
-        ></SyledButton>
+        />
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}
 
 const style = StyleSheet.create({
   containerHeader: {
     marginTop: 40,
-    marginBottom: 10,
+    marginBottom: 10
   },
   contenedorCard: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 20
     // marginStart: 15,
   },
   card: {
     justifyContent: 'flex-start',
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   containerText: {
-    marginStart: 20,
-  },
-});
+    marginStart: 20
+  }
+})

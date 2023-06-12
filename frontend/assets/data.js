@@ -11,7 +11,7 @@ export const products = [
       'https://http2.mlstatic.com/D_NQ_NP_970450-MLA49938552937_052022-W.jpg',
     size: 'M',
     color: 'Azul',
-    state: 'Nuevo',
+    state: 'Nuevo'
   },
   {
     id: '8fja93ksl20dk34',
@@ -25,7 +25,7 @@ export const products = [
       'https://d3ugyf2ht6aenh.cloudfront.net/stores/002/313/040/products/remera-remera-de-hombre-remera-nike-remera-replica-remera-slim-fit-remera-entallada-remera-blanca-remera-negra-nike-grande-pipeta-nike-regalo-remera-de-calidad-remera-de-algodon-navidad1-c221d73d430796099e16715407293599-640-0.webp',
     size: 'L',
     color: 'Negro',
-    state: 'Usado (muy poco uso)',
+    state: 'Usado (muy poco uso)'
   },
   {
     id: '5bsa72kfd03hj47',
@@ -39,7 +39,7 @@ export const products = [
       'https://media.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/v/e/vestido-adidas-essentials-logo-mujer-rosa-100020h42009001-1.jpg',
     size: '6',
     color: 'Rosado',
-    state: 'Nuevo con etiqueta',
+    state: 'Nuevo con etiqueta'
   },
   {
     id: '2adk53sfg81ht25',
@@ -53,7 +53,7 @@ export const products = [
       'https://http2.mlstatic.com/D_NQ_NP_855027-MLA52648949235_112022-O.jpg',
     size: '42',
     color: 'Blanco',
-    state: 'Usado (en buen estado)',
+    state: 'Usado (en buen estado)'
   },
   {
     id: '9sjf47sld90qw28',
@@ -66,7 +66,7 @@ export const products = [
     image:
       'https://static3.mujerhoy.com/www/multimedia/202005/30/media/cortadas/sombrero-paja-zara-home-k67G--726x900@MujerHoy.jpg',
     color: 'Natural',
-    state: 'Nuevo',
+    state: 'Nuevo'
   },
   {
     id: '43sfg32a2dfg76',
@@ -80,7 +80,7 @@ export const products = [
       'https://http2.mlstatic.com/D_NQ_NP_787964-MLA52526792685_112022-W.jpg',
     size: 'S',
     color: 'Negro',
-    state: 'Nuevo con etiqueta',
+    state: 'Nuevo con etiqueta'
   },
   {
     id: '9jgk25sdn38fa75',
@@ -94,7 +94,7 @@ export const products = [
       'https://http2.mlstatic.com/D_NQ_NP_992190-MLA40530226345_012020-W.jpg',
     size: 'L',
     color: 'Beige',
-    state: 'Usado (en buen estado)',
+    state: 'Usado (en buen estado)'
   },
   {
     id: '2fgh47wwe53ahg6',
@@ -108,7 +108,7 @@ export const products = [
       'https://ae01.alicdn.com/kf/HTB1MHAFEYGYBuNjy0Foq6AiBFXaG.jpg_640x640q90.jpg',
     size: 'M',
     color: 'Rojo',
-    state: 'Nuevo con etiqueta',
+    state: 'Nuevo con etiqueta'
   },
   {
     id: '8adsf23zv80pg9',
@@ -122,7 +122,7 @@ export const products = [
       'https://media.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/u/buzo-con-capucha-adidas-training-linear-colorblock-ni_o-gris-100020gd6323001-1.jpg',
     size: '10',
     color: 'Gris',
-    state: 'Nuevo',
+    state: 'Nuevo'
   },
   {
     id: '5jfd83slk20dh4',
@@ -136,56 +136,55 @@ export const products = [
       'https://http2.mlstatic.com/D_NQ_NP_865502-MLA53948794728_022023-W.jpg',
     size: '42',
     color: 'Negro',
-    state: 'Usado (en buen estado)',
-  },
-];
+    state: 'Usado (en buen estado)'
+  }
+]
 
 export const usersRegisters = [
   {
     email: 'correo@correo.com',
-    password: '12345678',
-  },
-];
+    password: '12345678'
+  }
+]
 
 export const stateProducts = [
   { label: 'Nuevo con etiqueta', value: 'Nuevo-con-etiqueta' },
   { label: 'Usado como nuevo', value: 'Usado-como-nuevo' },
-  { label: 'Usado', value: 'Usado' },
-];
+  { label: 'Usado', value: 'Usado' }
+]
 
 export const sizeProducts = [
   { label: 'S (small/pequeño)', value: 'S' },
   { label: 'M (medium/mediano)', value: 'M' },
-  { label: 'L (large/grande)', value: 'L' },
-];
+  { label: 'L (large/grande)', value: 'L' }
+]
 
 export const colorsProducts = [
   { label: 'Blanco', value: 'Blanco' },
   { label: 'Azul', value: 'Azul' },
   { label: 'Negro', value: 'Negro' },
-  { label: 'Marron', value: 'Marron' },
-  ,
-];
+  { label: 'Marron', value: 'Marron' },,
+]
 
 export const categorys = [
   { label: 'Mujer', value: 'Mujer' },
   { label: 'Hombre', value: 'Remera' },
-  { label: 'Niños', value: 'Niños' },
-];
+  { label: 'Niños', value: 'Niños' }
+]
 
 export const rubros = [
   { label: 'Indumentaria', value: 'Indumentaria' },
   { label: 'Accesorio', value: 'Accesorio' },
-  { label: 'Calzado', value: 'Calzado' },
-];
+  { label: 'Calzado', value: 'Calzado' }
+]
 
 export const typeProducts = [
   { label: 'Jeans', value: 'Jeans' },
   { label: 'Remera', value: 'Remera' },
   { label: 'Abrigo', value: 'Abrigo' },
   { label: 'Vestidos-faldas', value: 'Vestidos-faldas' },
-  { label: 'Shorts', value: 'Shorts' },
-];
+  { label: 'Shorts', value: 'Shorts' }
+]
 
 export const brandProducts = [
   { label: 'Nike', value: 'nike' },
@@ -201,5 +200,5 @@ export const brandProducts = [
   { label: 'Prada', value: 'prada' },
   { label: 'Versace', value: 'versace' },
   { label: 'Armani', value: 'armani' },
-  { label: 'Hugo Boss', value: 'hugo-boss' },
-];
+  { label: 'Hugo Boss', value: 'hugo-boss' }
+]

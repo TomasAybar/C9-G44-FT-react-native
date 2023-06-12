@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import 'dotenv/config'
 
 // export interface AppConfig {
 //   API_KEY: string;
@@ -10,6 +10,6 @@ export default {
   version: '1.0.0',
   extra: {
     API_KEY: process.env.API_KEY,
-    API_URI: process.env.API_URI,
-  },
-};
+    API_URI: process.env.API_URI
+  }
+}

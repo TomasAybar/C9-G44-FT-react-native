@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
 export const useVenderStore = create((set) => ({
   product: {},
@@ -7,11 +7,11 @@ export const useVenderStore = create((set) => ({
       ...state,
       product: {
         ...state.product,
-        ...props,
-      },
+        ...props
+      }
     })),
   clearProduct: () =>
     set({
-      product: {},
-    }),
-}));
+      product: {}
+    })
+}))

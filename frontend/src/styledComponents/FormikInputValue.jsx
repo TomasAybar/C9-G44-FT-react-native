@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Formik, useField } from 'formik';
-import StyledTextInput from '../styledComponents/StyledTextInput';
-import { StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react'
+import { Formik, useField } from 'formik'
+import StyledTextInput from '../styledComponents/StyledTextInput'
+import { StyleSheet, Text } from 'react-native'
 
 const styles = StyleSheet.create({
   error: {
@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     opacity: 0.6,
     fontSize: 12.8,
-    marginBottom: 5,
-  },
-});
+    marginBottom: 5
+  }
+})
 
 export const FormikInputValue = ({ name, ...props }) => {
-  const [field, meta, helpers] = useField(name);
+  const [field, meta, helpers] = useField(name)
   return (
     <>
       <StyledTextInput
@@ -25,5 +25,5 @@ export const FormikInputValue = ({ name, ...props }) => {
       />
       {meta.error && <Text style={styles.error}>{meta.error}</Text>}
     </>
-  );
-};
+  )
+}

@@ -1,14 +1,14 @@
-import React from 'react';
-import { Image, StyleSheet, useWindowDimensions, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
+import React from 'react'
+import { Image, StyleSheet, useWindowDimensions, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
 
 export const PublicationCard = ({
   name = 'Vestido verde',
   size = 'L',
   price = '18.000',
-  img = 'https://picsum.photos/id/1/162/192',
+  img = 'https://picsum.photos/id/1/162/192'
 }) => {
-  const { width, height } = useWindowDimensions();
+  const { width, height } = useWindowDimensions()
 
   return (
     <View style={styles.containerCard}>
@@ -18,7 +18,7 @@ export const PublicationCard = ({
         style={{
           width: width * 0.6,
           height: height * 0.3,
-          borderRadius: 12,
+          borderRadius: 12
         }}
       />
       <View style={styles.containerCardText}>
@@ -29,15 +29,15 @@ export const PublicationCard = ({
         </StyledText>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   containerCard: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   containerCardText: {
-    marginTop: 20,
-  },
-});
+    marginTop: 20
+  }
+})

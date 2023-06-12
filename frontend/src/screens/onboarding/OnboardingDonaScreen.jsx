@@ -1,12 +1,12 @@
-import React from 'react';
-import { Image, ImageBackground } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import StyledText from '../../styledComponents/StyledText';
-import StyledView from '../../styledComponents/StyledView';
-import StyledButtton from '../../styledComponents/StyledButton';
+import React from 'react'
+import { Image, ImageBackground } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import StyledText from '../../styledComponents/StyledText'
+import StyledView from '../../styledComponents/StyledView'
+import StyledButtton from '../../styledComponents/StyledButton'
 
 export const OnboardingDonaScreen = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   return (
     <StyledView dark height100>
@@ -17,7 +17,7 @@ export const OnboardingDonaScreen = () => {
             width: '100%',
             height: '100%',
             zIndex: 1,
-            position: 'absolute',
+            position: 'absolute'
           }}
         />
         <ImageBackground
@@ -38,7 +38,7 @@ export const OnboardingDonaScreen = () => {
             width: '100%',
             flexDirection: 'row',
             justifyContent: 'center',
-            marginRight: 5,
+            marginRight: 5
           }}
         >
           <Image
@@ -56,15 +56,15 @@ export const OnboardingDonaScreen = () => {
         </StyledView>
         <StyledButtton
           white
-          title={'Comenzar'}
+          title='Comenzar'
           onPress={() => navigator.navigate('LoginStack')}
-        ></StyledButtton>
+        />
         <StyledButtton
           black
-          title={'Volver'}
+          title='Volver'
           onPress={() => navigator.navigate('OnboardingCompraScreen')}
-        ></StyledButtton>
+        />
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

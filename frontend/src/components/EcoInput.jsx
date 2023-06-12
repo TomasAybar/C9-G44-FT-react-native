@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
-import theme from '../themes/theme';
+import React, { useState } from 'react'
+import { StyleSheet, TextInput } from 'react-native'
+import theme from '../themes/theme'
 
 export const EcoInput = ({ type = 'text', placeholder = '' }) => {
-  const [onchangeInput, setOnchangeInput] = useState('');
+  const [onchangeInput, setOnchangeInput] = useState('')
 
   return (
     <TextInput
@@ -11,11 +11,11 @@ export const EcoInput = ({ type = 'text', placeholder = '' }) => {
       value={onchangeInput}
       keyboardType={type}
       placeholder={placeholder}
-      placeholderTextColor={'#fff'}
+      placeholderTextColor='#fff'
       onChangeText={setOnchangeInput}
     />
-  );
-};
+  )
+}
 
 const style = StyleSheet.create({
   input: {
@@ -23,6 +23,6 @@ const style = StyleSheet.create({
     paddingHorizontal: 12,
     backgroundColor: theme.colors.greyPrimary,
     borderRadius: 10,
-    color: '#fff',
-  },
-});
+    color: '#fff'
+  }
+})

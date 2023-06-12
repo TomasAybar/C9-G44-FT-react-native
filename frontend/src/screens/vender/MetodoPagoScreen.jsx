@@ -1,15 +1,15 @@
-import React from 'react';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
-import StyledView from '../../styledComponents/StyledView';
-import StyledText from '../../styledComponents/StyledText';
-import { Slider56 } from '../../components/icons/Slider5-6';
-import { EcoBtnNavigate } from '../../components/EcoBtnNavigate';
-import { useVender } from '../../hooks/useVender';
+import React from 'react'
+import { StyleSheet, useWindowDimensions, View } from 'react-native'
+import StyledView from '../../styledComponents/StyledView'
+import StyledText from '../../styledComponents/StyledText'
+import { Slider56 } from '../../components/icons/Slider5-6'
+import { EcoBtnNavigate } from '../../components/EcoBtnNavigate'
+import { useVender } from '../../hooks/useVender'
 
 export const MetodoPagoScreen = () => {
-  const { height } = useWindowDimensions();
+  const { height } = useWindowDimensions()
 
-  const { btnNavigate } = useVender();
+  const { btnNavigate } = useVender()
 
   return (
     <StyledView dark container height100>
@@ -17,7 +17,7 @@ export const MetodoPagoScreen = () => {
         style={{
           ...styles.containerSlide,
 
-          height: height * 0.1,
+          height: height * 0.1
         }}
       >
         <Slider56 />
@@ -25,7 +25,7 @@ export const MetodoPagoScreen = () => {
 
       <View
         style={{
-          marginBottom: 100,
+          marginBottom: 100
         }}
       >
         <StyledText>¿Cómo preferís que te paguen?</StyledText>
@@ -33,29 +33,29 @@ export const MetodoPagoScreen = () => {
 
       <View style={styles.containerOptions}>
         <EcoBtnNavigate
-          text="Transferencia bancaria"
+          text='Transferencia bancaria'
           onPress={() => btnNavigate('Transferencia bancaria')}
         />
         <EcoBtnNavigate
-          text="Billetera virtual"
+          text='Billetera virtual'
           onPress={() => btnNavigate('Billetera virtual')}
         />
       </View>
     </StyledView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   containerSlide: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 30
   },
 
   containerOptions: {},
   containerBtn: {
     position: 'absolute',
     bottom: 80,
-    paddingHorizontal: 25,
-  },
-});
+    paddingHorizontal: 25
+  }
+})

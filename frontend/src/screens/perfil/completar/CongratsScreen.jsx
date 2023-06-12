@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import StyledView from '../../../styledComponents/StyledView';
-import StyledButtton from '../../../styledComponents/StyledButton';
-import StyledText from '../../../styledComponents/StyledText';
+import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import StyledView from '../../../styledComponents/StyledView'
+import StyledButtton from '../../../styledComponents/StyledButton'
+import StyledText from '../../../styledComponents/StyledText'
 
 export const CongratsScreen = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   return (
     <StyledView dark>
@@ -20,19 +20,19 @@ export const CongratsScreen = () => {
           Ahora podras comprar, vender y donar todo tipo de indumentaria desde
           la comododidad de tu casa.
         </StyledText>
-        <StyledText></StyledText>
+        <StyledText />
         <StyledButtton
           white
-          title={'Comenzar'}
+          title='Comenzar'
           onPress={() => navigator.navigate('StackNavigation')}
-        ></StyledButtton>
-        <StyledText></StyledText>
+        />
+        <StyledText />
         <StyledButtton
           black
-          title={'Agregar medio de cobro'}
+          title='Agregar medio de cobro'
           onPress={() => navigator.navigate('CompletarMetodoCobroScreen')}
-        ></StyledButtton>
+        />
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

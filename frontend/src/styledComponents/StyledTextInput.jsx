@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
-import theme from '../themes/theme';
+import React, { useState } from 'react'
+import { TextInput, StyleSheet } from 'react-native'
+import theme from '../themes/theme'
 
 const styles = StyleSheet.create({
   textInput: {
@@ -14,27 +14,27 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     height: 54,
     paddingHorizontal: 15,
-    marginTop: 5,
+    marginTop: 5
   },
   error: {
-    borderColor: 'red',
+    borderColor: 'red'
   },
   inputFocused: {
-    borderColor: theme.colors.yellowPrimary,
-  },
-});
+    borderColor: theme.colors.yellowPrimary
+  }
+})
 
 const StyledTextInput = ({ style = {}, error, ...props }) => {
-  const inputStyle = [styles.textInput, style, error && styles.error];
-  const [inputFocused, setInputFocused] = useState(false);
+  const inputStyle = [styles.textInput, style, error && styles.error]
+  const [inputFocused, setInputFocused] = useState(false)
 
   const handleFocus = () => {
-    setInputFocused(true);
-  };
+    setInputFocused(true)
+  }
 
   const handleBlur = () => {
-    setInputFocused(false);
-  };
+    setInputFocused(false)
+  }
 
   return (
     <TextInput
@@ -43,7 +43,7 @@ const StyledTextInput = ({ style = {}, error, ...props }) => {
       onBlur={handleBlur}
       {...props}
     />
-  );
-};
+  )
+}
 
-export default StyledTextInput;
+export default StyledTextInput

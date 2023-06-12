@@ -1,18 +1,18 @@
-import React from 'react';
-import { Image } from 'react-native';
-import StyledView from '../styledComponents/StyledView';
-import StyledText from '../styledComponents/StyledText';
-import Trash from '../components/icons/Trash';
-import { useCartStore } from '../store/cartStore';
+import React from 'react'
+import { Image } from 'react-native'
+import StyledView from '../styledComponents/StyledView'
+import StyledText from '../styledComponents/StyledText'
+import Trash from '../components/icons/Trash'
+import { useCartStore } from '../store/cartStore'
 
 export const ItemCarrito = ({ item }) => {
-  const { removeFromCart } = useCartStore();
+  const { removeFromCart } = useCartStore()
 
   return (
     <StyledView row spaceBetween marginBottom={15}>
       <Image
         source={{
-          uri: item.image ? item.image : 'https://picsum.photos/id/1/162/192',
+          uri: item.image ? item.image : 'https://picsum.photos/id/1/162/192'
         }}
         style={{ width: 127, height: 104, borderRadius: 12 }}
       />
@@ -30,5 +30,5 @@ export const ItemCarrito = ({ item }) => {
         onPress={() => removeFromCart(item._id)}
       />
     </StyledView>
-  );
-};
+  )
+}

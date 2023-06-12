@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { API_URI } from '@env';
-import { useProductStore } from '../store/productStore';
+import axios from 'axios'
+import { API_URI } from '@env'
+import { useProductStore } from '../store/productStore'
 
-const URL = API_URI;
+const URL = API_URI
 // const URL = 'http://192.168.1.35:8000/api'
 // const URL = 'https://modacirc-backend-production.up.railway.app/api'
 
@@ -11,13 +11,13 @@ export const productRequest = {
     try {
       const res = await axios.delete(`${URL}/products/delete/${id}`, {
         headers: {
-          Authorization: 'Bearer ' + token,
-        },
-      });
+          Authorization: 'Bearer ' + token
+        }
+      })
 
-      return res;
+      return res
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   },
 
@@ -28,38 +28,38 @@ export const productRequest = {
         { data },
         {
           headers: {
-            Authorization: 'Bearer ' + token,
-          },
+            Authorization: 'Bearer ' + token
+          }
         }
-      );
+      )
 
-      return res;
+      return res
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   },
 
   getProducts: async () => {
     try {
-      const res = await axios.get(`${URL}/products`);
+      const res = await axios.get(`${URL}/products`)
 
       if (res.data.success) {
-        useProductStore.getState().setProducts(res.data.response);
+        useProductStore.getState().setProducts(res.data.response)
       }
 
-      return res;
+      return res
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   },
 
   getOneProduct: async (id) => {
     try {
-      const res = await axios.get(`${URL}/products/${id}`);
+      const res = await axios.get(`${URL}/products/${id}`)
 
-      return res;
+      return res
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  },
-};
+  }
+}

@@ -1,14 +1,14 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeScreen } from '../screens/HomeScreen';
-import { CategoriasScreen } from '../screens/comprar/CategoriasScreen';
-import { VenderScreen } from '../screens/vender/VenderScreen';
-import { DonarScreen } from '../screens/donar/DonarScreen';
-import { PerfilScreen } from '../screens/perfil/PerfilScreen';
-import theme from '../themes/theme';
-import { Image, StyleSheet, Text } from 'react-native';
+import React from 'react'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { HomeScreen } from '../screens/HomeScreen'
+import { CategoriasScreen } from '../screens/comprar/CategoriasScreen'
+import { VenderScreen } from '../screens/vender/VenderScreen'
+import { DonarScreen } from '../screens/donar/DonarScreen'
+import { PerfilScreen } from '../screens/perfil/PerfilScreen'
+import theme from '../themes/theme'
+import { Image, StyleSheet, Text } from 'react-native'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 export const TabNavigation = () => {
   return (
@@ -22,23 +22,23 @@ export const TabNavigation = () => {
           bottom: 11,
           borderRadius: 24,
           marginHorizontal: 10,
-          backgroundColor: theme.colors.greyPrimary,
+          backgroundColor: theme.colors.greyPrimary
         },
         tabBarLabelStyle: styles.tabBarLabel,
         tabBarIconStyle: {
-          marginBottom: -5,
+          marginBottom: -5
         },
         headerStyle: {
-          backgroundColor: theme.colors.appBackground,
+          backgroundColor: theme.colors.appBackground
         },
         headerTitleStyle: {
           color: '#fff',
-          fontWeight: '700',
-        },
+          fontWeight: '700'
+        }
       }}
     >
       <Tab.Screen
-        name="HomeScreen"
+        name='HomeScreen'
         component={HomeScreen}
         options={{
           headerTitle: 'Bienvenidx!',
@@ -52,7 +52,7 @@ export const TabNavigation = () => {
               style={{
                 height: size,
                 width: size,
-                tintColor: color,
+                tintColor: color
               }}
             />
           ),
@@ -60,17 +60,17 @@ export const TabNavigation = () => {
             <Text
               style={{
                 ...styles.tabBarLabel,
-                fontWeight: focused ? '600' : '400',
+                fontWeight: focused ? '600' : '400'
               }}
             >
               Inicio
             </Text>
-          ),
+          )
         }}
       />
 
       <Tab.Screen
-        name="ComprarScreen"
+        name='ComprarScreen'
         component={CategoriasScreen}
         options={{
           headerTitle: 'Comprar',
@@ -84,7 +84,7 @@ export const TabNavigation = () => {
               style={{
                 height: size,
                 width: size,
-                tintColor: color,
+                tintColor: color
               }}
             />
           ),
@@ -92,17 +92,17 @@ export const TabNavigation = () => {
             <Text
               style={{
                 ...styles.tabBarLabel,
-                fontWeight: focused ? '600' : '400',
+                fontWeight: focused ? '600' : '400'
               }}
             >
               Comprar
             </Text>
-          ),
+          )
         }}
       />
 
       <Tab.Screen
-        name="VenderScreen"
+        name='VenderScreen'
         component={VenderScreen}
         options={{
           headerTitle: 'Vender',
@@ -116,7 +116,7 @@ export const TabNavigation = () => {
               style={{
                 height: size,
                 width: size,
-                tintColor: color,
+                tintColor: color
               }}
             />
           ),
@@ -124,17 +124,17 @@ export const TabNavigation = () => {
             <Text
               style={{
                 ...styles.tabBarLabel,
-                fontWeight: focused ? '600' : '400',
+                fontWeight: focused ? '600' : '400'
               }}
             >
               Vender
             </Text>
-          ),
+          )
         }}
       />
 
       <Tab.Screen
-        name="DonarScreen"
+        name='DonarScreen'
         component={DonarScreen}
         options={{
           headerTitle: 'Donar',
@@ -148,7 +148,7 @@ export const TabNavigation = () => {
               style={{
                 height: size,
                 width: size,
-                tintColor: color,
+                tintColor: color
               }}
             />
           ),
@@ -156,17 +156,17 @@ export const TabNavigation = () => {
             <Text
               style={{
                 ...styles.tabBarLabel,
-                fontWeight: focused ? '600' : '400',
+                fontWeight: focused ? '600' : '400'
               }}
             >
               Donar
             </Text>
-          ),
+          )
         }}
       />
 
       <Tab.Screen
-        name="PerfilScreen"
+        name='PerfilScreen'
         component={PerfilScreen}
         options={{
           headerTitle: 'Perfil',
@@ -180,7 +180,7 @@ export const TabNavigation = () => {
               style={{
                 height: size,
                 width: size,
-                tintColor: color,
+                tintColor: color
               }}
             />
           ),
@@ -188,23 +188,23 @@ export const TabNavigation = () => {
             <Text
               style={{
                 ...styles.tabBarLabel,
-                fontWeight: focused ? '600' : '400',
+                fontWeight: focused ? '600' : '400'
               }}
             >
               Perfil
             </Text>
-          ),
+          )
         }}
       />
     </Tab.Navigator>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   tabBarLabel: {
     marginBottom: 5,
     fontWeight: '400',
     color: theme.colors.yellowPrimary,
-    fontSize: 12,
-  },
-});
+    fontSize: 12
+  }
+})
