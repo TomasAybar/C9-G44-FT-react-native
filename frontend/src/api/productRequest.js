@@ -3,6 +3,7 @@ import { API_URI } from '@env'
 import { useProductStore } from '../store/productStore'
 
 const URL = API_URI
+// const URL = 'http://192.168.1.35:8000/api'
 // const URL = 'https://modacirc-backend-production.up.railway.app/api'
 
 export const productRequest = {
