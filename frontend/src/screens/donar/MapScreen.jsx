@@ -1,6 +1,5 @@
 Geocoder.init('AIzaSyB_v8KrJANdm47egl4pFc_ACNlAaA97LGg');
 
-
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
@@ -19,11 +18,10 @@ export class MapScreen extends Component {
 
   handleAddress = (address) => {
     this.setState({ address });
-    Geocoder.from(address)
-      .then((json) => {
-        const { lat, lng } = json.results[0].geometry.location;
-        this.setState({ latitude: lat, longitude: lng });
-      })
+    Geocoder.from(address).then((json) => {
+      const { lat, lng } = json.results[0].geometry.location;
+      this.setState({ latitude: lat, longitude: lng });
+    });
   };
 
   render() {
@@ -32,12 +30,20 @@ export class MapScreen extends Component {
     return (
       <View height={250}>
         <TextInput
-          style={{ height: 30, borderColor: 'gray', borderWidth: 1, color:'#ffffff',backgroundColor: theme.colors.greyPrimary, marginBottom:20 }}
+          style={{
+            height: 30,
+            borderColor: 'gray',
+            borderWidth: 1,
+            color: '#ffffff',
+            backgroundColor: theme.colors.greyPrimary,
+            marginBottom: 20,
+          }}
           onChangeText={this.handleAddress}
           value={this.state.address}
         />
         {latitude && longitude && (
-          <MapView height={230}
+          <MapView
+            height={230}
             initialRegion={{
               latitude,
               longitude,
@@ -56,4 +62,3 @@ export class MapScreen extends Component {
     );
   }
 }
-

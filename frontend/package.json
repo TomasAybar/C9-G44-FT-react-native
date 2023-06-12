@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.2",
@@ -45,7 +47,12 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@expo/webpack-config": "^18.0.1",
-    "react-native-dotenv": "^3.4.8"
+    "prettier": "^2.8.8",
+    "react-native-dotenv": "^3.4.8",
+    "standard": "^17.1.0"
   },
-  "private": true
+  "private": true,
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
 }

@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { productRequest } from '../api/productRequest';
+import { ecoModaDB } from '../api/ecoModaDB';
 
 export const useHome = () => {
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [products, setProducts] = useState([])
+  const getProducts = async () => {
+    const productsPromise = ecoModaDB.get('/products');
 
-  const [reload, setReload] = useState(false)
+    const res = await Promise(productsPromise);
+
+    setProducts(res.data.response);
+
+    console.log(res.data.response);
+
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    productRequest
-      .getProducts()
-      .then((res) => setProducts(res.data.response))
-  }, [reload])
-
-  const handleReload = () => setReload(!reload)
-
-  let productsOrder = [...products]
-
-  const desorder = () => {
-    return Math.random() - 0.5
-  }
-
-  productsOrder = productsOrder.sort(desorder).map((product) => product)
+    getProducts();
+    console.log('homescreen');
+  }, []);
 
   return {
     products,
-    handleReload,
-    productsOrder
-  }
-}
+    isLoading,
+  };
+};
