@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import StyledView from '../../../styledComponents/StyledView';
-import StyledButton from '../../../styledComponents/StyledButton';
-import StyledText from '../../../styledComponents/StyledText';
-import StyledTextInput from '../../../styledComponents/StyledTextInput';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { loginValidationShema } from '../../../validationSchema/validationsRegister';
-import { useNavigation } from '@react-navigation/native';
-import { AgregarImagen } from '../completar/AgregarImagen';
-import { FormikInputValue } from '../../../styledComponents/FormikInputValue';
-import { Formik } from 'formik';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import theme from '../../../themes/theme';
+import React, { useState } from 'react'
+import StyledView from '../../../styledComponents/StyledView'
+import StyledButton from '../../../styledComponents/StyledButton'
+import StyledText from '../../../styledComponents/StyledText'
+import StyledTextInput from '../../../styledComponents/StyledTextInput'
+import { StyleSheet, Text, View, Image } from 'react-native'
+import { loginValidationShema } from '../../../validationSchema/validationsRegister'
+import { useNavigation } from '@react-navigation/native'
+import { AgregarImagen } from '../completar/AgregarImagen'
+import { FormikInputValue } from '../../../styledComponents/FormikInputValue'
+import { Formik } from 'formik'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import theme from '../../../themes/theme'
 
 const initialValues = {
   telefono: '',
-  direccion: '',
-};
+  direccion: ''
+}
 
 export const CompletarPerfilScreen = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
   return (
     <KeyboardAwareScrollView
       style={{ backgroundColor: theme.colors.appBackground }}
@@ -44,26 +44,26 @@ export const CompletarPerfilScreen = () => {
             Teléfono
           </StyledText>
           <FormikInputValue
-            name="telefono"
-            placeholder="Ej: 11 2345678"
-            placeholderTextColor="rgba(255,255,255,0.5)"
+            name='telefono'
+            placeholder='Ej: 11 2345678'
+            placeholderTextColor='rgba(255,255,255,0.5)'
           />
           <StyledText size12 left marginTop={15}>
             Dirección
           </StyledText>
           <FormikInputValue
-            name="direccion"
-            placeholder="Ej: Av Libertador 123, CABA"
-            placeholderTextColor="rgba(255,255,255,0.5)"
+            name='direccion'
+            placeholder='Ej: Av Libertador 123, CABA'
+            placeholderTextColor='rgba(255,255,255,0.5)'
           />
-          <StyledText></StyledText>
+          <StyledText />
           <StyledButton
             white
-            title={'Siguiente'}
+            title='Siguiente'
             onPress={() => navigator.navigate('CompletarMetodoCobroScreen')}
-          ></StyledButton>
+          />
         </StyledView>
       </Formik>
     </KeyboardAwareScrollView>
-  );
-};
+  )
+}

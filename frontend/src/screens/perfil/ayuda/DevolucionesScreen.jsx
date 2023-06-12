@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { ConvertCube } from '../../../components/icons/ConvertCube';
-import StyledText from '../../../styledComponents/StyledText';
-import StyledView from '../../../styledComponents/StyledView';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import { ConvertCube } from '../../../components/icons/ConvertCube'
+import StyledText from '../../../styledComponents/StyledText'
+import StyledView from '../../../styledComponents/StyledView'
 
 export const DevolucionesScreen = () => {
   return (
@@ -23,14 +23,14 @@ export const DevolucionesScreen = () => {
         consultes su política de cambio y/o devolución.
       </StyledText>
     </StyledView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   containerTitle: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    marginVertical: 40,
-  },
-});
+    marginVertical: 40
+  }
+})

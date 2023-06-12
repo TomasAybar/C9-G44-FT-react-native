@@ -1,18 +1,18 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
-import StyledView from '../styledComponents/StyledView';
-import StyledTextInput from '../styledComponents/StyledTextInput';
-import { ProductCard } from '../components/ProductCard';
-import Search from '../components/icons/Search.jsx';
-import { CategoriasCardHome } from '../components/CategoriasCardHome';
-import { useHome } from '../hooks/useHome';
+import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { Image, ScrollView, TouchableOpacity, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
+import StyledView from '../styledComponents/StyledView'
+import StyledTextInput from '../styledComponents/StyledTextInput'
+import { ProductCard } from '../components/ProductCard'
+import Search from '../components/icons/Search.jsx'
+import { CategoriasCardHome } from '../components/CategoriasCardHome'
+import { useHome } from '../hooks/useHome'
 
 export const HomeScreen = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
-  const { products } = useHome();
+  const { products } = useHome()
 
   return (
     <StyledView dark height100>
@@ -21,20 +21,20 @@ export const HomeScreen = () => {
           <StyledView row marginTop={10}>
             <StyledTextInput
               style={{ borderWidth: 0, opacity: 1, flexGrow: 1 }}
-              placeholder={'Buscador'}
-              placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
-            ></StyledTextInput>
+              placeholder='Buscador'
+              placeholderTextColor='rgba(255, 255, 255, 0.6)'
+            />
             <Search
               style={{
                 position: 'absolute',
                 alignSelf: 'center',
-                right: 15,
+                right: 15
               }}
             />
           </StyledView>
 
           {/* banner */}
-          <StyledView alignIntems={'center'} marginTop={20}>
+          <StyledView alignIntems='center' marginTop={20}>
             <Image
               source={require('../../assets/homeBanner.png')}
               style={{ width: '100%' }}
@@ -89,5 +89,5 @@ export const HomeScreen = () => {
         </StyledView>
       </ScrollView>
     </StyledView>
-  );
-};
+  )
+}

@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import StyledText from '../styledComponents/StyledText';
-import StyledView from '../styledComponents/StyledView';
-import Star from '../components/icons/Star';
-import theme from '../themes/theme';
-import { favoriteRequest } from '../api/favoriteRequest';
-import { useUserStore } from '../store/userStore';
+import React, { useState, useEffect } from 'react'
+import { Image, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import StyledText from '../styledComponents/StyledText'
+import StyledView from '../styledComponents/StyledView'
+import Star from '../components/icons/Star'
+import theme from '../themes/theme'
+import { favoriteRequest } from '../api/favoriteRequest'
+import { useUserStore } from '../store/userStore'
 
 export const ProductCard = ({ item, margin = 6 }) => {
-  const { id } = useUserStore((state) => state.user);
+  const { id } = useUserStore((state) => state.user)
 
-  const [iconFavorite, setIconFavorite] = useState();
+  const [iconFavorite, setIconFavorite] = useState()
 
   useEffect(() => {
     favoriteRequest
       .iconFavorite(id, item._id)
-      .then((res) => setIconFavorite(res.data.inFavorite));
-  }, []);
+      .then((res) => setIconFavorite(res.data.inFavorite))
+  }, [])
 
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   const addFavorite = async (productid) => {
-    const res = await favoriteRequest.addOrRemoveFavorite(id, productid);
+    const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
 
-    setIconFavorite(res.data.inFavorite);
-  };
+    setIconFavorite(res.data.inFavorite)
+  }
 
   return (
-    <StyledView borderRadius12 position={'relative'} marginHorizontal={margin}>
+    <StyledView borderRadius12 position='relative' marginHorizontal={margin}>
       <TouchableOpacity
         onPress={() => navigator.navigate('Detalle del producto', { item })}
       >
@@ -38,7 +38,7 @@ export const ProductCard = ({ item, margin = 6 }) => {
           opacity={0.6}
           width={32}
           height={32}
-          position={'absolute'}
+          position='absolute'
           zIndex={1}
           right={10}
           top={6}
@@ -51,7 +51,7 @@ export const ProductCard = ({ item, margin = 6 }) => {
           >
             <StyledView>
               <Star
-                alignSelf={'center'}
+                alignSelf='center'
                 fill={iconFavorite ? theme.colors.yellowPrimary : null}
               />
             </StyledView>
@@ -71,5 +71,5 @@ export const ProductCard = ({ item, margin = 6 }) => {
         </StyledView>
       </TouchableOpacity>
     </StyledView>
-  );
-};
+  )
+}

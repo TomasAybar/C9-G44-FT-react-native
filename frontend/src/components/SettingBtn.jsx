@@ -1,10 +1,10 @@
-import React from 'react';
-import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
-import StyledText from '../styledComponents/StyledText';
-import { SettingsCompras } from './icons/SettingsCompras';
+import React from 'react'
+import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native'
+import StyledText from '../styledComponents/StyledText'
+import { SettingsCompras } from './icons/SettingsCompras'
 
 export const SettingBtn = ({ text = 'Ejemplo' }) => {
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
   return (
     <Pressable
@@ -18,15 +18,15 @@ export const SettingBtn = ({ text = 'Ejemplo' }) => {
         <SettingsCompras style={{ marginStart: 10 }} />
       </View>
     </Pressable>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   containerRecientes: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    alignItems: 'center'
     // right: 0,
     // marginEnd: 1,
-  },
-});
+  }
+})

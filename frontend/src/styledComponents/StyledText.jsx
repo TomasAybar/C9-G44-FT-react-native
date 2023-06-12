@@ -1,83 +1,83 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import theme from '../themes/theme';
+import React from 'react'
+import { Text, StyleSheet } from 'react-native'
+import theme from '../themes/theme'
 
 const styles = StyleSheet.create({
   general: {
     color: '#ffffff',
     alignSelf: 'center',
     textAlign: 'center',
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Inter_400Regular'
   },
   yellow: {
-    color: theme.colors.yellowPrimary,
+    color: theme.colors.yellowPrimary
   },
   black: {
-    color: '#000000',
+    color: '#000000'
   },
   left: {
     textAlign: 'left',
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-start'
   },
   right: {
     textAlign: 'right',
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-end'
   },
   size10: {
-    fontSize: 10,
+    fontSize: 10
   },
   size12: {
-    fontSize: 12,
+    fontSize: 12
   },
   size14: {
-    fontSize: 14,
+    fontSize: 14
   },
   size16: {
-    fontSize: 16,
+    fontSize: 16
   },
   size18: {
-    fontSize: 18,
+    fontSize: 18
   },
   size20: {
-    fontSize: 20,
+    fontSize: 20
   },
   size24: {
-    fontSize: 24,
+    fontSize: 24
   },
   size25: {
-    fontSize: 25,
+    fontSize: 25
   },
   size32: {
-    fontSize: 32,
+    fontSize: 32
   },
   line24: {
-    lineHeight: 24,
+    lineHeight: 24
   },
   line32: {
-    lineHeight: 32,
+    lineHeight: 32
   },
   weight500: {
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Inter_500Medium'
   },
   weight600: {
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Inter_600SemiBold'
   },
   weight700: {
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Inter_700Bold'
   },
   size50: {
-    fontSize: 50,
+    fontSize: 50
   },
   alignSelf: {
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
 
   alignStretch: {
-    alignSelf: 'stretch',
-  },
-});
+    alignSelf: 'stretch'
+  }
+})
 
-export default function StyledText({
+export default function StyledText ({
   children,
   yellow,
   black,
@@ -123,7 +123,7 @@ export default function StyledText({
     line24 && styles.line24,
     line32 && styles.line32,
     alignSelf && styles.alignSelf,
-    alignStretch && styles.alignStretch,
-  ];
-  return <Text style={[textStyles, { ...props }]}>{children}</Text>;
+    alignStretch && styles.alignStretch
+  ]
+  return <Text style={[textStyles, { ...props }]}>{children}</Text>
 }

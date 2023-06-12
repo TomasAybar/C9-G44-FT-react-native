@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import { ListPaso } from '../../../components/ListPaso';
-import StyledText from '../../../styledComponents/StyledText';
-import StyledView from '../../../styledComponents/StyledView';
+import React from 'react'
+import { View, Image, StyleSheet } from 'react-native'
+import { ListPaso } from '../../../components/ListPaso'
+import StyledText from '../../../styledComponents/StyledText'
+import StyledView from '../../../styledComponents/StyledView'
 
 export const QuieroVenderScreen = () => {
   return (
@@ -15,26 +15,24 @@ export const QuieroVenderScreen = () => {
       </View>
 
       <ListPaso
-        number="1"
-        content={
-          'Ingresa a la sección “vender” y subí fotos del producto (podrás subir hasta 5 imágenes).'
-        }
+        number='1'
+        content='Ingresa a la sección “vender” y subí fotos del producto (podrás subir hasta 5 imágenes).'
       />
       <ListPaso
-        number="2"
-        content={'Selecciona tipo de producto, talle y una breve descripción.'}
+        number='2'
+        content='Selecciona tipo de producto, talle y una breve descripción.'
       />
-      <ListPaso number="3" content={'Indica cómo queres recibir el pago.'} />
-      <ListPaso number="4" content={'Publica el producto y ¡Listo! '} />
+      <ListPaso number='3' content='Indica cómo queres recibir el pago.' />
+      <ListPaso number='4' content='Publica el producto y ¡Listo! ' />
     </StyledView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   containerTitle: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    marginVertical: 40,
-  },
-});
+    marginVertical: 40
+  }
+})

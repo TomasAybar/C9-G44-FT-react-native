@@ -1,10 +1,10 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Alert } from 'react-native';
+import React, { useEffect } from 'react'
+
+import { useNavigation } from '@react-navigation/native'
+import { Alert } from 'react-native'
 
 export const BajarCuentaScreen = () => {
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
   const alertNavigate = () => {
     Alert.alert(
@@ -13,15 +13,15 @@ export const BajarCuentaScreen = () => {
       [
         {
           text: 'Si, cerrar cuenta',
-          onPress: () => baja(),
+          onPress: () => baja()
         },
         {
           text: 'Volver',
-          onPress: () => navigator.goBack(),
-        },
+          onPress: () => navigator.goBack()
+        }
       ]
-    );
-  };
+    )
+  }
 
   const baja = () => {
     Alert.alert(
@@ -30,13 +30,13 @@ export const BajarCuentaScreen = () => {
       [
         {
           text: 'Ir al inicio',
-          onPress: () => navigator.popToTop(),
-        },
+          onPress: () => navigator.popToTop()
+        }
       ]
-    );
-  };
+    )
+  }
 
   useEffect(() => {
-    alertNavigate();
-  }, []);
-};
+    alertNavigate()
+  }, [])
+}

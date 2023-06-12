@@ -1,47 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import StyledText from '../../styledComponents/StyledText';
-import StyledView from '../../styledComponents/StyledView';
-import StyledButton from '../../styledComponents/StyledButton';
-import Star from '../../components/icons/Star';
-import Message from '../../components/icons/Message';
-import theme from '../../themes/theme';
-import { useCartStore } from '../../store/cartStore';
-import { useUserStore } from '../../store/userStore.js';
-import { favoriteRequest } from '../../api/favoriteRequest';
+import React, { useState, useEffect } from 'react'
+import { Image, TouchableOpacity } from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import StyledText from '../../styledComponents/StyledText'
+import StyledView from '../../styledComponents/StyledView'
+import StyledButton from '../../styledComponents/StyledButton'
+import Star from '../../components/icons/Star'
+import Message from '../../components/icons/Message'
+import theme from '../../themes/theme'
+import { useCartStore } from '../../store/cartStore'
+import { useUserStore } from '../../store/userStore.js'
+import { favoriteRequest } from '../../api/favoriteRequest'
 // import { products } from '../../../assets/data.js'
 
 export const Producto = () => {
-  const { id } = useUserStore((state) => state.user);
+  const { id } = useUserStore((state) => state.user)
 
-  const navigator = useNavigation();
+  const navigator = useNavigation()
 
-  const { addToCart } = useCartStore();
+  const { addToCart } = useCartStore()
 
-  const [iconFavorite, setIconFavorite] = useState();
+  const [iconFavorite, setIconFavorite] = useState()
 
-  const route = useRoute();
+  const route = useRoute()
 
-  const item = route.params.item;
+  const item = route.params.item
 
   useEffect(() => {
     favoriteRequest
       .iconFavorite(id, item._id)
-      .then((res) => setIconFavorite(res.data.inFavorite));
-  }, []);
+      .then((res) => setIconFavorite(res.data.inFavorite))
+  }, [])
 
   const btnAddToCart = (product) => {
-    addToCart(product);
+    addToCart(product)
 
-    navigator.navigate('Carrito de compras');
-  };
+    navigator.navigate('Carrito de compras')
+  }
 
   const addFavorite = async (productid) => {
-    const res = await favoriteRequest.addOrRemoveFavorite(id, productid);
+    const res = await favoriteRequest.addOrRemoveFavorite(id, productid)
 
-    setIconFavorite(res.data.inFavorite);
-  };
+    setIconFavorite(res.data.inFavorite)
+  }
 
   return (
     <StyledView dark height100>
@@ -50,22 +50,22 @@ export const Producto = () => {
           <StyledView marginTop={10}>
             <Image
               source={{
-                uri: item.image,
+                uri: item.image
               }}
               style={{
                 width: 342,
                 height: 331,
                 alignSelf: 'center',
-                borderRadius: 20,
+                borderRadius: 20
               }}
-            ></Image>
+            />
             <StyledView
               radius12
               grey
               opacity={0.6}
               width={32}
               height={32}
-              position={'absolute'}
+              position='absolute'
               zIndex={1}
               right={20}
               top={15}
@@ -78,7 +78,7 @@ export const Producto = () => {
               >
                 <StyledView>
                   <Star
-                    alignSelf={'center'}
+                    alignSelf='center'
                     fill={iconFavorite ? theme.colors.yellowPrimary : null}
                   />
                 </StyledView>
@@ -115,8 +115,8 @@ export const Producto = () => {
           <StyledView row spaceBetween marginTop={20}>
             <StyledButton
               white
-              title={'Añadir al carrito'}
-              width={'73%'}
+              title='Añadir al carrito'
+              width='73%'
               onPress={() => btnAddToCart(item)}
             />
             <StyledView
@@ -124,11 +124,11 @@ export const Producto = () => {
               borderColor={theme.colors.yellowPrimary}
               borderWidth={1}
               height={40}
-              width={'22%'}
+              width='22%'
             >
               <TouchableOpacity>
                 <StyledView width100 height100 center>
-                  <Message alignSelf={'center'} />
+                  <Message alignSelf='center' />
                 </StyledView>
               </TouchableOpacity>
             </StyledView>
@@ -136,5 +136,5 @@ export const Producto = () => {
         </StyledView>
       </StyledView>
     </StyledView>
-  );
-};
+  )
+}

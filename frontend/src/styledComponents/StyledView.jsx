@@ -1,54 +1,54 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import theme from '../themes/theme';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import theme from '../themes/theme'
 
 const styles = StyleSheet.create({
   dark: {
-    backgroundColor: theme.colors.appBackground,
+    backgroundColor: theme.colors.appBackground
   },
   grey: {
-    backgroundColor: theme.colors.greyPrimary,
+    backgroundColor: theme.colors.greyPrimary
   },
   container: {
     // marginHorizontal: 25,
-    paddingHorizontal: 25,
+    paddingHorizontal: 25
   },
   radius12: {
-    borderRadius: 12,
+    borderRadius: 12
   },
   width50: {
-    width: '50%',
+    width: '50%'
   },
   width100: {
-    width: '100%',
+    width: '100%'
   },
   height50: {
-    height: '50%',
+    height: '50%'
   },
   height100: {
-    height: '100%',
+    height: '100%'
   },
   center: {
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   row: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   spaceEvenly: {
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-evenly'
   },
   spaceAround: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   spaceBetween: {
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   align: {
-    alignSelf: 'flex-end',
-  },
-});
+    alignSelf: 'flex-end'
+  }
+})
 
-export default function StyledView({
+export default function StyledView ({
   children,
   dark,
   grey,
@@ -80,11 +80,11 @@ export default function StyledView({
     spaceEvenly && styles.spaceEvenly,
     spaceAround && styles.spaceAround,
     spaceBetween && styles.spaceBetween,
-    align && styles.align,
-  ];
+    align && styles.align
+  ]
   return (
     <View style={viewStyles} {...props}>
       {children}
     </View>
-  );
+  )
 }

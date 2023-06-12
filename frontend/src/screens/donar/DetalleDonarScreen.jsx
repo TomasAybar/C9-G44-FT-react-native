@@ -1,54 +1,54 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 import {
   StyleSheet,
   View,
   TouchableOpacity,
   useWindowDimensions,
-  Image,
-} from 'react-native';
-import StyledView from '../../styledComponents/StyledView';
-import StyledText from '../../styledComponents/StyledText';
-import StyledButton from '../../styledComponents/StyledButton';
-import theme from '../../themes/theme';
-import { AddCircle } from '../../components/icons/AddCircle';
-import { FormikInputValue } from '../../styledComponents/FormikInputValue';
-import { Formik } from 'formik';
-import { loginValidationShema } from '../../validationSchema/validationsRegister';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import * as ImagePicker from 'expo-image-picker';
+  Image
+} from 'react-native'
+import StyledView from '../../styledComponents/StyledView'
+import StyledText from '../../styledComponents/StyledText'
+import StyledButton from '../../styledComponents/StyledButton'
+import theme from '../../themes/theme'
+import { AddCircle } from '../../components/icons/AddCircle'
+import { FormikInputValue } from '../../styledComponents/FormikInputValue'
+import { Formik } from 'formik'
+import { loginValidationShema } from '../../validationSchema/validationsRegister'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import * as ImagePicker from 'expo-image-picker'
 
 const initialValues = {
-  descripción: '',
-};
+  descripción: ''
+}
 
 export const DetalleDonarScreen = () => {
-  const navigator = useNavigation();
-  const { width, height } = useWindowDimensions();
+  const navigator = useNavigation()
+  const { width, height } = useWindowDimensions()
 
-  const [imageUri, setImageUri] = useState(null);
+  const [imageUri, setImageUri] = useState(null)
 
   const handleChoosePhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
-      quality: 1,
-    });
+      quality: 1
+    })
 
     if (!result.canceled) {
-      setImageUri(result.assets[0].uri);
+      setImageUri(result.assets[0].uri)
     }
-  };
+  }
 
   const nextButtom = () => {
     if (imageUri) {
-      navigator.navigate('InformacionScreen');
-      console.log(imageUri);
+      navigator.navigate('InformacionScreen')
+      console.log(imageUri)
     } else {
-      alert('falta img');
+      alert('falta img')
     }
-  };
+  }
 
   return (
     <KeyboardAwareScrollView
@@ -63,29 +63,31 @@ export const DetalleDonarScreen = () => {
           <StyledText left size14 weight600 marginTop={35}>
             Subí fotos de las prendas a donar.
           </StyledText>
-          <StyledText size14 left fontStyle={'italic'}>
+          <StyledText size14 left fontStyle='italic'>
             (hasta 5 imágenes)
           </StyledText>
           <View style={styles.container}>
             <TouchableOpacity onPress={handleChoosePhoto}>
-              {imageUri ? (
-                <Image source={{ uri: imageUri }} style={styles.placeholder} />
-              ) : (
-                <View style={styles.placeholder}>
-                  <AddCircle />
-                </View>
-              )}
+              {imageUri
+                ? (
+                  <Image source={{ uri: imageUri }} style={styles.placeholder} />
+                  )
+                : (
+                  <View style={styles.placeholder}>
+                    <AddCircle />
+                  </View>
+                  )}
             </TouchableOpacity>
           </View>
-          <View flexDirection={'row'}>
+          <View flexDirection='row'>
             <StyledText left size14 marginVertical={10}>
               Cantidad de prendas: {'\n'}
             </StyledText>
             <FormikInputValue
               style={{ height: 40, width: 50 }}
-              name="cantidad"
-              placeholder=" 7"
-              placeholderTextColor="rgba(255,255,255,0.5)"
+              name='cantidad'
+              placeholder=' 7'
+              placeholderTextColor='rgba(255,255,255,0.5)'
             />
           </View>
           <StyledText left size12 marginVertical={5}>
@@ -93,34 +95,34 @@ export const DetalleDonarScreen = () => {
           </StyledText>
           <FormikInputValue
             style={{ height: 100 }}
-            name="descripcion"
-            placeholder="Ej: 5 remeras de mujer y 1 pantalón infantil"
-            placeholderTextColor="rgba(255,255,255,0.5)"
+            name='descripcion'
+            placeholder='Ej: 5 remeras de mujer y 1 pantalón infantil'
+            placeholderTextColor='rgba(255,255,255,0.5)'
           />
-          <StyledText></StyledText>
+          <StyledText />
           <StyledButton
             marginTop={20}
             white
-            title={'Siguiente'}
+            title='Siguiente'
             onPress={nextButtom}
-          ></StyledButton>
+          />
         </StyledView>
       </Formik>
     </KeyboardAwareScrollView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 20
   },
   image: {
     width: 83,
     height: 79,
     borderRadius: 16,
-    backgroundColor: theme.colors.greyPrimary,
+    backgroundColor: theme.colors.greyPrimary
   },
   placeholder: {
     alignItems: 'center',
@@ -129,6 +131,6 @@ const styles = StyleSheet.create({
     height: 150,
     marginVertical: 25,
     borderRadius: 16,
-    backgroundColor: theme.colors.greyPrimary,
-  },
-});
+    backgroundColor: theme.colors.greyPrimary
+  }
+})

@@ -1,28 +1,28 @@
-import React from 'react';
-import { StyleSheet, TextInput, useWindowDimensions, View } from 'react-native';
-import StyledView from '../../styledComponents/StyledView';
-import { Slider46 } from '../../components/icons/Slider4-6';
-import StyledText from '../../styledComponents/StyledText';
-import SyledButton from '../../styledComponents/StyledButton';
-import theme from '../../themes/theme';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useVender } from '../../hooks/useVender';
+import React from 'react'
+import { StyleSheet, TextInput, useWindowDimensions, View } from 'react-native'
+import StyledView from '../../styledComponents/StyledView'
+import { Slider46 } from '../../components/icons/Slider4-6'
+import StyledText from '../../styledComponents/StyledText'
+import SyledButton from '../../styledComponents/StyledButton'
+import theme from '../../themes/theme'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { useVender } from '../../hooks/useVender'
 
 export const DescripcionScreen = () => {
-  const { width, height } = useWindowDimensions();
+  const { width, height } = useWindowDimensions()
   const {
     onChangeDescription,
     onChangePrice,
     onChangeProfit,
     nextButtonDescription,
-    description,
-  } = useVender();
+    description
+  } = useVender()
 
   return (
     <KeyboardAwareScrollView
       style={{
         backgroundColor: theme.colors.appBackground,
-        height: '100%',
+        height: '100%'
       }}
     >
       <StyledView container height100>
@@ -30,7 +30,7 @@ export const DescripcionScreen = () => {
           style={{
             ...styles.containerSlide,
 
-            height: height * 0.1,
+            height: height * 0.1
           }}
         >
           <Slider46 />
@@ -38,7 +38,7 @@ export const DescripcionScreen = () => {
 
         <StyledText left>
           Agrega una descripción{' '}
-          <StyledText fontStyle={'italic'}>(hasta 500 caracteres)</StyledText>
+          <StyledText fontStyle='italic'>(hasta 500 caracteres)</StyledText>
         </StyledText>
 
         <TextInput
@@ -48,10 +48,10 @@ export const DescripcionScreen = () => {
           maxLength={60}
           onChangeText={onChangeDescription}
           value={description}
-          placeholder="Vestido verde con botones en el frente"
-          returnKeyType="done"
-          keyboardType="default"
-          placeholderTextColor={'rgba(255,255,255,0.5)'}
+          placeholder='Vestido verde con botones en el frente'
+          returnKeyType='done'
+          keyboardType='default'
+          placeholderTextColor='rgba(255,255,255,0.5)'
         />
 
         <View style={styles.containerText}>
@@ -59,9 +59,9 @@ export const DescripcionScreen = () => {
             <StyledText>Precio de publicación:</StyledText>
             <TextInput
               style={styles.inputText}
-              keyboardType="text"
-              placeholderTextColor={'rgba(255,255,255,0.5)'}
-              placeholder="$20.000.-"
+              keyboardType='text'
+              placeholderTextColor='rgba(255,255,255,0.5)'
+              placeholder='$20.000.-'
               onChangeText={onChangePrice}
             />
           </View>
@@ -70,9 +70,9 @@ export const DescripcionScreen = () => {
             <StyledText>Tu ganancia:</StyledText>
             <TextInput
               style={styles.inputText}
-              keyboardType="text"
-              placeholderTextColor={'rgba(255,255,255,0.5)'}
-              placeholder="$18.000.-"
+              keyboardType='text'
+              placeholderTextColor='rgba(255,255,255,0.5)'
+              placeholder='$18.000.-'
               onChangeText={onChangeProfit}
             />
           </View>
@@ -82,25 +82,25 @@ export const DescripcionScreen = () => {
           <SyledButton
             marginTop={40}
             white
-            title={'Siguiente'}
+            title='Siguiente'
             onPress={nextButtonDescription}
-          ></SyledButton>
+          />
         </View>
       </StyledView>
     </KeyboardAwareScrollView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   containerSlide: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 30
   },
   containerBtn: {
     flex: 1,
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: 12
   },
   input: {
     marginTop: 20,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: theme.colors.greyPrimary,
     color: '#fff',
-    borderRadius: 20,
+    borderRadius: 20
   },
   containerText: {},
   inputText: {
@@ -116,12 +116,12 @@ const styles = StyleSheet.create({
     borderBottomColor: '#fff',
     borderBottomWidth: 1,
     width: '30%',
-    paddingVertical: 5,
+    paddingVertical: 5
   },
   text: {
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginBottom: 20,
-  },
-});
+    marginBottom: 20
+  }
+})
