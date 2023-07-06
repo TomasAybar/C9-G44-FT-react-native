@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export const useToggleButtom = () => {
   const [btnActive1, setBtnActive1] = useState(true)

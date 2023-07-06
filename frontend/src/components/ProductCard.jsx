@@ -9,7 +9,9 @@ import { favoriteRequest } from '../api/favoriteRequest'
 import { useUserStore } from '../store/userStore'
 
 export const ProductCard = ({ item, margin = 6 }) => {
-  const { id } = useUserStore((state) => state.user)
+  // const { id } = useUserStore((state) => state.user)
+
+  const id = '6415ff21e57737b8d7a341b2'
 
   const [iconFavorite, setIconFavorite] = useState()
 
@@ -30,7 +32,8 @@ export const ProductCard = ({ item, margin = 6 }) => {
   return (
     <StyledView borderRadius12 position='relative' marginHorizontal={margin}>
       <TouchableOpacity
-        onPress={() => navigator.navigate('Detalle del producto', { item })}
+        // onPress={() => navigator.navigate('Detalle del producto', { item })}
+        onPress={() => console.log('navigate')}
       >
         <StyledView
           radius12
@@ -47,7 +50,8 @@ export const ProductCard = ({ item, margin = 6 }) => {
           <TouchableOpacity
             zIndex={20}
             elevation={20}
-            onPress={() => addFavorite(item._id)}
+            // onPress={() => addFavorite(item._id)}
+            onPress={() => console.log('favorite')}
           >
             <StyledView>
               <Star

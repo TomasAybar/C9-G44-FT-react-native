@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     alignSelf: 'center',
     textAlign: 'center',
-    fontFamily: 'Inter_400Regular'
+    // fontFamily: 'Inter_400Regular'
   },
   yellow: {
     color: theme.colors.yellowPrimary
@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
     lineHeight: 32
   },
   weight500: {
-    fontFamily: 'Inter_500Medium'
+    // fontFamily: 'Inter_500Medium'
   },
   weight600: {
-    fontFamily: 'Inter_600SemiBold'
+    // fontFamily: 'Inter_600SemiBold'
   },
   weight700: {
-    fontFamily: 'Inter_700Bold'
+    // fontFamily: 'Inter_700Bold'
   },
   size50: {
     fontSize: 50

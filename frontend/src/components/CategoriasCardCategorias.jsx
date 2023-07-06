@@ -12,7 +12,10 @@ export const CategoriasCardCategorias = ({
   const navigator = useNavigation()
 
   return (
-    <TouchableOpacity onPress={() => navigator.navigate(navigate, { type })}>
+    <TouchableOpacity 
+      // onPress={() => navigator.navigate(navigate, { type })}
+      onPress={() => console.log('navigate')}
+    >
       <StyledView grey width100 row spaceAround radius12 marginTop={25}>
         <StyledText size16 weight700>
           {type}

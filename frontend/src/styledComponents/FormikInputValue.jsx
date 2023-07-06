@@ -3,15 +3,6 @@ import { Formik, useField } from 'formik'
 import StyledTextInput from '../styledComponents/StyledTextInput'
 import { StyleSheet, Text } from 'react-native'
 
-const styles = StyleSheet.create({
-  error: {
-    color: 'red',
-    fontStyle: 'italic',
-    opacity: 0.6,
-    fontSize: 12.8,
-    marginBottom: 5
-  }
-})
 
 export const FormikInputValue = ({ name, ...props }) => {
   const [field, meta, helpers] = useField(name)
@@ -27,3 +18,13 @@ export const FormikInputValue = ({ name, ...props }) => {
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  error: {
+    color: 'red',
+    fontStyle: 'italic',
+    opacity: 0.6,
+    fontSize: 12.8,
+    marginBottom: 5
+  }
+})

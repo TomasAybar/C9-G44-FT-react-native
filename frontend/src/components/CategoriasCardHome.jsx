@@ -13,7 +13,8 @@ export const CategoriasCardHome = ({
   return (
     <StyledView width={150} marginRight={10}>
       <TouchableOpacity
-        onPress={() => navigator.navigate('Categoria', { type })}
+        // onPress={() => navigator.navigate('Categoria', { type })}
+        onPress={() => console.log('navigate')}
       >
         <StyledView grey radius12 row spaceAround padding={7}>
           <StyledText size16 weight500>
